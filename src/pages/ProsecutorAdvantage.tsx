@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -95,7 +96,7 @@ const ProsecutorAdvantage = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-lg">Advanced Training</h4>
-                        <p className="text-gray-700">Completed specialized investigative and prosecutorial training with federal agencies</p>
+                        <p className="text-gray-700">Completed specialized investigative and prosecutorial training with state and federal agencies and various other organizations</p>
                       </div>
                     </li>
                     <li className="flex items-start">
