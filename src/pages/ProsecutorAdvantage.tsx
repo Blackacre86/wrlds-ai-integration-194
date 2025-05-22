@@ -1,8 +1,9 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
-import { Scale, FileText, BookOpen, ArrowRight, Mountain } from "lucide-react";
+import { Scale, FileText, BookOpen, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -30,6 +31,9 @@ const ProsecutorAdvantage = () => {
               <p className="text-xl text-blue-100 mb-8 leading-relaxed drop-shadow-md">
                 Like reaching the summit of a mountain, Attorney Joe Brava's prosecutorial background 
                 gives you the strategic vantage point needed to overcome your legal challenges.
+              </p>
+              <p className="text-2xl font-semibold text-white mb-8 italic drop-shadow-md">
+                "Clarity of a Prosecutor. Strength of a Defender. Results That Matter."
               </p>
               <div className="inline-block p-1 bg-blue-700/30 rounded-lg backdrop-blur-sm">
                 <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-8 py-6 text-lg">
