@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Key } from "lucide-react";
+import { ArrowRight, Key, Chess } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ProsecutorAdvantageSection = () => {
@@ -31,22 +31,14 @@ const ProsecutorAdvantageSection = () => {
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <Key className="h-12 w-12 text-blue-700 mb-4" />
+                <Key className="h-12 w-12 text-blue-700 mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold mb-2">Inside Knowledge</h3>
                 <p className="text-gray-600">
                   We know exactly how prosecutors build their cases, what evidence they prioritize, and how they prepare for trial.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-12 w-12 text-blue-700 mb-4 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12">
-                    {/* Chess knight piece */}
-                    <path d="M8 16l1.5-5" />
-                    <path d="M10.5 7.5L12 8V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h.5l-5 5a2 2 0 0 0-.5 1.5V16h12v-1c0-1-.6-1.5-1.5-1.5h-1c-1 0-1.5.5-1.5 1.5v1" />
-                    <path d="M7 16.5v4a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-4" />
-                    <path d="M16 11.5c.2-1-.8-1.5-1.7-1.5h-1.6c-.9 0-1.7.4-1.7 1.5" />
-                  </svg>
-                </div>
+                <Chess className="h-12 w-12 text-blue-700 mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold mb-2">Strategic Analysis</h3>
                 <p className="text-gray-600">
                   By analyzing the prosecution's case first, we identify vulnerabilities they don't expect us to find.
