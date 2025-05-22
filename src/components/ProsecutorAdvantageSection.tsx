@@ -39,13 +39,12 @@ const ProsecutorAdvantageSection = () => {
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="h-12 w-12 text-blue-700 mb-4 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12">
-                    <path d="M8 16l-1.447.724A1 1 0 0 0 7 18.618V20h10v-1.382a1 1 0 0 0 .447-1.894L16 16" />
-                    <path d="M9 6a1 1 0 0 0-1 1v2h8V7a1 1 0 0 0-1-1H9Z" />
-                    <path d="M12 16v-6" />
-                    <path d="M8 8v2" />
-                    <path d="M16 8v2" />
-                    <path d="M7 12h10" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12">
+                    {/* Chess knight piece */}
+                    <path d="M8 16l1.5-5" />
+                    <path d="M10.5 7.5L12 8V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h.5l-5 5a2 2 0 0 0-.5 1.5V16h12v-1c0-1-.6-1.5-1.5-1.5h-1c-1 0-1.5.5-1.5 1.5v1" />
+                    <path d="M7 16.5v4a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-4" />
+                    <path d="M16 11.5c.2-1-.8-1.5-1.7-1.5h-1.6c-.9 0-1.7.4-1.7 1.5" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold mb-2">Strategic Analysis</h3>
