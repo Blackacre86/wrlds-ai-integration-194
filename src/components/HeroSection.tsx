@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Mountain } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -13,6 +14,10 @@ const HeroSection = () => {
           alt="Mountain Summit" 
           className="w-full h-full object-cover opacity-15"
         />
+      </div>
+      {/* Large Mountain Icon Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-30 z-0">
+        <Mountain className="w-2/3 h-2/3 text-white/30" strokeWidth={0.5} />
       </div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row gap-8 items-center">
