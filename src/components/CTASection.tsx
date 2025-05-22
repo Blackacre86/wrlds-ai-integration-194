@@ -10,7 +10,7 @@ const CTASection = () => {
       {/* Mountain Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png" 
+          src="/lovable-uploads/1469474968028-56623f02e42e.jpg" 
           alt="Mountain Summit" 
           className="w-full h-full object-cover opacity-10"
         />

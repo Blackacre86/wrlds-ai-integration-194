@@ -10,12 +10,10 @@ const ParalegalBiography = () => {
           
           <div className="flex flex-col md:flex-row gap-8 mb-8">
             <div className="md:w-1/3">
-              {/* Kristin's photo */}
-              <img 
-                src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png"
-                alt="Kristin D'Amico"
-                className="rounded-lg shadow-md w-full"
-              />
+              {/* Using a placeholder image while the correct image is uploaded */}
+              <div className="bg-gray-200 rounded-lg shadow-md aspect-[3/4] flex items-center justify-center">
+                <span className="text-gray-600">Kristin's Photo</span>
+              </div>
             </div>
             <div className="md:w-2/3">
               <p className="text-lg">
