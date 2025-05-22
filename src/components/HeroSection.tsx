@@ -32,7 +32,7 @@ const HeroSection = () => {
           </h1>
           <p className="text-lg md:text-xl mb-8 text-blue-100 leading-relaxed max-w-2xl">
             When your freedom is on the line, you deserve an attorney who truly understands the prosecution's playbook. 
-            I am a former prosecutor who leverages insider knowledge to build a strong, strategic defense customized for you.
+            Attorney Joe Brava is a former prosecutor who leverages insider knowledge to build a strong, strategic defense customized for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-5">
             <Link to="/contact">
