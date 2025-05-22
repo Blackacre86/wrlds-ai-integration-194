@@ -3,7 +3,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
-import { Scale, Brain, FileText, BookOpen, ArrowRight } from "lucide-react";
+import { Scale, Brain, FileText, BookOpen, ArrowRight, Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -12,22 +12,47 @@ const ProsecutorAdvantage = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-blue-900 to-blue-800 text-white relative overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-full opacity-10 pointer-events-none h-32">
+        {/* Natural Hero Section */}
+        <section className="relative py-20 md:py-28 bg-gradient-to-b from-green-900 to-blue-900 text-white overflow-hidden">
+          {/* Nature Background */}
+          <div className="absolute inset-0 z-0">
             <img 
-              src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
-              alt="Mountain Background" 
-              className="w-full h-auto object-cover object-bottom max-h-32"
+              src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png" 
+              alt="Mountain Forest" 
+              className="w-full h-full object-cover opacity-20"
             />
           </div>
+          
+          {/* Natural Elements Overlay */}
+          <div className="absolute inset-0 z-0 bg-pattern-leaf opacity-10"></div>
+          
+          {/* Animated Leaves */}
+          <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+            <div className="leaf-1 absolute">
+              <Leaf className="h-12 w-12 text-green-300 opacity-40" style={{ transform: "rotate(20deg)" }} />
+            </div>
+            <div className="leaf-2 absolute">
+              <Leaf className="h-8 w-8 text-green-400 opacity-30" style={{ transform: "rotate(-15deg)" }} />
+            </div>
+            <div className="leaf-3 absolute">
+              <Leaf className="h-10 w-10 text-green-200 opacity-20" style={{ transform: "rotate(45deg)" }} />
+            </div>
+          </div>
+          
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">The Former Prosecutor Advantage</h1>
-              <p className="text-xl text-blue-100">
-                At Summit Law, we leverage Attorney Joe Brava's five years of experience as a prosecutor
-                to strategically dismantle the state's case against you.
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+                Natural Advantage of a Former Prosecutor
+              </h1>
+              <p className="text-xl text-green-100 mb-8 leading-relaxed drop-shadow-md">
+                Just as nature provides countless advantages to those who understand its patterns, 
+                Attorney Joe Brava's prosecutorial background gives you a strategic edge in your defense.
               </p>
+              <div className="inline-block p-1 bg-gradient-to-r from-green-400/30 to-blue-400/30 rounded-lg backdrop-blur-sm">
+                <Button size="lg" className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-6 text-lg">
+                  Discover Your Defense Advantage
+                </Button>
+              </div>
             </div>
           </div>
         </section>
