@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,49 +11,47 @@ const ProsecutorAdvantage = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
       <main className="flex-grow">
-        {/* Mountain Hero Section */}
+        {/* Mountain Hero Section - Refined */}
         <section className="relative py-20 md:py-28 bg-gradient-to-b from-blue-900 to-blue-800 text-white overflow-hidden">
-          {/* Mountain Background */}
+          {/* Mountain Background - Reduced opacity */}
           <div className="absolute inset-0 z-0">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
               alt="Mountain Path" 
-              className="w-full h-full object-cover opacity-30"
+              className="w-full h-full object-cover opacity-15"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 to-slate-900/60 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-blue-900/80 mix-blend-multiply"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 The Summit Advantage of a Former Prosecutor
               </h1>
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed drop-shadow-md">
+              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
                 Like reaching the summit of a mountain, Attorney Joe Brava's prosecutorial background 
                 gives you the strategic vantage point needed to overcome your legal challenges.
               </p>
-              <p className="text-2xl font-semibold text-white mb-8 italic drop-shadow-md">
+              <p className="text-2xl font-semibold text-white mb-8 italic">
                 "Clarity of a Prosecutor. Strength of a Defender. Results That Matter."
               </p>
-              <div className="inline-block p-1 bg-blue-700/30 rounded-lg backdrop-blur-sm">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-8 py-6 text-lg">
-                  Discover Your Defense Advantage
-                </Button>
-              </div>
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-8 py-6 text-lg">
+                Discover Your Defense Advantage
+              </Button>
             </div>
           </div>
         </section>
 
         {/* Experience Section */}
         <section className="py-16 bg-white relative overflow-hidden">
-          {/* Subtle mountain background */}
+          {/* Subtle mountain background - Reduced opacity */}
           <div className="absolute inset-0 z-0">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
               alt="Mountain Path" 
-              className="w-full h-full object-cover opacity-10"
+              className="w-full h-full object-cover opacity-5"
             />
-            <div className="absolute inset-0 bg-white/95"></div>
+            <div className="absolute inset-0 bg-white/98"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -117,14 +114,14 @@ const ProsecutorAdvantage = () => {
 
         {/* Strategic Approach Section */}
         <section className="py-16 bg-blue-50 relative overflow-hidden">
-          {/* Subtle mountain background */}
+          {/* Subtle mountain background - Reduced opacity */}
           <div className="absolute inset-0 z-0">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
               alt="Mountain Path" 
-              className="w-full h-full object-cover opacity-15"
+              className="w-full h-full object-cover opacity-5"
             />
-            <div className="absolute inset-0 bg-blue-50/90"></div>
+            <div className="absolute inset-0 bg-blue-50/95"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">

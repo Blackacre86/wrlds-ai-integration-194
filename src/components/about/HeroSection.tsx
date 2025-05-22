@@ -5,18 +5,18 @@ import { Mountain } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-slate-800 text-white py-20 overflow-hidden">
-      {/* Background mountain image with overlay */}
+      {/* Background mountain image with overlay - Reduced opacity */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
           alt="Mountain Path" 
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-15"
           onError={(e) => {
             console.error("Image failed to load:", e);
             e.currentTarget.style.display = 'none';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 to-slate-900/60 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-blue-950/90 mix-blend-multiply"></div>
       </div>
       
       {/* Diagonal design element */}
@@ -25,22 +25,14 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
-            <div className="relative mb-6 inline-block">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-400/30 to-blue-400/30 rounded-lg blur"></div>
-              <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">About Me</h1>
-            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">About Me</h1>
             <p className="text-xl text-blue-100 leading-relaxed max-w-2xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-blue-200 font-semibold">
+              <span className="font-semibold text-blue-200">
                 Proven Prosecutorial Insight. Strategic Criminal Defense
               </span>
             </p>
           </div>
           <div className="w-full md:w-1/2 relative">
-            {/* Decorative mountain element */}
-            <div className="absolute -top-8 -right-8 opacity-30">
-              <Mountain className="h-24 w-24 text-teal-300" strokeWidth={1} />
-            </div>
-            
             {/* Placeholder for Attorney Joe Brava's professional image */}
             <div className="relative overflow-hidden rounded-lg shadow-xl transform transition-all hover:translate-y-[-5px] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] duration-300">
               <div className="bg-gradient-to-br from-slate-800 to-blue-900 w-full aspect-[4/3] flex items-center justify-center p-1">

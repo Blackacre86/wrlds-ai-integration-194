@@ -7,53 +7,41 @@ import { Mountain } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative py-20 md:py-32 bg-gradient-to-br from-blue-950 via-blue-900 to-slate-800 text-white overflow-hidden">
-      {/* Mountain Background Image with Overlay */}
+      {/* Mountain Background Image with Overlay - Reduced opacity */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
           alt="Mountain Path" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-15"
           onError={(e) => {
             console.error("Image failed to load:", e);
             e.currentTarget.style.display = 'none';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 to-slate-900/60 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-blue-950/90 mix-blend-multiply"></div>
       </div>
-      
-      {/* Animated Mountain Icon Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-20 z-0 animate-pulse">
-        <Mountain className="w-2/3 h-2/3 text-white/20" strokeWidth={0.5} />
-      </div>
-      
-      {/* Diagonal design element */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-tr from-blue-950 to-transparent transform -skew-y-2 z-0"></div>
       
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="relative mb-6 inline-block">
-            <div className="absolute -inset-1 bg-gradient-to-r from-teal-400/30 to-blue-400/30 rounded-lg blur"></div>
-            <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Massachusetts Criminal Defense Attorney
-              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-blue-200">
-                Proven Insight, Powerful Defense
-              </span>
-            </h1>
-          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            Massachusetts Criminal Defense Attorney
+            <span className="block mt-2 text-blue-200">
+              Proven Insight, Powerful Defense
+            </span>
+          </h1>
           <p className="text-lg md:text-xl mb-8 text-blue-100 leading-relaxed max-w-2xl">
             When your freedom is on the line, you deserve an attorney who truly understands the prosecution's playbook. 
             I am a former prosecutor who leverages insider knowledge to build a strong, strategic defense customized for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-5">
             <Link to="/contact">
-              <Button size="lg" className="relative group overflow-hidden bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white border-none text-lg md:text-xl font-semibold px-8 py-7 transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg">
-                <span className="relative z-10">Secure Your Case Strategy</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+              <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white border-none text-lg md:text-xl font-semibold px-8 py-7">
+                Secure Your Case Strategy
               </Button>
             </Link>
             <Link to="/our-approach">
-              <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/5 border-white/20 text-white hover:bg-white/15 hover:border-white/30 text-lg md:text-xl font-semibold px-8 py-7 transition-all duration-300 transform hover:translate-y-[-2px]">
+              <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/15 hover:border-white/30 text-lg md:text-xl font-semibold px-8 py-7">
                 Discover My Unique Approach
               </Button>
             </Link>
