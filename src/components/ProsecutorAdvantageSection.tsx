@@ -6,8 +6,18 @@ import { Link } from "react-router-dom";
 
 const ProsecutorAdvantageSection = () => {
   return (
-    <section className="py-16 bg-blue-50">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-16 relative overflow-hidden">
+      {/* Mountain Background Image with subtle overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
+          alt="Mountain Path" 
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-blue-50/90"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">The Former Prosecutor Advantage</h2>
@@ -30,7 +40,7 @@ const ProsecutorAdvantageSection = () => {
           
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-white p-6 rounded-lg shadow-md backdrop-blur-sm bg-white/80">
                 <div className="h-16 w-16 mb-4 flex items-center justify-center mx-auto">
                   <img 
                     src="/lovable-uploads/4f801225-f723-4f29-8a2f-221b3118f3f6.png"
@@ -43,7 +53,7 @@ const ProsecutorAdvantageSection = () => {
                   We know exactly how prosecutors build their cases, what evidence they prioritize, and how they prepare for trial.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-white p-6 rounded-lg shadow-md backdrop-blur-sm bg-white/80">
                 <div className="h-16 w-16 mb-4 flex items-center justify-center mx-auto">
                   <img 
                     src="/lovable-uploads/16a64fae-8213-4d53-8020-9fdc9d61b6ad.png"
