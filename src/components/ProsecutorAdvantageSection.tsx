@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Scale, Brain } from "lucide-react";
+import { ArrowRight, Key, ChessKnight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ProsecutorAdvantageSection = () => {
@@ -31,14 +31,14 @@ const ProsecutorAdvantageSection = () => {
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <Scale className="h-12 w-12 text-blue-700 mb-4" />
+                <Key className="h-12 w-12 text-blue-700 mb-4" />
                 <h3 className="text-xl font-bold mb-2">Inside Knowledge</h3>
                 <p className="text-gray-600">
                   We know exactly how prosecutors build their cases, what evidence they prioritize, and how they prepare for trial.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <Brain className="h-12 w-12 text-blue-700 mb-4" />
+                <ChessKnight className="h-12 w-12 text-blue-700 mb-4" />
                 <h3 className="text-xl font-bold mb-2">Strategic Analysis</h3>
                 <p className="text-gray-600">
                   By analyzing the prosecution's case first, we identify vulnerabilities they don't expect us to find.
