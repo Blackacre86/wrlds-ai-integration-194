@@ -19,7 +19,7 @@ const About = () => {
               <div className="w-full md:w-1/2 mb-8 md:mb-0">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">About Our Team</h1>
                 <p className="text-xl text-blue-100">
-                  Former prosecutor turned defense attorney with a strategic approach to criminal defense
+                  Proven Prosecutorial Insight. Strategic Criminal Defense
                 </p>
               </div>
               <div className="w-full md:w-1/2">
@@ -40,30 +40,23 @@ const About = () => {
               
               <div className="space-y-6">
                 <p className="text-lg">
-                  Attorney Joe Brava brings a unique prosecutorial perspective to criminal defense, 
-                  giving his clients the advantage of insider knowledge in building effective defense strategies.
+                  Attorney Joe Brava founded Summit Law in January 2023 following extensive experience as both a prosecutor and criminal defense attorney in Massachusetts. Throughout his legal career, Joe has prosecuted and defended over 1,000 criminal cases.
                 </p>
                 
-                <h3 className="text-xl font-bold">Education</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Suffolk University (B.A., American Government, 2009)</li>
-                  <li>Massachusetts School of Law (J.D., 2016)</li>
-                </ul>
-                
-                <h3 className="text-xl font-bold">Professional Experience</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Five years as a prosecutor at the Berkshire District Attorney's Office, specializing in domestic violence cases</li>
-                  <li>Advanced training from the National District Attorney Association</li>
-                  <li>Experience in Massachusetts legislature and New England political consulting</li>
-                  <li>Associate attorney at Barry & Kinzer, LLP</li>
-                  <li>Founded Summit Law in January 2023</li>
-                </ul>
-                
-                <h3 className="text-xl font-bold">Approach to Defense</h3>
                 <p className="text-lg">
-                  Attorney Brava's unique approach involves reverse-engineering prosecution cases. By first 
-                  understanding how prosecutors will build their case against his clients, he identifies 
-                  weaknesses and develops strategic defenses that anticipate the prosecution's tactics.
+                  Joe earned his Bachelor's degree in American Government from Suffolk University in 2009. After graduation, he worked in the Massachusetts legislature and served as an independent political consultant, advising local, congressional, and statewide political campaigns throughout New England.
+                </p>
+                
+                <p className="text-lg">
+                  In 2016, Joe received his Juris Doctor from Massachusetts School of Law. He subsequently joined the Berkshire District Attorney's Office, specializing in domestic violence cases and serving as the District Court Domestic Violence Supervisor. Joe prosecuted numerous cases in both district and superior courts. In 2022, he was selected for advanced investigative and prosecutorial training through the National District Attorneys Association in Arizona. During his tenure as an ADA in the Berkshires, Joe secured a landmark conviction in a complex domestic violence case. He obtained a five-year sentence by successfully stacking multiple charges, significantly exceeding the district court's standard maximum sentence of two and a half years. This case represented one of the most successful evidence-based prosecutions without a witness in county history and set a new standard for prosecutorial effectiveness.
+                </p>
+                
+                <p className="text-lg">
+                  Following his service at the District Attorney's Office, Joe joined Barry & Kinzer, LLP, representing clients in criminal defense matters, including superior court cases, as well as family law and probate, before establishing Summit Law.
+                </p>
+                
+                <p className="text-lg">
+                  At Summit Law, Joe integrates his prosecutorial and investigative experience with secure, custom-built artificial intelligence technology. This innovative approach allows him to proactively identify and exploit weaknesses in the prosecution's case, crafting strategic, personalized, and effective defenses for his clients.
                 </p>
               </div>
             </div>
@@ -126,8 +119,39 @@ const About = () => {
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
+        {/* Summit Law's Unique Approach Section */}
         <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6">Summit Law's Unique Approach</h2>
+              
+              <div className="space-y-6">
+                <p className="text-lg">
+                  Summit Law employs a strategic and proactive approach to criminal defense that fully utilizes Attorney Joe Brava's background as a former prosecutor and his deep understanding of law enforcement investigations.
+                </p>
+                
+                <p className="text-lg">
+                  Rather than merely responding to charges or reacting to the prosecution's moves, Joe begins every case by thinking strategically like a prosecutor and analytically like an investigator. He carefully reconstructs the police investigation, scrutinizing how evidence was collected and evaluating investigative methods. Joe identifies any potential mistakes, oversights, or shortcuts taken by law enforcement and assesses the reasoning behind prosecutorial charging decisions.
+                </p>
+                
+                <p className="text-lg">
+                  Before formulating a defense, Joe attempts to build the prosecution's case himself from their perspective. This reverse-engineering approach systematically reveals flaws in the evidence and investigative methods used by law enforcement. Only after this comprehensive analysis does Joe develop a customized defense strategy specifically designed to leverage those identified weaknesses, ensuring the best possible outcomes for his clients.
+                </p>
+                
+                <p className="text-lg">
+                  Additionally, Summit Law utilizes proprietary artificial intelligence technology securely hosted on private servers. These sophisticated AI tools enable rapid and detailed evidence analysis, identify investigative gaps, and enhance the construction of clear, compelling courtroom arguments. All technological solutions adhere to strict standards of security and confidentiality.
+                </p>
+                
+                <p className="text-lg">
+                  Clients represented by Summit Law benefit from an attorney who genuinely understands prosecution and investigative tactics from firsthand experience. This powerful combination of prosecutorial insight, investigative strategy, and advanced technology ensures robust and confident criminal defense representation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-12">Why Choose Summit Law</h2>
             
