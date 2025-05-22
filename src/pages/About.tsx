@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Scale, Users, Lightbulb, Clock } from "lucide-react";
+import { KeySquare, ChessKnight, Cpu, Trophy } from "lucide-react";
 
 const About = () => {
   return (
@@ -158,40 +158,40 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="border-t-4 border-blue-700">
                 <CardContent className="pt-8">
-                  <Scale className="h-12 w-12 text-blue-700 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-center mb-2">Trust & Integrity</h3>
+                  <KeySquare className="h-12 w-12 text-blue-700 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-center mb-2">Insider Knowledge</h3>
                   <p className="text-center">
-                    We build relationships based on honesty, transparency, and unwavering commitment to your best interests.
+                    Attorney Joe Brava leverages extensive experience as a prosecutor to anticipate the government's approach.
                   </p>
                 </CardContent>
               </Card>
               
               <Card className="border-t-4 border-blue-700">
                 <CardContent className="pt-8">
-                  <Users className="h-12 w-12 text-blue-700 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-center mb-2">Personalized Attention</h3>
+                  <ChessKnight className="h-12 w-12 text-blue-700 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-center mb-2">Strategic Defense</h3>
                   <p className="text-center">
-                    Your case receives direct attention from Attorney Brava, not handed off to junior associates or paralegals.
+                    Every case is meticulously reverse-engineered, identifying investigative errors to craft targeted defenses.
                   </p>
                 </CardContent>
               </Card>
               
               <Card className="border-t-4 border-blue-700">
                 <CardContent className="pt-8">
-                  <Lightbulb className="h-12 w-12 text-blue-700 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-center mb-2">Innovative Technology</h3>
+                  <Cpu className="h-12 w-12 text-blue-700 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-center mb-2">Advanced Technology</h3>
                   <p className="text-center">
-                    We leverage cutting-edge AI tools to analyze evidence, research precedents, and build stronger cases.
+                    Secure, proprietary artificial intelligence tools ensure thorough evidence analysis and effective courtroom strategies.
                   </p>
                 </CardContent>
               </Card>
               
               <Card className="border-t-4 border-blue-700">
                 <CardContent className="pt-8">
-                  <Clock className="h-12 w-12 text-blue-700 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-center mb-2">Responsive Communication</h3>
+                  <Trophy className="h-12 w-12 text-blue-700 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-center mb-2">Proven Track Record</h3>
                   <p className="text-center">
-                    We understand that criminal charges create anxiety and prioritize keeping you informed at every stage.
+                    Attorney Brava has consistently achieved exceptional outcomes in complex criminal cases through careful preparation and relentless advocacy.
                   </p>
                 </CardContent>
               </Card>
