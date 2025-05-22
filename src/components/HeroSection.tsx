@@ -12,7 +12,7 @@ const HeroSection = () => {
         <img 
           src="/lovable-uploads/1469474968028-56623f02e42e.jpg" 
           alt="Mountain Summit" 
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-30"
         />
       </div>
       {/* Large Mountain Icon Overlay */}
