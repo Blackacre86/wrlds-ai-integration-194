@@ -42,7 +42,7 @@ const ProsecutorAdvantageSection = () => {
                   <img 
                     src="/lovable-uploads/16a64fae-8213-4d53-8020-9fdc9d61b6ad.png"
                     alt="Chess Knight" 
-                    className="h-full w-full object-contain"
+                    className="h-10 w-10 object-contain"
                     style={{ filter: "brightness(0) saturate(100%) invert(25%) sepia(71%) saturate(1870%) hue-rotate(208deg) brightness(92%) contrast(96%)" }}
                   />
                 </div>
