@@ -24,12 +24,12 @@ const CTASection = () => {
             Don't face criminal charges alone. Schedule your free consultation with Attorney Joe Brava today.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white">
+            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-white">
               <Phone className="mr-2 h-5 w-5" />
               Call 508-454-0822
             </Button>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button size="lg" variant="outline" className="border-yellow-400 text-yellow-400 hover:bg-yellow-500/10">
                 <Calendar className="mr-2 h-5 w-5" />
                 Schedule Free Consultation
               </Button>
