@@ -27,12 +27,11 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Massachusetts Criminal Defense Attorney – Ready to Fight for You
+              Massachusetts Criminal Defense Attorney | Proven Insight, Powerful Defense
             </h1>
             <p className="text-lg mb-8 text-blue-100">
-              When your freedom is at stake, you need an experienced former prosecutor 
-              who understands how the other side builds their case. Attorney Joe Brava 
-              brings insider knowledge to your defense.
+              When your freedom is on the line, you deserve an attorney who truly understands the prosecution's playbook. 
+              Attorney Joe Brava is a former prosecutor who leverages insider knowledge to build a strong, strategic defense customized for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact">
@@ -42,7 +41,7 @@ const HeroSection = () => {
               </Link>
               <Link to="/our-approach">
                 <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20 text-lg md:text-xl font-semibold px-8 py-7">
-                  Learn About Our Approach
+                  Discover Our Unique Advantage
                 </Button>
               </Link>
             </div>
