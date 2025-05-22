@@ -42,7 +42,7 @@ const HeroSection = () => {
             </Link>
             <Link to="/our-approach">
               <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/15 hover:border-white/30 text-lg md:text-xl font-semibold px-8 py-7">
-                Discover My Unique Approach
+                Discover Our Unique Approach
               </Button>
             </Link>
           </div>
