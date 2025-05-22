@@ -12,19 +12,14 @@ const ServicesSection = () => {
       link: "/practice-areas/oui-dui"
     },
     {
+      title: "Domestic Violence Defense",
+      description: "Sensitive and effective representation for those facing domestic violence allegations.",
+      link: "/practice-areas/domestic-violence"
+    },
+    {
       title: "Drug Crimes",
       description: "Comprehensive defense for all drug-related offenses, from possession to trafficking charges.",
       link: "/practice-areas/drug-crimes"
-    },
-    {
-      title: "Assault and Battery",
-      description: "Vigorous defense against allegations of violence, ensuring your side of the story is heard.",
-      link: "/practice-areas/assault"
-    },
-    {
-      title: "Theft and Property Crimes",
-      description: "Strategic representation for larceny, burglary, shoplifting, and other property offenses.",
-      link: "/practice-areas/theft"
     },
     {
       title: "Violent Crimes",
@@ -32,9 +27,29 @@ const ServicesSection = () => {
       link: "/practice-areas/violent-crimes"
     },
     {
-      title: "Domestic Violence Defense",
-      description: "Sensitive and effective representation for those facing domestic violence allegations.",
-      link: "/practice-areas/domestic-violence"
+      title: "Sex Offenses",
+      description: "Dedicated legal representation for clients facing allegations of sexual misconduct and sex-related crimes.",
+      link: "/practice-areas/sex-offenses"
+    },
+    {
+      title: "Theft & Property Crimes",
+      description: "Strategic representation for larceny, burglary, shoplifting, and other property offenses.",
+      link: "/practice-areas/theft"
+    },
+    {
+      title: "Magistrate Hearings",
+      description: "Expert advocacy at magistrate hearings to prevent criminal charges from being issued against you.",
+      link: "/practice-areas/magistrate-hearings"
+    },
+    {
+      title: "Motor Vehicle Offenses",
+      description: "Skilled defense for traffic violations, license suspensions, and other motor vehicle charges.",
+      link: "/practice-areas/motor-vehicle"
+    },
+    {
+      title: "209A Hearings",
+      description: "Experienced representation for restraining order hearings and related protective order matters.",
+      link: "/practice-areas/209a-hearings"
     },
     {
       title: "Student Defense",

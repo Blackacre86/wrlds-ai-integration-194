@@ -37,11 +37,14 @@ const Header = () => {
               <NavigationMenuContent>
                 <div className="grid w-[400px] gap-3 p-4 backdrop-blur-md bg-white/90 border border-blue-100 rounded-lg shadow-lg">
                   <Link to="/practice-areas/oui-dui" className="block p-2 hover:bg-blue-50/70 rounded-md">OUI/DUI Defense</Link>
-                  <Link to="/practice-areas/drug-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Drug Crimes</Link>
-                  <Link to="/practice-areas/assault" className="block p-2 hover:bg-blue-50/70 rounded-md">Assault and Battery</Link>
-                  <Link to="/practice-areas/theft" className="block p-2 hover:bg-blue-50/70 rounded-md">Theft and Property Crimes</Link>
-                  <Link to="/practice-areas/violent-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Violent Crimes</Link>
                   <Link to="/practice-areas/domestic-violence" className="block p-2 hover:bg-blue-50/70 rounded-md">Domestic Violence Defense</Link>
+                  <Link to="/practice-areas/drug-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Drug Crimes</Link>
+                  <Link to="/practice-areas/violent-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Violent Crimes</Link>
+                  <Link to="/practice-areas/sex-offenses" className="block p-2 hover:bg-blue-50/70 rounded-md">Sex Offenses</Link>
+                  <Link to="/practice-areas/theft" className="block p-2 hover:bg-blue-50/70 rounded-md">Theft & Property Crimes</Link>
+                  <Link to="/practice-areas/magistrate-hearings" className="block p-2 hover:bg-blue-50/70 rounded-md">Magistrate Hearings</Link>
+                  <Link to="/practice-areas/motor-vehicle" className="block p-2 hover:bg-blue-50/70 rounded-md">Motor Vehicle Offenses</Link>
+                  <Link to="/practice-areas/209a-hearings" className="block p-2 hover:bg-blue-50/70 rounded-md">209A Hearings</Link>
                   <Link to="/practice-areas/student-defense" className="block p-2 hover:bg-blue-50/70 rounded-md">Student Defense</Link>
                 </div>
               </NavigationMenuContent>
