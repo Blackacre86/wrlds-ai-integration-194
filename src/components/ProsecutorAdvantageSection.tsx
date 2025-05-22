@@ -31,12 +31,11 @@ const ProsecutorAdvantageSection = () => {
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-12 w-12 text-blue-700 mb-4 flex items-center justify-center">
+                <div className="h-12 w-12 mb-4 flex items-center justify-center">
                   <img 
                     src="/lovable-uploads/2b27a073-97a1-4869-94a1-f62bc573d62e.png"
                     alt="Keyhole" 
-                    className="h-12 w-12 object-contain"
-                    style={{ filter: "brightness(0) saturate(100%) invert(25%) sepia(71%) saturate(1870%) hue-rotate(208deg) brightness(92%) contrast(96%)" }}
+                    className="h-full w-full object-contain"
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Inside Knowledge</h3>
@@ -45,11 +44,11 @@ const ProsecutorAdvantageSection = () => {
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-12 w-12 text-blue-700 mb-4 flex items-center justify-center">
+                <div className="h-12 w-12 mb-4 flex items-center justify-center">
                   <img 
                     src="/lovable-uploads/16a64fae-8213-4d53-8020-9fdc9d61b6ad.png"
                     alt="Chess Knight" 
-                    className="h-12 w-12 object-contain"
+                    className="h-full w-full object-contain"
                     style={{ filter: "brightness(0) saturate(100%) invert(25%) sepia(71%) saturate(1870%) hue-rotate(208deg) brightness(92%) contrast(96%)" }}
                   />
                 </div>
