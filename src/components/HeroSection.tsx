@@ -2,7 +2,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Mountain } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -24,7 +23,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-4">
             Massachusetts Criminal Defense Attorney
             <span className="block mt-2 text-blue-200">
               Proven Insight, Powerful Defense

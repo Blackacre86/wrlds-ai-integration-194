@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Mountain } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -25,7 +24,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">About Us</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-4">About Us</h1>
             <p className="text-xl text-blue-100 leading-relaxed max-w-2xl">
               <span className="font-semibold text-blue-200">
                 Proven Prosecutorial Insight. Strategic Criminal Defense

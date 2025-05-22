@@ -7,13 +7,13 @@ const Logo = () => {
     <Link to="/" className="flex items-center space-x-3">
       <div className="h-12 w-auto relative">
         <img 
-          src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
-          alt="Summit Law Mountains" 
+          src="/lovable-uploads/6c5ca4af-b6e3-4f1e-9772-0b4bd592e02b.png" 
+          alt="Summit Law Logo" 
           className="h-full object-contain"
         />
       </div>
       <div className="flex flex-col">
-        <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600">
+        <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-700 font-serif">
           SUMMIT LAW
         </span>
         <span className="text-[10px] text-blue-600">
