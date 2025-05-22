@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Key } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ProsecutorAdvantageSection = () => {
@@ -31,7 +31,14 @@ const ProsecutorAdvantageSection = () => {
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <Key className="h-12 w-12 text-blue-700 mb-4" strokeWidth={1.5} />
+                <div className="h-12 w-12 text-blue-700 mb-4 flex items-center justify-center">
+                  <img 
+                    src="/lovable-uploads/2b27a073-97a1-4869-94a1-f62bc573d62e.png"
+                    alt="Keyhole" 
+                    className="h-12 w-12 object-contain"
+                    style={{ filter: "brightness(0) saturate(100%) invert(25%) sepia(71%) saturate(1870%) hue-rotate(208deg) brightness(92%) contrast(96%)" }}
+                  />
+                </div>
                 <h3 className="text-xl font-bold mb-2">Inside Knowledge</h3>
                 <p className="text-gray-600">
                   We know exactly how prosecutors build their cases, what evidence they prioritize, and how they prepare for trial.
@@ -42,7 +49,7 @@ const ProsecutorAdvantageSection = () => {
                   <img 
                     src="/lovable-uploads/16a64fae-8213-4d53-8020-9fdc9d61b6ad.png"
                     alt="Chess Knight" 
-                    className="h-10 w-10 object-contain"
+                    className="h-12 w-12 object-contain"
                     style={{ filter: "brightness(0) saturate(100%) invert(25%) sepia(71%) saturate(1870%) hue-rotate(208deg) brightness(92%) contrast(96%)" }}
                   />
                 </div>
