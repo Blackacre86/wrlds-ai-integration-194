@@ -27,7 +27,7 @@ const HeroSection = () => {
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
             <div className="relative mb-6 inline-block">
               <div className="absolute -inset-1 bg-gradient-to-r from-teal-400/30 to-blue-400/30 rounded-lg blur"></div>
-              <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">About Our Team</h1>
+              <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">About Me</h1>
             </div>
             <p className="text-xl text-blue-100 leading-relaxed max-w-2xl">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-blue-200 font-semibold">

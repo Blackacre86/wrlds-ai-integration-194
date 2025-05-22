@@ -15,10 +15,10 @@ const OurApproach = () => {
         <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white relative overflow-hidden">
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Our Strategic Approach to Criminal Defense
+              My Strategic Approach to Criminal Defense
             </h1>
             <p className="text-xl max-w-3xl text-blue-100 mb-8">
-              At Summit Law, we combine prosecutorial experience, strategic case analysis, and cutting-edge 
+              I combine prosecutorial experience, strategic case analysis, and cutting-edge 
               technology to develop defense strategies that others simply cannot match.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -29,7 +29,7 @@ const OurApproach = () => {
               </Link>
               <Link to="/prosecutor-advantage">
                 <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20">
-                  Learn About Our Prosecutor Background
+                  Learn About My Prosecutor Background
                 </Button>
               </Link>
             </div>
@@ -51,7 +51,7 @@ const OurApproach = () => {
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">The Summit Advantage</h2>
               <p className="text-lg text-gray-700">
-                Our approach is built on three key pillars that form the foundation of our success in defending clients 
+                My approach is built on three key pillars that form the foundation of my success in defending clients 
                 against criminal charges in Massachusetts.
               </p>
             </div>
@@ -63,7 +63,7 @@ const OurApproach = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-800">Prosecutorial Experience</h3>
                 <p className="text-gray-700">
-                  With five years in the District Attorney's Office, we know exactly how prosecutors build their cases, 
+                  With five years in the District Attorney's Office, I know exactly how prosecutors build their cases, 
                   what evidence they prioritize, and how they prepare for trial.
                 </p>
               </div>
@@ -74,7 +74,7 @@ const OurApproach = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-800">Reverse-Engineering</h3>
                 <p className="text-gray-700">
-                  We build the prosecution's case first, then systematically dismantle it by 
+                  I build the prosecution's case first, then systematically dismantle it by 
                   identifying weaknesses that traditional defense attorneys often miss.
                 </p>
               </div>
@@ -85,7 +85,7 @@ const OurApproach = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-800">AI-Enhanced Analysis</h3>
                 <p className="text-gray-700">
-                  Our proprietary AI tools analyze case documents, identify precedents, and help us develop 
+                  My proprietary AI tools analyze case documents, identify precedents, and help me develop 
                   stronger arguments with greater efficiency than traditional methods.
                 </p>
               </div>
@@ -105,12 +105,12 @@ const OurApproach = () => {
                   </h2>
                 </div>
                 <p className="text-lg text-gray-700 mb-4">
-                  Attorney Joe Brava spent five years prosecuting criminal cases in the Berkshire District Attorney's Office, 
-                  supervising district court domestic violence prosecutions. This experience provides him with unique insights 
-                  that benefit every client we represent.
+                  I spent five years prosecuting criminal cases in the Berkshire District Attorney's Office, 
+                  supervising district court domestic violence prosecutions. This experience provides me with unique insights 
+                  that benefit every client I represent.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
-                  Unlike defense attorneys who have never worked as prosecutors, we understand the internal workings of 
+                  Unlike defense attorneys who have never worked as prosecutors, I understand the internal workings of 
                   the District Attorney's Office, including:
                 </p>
                 <ul className="space-y-3 mb-6">
@@ -141,7 +141,7 @@ const OurApproach = () => {
                 </ul>
                 <Link to="/prosecutor-advantage">
                   <Button className="group bg-blue-800 hover:bg-blue-900 text-white">
-                    Learn More About Our Prosecutor Background
+                    Learn More About My Prosecutor Background
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -155,7 +155,7 @@ const OurApproach = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">Evidence Assessment</h4>
-                      <p className="text-gray-600">We know exactly how prosecutors evaluate evidence and witness credibility, allowing us to proactively address vulnerabilities.</p>
+                      <p className="text-gray-600">I know exactly how prosecutors evaluate evidence and witness credibility, allowing me to proactively address vulnerabilities.</p>
                     </div>
                   </div>
                   
@@ -165,7 +165,7 @@ const OurApproach = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">Prosecution Strategies</h4>
-                      <p className="text-gray-600">We understand the tactical playbook prosecutors use and can anticipate their moves before they make them.</p>
+                      <p className="text-gray-600">I understand the tactical playbook prosecutors use and can anticipate their moves before they make them.</p>
                     </div>
                   </div>
                   
@@ -175,7 +175,7 @@ const OurApproach = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">Resource Allocation</h4>
-                      <p className="text-gray-600">We know how and where prosecutors allocate their limited resources, allowing us to leverage these constraints to your advantage.</p>
+                      <p className="text-gray-600">I know how and where prosecutors allocate their limited resources, allowing me to leverage these constraints to your advantage.</p>
                     </div>
                   </div>
                 </div>
@@ -192,15 +192,15 @@ const OurApproach = () => {
                 <div className="flex items-center gap-4 mb-6">
                   <Brain className="h-10 w-10 text-blue-700" />
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                    Our Reverse-Engineering Methodology
+                    My Reverse-Engineering Methodology
                   </h2>
                 </div>
                 <p className="text-lg text-gray-700 mb-4">
-                  Most defense attorneys immediately jump to building a defense strategy. At Summit Law, our approach is fundamentally different. 
-                  We begin by stepping into the prosecutor's shoes to understand exactly how they'll build their case against you.
+                  Most defense attorneys immediately jump to building a defense strategy. My approach is fundamentally different. 
+                  I begin by stepping into the prosecutor's shoes to understand exactly how they'll build their case against you.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
-                  This methodology allows us to:
+                  This methodology allows me to:
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
@@ -230,34 +230,34 @@ const OurApproach = () => {
                 </ul>
               </div>
               <div className="w-full md:w-1/2 bg-blue-50 rounded-lg p-8 border border-blue-100">
-                <h3 className="text-xl font-bold mb-6 text-blue-900 border-b border-blue-200 pb-3">Our Process</h3>
+                <h3 className="text-xl font-bold mb-6 text-blue-900 border-b border-blue-200 pb-3">My Process</h3>
                 <ol className="space-y-6">
                   <li className="flex">
                     <span className="bg-blue-700 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">1</span>
                     <div>
                       <p className="font-bold text-gray-900">Case Analysis & Evidence Review</p>
-                      <p className="text-gray-700 mt-2">We thoroughly examine all available evidence, police reports, witness statements, and forensic findings to understand the full scope of the case against you.</p>
+                      <p className="text-gray-700 mt-2">I thoroughly examine all available evidence, police reports, witness statements, and forensic findings to understand the full scope of the case against you.</p>
                     </div>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-700 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">2</span>
                     <div>
                       <p className="font-bold text-gray-900">Prosecution Simulation</p>
-                      <p className="text-gray-700 mt-2">We build the prosecution's case from scratch, creating the narrative they'll likely present and identifying the key evidence they'll emphasize.</p>
+                      <p className="text-gray-700 mt-2">I build the prosecution's case from scratch, creating the narrative they'll likely present and identifying the key evidence they'll emphasize.</p>
                     </div>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-700 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">3</span>
                     <div>
                       <p className="font-bold text-gray-900">Vulnerability Identification</p>
-                      <p className="text-gray-700 mt-2">We methodically identify every potential weakness in their case—from procedural errors to evidentiary gaps to witness credibility issues.</p>
+                      <p className="text-gray-700 mt-2">I methodically identify every potential weakness in their case—from procedural errors to evidentiary gaps to witness credibility issues.</p>
                     </div>
                   </li>
                   <li className="flex">
                     <span className="bg-blue-700 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">4</span>
                     <div>
                       <p className="font-bold text-gray-900">Strategic Defense Development</p>
-                      <p className="text-gray-700 mt-2">Only after fully understanding the prosecution's case do we develop our defense strategy, precisely targeting the vulnerabilities we've identified.</p>
+                      <p className="text-gray-700 mt-2">Only after fully understanding the prosecution's case do I develop my defense strategy, precisely targeting the vulnerabilities I've identified.</p>
                     </div>
                   </li>
                 </ol>
@@ -278,16 +278,16 @@ const OurApproach = () => {
                   </h2>
                 </div>
                 <p className="text-lg text-gray-700 mb-4">
-                  Summit Law combines decades of legal expertise with cutting-edge technology. Our proprietary 
+                  I combine decades of legal expertise with cutting-edge technology. My proprietary 
                   artificial intelligence tools enhance every aspect of case preparation and defense strategy.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
-                  We employ secure, private AI systems that adhere to strict attorney-client confidentiality standards. 
+                  I employ secure, private AI systems that adhere to strict attorney-client confidentiality standards. 
                   Your data is never shared with third-party AI providers, ensuring maximum security and privacy.
                 </p>
                 <Link to="/ai-innovation">
                   <Button className="group bg-blue-800 hover:bg-blue-900 text-white">
-                    Explore Our AI Advantage
+                    Explore My AI Advantage
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -296,7 +296,7 @@ const OurApproach = () => {
                 <div className="bg-white p-6 rounded-lg border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="text-lg font-bold mb-3 text-blue-800">Case Law Analysis</h3>
                   <p className="text-gray-700">
-                    Our AI tools scan thousands of similar cases to identify winning defense strategies and favorable precedents specific to your situation.
+                    My AI tools scan thousands of similar cases to identify winning defense strategies and favorable precedents specific to your situation.
                   </p>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
@@ -308,7 +308,7 @@ const OurApproach = () => {
                 <div className="bg-white p-6 rounded-lg border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="text-lg font-bold mb-3 text-blue-800">Strategic Simulation</h3>
                   <p className="text-gray-700">
-                    AI-driven case modeling helps us test different defense strategies to identify the approach most likely to succeed in your specific case.
+                    AI-driven case modeling helps me test different defense strategies to identify the approach most likely to succeed in your specific case.
                   </p>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
@@ -326,9 +326,9 @@ const OurApproach = () => {
         <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Why Choose Our Approach?</h2>
+              <h2 className="text-3xl font-bold mb-6">Why Choose My Approach?</h2>
               <p className="text-xl mb-6">
-                Our distinctive methodology combines prosecutorial insights, strategic case preparation, and innovative 
+                My distinctive methodology combines prosecutorial insights, strategic case preparation, and innovative 
                 AI-driven analysis to provide a level of defense unmatched in Massachusetts.
               </p>
             </div>
@@ -337,21 +337,21 @@ const OurApproach = () => {
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 hover:bg-white/15 transition">
                 <h3 className="text-xl font-bold mb-4 text-yellow-400">Comprehensive Analysis</h3>
                 <p className="text-blue-50">
-                  No stone goes unturned when we examine your case. We analyze evidence from multiple perspectives to build the strongest possible defense.
+                  No stone goes unturned when I examine your case. I analyze evidence from multiple perspectives to build the strongest possible defense.
                 </p>
               </div>
               
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 hover:bg-white/15 transition">
                 <h3 className="text-xl font-bold mb-4 text-yellow-400">Strategic Advantage</h3>
                 <p className="text-blue-50">
-                  By anticipating the prosecution's strategy, we position your defense to counter their strongest arguments before they even make them.
+                  By anticipating the prosecution's strategy, I position your defense to counter their strongest arguments before they even make them.
                 </p>
               </div>
               
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 hover:bg-white/15 transition">
                 <h3 className="text-xl font-bold mb-4 text-yellow-400">Technological Edge</h3>
                 <p className="text-blue-50">
-                  Our AI-enhanced legal research and case preparation provide insights and advantages that traditional defense methods simply cannot match.
+                  My AI-enhanced legal research and case preparation provide insights and advantages that traditional defense methods simply cannot match.
                 </p>
               </div>
             </div>
