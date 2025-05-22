@@ -1,11 +1,10 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { KeySquare, ChessBoard, Cpu, Trophy } from "lucide-react";
+import { KeySquare, CircleCheck, Cpu, Trophy } from "lucide-react";
 
 const About = () => {
   return (
@@ -168,7 +167,7 @@ const About = () => {
           
               <Card className="border-t-4 border-blue-700">
                 <CardContent className="pt-8">
-                  <ChessBoard className="h-12 w-12 text-blue-700 mx-auto mb-4" />
+                  <CircleCheck className="h-12 w-12 text-blue-700 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-center mb-2">Strategic Defense</h3>
                   <p className="text-center">
                     Every case is meticulously reverse-engineered, identifying investigative errors to craft targeted defenses.
