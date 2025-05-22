@@ -47,7 +47,7 @@ const WhyChooseUsSection = () => {
               <Trophy className="h-12 w-12 text-blue-700 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-center mb-2">Proven Track Record</h3>
               <p className="text-center">
-                Attorney Brava has consistently achieved exceptional outcomes in complex criminal cases through careful preparation and relentless advocacy.
+                Attorney Joe Brava has consistently achieved exceptional outcomes in complex criminal cases through careful preparation and relentless advocacy.
               </p>
             </CardContent>
           </Card>
