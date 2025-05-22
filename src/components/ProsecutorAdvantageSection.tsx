@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Key, BarChart2 } from "lucide-react";
+import { ArrowRight, Key } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ProsecutorAdvantageSection = () => {
@@ -38,7 +38,16 @@ const ProsecutorAdvantageSection = () => {
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <BarChart2 className="h-12 w-12 text-blue-700 mb-4" />
+                <div className="h-12 w-12 text-blue-700 mb-4 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12">
+                    <path d="M8 16l-1.447.724A1 1 0 0 0 7 18.618V20h10v-1.382a1 1 0 0 0 .447-1.894L16 16" />
+                    <path d="M9 6a1 1 0 0 0-1 1v2h8V7a1 1 0 0 0-1-1H9Z" />
+                    <path d="M12 16v-6" />
+                    <path d="M8 8v2" />
+                    <path d="M16 8v2" />
+                    <path d="M7 12h10" />
+                  </svg>
+                </div>
                 <h3 className="text-xl font-bold mb-2">Strategic Analysis</h3>
                 <p className="text-gray-600">
                   By analyzing the prosecution's case first, we identify vulnerabilities they don't expect us to find.
