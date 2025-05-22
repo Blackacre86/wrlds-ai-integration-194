@@ -6,19 +6,19 @@ import { Quote } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "Summit Law provided exceptional counsel during our company's merger. Their strategic approach and attention to detail were invaluable.",
-      author: "Jane Thompson",
-      position: "CEO, Acme Industries"
+      quote: "Attorney Brava's experience as a former prosecutor gave me confidence in his ability to handle my OUI case. His strategy resulted in reduced charges that saved my license.",
+      author: "Michael R.",
+      position: "OUI Defense Client"
     },
     {
-      quote: "The team at Summit Law delivered results beyond our expectations. Their expertise in intellectual property law helped protect our innovations.",
-      author: "Michael Chen",
-      position: "Founder, TechStart Inc."
+      quote: "When my son was facing serious charges that threatened his college future, Joe stepped in with a thorough defense strategy. His understanding of student defense issues made all the difference.",
+      author: "Sarah T.",
+      position: "Parent of Student Defense Client"
     },
     {
-      quote: "Working with Summit Law has been a game-changer for our business. Their responsiveness and legal acumen are truly outstanding.",
-      author: "Sarah Rodriguez",
-      position: "General Counsel, Global Retail Group"
+      quote: "I was falsely accused of domestic violence and facing devastating consequences. Joe's detailed investigation and courtroom expertise cleared my name completely.",
+      author: "David L.",
+      position: "Domestic Violence Defense Client"
     }
   ];
 
@@ -26,9 +26,9 @@ const TestimonialsSection = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">Client Success Stories</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We're proud of the relationships we build and the results we deliver for our clients.
+            Real results for real people facing criminal charges in Massachusetts.
           </p>
         </div>
         

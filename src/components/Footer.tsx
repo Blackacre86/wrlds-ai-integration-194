@@ -13,38 +13,44 @@ const Footer = () => {
               <Logo />
             </div>
             <p className="text-sm">
-              Providing exceptional legal services with integrity and excellence since 1995.
+              Strategic criminal defense representation by a former prosecutor who knows how to dismantle the state's case against you.
             </p>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Practice Areas</h3>
             <ul className="space-y-2">
-              <li><Link to="/practice-areas/corporate" className="text-sm hover:text-white">Corporate Law</Link></li>
-              <li><Link to="/practice-areas/litigation" className="text-sm hover:text-white">Litigation</Link></li>
-              <li><Link to="/practice-areas/real-estate" className="text-sm hover:text-white">Real Estate</Link></li>
-              <li><Link to="/practice-areas/intellectual-property" className="text-sm hover:text-white">Intellectual Property</Link></li>
+              <li><Link to="/practice-areas/oui-dui" className="text-sm hover:text-white">OUI/DUI Defense</Link></li>
+              <li><Link to="/practice-areas/drug-crimes" className="text-sm hover:text-white">Drug Crimes</Link></li>
+              <li><Link to="/practice-areas/assault" className="text-sm hover:text-white">Assault and Battery</Link></li>
+              <li><Link to="/practice-areas/theft" className="text-sm hover:text-white">Theft and Property Crimes</Link></li>
+              <li><Link to="/practice-areas/violent-crimes" className="text-sm hover:text-white">Violent Crimes</Link></li>
+              <li><Link to="/practice-areas/domestic-violence" className="text-sm hover:text-white">Domestic Violence Defense</Link></li>
+              <li><Link to="/practice-areas/student-defense" className="text-sm hover:text-white">Student Defense</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-sm hover:text-white">About Us</Link></li>
-              <li><Link to="/attorneys" className="text-sm hover:text-white">Our Team</Link></li>
-              <li><Link to="/news" className="text-sm hover:text-white">Latest News</Link></li>
-              <li><Link to="/careers" className="text-sm hover:text-white">Careers</Link></li>
+              <li><Link to="/about" className="text-sm hover:text-white">About Attorney Brava</Link></li>
+              <li><Link to="/prosecutor-advantage" className="text-sm hover:text-white">Former Prosecutor Advantage</Link></li>
+              <li><Link to="/ai-innovation" className="text-sm hover:text-white">AI Innovation</Link></li>
+              <li><Link to="/case-results" className="text-sm hover:text-white">Case Results</Link></li>
+              <li><Link to="/blog" className="text-sm hover:text-white">Blog & Resources</Link></li>
+              <li><Link to="/testimonials" className="text-sm hover:text-white">Client Testimonials</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact Us</h3>
             <address className="not-italic">
-              <p className="text-sm">123 Legal Avenue</p>
-              <p className="text-sm">Suite 500</p>
-              <p className="text-sm">New York, NY 10001</p>
-              <p className="text-sm mt-2">(212) 555-1234</p>
-              <p className="text-sm">info@summitlaw.com</p>
+              <p className="text-sm">Attorney Joe Brava</p>
+              <p className="text-sm">Summit Law</p>
+              <p className="text-sm">1042 Main Street, Suite C</p>
+              <p className="text-sm">Clinton, MA 01510</p>
+              <p className="text-sm mt-2">508-454-0822</p>
+              <p className="text-sm">Joe@summitlawoffices.com</p>
             </address>
           </div>
         </div>

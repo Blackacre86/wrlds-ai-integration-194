@@ -34,21 +34,29 @@ const Header = () => {
               <NavigationMenuTrigger className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors bg-transparent hover:bg-transparent">Practice Areas</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="grid w-[400px] gap-3 p-4">
-                  <Link to="/practice-areas/corporate" className="block p-2 hover:bg-gray-100 rounded-md">Corporate Law</Link>
-                  <Link to="/practice-areas/litigation" className="block p-2 hover:bg-gray-100 rounded-md">Litigation</Link>
-                  <Link to="/practice-areas/real-estate" className="block p-2 hover:bg-gray-100 rounded-md">Real Estate</Link>
-                  <Link to="/practice-areas/intellectual-property" className="block p-2 hover:bg-gray-100 rounded-md">Intellectual Property</Link>
+                  <Link to="/practice-areas/oui-dui" className="block p-2 hover:bg-gray-100 rounded-md">OUI/DUI Defense</Link>
+                  <Link to="/practice-areas/drug-crimes" className="block p-2 hover:bg-gray-100 rounded-md">Drug Crimes</Link>
+                  <Link to="/practice-areas/assault" className="block p-2 hover:bg-gray-100 rounded-md">Assault and Battery</Link>
+                  <Link to="/practice-areas/theft" className="block p-2 hover:bg-gray-100 rounded-md">Theft and Property Crimes</Link>
+                  <Link to="/practice-areas/violent-crimes" className="block p-2 hover:bg-gray-100 rounded-md">Violent Crimes</Link>
+                  <Link to="/practice-areas/domestic-violence" className="block p-2 hover:bg-gray-100 rounded-md">Domestic Violence Defense</Link>
+                  <Link to="/practice-areas/student-defense" className="block p-2 hover:bg-gray-100 rounded-md">Student Defense</Link>
                 </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/attorneys" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
-                Attorneys
+              <Link to="/prosecutor-advantage" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+                Former Prosecutor Advantage
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/news" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
-                News
+              <Link to="/case-results" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+                Case Results
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/ai-innovation" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+                AI Innovation
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -56,7 +64,7 @@ const Header = () => {
         
         <div className="flex items-center space-x-4">
           <Button variant="outline" className="hidden md:inline-flex">
-            Client Portal
+            508-454-0822
           </Button>
           <Button className="bg-blue-800 hover:bg-blue-900">
             Contact Us

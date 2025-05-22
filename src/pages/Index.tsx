@@ -1,10 +1,12 @@
 
 import React from "react";
-import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ProsecutorAdvantageSection from "@/components/ProsecutorAdvantageSection";
+import AIInnovationSection from "@/components/AIInnovationSection";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,7 +16,10 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         <ServicesSection />
+        <ProsecutorAdvantageSection />
         <TestimonialsSection />
+        <AIInnovationSection />
+        <CTASection />
       </main>
       <Footer />
     </div>

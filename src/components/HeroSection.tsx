@@ -6,21 +6,30 @@ const HeroSection = () => {
   return (
     <section className="relative py-20 md:py-28 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Experienced Legal Representation You Can Trust
-          </h1>
-          <p className="text-lg mb-8 text-blue-100">
-            Summit Law provides exceptional legal services with a commitment to excellence, 
-            integrity, and client satisfaction across a wide range of practice areas.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
-              Schedule a Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              Explore Our Services
-            </Button>
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Massachusetts Criminal Defense Attorney – Ready to Fight for You
+            </h1>
+            <p className="text-lg mb-8 text-blue-100">
+              When your freedom is at stake, you need an experienced former prosecutor 
+              who understands how the other side builds their case. Attorney Joe Brava 
+              brings insider knowledge to your defense.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white border-none">
+                Request a Free Consultation
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                Learn About Our Approach
+              </Button>
+            </div>
+          </div>
+          <div className="w-full md:w-1/3 rounded-lg overflow-hidden shadow-2xl">
+            {/* Replace with actual image of Attorney Joe Brava */}
+            <div className="bg-gray-300 w-full aspect-[3/4] flex items-center justify-center">
+              <span className="text-gray-500">Attorney Joe Brava Image</span>
+            </div>
           </div>
         </div>
       </div>
