@@ -15,6 +15,16 @@ const Footer = () => {
             <p className="text-sm">
               Strategic criminal defense representation by a former prosecutor who knows how to dismantle the state's case against you.
             </p>
+            <div className="flex items-center space-x-4 pt-2">
+              <a 
+                href="https://www.justia.com/lawyers/massachusetts/clinton/joe-brava" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 transition-colors px-3 py-2 rounded-md"
+              >
+                <span className="text-sm font-medium">Review Us on Justia</span>
+              </a>
+            </div>
           </div>
           
           <div>
@@ -60,7 +70,17 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-blue-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm">© {new Date().getFullYear()} Summit Law. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+            <p className="text-sm">© {new Date().getFullYear()} Summit Law. All rights reserved.</p>
+            <a 
+              href="https://www.justia.com/lawyers/massachusetts/clinton/joe-brava" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm hover:text-white flex items-center"
+            >
+              <span>Justia Profile</span>
+            </a>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-sm hover:text-white">Privacy Policy</Link>
             <Link to="/terms" className="text-sm hover:text-white">Terms of Service</Link>
