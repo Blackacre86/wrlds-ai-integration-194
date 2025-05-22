@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -17,10 +16,11 @@ const ProsecutorAdvantage = () => {
           {/* Mountain Background */}
           <div className="absolute inset-0 z-0">
             <img 
-              src="/lovable-uploads/1469474968028-56623f02e42e.jpg" 
-              alt="Mountain Summit" 
+              src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
+              alt="Mountain Path" 
               className="w-full h-full object-cover opacity-30"
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 to-slate-900/60 mix-blend-multiply"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -45,8 +45,18 @@ const ProsecutorAdvantage = () => {
         </section>
 
         {/* Experience Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
+        <section className="py-16 bg-white relative overflow-hidden">
+          {/* Subtle mountain background */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
+              alt="Mountain Path" 
+              className="w-full h-full object-cover opacity-10"
+            />
+            <div className="absolute inset-0 bg-white/95"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div>
@@ -105,8 +115,18 @@ const ProsecutorAdvantage = () => {
         </section>
 
         {/* Strategic Approach Section */}
-        <section className="py-16 bg-blue-50">
-          <div className="container mx-auto px-4 md:px-6">
+        <section className="py-16 bg-blue-50 relative overflow-hidden">
+          {/* Subtle mountain background */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
+              alt="Mountain Path" 
+              className="w-full h-full object-cover opacity-15"
+            />
+            <div className="absolute inset-0 bg-blue-50/90"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">
                 Our Unique Strategic Approach

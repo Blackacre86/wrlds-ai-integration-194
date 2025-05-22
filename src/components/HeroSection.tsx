@@ -10,9 +10,9 @@ const HeroSection = () => {
       {/* Mountain Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/1469474968028-56623f02e42e.jpg" 
-          alt="Mountain Summit" 
-          className="w-full h-full object-cover opacity-80"
+          src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
+          alt="Mountain Path" 
+          className="w-full h-full object-cover opacity-30"
           onError={(e) => {
             console.error("Image failed to load:", e);
             e.currentTarget.style.display = 'none';
