@@ -6,6 +6,14 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <section className="relative py-20 md:py-28 bg-gradient-to-r from-blue-900 to-blue-800 text-white overflow-hidden">
+      {/* Mountain Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png" 
+          alt="Mountain Summit" 
+          className="w-full h-full object-cover opacity-15"
+        />
+      </div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="max-w-3xl">
@@ -37,15 +45,6 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Add mountain silhouette in background */}
-      <div className="absolute -bottom-10 right-0 w-full opacity-10 pointer-events-none">
-        <img 
-          src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
-          alt="Mountain Background" 
-          className="w-full h-auto max-h-96 object-contain"
-        />
       </div>
     </section>
   );

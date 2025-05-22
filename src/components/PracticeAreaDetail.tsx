@@ -2,6 +2,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -36,8 +37,16 @@ const PracticeAreaDetail: React.FC<PracticeAreaDetailProps> = ({
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <div className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white">
-          <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white overflow-hidden">
+          {/* Mountain Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png" 
+              alt="Mountain Summit" 
+              className="w-full h-full object-cover opacity-15"
+            />
+          </div>
+          <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
             <h1 className="text-3xl md:text-5xl font-bold text-center mb-4">
               {title}
             </h1>
@@ -45,7 +54,7 @@ const PracticeAreaDetail: React.FC<PracticeAreaDetailProps> = ({
               {description}
             </p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0">
+          <div className="absolute bottom-0 left-0 right-0 z-10">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
               <path fill="#ffffff" fillOpacity="1" d="M0,128L80,133.3C160,139,320,149,480,144C640,139,800,117,960,122.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
             </svg>
@@ -69,12 +78,14 @@ const PracticeAreaDetail: React.FC<PracticeAreaDetailProps> = ({
               Our experienced attorneys are ready to help you navigate your legal challenges with personalized strategies and dedicated advocacy.
             </p>
             <Link to="/contact">
-              <Button className="bg-blue-800 hover:bg-blue-900 text-lg px-6 py-3">
+              <Button className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none px-6 py-3 text-lg">
                 Contact Us for a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
         </section>
+        
+        <CTASection />
       </main>
       <Footer />
     </div>

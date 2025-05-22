@@ -7,6 +7,14 @@ import { Link } from "react-router-dom";
 const CTASection = () => {
   return (
     <section className="py-16 bg-gradient-to-r from-blue-800 to-blue-900 text-white relative overflow-hidden">
+      {/* Mountain Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png" 
+          alt="Mountain Summit" 
+          className="w-full h-full object-cover opacity-10"
+        />
+      </div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-8 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-4 text-center">
@@ -28,15 +36,6 @@ const CTASection = () => {
             </Link>
           </div>
         </div>
-      </div>
-      
-      {/* Add mountain silhouette in background */}
-      <div className="absolute bottom-0 right-0 w-full opacity-5 pointer-events-none">
-        <img 
-          src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
-          alt="Mountain Background" 
-          className="w-full h-auto max-h-96 object-contain"
-        />
       </div>
     </section>
   );
