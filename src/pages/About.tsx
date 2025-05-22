@@ -1,11 +1,10 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { KeySquare, Chess, Cpu, Trophy } from "lucide-react";
+import { KeySquare, ChessboardIcon, Cpu, Trophy } from "lucide-react";
 
 const About = () => {
   return (
@@ -86,8 +85,8 @@ const About = () => {
                   <h3 className="text-xl font-bold mt-6 mb-2">Education and Early Experience</h3>
                   <p className="text-lg">
                     Kristin earned her Bachelor's degree in Criminology (with a minor in Sociology) in 2015. 
-                    During college, she interned at the Framingham/Natick District Court and participated in 
-                    the "Inside-Out Prison Exchange Program" at the Massachusetts Correctional Institution (MCI) Framingham.
+                    During college, she interned at the Framingham/Natick District Court and participated 
+                    in the "Inside-Out Prison Exchange Program" at the Massachusetts Correctional Institution (MCI) Framingham.
                   </p>
                   
                   <h3 className="text-xl font-bold mt-6 mb-2">Professional Experience</h3>
@@ -168,7 +167,7 @@ const About = () => {
               
               <Card className="border-t-4 border-blue-700">
                 <CardContent className="pt-8">
-                  <Chess className="h-12 w-12 text-blue-700 mx-auto mb-4" />
+                  <ChessboardIcon className="h-12 w-12 text-blue-700 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-center mb-2">Strategic Defense</h3>
                   <p className="text-center">
                     Every case is meticulously reverse-engineered, identifying investigative errors to craft targeted defenses.
