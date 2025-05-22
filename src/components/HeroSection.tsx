@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -17,12 +18,16 @@ const HeroSection = () => {
               brings insider knowledge to your defense.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none">
-                Request a Free Consultation
-              </Button>
-              <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20">
-                Learn About Our Approach
-              </Button>
+              <Link to="/contact">
+                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none">
+                  Request a Free Consultation
+                </Button>
+              </Link>
+              <Link to="/our-approach">
+                <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20">
+                  Learn About Our Approach
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="w-full md:w-1/3 rounded-lg overflow-hidden shadow-2xl backdrop-blur-md bg-white/10 border border-white/20 p-1">
