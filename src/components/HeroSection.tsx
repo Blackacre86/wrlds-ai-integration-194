@@ -20,7 +20,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact">
                 <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none">
-                  Request a Free Consultation
+                  Secure Your Case Strategy
                 </Button>
               </Link>
               <Link to="/our-approach">
