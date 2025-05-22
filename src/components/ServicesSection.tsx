@@ -76,10 +76,8 @@ const ServicesSection = () => {
             >
               <h3 className="text-xl font-bold mb-3">{service.title}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
-              <Link to={service.link}>
-                <Button variant="ghost" className="text-blue-700 hover:text-blue-800 p-0 flex items-center">
-                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+              <Link to={service.link} className="text-blue-700 hover:text-blue-800 flex items-center">
+                <span className="mr-2">Learn More</span> <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           ))}
