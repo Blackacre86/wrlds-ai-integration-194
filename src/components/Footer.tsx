@@ -39,6 +39,7 @@ const Footer = () => {
               <li><Link to="/case-results" className="text-sm hover:text-white">Case Results</Link></li>
               <li><Link to="/blog" className="text-sm hover:text-white">Blog & Resources</Link></li>
               <li><Link to="/testimonials" className="text-sm hover:text-white">Client Testimonials</Link></li>
+              <li><Link to="/contact" className="text-sm hover:text-white">Contact Us</Link></li>
             </ul>
           </div>
           
@@ -52,6 +53,9 @@ const Footer = () => {
               <p className="text-sm mt-2">508-454-0822</p>
               <p className="text-sm">Joe@summitlawoffices.com</p>
             </address>
+            <Link to="/contact" className="inline-block mt-4 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-sm font-medium rounded-md transition-all duration-200">
+              Contact Us Now
+            </Link>
           </div>
         </div>
         

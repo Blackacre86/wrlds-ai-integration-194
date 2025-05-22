@@ -65,12 +65,9 @@ const Header = () => {
         </NavigationMenu>
         
         <div className="flex items-center space-x-4">
-          <Button variant="outline" className="hidden md:inline-flex border-blue-300 text-blue-800 hover:bg-blue-50">
-            508-454-0822
-          </Button>
-          <Button className="bg-gradient-to-r from-blue-800 to-blue-600 hover:from-blue-900 hover:to-blue-700">
+          <Link to="/contact" className="bg-gradient-to-r from-blue-800 to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-4 py-2 rounded-md">
             Contact Us
-          </Button>
+          </Link>
         </div>
       </div>
     </header>
