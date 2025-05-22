@@ -4,15 +4,21 @@ import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <Link to="/" className="flex items-center space-x-2">
-      <div className="w-10 h-10 bg-blue-800 relative overflow-hidden rounded-sm">
-        {/* Mountain peak shape using CSS */}
-        <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[20px] border-l-transparent border-b-[30px] border-b-blue-800 border-r-[20px] border-r-transparent"></div>
-        <div className="absolute bottom-0 left-2 w-0 h-0 border-l-[10px] border-l-transparent border-b-[20px] border-b-white border-r-[10px] border-r-transparent"></div>
+    <Link to="/" className="flex items-center space-x-3">
+      <div className="h-12 w-auto relative">
+        <img 
+          src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
+          alt="Summit Law Mountains" 
+          className="h-full object-contain"
+        />
       </div>
       <div className="flex flex-col">
-        <span className="text-xl font-bold text-blue-800">SUMMIT LAW</span>
-        <span className="text-[10px] text-gray-500">Strategic Defense, Innovative Solutions, Trusted Results</span>
+        <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600">
+          SUMMIT LAW
+        </span>
+        <span className="text-[10px] text-blue-600">
+          Strategic Defense, Innovative Solutions, Trusted Results
+        </span>
       </div>
     </Link>
   );

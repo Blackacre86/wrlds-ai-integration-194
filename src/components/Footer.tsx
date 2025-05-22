@@ -5,11 +5,11 @@ import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gradient-to-b from-blue-900 to-blue-950 text-blue-100">
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="bg-white p-2 inline-block rounded">
+            <div className="bg-white/10 backdrop-blur-md p-3 inline-block rounded-lg">
               <Logo />
             </div>
             <p className="text-sm">
@@ -44,7 +44,7 @@ const Footer = () => {
           
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact Us</h3>
-            <address className="not-italic">
+            <address className="not-italic backdrop-blur-md bg-blue-800/20 border border-blue-700/30 rounded-lg p-4">
               <p className="text-sm">Attorney Joe Brava</p>
               <p className="text-sm">Summit Law</p>
               <p className="text-sm">1042 Main Street, Suite C</p>
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-blue-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm">© {new Date().getFullYear()} Summit Law. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-sm hover:text-white">Privacy Policy</Link>

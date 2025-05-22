@@ -1,102 +1,84 @@
 
 import React from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Car, Pill, Gavel, Wallet, Shield, HeartCrack, GraduationCap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Car className="h-8 w-8 text-blue-700" />,
       title: "OUI/DUI Defense",
-      description: "Expert defense against operating under the influence charges with strategies to protect your driving privileges and freedom."
+      description: "Strategic defense against operating under the influence charges, protecting your driving privileges and future.",
+      link: "/practice-areas/oui-dui"
     },
     {
-      icon: <PillIcon className="h-8 w-8 text-blue-700" />,
       title: "Drug Crimes",
-      description: "Comprehensive defense for all drug-related charges, from possession to trafficking, focusing on rehabilitation options and reduced penalties."
+      description: "Comprehensive defense for all drug-related offenses, from possession to trafficking charges.",
+      link: "/practice-areas/drug-crimes"
     },
     {
-      icon: <Gavel className="h-8 w-8 text-blue-700" />,
       title: "Assault and Battery",
-      description: "Strategic defense against violent crime accusations, examining evidence and witness testimonies to build a strong case."
+      description: "Vigorous defense against allegations of violence, ensuring your side of the story is heard.",
+      link: "/practice-areas/assault"
     },
     {
-      icon: <Wallet className="h-8 w-8 text-blue-700" />,
       title: "Theft and Property Crimes",
-      description: "Dedicated representation for larceny, fraud, burglary, and other property crimes with a focus on minimizing consequences."
+      description: "Strategic representation for larceny, burglary, shoplifting, and other property offenses.",
+      link: "/practice-areas/theft"
     },
     {
-      icon: <Shield className="h-8 w-8 text-blue-700" />,
       title: "Violent Crimes",
-      description: "Experienced defense for serious violent offense charges, ensuring thorough investigation and constitutional rights protection."
+      description: "Experienced defense for serious charges including armed robbery, weapons offenses, and homicide.",
+      link: "/practice-areas/violent-crimes"
     },
     {
-      icon: <HeartCrack className="h-8 w-8 text-blue-700" />,
       title: "Domestic Violence Defense",
-      description: "Sensitive and strategic representation in domestic violence cases, with insight from Attorney Brava's prosecutorial experience."
+      description: "Sensitive and effective representation for those facing domestic violence allegations.",
+      link: "/practice-areas/domestic-violence"
     },
     {
-      icon: <GraduationCap className="h-8 w-8 text-blue-700" />,
       title: "Student Defense",
-      description: "Specialized defense for students facing criminal charges, disciplinary hearings, Title IX proceedings, and academic misconduct allegations."
+      description: "Specialized defense for students facing criminal charges or university disciplinary proceedings.",
+      link: "/practice-areas/student-defense"
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section id="services" className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">Practice Areas</h2>
+          <h2 className="text-3xl font-bold mb-4">Our Practice Areas</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Summit Law offers expert criminal defense representation across key areas of Massachusetts criminal law.
+            Experienced criminal defense representation across a wide range of practice areas
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-2">
-                <div className="mb-2">{service.icon}</div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{service.description}</p>
-              </CardContent>
-            </Card>
+            <div 
+              key={index}
+              className="p-6 rounded-lg border border-gray-100 shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-b from-white to-blue-50"
+            >
+              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+              <p className="text-gray-600 mb-4">{service.description}</p>
+              <Link to={service.link}>
+                <Button variant="ghost" className="text-blue-700 hover:text-blue-800 p-0 flex items-center">
+                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           ))}
         </div>
-        
+
         <div className="mt-12 text-center">
-          <Link to="/contact">
-            <Button className="bg-blue-800 hover:bg-blue-900 text-white">
-              Tell Us About Your Case
+          <Link to="/practice-areas">
+            <Button className="bg-blue-800 hover:bg-blue-900">
+              View All Practice Areas
             </Button>
           </Link>
         </div>
       </div>
     </section>
-  );
-};
-
-// Custom pill icon component as lucide-react doesn't have one by default
-const PillIcon = ({ className }: { className?: string }) => {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      className={className} 
-      width="24" 
-      height="24" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M10.5 20.5a7.78 7.78 0 0 1-5-2.5c-2.83-2.83-2.83-7.17 0-10 2.83-2.83 7.17-2.83 10 0 2.83 2.83 2.83 7.17 0 10a7.78 7.78 0 0 1-5 2.5Z"/>
-      <path d="m8.5 8.5 7 7"/>
-    </svg>
   );
 };
 

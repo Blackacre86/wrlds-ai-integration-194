@@ -14,48 +14,50 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-blue-100">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Logo />
         
         <NavigationMenu>
-          <NavigationMenuList className="hidden md:flex space-x-6">
+          <NavigationMenuList className="hidden md:flex space-x-2">
             <NavigationMenuItem>
-              <Link to="/" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+              <Link to="/" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-blue-800 hover:bg-blue-100/50 transition-colors">
                 Home
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/about" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+              <Link to="/about" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-blue-800 hover:bg-blue-100/50 transition-colors">
                 About
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors bg-transparent hover:bg-transparent">Practice Areas</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-blue-800 hover:bg-blue-100/50 transition-colors">
+                Practice Areas
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid w-[400px] gap-3 p-4">
-                  <Link to="/practice-areas/oui-dui" className="block p-2 hover:bg-gray-100 rounded-md">OUI/DUI Defense</Link>
-                  <Link to="/practice-areas/drug-crimes" className="block p-2 hover:bg-gray-100 rounded-md">Drug Crimes</Link>
-                  <Link to="/practice-areas/assault" className="block p-2 hover:bg-gray-100 rounded-md">Assault and Battery</Link>
-                  <Link to="/practice-areas/theft" className="block p-2 hover:bg-gray-100 rounded-md">Theft and Property Crimes</Link>
-                  <Link to="/practice-areas/violent-crimes" className="block p-2 hover:bg-gray-100 rounded-md">Violent Crimes</Link>
-                  <Link to="/practice-areas/domestic-violence" className="block p-2 hover:bg-gray-100 rounded-md">Domestic Violence Defense</Link>
-                  <Link to="/practice-areas/student-defense" className="block p-2 hover:bg-gray-100 rounded-md">Student Defense</Link>
+                <div className="grid w-[400px] gap-3 p-4 backdrop-blur-md bg-white/90 border border-blue-100 rounded-lg shadow-lg">
+                  <Link to="/practice-areas/oui-dui" className="block p-2 hover:bg-blue-50/70 rounded-md">OUI/DUI Defense</Link>
+                  <Link to="/practice-areas/drug-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Drug Crimes</Link>
+                  <Link to="/practice-areas/assault" className="block p-2 hover:bg-blue-50/70 rounded-md">Assault and Battery</Link>
+                  <Link to="/practice-areas/theft" className="block p-2 hover:bg-blue-50/70 rounded-md">Theft and Property Crimes</Link>
+                  <Link to="/practice-areas/violent-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Violent Crimes</Link>
+                  <Link to="/practice-areas/domestic-violence" className="block p-2 hover:bg-blue-50/70 rounded-md">Domestic Violence Defense</Link>
+                  <Link to="/practice-areas/student-defense" className="block p-2 hover:bg-blue-50/70 rounded-md">Student Defense</Link>
                 </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/prosecutor-advantage" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+              <Link to="/prosecutor-advantage" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-blue-800 hover:bg-blue-100/50 transition-colors">
                 Former Prosecutor Advantage
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/case-results" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+              <Link to="/case-results" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-blue-800 hover:bg-blue-100/50 transition-colors">
                 Case Results
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/ai-innovation" className="text-sm font-medium text-gray-800 hover:text-blue-700 transition-colors">
+              <Link to="/ai-innovation" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-blue-800 hover:bg-blue-100/50 transition-colors">
                 AI Innovation
               </Link>
             </NavigationMenuItem>
@@ -63,10 +65,10 @@ const Header = () => {
         </NavigationMenu>
         
         <div className="flex items-center space-x-4">
-          <Button variant="outline" className="hidden md:inline-flex">
+          <Button variant="outline" className="hidden md:inline-flex border-blue-300 text-blue-800 hover:bg-blue-50">
             508-454-0822
           </Button>
-          <Button className="bg-blue-800 hover:bg-blue-900">
+          <Button className="bg-gradient-to-r from-blue-800 to-blue-600 hover:from-blue-900 hover:to-blue-700">
             Contact Us
           </Button>
         </div>

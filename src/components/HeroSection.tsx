@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="relative py-20 md:py-28 bg-gradient-to-r from-blue-900 to-blue-800 text-white overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
@@ -17,27 +17,30 @@ const HeroSection = () => {
               brings insider knowledge to your defense.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white border-none">
+              <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none">
                 Request a Free Consultation
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20">
                 Learn About Our Approach
               </Button>
             </div>
           </div>
-          <div className="w-full md:w-1/3 rounded-lg overflow-hidden shadow-2xl">
+          <div className="w-full md:w-1/3 rounded-lg overflow-hidden shadow-2xl backdrop-blur-md bg-white/10 border border-white/20 p-1">
             {/* Replace with actual image of Attorney Joe Brava */}
-            <div className="bg-gray-300 w-full aspect-[3/4] flex items-center justify-center">
+            <div className="bg-gray-300 w-full aspect-[3/4] flex items-center justify-center rounded-lg">
               <span className="text-gray-500">Attorney Joe Brava Image</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
-        {/* Background decorative mountain shapes */}
-        <div className="absolute bottom-0 right-0 w-full h-full">
-          <div className="absolute bottom-0 right-0 w-0 h-0 border-l-[300px] border-l-transparent border-b-[400px] border-b-white border-r-[200px] border-r-transparent"></div>
-        </div>
+      
+      {/* Add mountain silhouette in background */}
+      <div className="absolute -bottom-10 right-0 w-full opacity-10 pointer-events-none">
+        <img 
+          src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
+          alt="Mountain Background" 
+          className="w-full h-auto max-h-96 object-contain"
+        />
       </div>
     </section>
   );
