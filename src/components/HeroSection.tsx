@@ -12,7 +12,11 @@ const HeroSection = () => {
         <img 
           src="/lovable-uploads/1469474968028-56623f02e42e.jpg" 
           alt="Mountain Summit" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            console.error("Image failed to load:", e);
+            e.currentTarget.style.display = 'none';
+          }}
         />
       </div>
       {/* Large Mountain Icon Overlay */}
@@ -32,12 +36,12 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none text-base md:text-lg font-medium px-6 py-6">
+                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none text-lg md:text-xl font-semibold px-8 py-7">
                   Secure Your Case Strategy
                 </Button>
               </Link>
               <Link to="/our-approach">
-                <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20 text-base md:text-lg font-medium px-6 py-6">
+                <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20 text-lg md:text-xl font-semibold px-8 py-7">
                   Learn About Our Approach
                 </Button>
               </Link>
