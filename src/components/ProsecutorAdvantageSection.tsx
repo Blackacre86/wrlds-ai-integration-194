@@ -31,10 +31,10 @@ const ProsecutorAdvantageSection = () => {
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-12 w-12 mb-4 flex items-center justify-center">
+                <div className="h-16 w-16 mb-4 flex items-center justify-center mx-auto">
                   <img 
-                    src="/lovable-uploads/2b27a073-97a1-4869-94a1-f62bc573d62e.png"
-                    alt="Keyhole" 
+                    src="/lovable-uploads/4f801225-f723-4f29-8a2f-221b3118f3f6.png"
+                    alt="Padlock" 
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -44,7 +44,7 @@ const ProsecutorAdvantageSection = () => {
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-12 w-12 mb-4 flex items-center justify-center">
+                <div className="h-16 w-16 mb-4 flex items-center justify-center mx-auto">
                   <img 
                     src="/lovable-uploads/16a64fae-8213-4d53-8020-9fdc9d61b6ad.png"
                     alt="Chess Knight" 
