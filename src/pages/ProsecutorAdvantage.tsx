@@ -13,14 +13,14 @@ const ProsecutorAdvantage = () => {
       <main className="flex-grow">
         {/* Mountain Hero Section - Refined */}
         <section className="relative py-20 md:py-28 bg-gradient-to-b from-blue-900 to-blue-800 text-white overflow-hidden">
-          {/* Mountain Background - Reduced opacity */}
+          {/* Mountain Background - Adjusted opacity */}
           <div className="absolute inset-0 z-0">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
               alt="Mountain Path" 
-              className="w-full h-full object-cover opacity-15"
+              className="w-full h-full object-cover opacity-30"
             />
-            <div className="absolute inset-0 bg-blue-900/80 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-blue-900/70 mix-blend-multiply"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -44,14 +44,14 @@ const ProsecutorAdvantage = () => {
 
         {/* Experience Section */}
         <section className="py-16 bg-white relative overflow-hidden">
-          {/* Subtle mountain background - Reduced opacity */}
+          {/* Subtle mountain background - Adjusted opacity */}
           <div className="absolute inset-0 z-0">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
               alt="Mountain Path" 
-              className="w-full h-full object-cover opacity-5"
+              className="w-full h-full object-cover opacity-10"
             />
-            <div className="absolute inset-0 bg-white/98"></div>
+            <div className="absolute inset-0 bg-white/90"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -114,14 +114,14 @@ const ProsecutorAdvantage = () => {
 
         {/* Strategic Approach Section */}
         <section className="py-16 bg-blue-50 relative overflow-hidden">
-          {/* Subtle mountain background - Reduced opacity */}
+          {/* Subtle mountain background - Adjusted opacity */}
           <div className="absolute inset-0 z-0">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
               alt="Mountain Path" 
-              className="w-full h-full object-cover opacity-5"
+              className="w-full h-full object-cover opacity-10"
             />
-            <div className="absolute inset-0 bg-blue-50/95"></div>
+            <div className="absolute inset-0 bg-blue-50/90"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">

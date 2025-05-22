@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 const ProsecutorAdvantageSection = () => {
   return (
     <section className="py-16 relative overflow-hidden">
-      {/* Mountain Background Image with subtle overlay */}
+      {/* Mountain Background Image with subtle overlay - Increased opacity */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
           alt="Mountain Path" 
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-blue-50/90"></div>
+        <div className="absolute inset-0 bg-blue-50/80"></div>
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">

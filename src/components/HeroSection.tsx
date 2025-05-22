@@ -7,18 +7,18 @@ import { Mountain } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative py-20 md:py-32 bg-gradient-to-br from-blue-950 via-blue-900 to-slate-800 text-white overflow-hidden">
-      {/* Mountain Background Image with Overlay - Reduced opacity */}
+      {/* Mountain Background Image with Overlay - Adjusted opacity */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
           alt="Mountain Path" 
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-30"
           onError={(e) => {
             console.error("Image failed to load:", e);
             e.currentTarget.style.display = 'none';
           }}
         />
-        <div className="absolute inset-0 bg-blue-950/90 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-blue-950/70 mix-blend-multiply"></div>
       </div>
       
       {/* Content */}
