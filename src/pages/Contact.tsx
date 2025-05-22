@@ -13,30 +13,40 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "@/components/ui/use-toast";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+
+const phoneRegex = /^(\+\d{1,3}[-\s]?)?\(?\d{3}\)?[-\s]?\d{3}[-\s]?\d{4}$/;
 
 const contactFormSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
+  }).max(50, {
+    message: "Name cannot exceed 50 characters."
   }),
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
-  phone: z.string().min(10, {
-    message: "Please enter a valid phone number.",
+  phone: z.string().regex(phoneRegex, {
+    message: "Please enter a valid phone number (e.g., (555) 123-4567).",
   }),
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
+  }).max(1000, {
+    message: "Message cannot exceed 1000 characters."
   }),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -45,6 +55,7 @@ const Contact = () => {
       phone: "",
       message: "",
     },
+    mode: "onBlur", // Validate fields when they lose focus
   });
 
   function onSubmit(data: ContactFormValues) {
@@ -53,11 +64,22 @@ const Contact = () => {
       description: "We will get back to you as soon as possible.",
     });
     console.log(data);
+    setIsSubmitted(true);
     form.reset();
   }
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <Helmet>
+        <title>Contact Summit Law | Criminal Defense Attorneys</title>
+        <meta name="description" content="Contact Summit Law for expert criminal defense representation. Our experienced team is ready to help with your legal needs. Reach out today for a free consultation." />
+        <meta name="keywords" content="criminal defense lawyer, contact attorney, legal consultation, Summit Law, Massachusetts attorney" />
+        <meta property="og:title" content="Contact Summit Law | Criminal Defense Attorneys" />
+        <meta property="og:description" content="Get in touch with Summit Law's expert criminal defense team. We're ready to help with your legal needs." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://summitlawoffices.com/contact" />
+        <link rel="canonical" href="https://summitlawoffices.com/contact" />
+      </Helmet>
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
@@ -82,72 +104,99 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-bold mb-6 text-blue-800">Get in Touch</h2>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Full Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="John Doe" className="border-blue-300 focus:border-blue-500" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="john@example.com" className="border-blue-300 focus:border-blue-500" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Phone Number</FormLabel>
-                        <FormControl>
-                          <Input type="tel" placeholder="(555) 123-4567" className="border-blue-300 focus:border-blue-500" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>How can we help?</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Please describe your situation" 
-                            className="border-blue-300 focus:border-blue-500 min-h-32" 
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+              {isSubmitted ? (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+                  <CheckCircle className="mx-auto h-12 w-12 text-green-500 mb-4" />
+                  <h3 className="text-xl font-bold text-green-800 mb-2">Thank You!</h3>
+                  <p className="text-green-700 mb-4">
+                    Your message has been successfully submitted. One of our attorneys will contact you shortly.
+                  </p>
                   <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-to-r from-blue-800 to-blue-600 hover:from-blue-900 hover:to-blue-700"
+                    onClick={() => setIsSubmitted(false)} 
+                    variant="outline"
+                    className="border-green-500 text-green-700 hover:bg-green-50"
                   >
-                    Send Message
+                    Send Another Message
                   </Button>
-                </form>
-              </Form>
+                </div>
+              ) : (
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Full Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="John Doe" className="border-blue-300 focus:border-blue-500" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email Address</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="john@example.com" className="border-blue-300 focus:border-blue-500" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                          <FormDescription className="text-xs text-gray-500">
+                            We'll never share your email with anyone else.
+                          </FormDescription>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone Number</FormLabel>
+                          <FormControl>
+                            <Input type="tel" placeholder="(555) 123-4567" className="border-blue-300 focus:border-blue-500" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>How can we help?</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Please describe your situation" 
+                              className="border-blue-300 focus:border-blue-500 min-h-32" 
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                          <FormDescription className="text-xs text-gray-500">
+                            <div className="flex items-center">
+                              <span className="mr-2">{field.value.length || 0}/1000</span>
+                              <span>All communications are confidential and protected by attorney-client privilege.</span>
+                            </div>
+                          </FormDescription>
+                        </FormItem>
+                      )}
+                    />
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-to-r from-blue-800 to-blue-600 hover:from-blue-900 hover:to-blue-700"
+                      disabled={form.formState.isSubmitting}
+                    >
+                      {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                </Form>
+              )}
             </div>
 
             <div>
@@ -157,7 +206,7 @@ const Contact = () => {
                   <Phone className="h-6 w-6 text-blue-700 mt-0.5" />
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-gray-700">508-454-0822</p>
+                    <a href="tel:5084540822" className="text-gray-700 hover:text-blue-700 transition-colors">508-454-0822</a>
                   </div>
                 </div>
                 
@@ -165,7 +214,7 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-blue-700 mt-0.5" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-700">Joe@summitlawoffices.com</p>
+                    <a href="mailto:Joe@summitlawoffices.com" className="text-gray-700 hover:text-blue-700 transition-colors">Joe@summitlawoffices.com</a>
                   </div>
                 </div>
                 
@@ -196,7 +245,8 @@ const Contact = () => {
                     frameBorder="0" 
                     allowFullScreen
                     aria-hidden="false"
-                    title="Office Location"
+                    loading="lazy"
+                    title="Summit Law Office Location"
                   ></iframe>
                 </div>
                 <p className="mt-2 text-sm text-gray-600 italic">Our office is marked with the yellow star</p>
