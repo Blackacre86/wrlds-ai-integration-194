@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
@@ -27,7 +26,7 @@ const Header = () => {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link to="/about" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-blue-800 hover:bg-blue-100/50 transition-colors">
-                About
+                About Us
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
