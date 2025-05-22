@@ -10,6 +10,7 @@ import AIInnovation from "./pages/AIInnovation";
 import Contact from "./pages/Contact";
 import ProsecutorAdvantage from "./pages/ProsecutorAdvantage";
 import OurApproach from "./pages/OurApproach";
+import PracticeAreas from "./pages/PracticeAreas";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/prosecutor-advantage" element={<ProsecutorAdvantage />} />
           <Route path="/our-approach" element={<OurApproach />} />
+          <Route path="/practice-areas" element={<PracticeAreas />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
