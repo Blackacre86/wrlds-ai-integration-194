@@ -80,7 +80,7 @@ const About = () => {
                 <div className="md:w-1/3">
                   {/* Kristin's photo */}
                   <img 
-                    src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png"
+                    src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png"
                     alt="Kristin D'Amico"
                     className="rounded-lg shadow-md w-full"
                   />

@@ -14,7 +14,7 @@ const AIInnovation = () => {
         <section className="py-16 md:py-24 bg-gradient-to-b from-blue-900 to-blue-800 text-white relative overflow-hidden">
           <div className="absolute bottom-0 right-0 w-full opacity-10 pointer-events-none h-32">
             <img 
-              src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
+              src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png" 
               alt="Mountain Background" 
               className="w-full h-auto object-cover object-bottom max-h-32"
             />
@@ -75,7 +75,7 @@ const AIInnovation = () => {
         <section className="py-16 bg-gradient-to-r from-blue-50 to-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/2 opacity-10 pointer-events-none h-32">
             <img 
-              src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
+              src="/lovable-uploads/3253b549-78e5-4c96-8b31-1743186d65d8.png" 
               alt="Mountain Background" 
               className="w-full h-auto object-cover max-h-32"
             />
@@ -140,4 +140,3 @@ const AIInnovation = () => {
 };
 
 export default AIInnovation;
-
