@@ -1,10 +1,17 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Logo = () => {
+  const navigate = useNavigate();
+  
+  const handleClick = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <Link to="/" className="flex items-center gap-2">
+    <button onClick={handleClick} className="flex items-center gap-2">
       <div className="flex items-center">
         <img 
           src="/lovable-uploads/6ce3ee44-9c6a-48a3-9aa5-49f0aadd380d.png" 
@@ -17,7 +24,7 @@ const Logo = () => {
         />
       </div>
       <div className="text-blue-800 font-bold text-xl md:text-2xl">Summit Law</div>
-    </Link>
+    </button>
   );
 };
 
