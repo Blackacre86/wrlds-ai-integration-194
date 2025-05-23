@@ -16,7 +16,7 @@ const Logo = ({ variant = "blue" }: { variant?: "blue" | "white" }) => {
         <img 
           src="/lovable-uploads/f0b64e3b-37c8-4f95-86ce-8ba84a9bd94b.png" 
           alt="Summit Law" 
-          className="h-8 md:h-10"
+          className="h-12 md:h-16" // Increased from h-8 md:h-10
           onError={(e) => {
             console.error("Logo failed to load:", e);
             // Fallback to text if image fails to load
@@ -31,7 +31,7 @@ const Logo = ({ variant = "blue" }: { variant?: "blue" | "white" }) => {
         <img 
           src="/lovable-uploads/2bcf743c-4503-407f-8f7b-2d68c3a69106.png" 
           alt="Summit Law" 
-          className="h-8 md:h-10"
+          className="h-12 md:h-16" // Increased from h-8 md:h-10
           onError={(e) => {
             console.error("Logo failed to load:", e);
             // Fallback to text if image fails to load

@@ -24,7 +24,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Logo using white variant */}
+          {/* Logo using white variant - Now with increased visibility */}
           <div className="flex items-center justify-center md:justify-start mb-8">
             <Logo variant="white" />
           </div>
