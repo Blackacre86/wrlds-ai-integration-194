@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-br from-[hsl(var(--summit-blue))] via-[hsl(var(--summit-blue))] to-slate-800 text-white overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-gradient-to-br from-blue-800 via-blue-700 to-slate-800 text-white overflow-hidden">
       {/* Mountain Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -17,7 +17,7 @@ const HeroSection = () => {
             e.currentTarget.style.display = 'none';
           }}
         />
-        <div className="absolute inset-0 bg-[hsl(var(--summit-blue))]/70 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-blue-800/70 mix-blend-multiply"></div>
       </div>
       
       {/* Content */}
@@ -35,7 +35,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button size="lg" className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                 Secure Your Case Strategy
               </Button>
             </Link>
