@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <Link to="/" className="flex items-center space-x-4">
-      <div className="h-28 w-auto flex items-center justify-center">
+      <div className="h-28 w-auto flex items-center justify-center bg-white rounded-lg p-1 shadow-sm">
         <img 
           src="/lovable-uploads/6c67f401-c087-4168-9659-d289fdefec08.png" 
           alt="Summit Law Logo" 

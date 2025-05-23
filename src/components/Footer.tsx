@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="bg-white/10 backdrop-blur-md p-4 inline-block rounded-lg">
+            <div className="inline-block rounded-lg">
               <div className="transform scale-75 origin-top-left">
                 <Logo />
               </div>
