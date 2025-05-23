@@ -17,7 +17,7 @@ const Logo = () => {
           SUMMIT LAW
         </span>
         <span className="text-[10px] text-blue-600">
-          Strategic Defense, Innovative Solutions, Trusted Results
+          Former prosecutor, Powerful defense
         </span>
       </div>
     </Link>
