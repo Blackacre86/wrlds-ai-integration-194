@@ -21,29 +21,29 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-blue-100">
-      <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-6">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-blue-100 shadow-sm">
+      <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-8">
         <Logo />
         
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden md:block">
-          <NavigationMenuList className="space-x-2">
+          <NavigationMenuList className="space-x-3">
             <NavigationMenuItem>
-              <Link to="/" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-colors">
+              <Link to="/" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 Home
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/about" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-colors">
+              <Link to="/about" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 About Us
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <div className="flex items-center">
-                <Link to="/practice-areas" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-colors mr-1">
+                <Link to="/practice-areas" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow mr-1">
                   Practice Areas
                 </Link>
-                <NavigationMenuTrigger className="h-full px-1 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-colors">
+                <NavigationMenuTrigger className="h-full px-1 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 </NavigationMenuTrigger>
               </div>
               <NavigationMenuContent>
@@ -62,17 +62,17 @@ const Header = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/prosecutor-advantage" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-colors">
+              <Link to="/prosecutor-advantage" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 Former Prosecutor Advantage
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/case-results" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-colors">
+              <Link to="/case-results" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 Case Results
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/ai-innovation" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/30 border border-blue-100/50 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-colors">
+              <Link to="/ai-innovation" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 AI Innovation
               </Link>
             </NavigationMenuItem>
@@ -81,7 +81,7 @@ const Header = () => {
         
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-4 py-2 rounded-md mr-2">
+          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-4 py-2 rounded-md mr-2 shadow-md">
             Contact
           </Link>
           <button 
@@ -95,7 +95,7 @@ const Header = () => {
         
         {/* Desktop Contact Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-5 py-3 rounded-md text-md font-medium">
+          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-5 py-3 rounded-md text-md font-medium shadow-md hover:shadow-lg transition-all duration-300">
             Contact Us
           </Link>
         </div>

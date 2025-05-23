@@ -23,23 +23,28 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">Client Success Stories</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+    <section className="py-20 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-pattern-mountain opacity-5 pointer-events-none"></div>
+      
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">Client Success Stories</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Real results for real people facing criminal charges in Massachusetts.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-t-4 border-blue-700">
-              <CardContent className="pt-6">
-                <Quote className="h-8 w-8 text-blue-200 mb-4" />
-                <p className="text-gray-700 mb-6 italic">{testimonial.quote}</p>
-                <div>
-                  <p className="font-bold">{testimonial.author}</p>
+            <Card key={index} className="border-t-4 border-blue-700 hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] overflow-hidden">
+              <CardContent className="pt-8 pb-6 px-6">
+                <div className="bg-blue-100/50 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                  <Quote className="h-8 w-8 text-blue-600" />
+                </div>
+                <p className="text-gray-700 mb-8 italic text-lg">{testimonial.quote}</p>
+                <div className="pt-4 border-t border-gray-100">
+                  <p className="font-bold text-lg">{testimonial.author}</p>
                   <p className="text-sm text-gray-500">{testimonial.position}</p>
                 </div>
               </CardContent>

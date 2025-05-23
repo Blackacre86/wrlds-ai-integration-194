@@ -59,11 +59,11 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Our Practice Areas</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+    <section id="services" className="py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 font-serif">Our Practice Areas</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Experienced criminal defense representation across a wide range of practice areas
           </p>
         </div>
@@ -72,20 +72,21 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="p-6 rounded-lg border border-gray-100 shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-b from-white to-blue-50"
+              className="p-8 rounded-xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 bg-gradient-to-b from-white to-blue-50 hover:translate-y-[-5px]"
             >
               <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              <Link to={service.link} className="text-blue-700 hover:text-blue-800 flex items-center">
-                <span className="mr-2">Learn More</span> <ArrowRight className="h-4 w-4" />
+              <p className="text-gray-600 mb-6">{service.description}</p>
+              <Link to={service.link} className="text-blue-700 hover:text-blue-800 flex items-center group">
+                <span className="mr-2">Learn More</span> 
+                <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <Link to="/practice-areas">
-            <Button className="bg-blue-800 hover:bg-blue-900">
+            <Button className="bg-blue-800 hover:bg-blue-900 text-white px-8 py-6 text-lg shadow-md hover:shadow-lg transition-all duration-300">
               View All Practice Areas
             </Button>
           </Link>
