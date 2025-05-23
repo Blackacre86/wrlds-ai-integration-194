@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <Link to="/" className="flex items-center gap-5">
-      <div className="w-24 h-24 md:w-28 md:h-28 relative">
+    <Link to="/" className="flex items-center gap-4">
+      <div className="w-28 h-28 md:w-32 md:h-32 relative flex-shrink-0">
         <img 
           src="/lovable-uploads/60f8e1a7-01fc-4068-8dfe-8e4c901fbd9f.png"
           alt="Summit Law Logo" 
