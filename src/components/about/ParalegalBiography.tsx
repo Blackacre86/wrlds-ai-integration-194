@@ -49,10 +49,6 @@ const ParalegalBiography = () => {
               </ul>
             </div>
           </div>
-          
-          <p className="text-lg mt-6">
-            At Summit Law, Kristin applies her diverse background and skills to support attorneys effectively and deliver exceptional client service.
-          </p>
         </div>
       </div>
     </section>
