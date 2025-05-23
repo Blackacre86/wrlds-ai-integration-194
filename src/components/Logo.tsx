@@ -20,8 +20,11 @@ const Logo = ({ variant = "blue" }: { variant?: "blue" | "white" }) => {
           onError={(e) => {
             console.error("Logo failed to load:", e);
             // Fallback to text if image fails to load
-            e.currentTarget.style.display = 'none';
-            e.currentTarget.nextElementSibling!.style.display = 'block';
+            const target = e.currentTarget;
+            target.style.display = 'none';
+            if (target.nextElementSibling instanceof HTMLElement) {
+              target.nextElementSibling.style.display = 'block';
+            }
           }}
         />
       ) : (
@@ -32,8 +35,11 @@ const Logo = ({ variant = "blue" }: { variant?: "blue" | "white" }) => {
           onError={(e) => {
             console.error("Logo failed to load:", e);
             // Fallback to text if image fails to load
-            e.currentTarget.style.display = 'none';
-            e.currentTarget.nextElementSibling!.style.display = 'block';
+            const target = e.currentTarget;
+            target.style.display = 'none';
+            if (target.nextElementSibling instanceof HTMLElement) {
+              target.nextElementSibling.style.display = 'block';
+            }
           }}
         />
       )}
