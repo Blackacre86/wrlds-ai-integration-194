@@ -5,10 +5,16 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <Link to="/" className="flex items-center gap-4">
-      <div className="flex flex-col">
-        <span className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-700 font-serif tracking-wide">
-          
-        </span>
+      <div className="flex items-center">
+        <img 
+          src="/lovable-uploads/6fadd948-052c-46e3-b8eb-f5a4db222ff1.png" 
+          alt="Summit Law Logo" 
+          className="h-12 md:h-14"
+          onError={(e) => {
+            console.error("Logo image failed to load:", e);
+            e.currentTarget.style.display = 'none';
+          }}
+        />
       </div>
     </Link>
   );
