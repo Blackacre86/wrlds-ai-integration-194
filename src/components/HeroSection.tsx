@@ -33,7 +33,7 @@ const HeroSection = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-6 drop-shadow-md">
             Massachusetts Criminal Defense Attorney
             <span className="block mt-2 text-blue-100">
-              Proven Insight, Powerful Defense
+              Inside Knowledge, Strong Protection
             </span>
           </h1>
           <p className="text-lg md:text-xl mb-8 text-blue-50 leading-relaxed max-w-3xl drop-shadow-sm">
@@ -48,7 +48,7 @@ const HeroSection = () => {
             </Link>
             <Link to="/our-approach">
               <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                Discover Our Unique Approach
+                The Summit Difference
               </Button>
             </Link>
           </div>
