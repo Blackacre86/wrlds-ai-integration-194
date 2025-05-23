@@ -52,9 +52,21 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         
-        {/* Simplified Summit Divider with animation */}
+        {/* Simplified Summit Divider with animation and logo */}
         <div className="relative bg-white py-8 overflow-hidden">
-          <div className="container mx-auto flex justify-center items-center">
+          <div className="container mx-auto flex flex-col justify-center items-center">
+            {/* Small logo above the scroll button */}
+            <div className="mb-4">
+              <img 
+                src="/lovable-uploads/6ce3ee44-9c6a-48a3-9aa5-49f0aadd380d.png" 
+                alt="Summit Law Logo" 
+                className="h-14 w-auto drop-shadow-md" 
+                onError={(e) => {
+                  console.error("Divider logo image failed to load:", e);
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
             <button 
               onClick={scrollToNextSection}
               className="flex flex-col items-center gap-2 group cursor-pointer"
