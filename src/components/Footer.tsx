@@ -1,6 +1,6 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="space-y-5">
             <div className="mb-4">
-              <span className="text-white font-bold text-xl">Summit Law</span>
+              <Logo variant="white" />
             </div>
             <p className="text-sm md:text-base">
               Strategic criminal defense representation that knows how to dismantle the state's case against you.

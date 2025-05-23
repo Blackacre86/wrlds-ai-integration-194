@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const HeroSection = () => {
   return (
@@ -23,9 +24,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Logo text only */}
+          {/* Logo using white variant */}
           <div className="flex items-center justify-center md:justify-start mb-8">
-            <div className="text-white font-bold text-3xl md:text-4xl lg:text-5xl">Summit Law</div>
+            <Logo variant="white" />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-6 drop-shadow-md">
             Massachusetts Criminal Defense Attorney

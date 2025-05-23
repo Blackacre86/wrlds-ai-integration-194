@@ -10,8 +10,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { ChevronDown } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 
 const Index = () => {
   // Subtle scroll animation for section elements
@@ -55,9 +54,9 @@ const Index = () => {
         {/* Simplified Summit Divider with animation but no logo */}
         <div className="relative bg-white py-8 overflow-hidden">
           <div className="container mx-auto flex flex-col justify-center items-center">
-            {/* Text-only section title */}
+            {/* Logo blue variant */}
             <div className="mb-4">
-              <div className="text-blue-800 font-bold text-xl">Summit Law</div>
+              <Logo variant="blue" />
             </div>
             <button 
               onClick={scrollToNextSection}

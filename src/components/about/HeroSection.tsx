@@ -1,5 +1,6 @@
 
 import React from "react";
+import Logo from "../Logo";
 
 const HeroSection = () => {
   return (
@@ -24,9 +25,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/2 mb-6 md:mb-0">
-            {/* Text-only Summit Law identifier */}
+            {/* Logo using white variant */}
             <div className="flex items-center mb-6">
-              <div className="text-white font-bold text-2xl md:text-3xl">Summit Law</div>
+              <Logo variant="white" />
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif leading-tight mb-3">About Us</h1>
             <p className="text-lg text-blue-100 leading-relaxed max-w-xl">
