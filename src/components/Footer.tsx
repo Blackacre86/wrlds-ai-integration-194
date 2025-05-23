@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
@@ -13,7 +12,7 @@ const Footer = () => {
               <Logo />
             </div>
             <p className="text-sm md:text-base">
-              Strategic criminal defense representation by a former prosecutor who knows how to dismantle the state's case against you.
+              Strategic criminal defense representation that knows how to dismantle the state's case against you.
             </p>
             <div className="flex items-center space-x-4 pt-2">
               <a 
@@ -71,7 +70,7 @@ const Footer = () => {
         
         <div className="border-t border-blue-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
-            <p className="text-sm">© {new Date().getFullYear()} Summit Law. All rights reserved.</p>
+            <p className="text-sm">© {new Date().getFullYear()} Law Offices. All rights reserved.</p>
             <a 
               href="https://www.justia.com/lawyers/massachusetts/clinton/joe-brava" 
               target="_blank" 

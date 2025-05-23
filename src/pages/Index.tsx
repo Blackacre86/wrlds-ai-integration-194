@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -8,7 +7,7 @@ import ProsecutorAdvantageSection from "@/components/ProsecutorAdvantageSection"
 import AIInnovationSection from "@/components/AIInnovationSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import { Mountain, ChevronDown, Cpu, SearchCheck, PieChart } from "lucide-react";
+import { ChevronDown, Cpu, SearchCheck, PieChart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -52,7 +51,7 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         
-        {/* Enhanced Summit Divider with animation */}
+        {/* Simplified Summit Divider with animation */}
         <div className="relative bg-white py-8 overflow-hidden">
           <div className="container mx-auto flex justify-center items-center">
             <button 
@@ -61,9 +60,8 @@ const Index = () => {
               aria-label="Scroll to next section"
             >
               <div className="bg-gradient-to-br from-blue-100 to-teal-50 rounded-full p-5 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-105">
-                <Mountain className="h-8 w-8 text-blue-800" />
+                <ChevronDown className="h-8 w-8 text-blue-800" />
               </div>
-              <ChevronDown className="h-6 w-6 text-blue-800 animate-bounce" />
             </button>
           </div>
           <Separator className="mt-8 bg-gradient-to-r from-transparent via-blue-200 to-transparent h-[2px]" />
@@ -93,7 +91,7 @@ const Index = () => {
                   Innovative Legal Defense with AI Technology
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Summit Law leverages cutting-edge artificial intelligence tools to provide you with superior criminal defense representation.
+                  We leverage cutting-edge artificial intelligence tools to provide you with superior criminal defense representation.
                 </p>
               </div>
               

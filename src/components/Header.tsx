@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-blue-100 shadow-sm">
-      <div className="container mx-auto flex h-36 items-center justify-between px-4 md:px-8">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
         <Logo />
         
         {/* Desktop Navigation */}

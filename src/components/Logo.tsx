@@ -5,19 +5,9 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <Link to="/" className="flex items-center gap-4">
-      <div className="w-28 h-28 md:w-32 md:h-32 relative flex-shrink-0">
-        <img 
-          src="/lovable-uploads/60f8e1a7-01fc-4068-8dfe-8e4c901fbd9f.png"
-          alt="Summit Law Logo" 
-          className="w-full h-full object-contain"
-        />
-      </div>
       <div className="flex flex-col">
         <span className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-700 font-serif tracking-wide">
-          SUMMIT LAW
-        </span>
-        <span className="text-xs md:text-sm text-blue-600 font-medium">
-          Former prosecutor, Powerful defense
+          LAW OFFICES
         </span>
       </div>
     </Link>
