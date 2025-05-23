@@ -55,8 +55,8 @@ const Index = () => {
         {/* Simplified Summit Divider with animation and logo */}
         <div className="relative bg-white py-8 overflow-hidden">
           <div className="container mx-auto flex flex-col justify-center items-center">
-            {/* Small logo above the scroll button */}
-            <div className="mb-4">
+            {/* Small logo with text above the scroll button */}
+            <div className="mb-4 flex items-center">
               <img 
                 src="/lovable-uploads/6ce3ee44-9c6a-48a3-9aa5-49f0aadd380d.png" 
                 alt="Summit Law Logo" 
@@ -66,6 +66,7 @@ const Index = () => {
                   e.currentTarget.style.display = 'none';
                 }}
               />
+              <div className="text-blue-800 font-bold text-xl ml-3">Summit Law</div>
             </div>
             <button 
               onClick={scrollToNextSection}
