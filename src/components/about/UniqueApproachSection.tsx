@@ -64,26 +64,18 @@ const UniqueApproachSection = () => {
             </div>
             
             <p className="text-lg">
-              Rather than merely responding to charges or reacting to the prosecution's moves, we begin every case by thinking strategically like prosecutors and analytically like investigators. We carefully reconstruct the police investigation, scrutinizing how evidence was collected and evaluating investigative methods. We identify any potential mistakes, oversights, or shortcuts taken by law enforcement and assess the reasoning behind prosecutorial charging decisions.
+              Rather than merely responding to charges or reacting to the prosecution's moves, we begin every case by thinking strategically like prosecutors and analytically like investigators. We carefully reconstruct the police investigation, scrutinizing how evidence was collected and evaluating investigative methods.
             </p>
             
             <p className="text-lg">
-              Before formulating a defense, we attempt to build the prosecution's case ourselves from their perspective. This reverse-engineering approach systematically reveals flaws in the evidence and investigative methods used by law enforcement. Only after this comprehensive analysis do we develop a customized defense strategy specifically designed to leverage those identified weaknesses, ensuring the best possible outcomes for our clients.
-            </p>
-            
-            <p className="text-lg">
-              Additionally, we utilize proprietary artificial intelligence technology securely hosted on private servers. These sophisticated AI tools enable rapid and detailed evidence analysis, identify investigative gaps, and enhance the construction of clear, compelling courtroom arguments. All technological solutions adhere to strict standards of security and confidentiality.
-            </p>
-            
-            <p className="text-lg">
-              Clients we represent benefit from attorneys who genuinely understand prosecution and investigative tactics from firsthand experience. This powerful combination of prosecutorial insight, investigative strategy, and advanced technology ensures robust and confident criminal defense representation.
+              Learn more about our comprehensive approach, including how we leverage AI technology to enhance your defense.
             </p>
             
             {/* Call to Action */}
             <div className="mt-10 text-center">
-              <Link to="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white px-8 py-6 text-lg font-semibold">
-                  Schedule Your Free Case Analysis
+              <Link to="/our-approach">
+                <Button size="lg" className="bg-gradient-to-r from-blue-800 to-blue-700 hover:from-blue-900 hover:to-blue-800 text-white px-8 py-6 text-lg font-semibold">
+                  Explore Our Complete Strategy
                 </Button>
               </Link>
             </div>

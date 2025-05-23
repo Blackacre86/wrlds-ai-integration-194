@@ -72,8 +72,8 @@ const Header = () => {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/ai-innovation" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow">
-                AI Innovation
+              <Link to="/our-approach" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow">
+                Our Approach
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -157,8 +157,8 @@ const Header = () => {
             <Link to="/case-results" className="font-medium text-blue-800 hover:text-blue-600 py-2 border-b border-gray-100" onClick={toggleMenu}>
               Case Results
             </Link>
-            <Link to="/ai-innovation" className="font-medium text-blue-800 hover:text-blue-600 py-2 border-b border-gray-100" onClick={toggleMenu}>
-              AI Innovation
+            <Link to="/our-approach" className="font-medium text-blue-800 hover:text-blue-600 py-2 border-b border-gray-100" onClick={toggleMenu}>
+              Our Approach
             </Link>
             <Link to="/contact" className="font-medium text-blue-800 hover:text-blue-600 py-2" onClick={toggleMenu}>
               Contact Us
