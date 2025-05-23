@@ -8,10 +8,8 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="inline-block rounded-lg">
-              <div className="transform scale-75 origin-top-left">
-                <Logo />
-              </div>
+            <div className="inline-block">
+              <Logo />
             </div>
             <p className="text-sm">
               Strategic criminal defense representation by a former prosecutor who knows how to dismantle the state's case against you.
