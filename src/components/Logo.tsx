@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <Link to="/" className="flex items-center space-x-4">
-      <div className="w-20 h-20 md:w-24 md:h-24 relative">
+      <div className="w-28 h-28 md:w-32 md:h-32 relative">
         <img 
           src="/lovable-uploads/60f8e1a7-01fc-4068-8dfe-8e4c901fbd9f.png"
           alt="Summit Law Logo" 
@@ -13,10 +13,10 @@ const Logo = () => {
         />
       </div>
       <div className="flex flex-col">
-        <span className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-700 font-serif tracking-wide">
+        <span className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-700 font-serif tracking-wide">
           SUMMIT LAW
         </span>
-        <span className="text-xs md:text-sm text-blue-600 font-medium">
+        <span className="text-sm md:text-base text-blue-600 font-medium">
           Former prosecutor, Powerful defense
         </span>
       </div>
