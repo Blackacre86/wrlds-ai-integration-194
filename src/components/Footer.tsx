@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
 
 const Footer = () => {
   return (
@@ -9,17 +8,8 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="space-y-5">
-            <div className="mb-4 flex items-center">
-              <img 
-                src="/lovable-uploads/6ce3ee44-9c6a-48a3-9aa5-49f0aadd380d.png" 
-                alt="Summit Law Logo" 
-                className="h-16 w-auto drop-shadow-lg" 
-                onError={(e) => {
-                  console.error("Footer logo image failed to load:", e);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              <span className="text-white font-bold text-xl ml-2">Summit Law</span>
+            <div className="mb-4">
+              <span className="text-white font-bold text-xl">Summit Law</span>
             </div>
             <p className="text-sm md:text-base">
               Strategic criminal defense representation that knows how to dismantle the state's case against you.

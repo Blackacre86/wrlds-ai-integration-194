@@ -23,20 +23,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Logo display in hero section with Summit Law text */}
+          {/* Logo text only */}
           <div className="flex items-center justify-center md:justify-start mb-8">
-            <div className="flex items-center">
-              <img 
-                src="/lovable-uploads/6ce3ee44-9c6a-48a3-9aa5-49f0aadd380d.png" 
-                alt="Summit Law Logo" 
-                className="h-24 md:h-32 lg:h-40 w-auto drop-shadow-lg" 
-                onError={(e) => {
-                  console.error("Hero logo image failed to load:", e);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              <div className="text-white font-bold text-3xl md:text-4xl lg:text-5xl ml-4">Summit Law</div>
-            </div>
+            <div className="text-white font-bold text-3xl md:text-4xl lg:text-5xl">Summit Law</div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-6 drop-shadow-md">
             Massachusetts Criminal Defense Attorney

@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const HeroSection = () => {
@@ -23,18 +24,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/2 mb-6 md:mb-0">
-            {/* Logo in about hero section with Summit Law text */}
+            {/* Text-only Summit Law identifier */}
             <div className="flex items-center mb-6">
-              <img 
-                src="/lovable-uploads/6ce3ee44-9c6a-48a3-9aa5-49f0aadd380d.png" 
-                alt="Summit Law Logo" 
-                className="h-20 md:h-28 w-auto drop-shadow-lg" 
-                onError={(e) => {
-                  console.error("About page logo image failed to load:", e);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              <div className="text-white font-bold text-2xl md:text-3xl ml-4">Summit Law</div>
+              <div className="text-white font-bold text-2xl md:text-3xl">Summit Law</div>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif leading-tight mb-3">About Us</h1>
             <p className="text-lg text-blue-100 leading-relaxed max-w-xl">
