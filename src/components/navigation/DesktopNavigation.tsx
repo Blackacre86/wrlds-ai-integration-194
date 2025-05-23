@@ -18,7 +18,7 @@ const DesktopNavigation = ({ handleNavigation }: DesktopNavigationProps) => {
         <NavigationMenuItem>
           <button 
             onClick={() => handleNavigation('/')} 
-            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow"
+            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-medium text-summit-blue-700 hover:bg-summit-blue-50 hover:text-summit-blue-800 transition-colors duration-200"
           >
             Home
           </button>
@@ -26,7 +26,7 @@ const DesktopNavigation = ({ handleNavigation }: DesktopNavigationProps) => {
         <NavigationMenuItem>
           <button 
             onClick={() => handleNavigation('/about')} 
-            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow"
+            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-medium text-summit-blue-700 hover:bg-summit-blue-50 hover:text-summit-blue-800 transition-colors duration-200"
           >
             About Us
           </button>
@@ -37,7 +37,7 @@ const DesktopNavigation = ({ handleNavigation }: DesktopNavigationProps) => {
         <NavigationMenuItem>
           <button 
             onClick={() => handleNavigation('/prosecutor-advantage')} 
-            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow"
+            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-medium text-summit-blue-700 hover:bg-summit-blue-50 hover:text-summit-blue-800 transition-colors duration-200"
           >
             Former Prosecutor Advantage
           </button>
@@ -45,7 +45,7 @@ const DesktopNavigation = ({ handleNavigation }: DesktopNavigationProps) => {
         <NavigationMenuItem>
           <button 
             onClick={() => handleNavigation('/case-results')} 
-            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow"
+            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-medium text-summit-blue-700 hover:bg-summit-blue-50 hover:text-summit-blue-800 transition-colors duration-200"
           >
             Case Results
           </button>
@@ -53,7 +53,7 @@ const DesktopNavigation = ({ handleNavigation }: DesktopNavigationProps) => {
         <NavigationMenuItem>
           <button 
             onClick={() => handleNavigation('/our-approach')} 
-            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow"
+            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-medium text-summit-blue-700 hover:bg-summit-blue-50 hover:text-summit-blue-800 transition-colors duration-200"
           >
             Our Approach
           </button>

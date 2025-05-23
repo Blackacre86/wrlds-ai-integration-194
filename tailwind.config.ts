@@ -23,6 +23,33 @@ export default {
 				'serif': ['Playfair Display', 'Georgia', 'serif'],
 			},
 			colors: {
+				// More consistent color palette
+				'summit-blue': {
+					50: '#eef3fb',
+					100: '#d4e0f5',
+					200: '#abc6ec',
+					300: '#77a3de',
+					400: '#4b7fd0',
+					500: '#2c66c3',
+					600: '#1e4f9e', // Primary brand color
+					700: '#183e7d',
+					800: '#163366',
+					900: '#132c57',
+					950: '#0e1c36',
+				},
+				'summit-gold': {
+					50: '#fef9eb',
+					100: '#fcf1c9',
+					200: '#f9e18e',
+					300: '#f6cd4d', // Primary accent color
+					400: '#f2b716',
+					500: '#db9c0d',
+					600: '#b6770c',
+					700: '#8d550e',
+					800: '#754313',
+					900: '#633816',
+					950: '#391c08',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
