@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -60,7 +61,7 @@ const WhyChooseUsSection = () => {
               </div>
               <h3 className="text-xl font-bold text-center mb-2">Advanced Technology</h3>
               <p className="text-center">
-                Secure, proprietary artificial intelligence tools ensure thorough evidence analysis and effective courtroom strategies.
+                Our AI-enhanced case analysis provides insights and advantages that traditional defense methods simply cannot match.
               </p>
             </CardContent>
           </Card>
@@ -94,7 +95,7 @@ const WhyChooseUsSection = () => {
         
         <div className="text-center mt-12">
           <Link to="/contact">
-            <Button size="lg" className="bg-blue-800 hover:bg-blue-900">
+            <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none">
               Schedule Your Free Consultation
             </Button>
           </Link>

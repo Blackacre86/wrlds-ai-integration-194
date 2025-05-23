@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const PracticeAreas = () => {
   const practiceAreas = [
@@ -101,7 +103,9 @@ const PracticeAreas = () => {
               <div key={index} className="p-6 bg-blue-50/60 rounded-lg border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
                 <h2 className="text-xl font-semibold text-blue-800 mb-3">{area.title}</h2>
                 <p className="text-gray-700 mb-4">{area.description}</p>
-                <Link to={area.link} className="text-blue-700 font-medium hover:underline">Learn more →</Link>
+                <Link to={area.link} className="inline-flex items-center text-blue-700 font-medium hover:underline">
+                  Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
               </div>
             ))}
           </div>
@@ -138,8 +142,11 @@ const PracticeAreas = () => {
             </div>
             
             <div className="text-center mt-10">
-              <Link to="/contact" className="inline-block px-6 py-3 bg-blue-700 text-white font-medium rounded-md hover:bg-blue-800 transition-colors">
-                Contact Us for a Free Consultation
+              <Link to="/contact">
+                <Button className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none px-6 py-3 text-lg">
+                  Contact Us for a Free Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
               </Link>
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -35,8 +36,8 @@ const ProsecutorAdvantage = () => {
               <p className="text-2xl font-semibold text-white mb-8 italic">
                 "Clarity of a Prosecutor. Strength of a Defender. Results That Matter."
               </p>
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-8 py-6 text-lg">
-                Discover Your Defense Advantage
+              <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none px-8 py-6 text-lg">
+                The Summit Difference
               </Button>
             </div>
           </div>
@@ -71,7 +72,7 @@ const ProsecutorAdvantage = () => {
                     cases, what evidence they prioritize, and the strategies they use to secure convictions.
                   </p>
                   <p className="text-lg text-gray-700">
-                    Unlike most defense attorneys, we begin by reverse-engineering the prosecution's case,
+                    Unlike most defense attorneys, Attorney Brava begins by reverse-engineering the prosecution's case,
                     identifying weaknesses and building a strategic defense that anticipates their every move.
                   </p>
                 </div>
@@ -141,8 +142,8 @@ const ProsecutorAdvantage = () => {
                     <div className="md:w-3/4">
                       <h3 className="text-xl font-bold mb-3">Analyze the Prosecution's Case</h3>
                       <p className="text-gray-700">
-                        We begin where most defense attorneys end. By first understanding how the prosecution 
-                        will build their case against you, we can identify critical weaknesses before they're even aware of them.
+                        Attorney Brava begins where most defense attorneys end. By first understanding how the prosecution 
+                        will build their case against you, he can identify critical weaknesses before they're even aware of them.
                       </p>
                     </div>
                   </div>
@@ -158,7 +159,7 @@ const ProsecutorAdvantage = () => {
                     <div className="md:w-3/4">
                       <h3 className="text-xl font-bold mb-3">Identify Strategic Vulnerabilities</h3>
                       <p className="text-gray-700">
-                        With our prosecutor's perspective, we recognize evidentiary gaps, procedural missteps, 
+                        With his prosecutor's perspective, Attorney Brava recognizes evidentiary gaps, procedural missteps, 
                         and strategic flaws that other defense attorneys might miss entirely.
                       </p>
                     </div>
@@ -175,8 +176,8 @@ const ProsecutorAdvantage = () => {
                     <div className="md:w-3/4">
                       <h3 className="text-xl font-bold mb-3">Build a Proactive Defense</h3>
                       <p className="text-gray-700">
-                        Rather than simply responding to the prosecution's moves, we anticipate them. 
-                        This allows us to develop a defense strategy that stays several steps ahead throughout your case.
+                        Rather than simply responding to the prosecution's moves, he anticipates them. 
+                        This allows Attorney Brava to develop a defense strategy that stays several steps ahead throughout your case.
                       </p>
                     </div>
                   </div>
@@ -185,7 +186,7 @@ const ProsecutorAdvantage = () => {
               
               <div className="mt-10 text-center">
                 <Link to="/contact">
-                  <Button className="group bg-blue-800 hover:bg-blue-900 text-white text-lg px-6 py-3">
+                  <Button className="group bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white text-lg border-none px-6 py-3">
                     Discuss Your Case With Us
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
