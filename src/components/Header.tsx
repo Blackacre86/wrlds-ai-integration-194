@@ -22,32 +22,32 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-blue-100 shadow-sm">
-      <div className="container mx-auto flex h-44 items-center justify-between px-4 md:px-8">
+      <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-8">
         <Logo />
         
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden md:block">
-          <NavigationMenuList className="space-x-3">
+          <NavigationMenuList className="space-x-2">
             <NavigationMenuItem>
-              <Link to="/" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 Home
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/about" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/about" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 About Us
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <div className="flex items-center">
-                <Link to="/practice-areas" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow mr-1">
+                <Link to="/practice-areas" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow mr-1">
                   Practice Areas
                 </Link>
-                <NavigationMenuTrigger className="h-full px-1 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+                <NavigationMenuTrigger className="h-full px-1 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 </NavigationMenuTrigger>
               </div>
               <NavigationMenuContent>
-                <div className="grid w-[400px] gap-3 p-4 backdrop-blur-md bg-white/90 border border-blue-100 rounded-lg shadow-lg">
+                <div className="grid w-[400px] gap-2 p-4 backdrop-blur-md bg-white/95 border border-blue-100 rounded-lg shadow-lg">
                   <Link to="/practice-areas/oui-dui" className="block p-2 hover:bg-blue-50/70 rounded-md">OUI/DUI Defense</Link>
                   <Link to="/practice-areas/domestic-violence" className="block p-2 hover:bg-blue-50/70 rounded-md">Domestic Violence Defense</Link>
                   <Link to="/practice-areas/drug-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Drug Crimes</Link>
@@ -62,17 +62,17 @@ const Header = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/prosecutor-advantage" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/prosecutor-advantage" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 Former Prosecutor Advantage
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/case-results" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/case-results" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 Case Results
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/ai-innovation" className="px-4 py-2 rounded-lg backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/ai-innovation" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
                 AI Innovation
               </Link>
             </NavigationMenuItem>
@@ -81,21 +81,21 @@ const Header = () => {
         
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-4 py-2 rounded-md mr-2 shadow-md">
+          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-3 py-1.5 rounded-md mr-2 shadow-md text-xs font-medium">
             Contact
           </Link>
           <button 
             onClick={toggleMenu} 
-            className="p-2 rounded-md hover:bg-blue-50 transition-colors"
+            className="p-1.5 rounded-md hover:bg-blue-50 transition-colors"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? <X className="h-6 w-6 text-[hsl(var(--summit-blue))]" /> : <Menu className="h-6 w-6 text-[hsl(var(--summit-blue))]" />}
+            {isMenuOpen ? <X className="h-5 w-5 text-[hsl(var(--summit-blue))]" /> : <Menu className="h-5 w-5 text-[hsl(var(--summit-blue))]" />}
           </button>
         </div>
         
         {/* Desktop Contact Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-5 py-3 rounded-md text-md font-medium shadow-md hover:shadow-lg transition-all duration-300">
+          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300">
             Contact Us
           </Link>
         </div>
@@ -104,7 +104,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute top-20 inset-x-0 z-50 h-[calc(100vh-5rem)] overflow-y-auto">
-          <nav className="container mx-auto px-4 py-6 flex flex-col space-y-6">
+          <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
             <Link to="/" className="font-medium text-blue-800 hover:text-blue-600 py-2 border-b border-gray-100" onClick={toggleMenu}>
               Home
             </Link>
@@ -117,7 +117,7 @@ const Header = () => {
               <Link to="/practice-areas" className="font-medium text-blue-800 hover:text-blue-600" onClick={toggleMenu}>
                 Practice Areas
               </Link>
-              <div className="pl-4 mt-3 space-y-2">
+              <div className="pl-4 mt-2 space-y-1.5">
                 <Link to="/practice-areas/oui-dui" className="block text-sm text-gray-700 hover:text-blue-600 py-1" onClick={toggleMenu}>
                   OUI/DUI Defense
                 </Link>
@@ -164,9 +164,9 @@ const Header = () => {
               Contact Us
             </Link>
             
-            <div className="pt-4 mt-4">
+            <div className="pt-4 mt-2">
               <Link to="/contact" onClick={toggleMenu}>
-                <Button className="w-full bg-gradient-to-r from-blue-800 to-blue-600 hover:from-blue-900 hover:to-blue-700">
+                <Button className="w-full bg-gradient-to-r from-blue-800 to-blue-600 hover:from-blue-900 hover:to-blue-700 text-sm">
                   Free Consultation
                 </Button>
               </Link>

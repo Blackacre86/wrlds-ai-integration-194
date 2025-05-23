@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-28 md:py-40 bg-gradient-to-br from-[hsl(var(--summit-blue))] via-[hsl(var(--summit-blue))] to-slate-800 text-white overflow-hidden">
-      {/* Mountain Background Image with Overlay - Adjusted opacity */}
+    <section className="relative py-24 md:py-32 bg-gradient-to-br from-[hsl(var(--summit-blue))] via-[hsl(var(--summit-blue))] to-slate-800 text-white overflow-hidden">
+      {/* Mountain Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
           alt="Mountain Path" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-25"
           onError={(e) => {
             console.error("Image failed to load:", e);
             e.currentTarget.style.display = 'none';
@@ -23,24 +23,24 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-tight mb-8 drop-shadow-md">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-6 drop-shadow-md">
             Massachusetts Criminal Defense Attorney
-            <span className="block mt-3 text-blue-100">
+            <span className="block mt-2 text-blue-100">
               Proven Insight, Powerful Defense
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-12 text-blue-50 leading-relaxed max-w-3xl drop-shadow-sm">
+          <p className="text-lg md:text-xl mb-8 text-blue-50 leading-relaxed max-w-3xl drop-shadow-sm">
             When your freedom is on the line, you deserve an attorney who truly understands the prosecution's playbook. 
             Attorney Joe Brava is a former prosecutor who leverages insider knowledge to build a strong, strategic defense customized for you.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white border-none text-lg md:text-xl font-semibold px-10 py-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                 Secure Your Case Strategy
               </Button>
             </Link>
             <Link to="/our-approach">
-              <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-lg md:text-xl font-semibold px-10 py-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                 Discover Our Unique Approach
               </Button>
             </Link>
