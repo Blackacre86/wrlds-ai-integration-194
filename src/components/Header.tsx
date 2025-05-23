@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 border-b border-blue-100">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-6">
         <Logo />
         
         {/* Desktop Navigation */}
@@ -95,7 +95,7 @@ const Header = () => {
         
         {/* Desktop Contact Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-4 py-2 rounded-md">
+          <Link to="/contact" className="bg-gradient-to-r from-[hsl(var(--summit-blue))] to-blue-600 hover:from-blue-900 hover:to-blue-700 text-white px-5 py-3 rounded-md text-md font-medium">
             Contact Us
           </Link>
         </div>

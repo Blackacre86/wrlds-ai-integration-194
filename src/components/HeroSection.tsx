@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-br from-[hsl(var(--summit-blue))] via-[hsl(var(--summit-blue))] to-slate-800 text-white overflow-hidden">
+    <section className="relative py-24 md:py-36 bg-gradient-to-br from-[hsl(var(--summit-blue))] via-[hsl(var(--summit-blue))] to-slate-800 text-white overflow-hidden">
       {/* Mountain Background Image with Overlay - Adjusted opacity */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -23,24 +23,24 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-tight mb-6">
             Massachusetts Criminal Defense Attorney
-            <span className="block mt-2 text-blue-200">
+            <span className="block mt-3 text-blue-200">
               Proven Insight, Powerful Defense
             </span>
           </h1>
-          <p className="text-lg md:text-xl mb-8 text-blue-100 leading-relaxed max-w-2xl">
+          <p className="text-xl md:text-2xl mb-10 text-blue-100 leading-relaxed max-w-3xl">
             When your freedom is on the line, you deserve an attorney who truly understands the prosecution's playbook. 
             Attorney Joe Brava is a former prosecutor who leverages insider knowledge to build a strong, strategic defense customized for you.
           </p>
-          <div className="flex flex-col sm:flex-row gap-5">
+          <div className="flex flex-col sm:flex-row gap-6">
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white border-none text-lg md:text-xl font-semibold px-8 py-7">
+              <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white border-none text-lg md:text-xl font-semibold px-10 py-8">
                 Secure Your Case Strategy
               </Button>
             </Link>
             <Link to="/our-approach">
-              <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/15 hover:border-white/30 text-lg md:text-xl font-semibold px-8 py-7">
+              <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/15 hover:border-white/30 text-lg md:text-xl font-semibold px-10 py-8">
                 Discover Our Unique Approach
               </Button>
             </Link>
