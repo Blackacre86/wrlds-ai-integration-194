@@ -22,32 +22,32 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-blue-100 shadow-sm">
-      <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-8">
+      <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-8">
         <Logo />
         
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden md:block">
-          <NavigationMenuList className="space-x-2">
+          <NavigationMenuList className="gap-1">
             <NavigationMenuItem>
-              <Link to="/" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow">
                 Home
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/about" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/about" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow">
                 About Us
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <div className="flex items-center">
-                <Link to="/practice-areas" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow mr-1">
+                <Link to="/practice-areas" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow-md mr-0.5">
                   Practice Areas
                 </Link>
-                <NavigationMenuTrigger className="h-full px-1 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+                <NavigationMenuTrigger className="h-10 px-1 py-2.5 ml-0.5 rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow-md">
                 </NavigationMenuTrigger>
               </div>
               <NavigationMenuContent>
-                <div className="grid w-[400px] gap-2 p-4 backdrop-blur-md bg-white/95 border border-blue-100 rounded-lg shadow-lg">
+                <div className="grid w-[400px] gap-2 p-4 md:grid-cols-2 backdrop-blur-md bg-white/95 border border-blue-100 rounded-lg shadow-lg">
                   <Link to="/practice-areas/oui-dui" className="block p-2 hover:bg-blue-50/70 rounded-md">OUI/DUI Defense</Link>
                   <Link to="/practice-areas/domestic-violence" className="block p-2 hover:bg-blue-50/70 rounded-md">Domestic Violence Defense</Link>
                   <Link to="/practice-areas/drug-crimes" className="block p-2 hover:bg-blue-50/70 rounded-md">Drug Crimes</Link>
@@ -62,17 +62,17 @@ const Header = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/prosecutor-advantage" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/prosecutor-advantage" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow">
                 Former Prosecutor Advantage
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/case-results" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/case-results" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow">
                 Case Results
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/ai-innovation" className="px-3 py-2 rounded-md backdrop-blur-md bg-blue-50/50 border border-blue-100/70 text-sm font-medium text-[hsl(var(--summit-blue))] hover:bg-blue-100/50 transition-all duration-200 shadow-sm hover:shadow">
+              <Link to="/ai-innovation" className="inline-flex h-10 w-max items-center justify-center rounded-md bg-gradient-to-b from-blue-50 to-blue-100/70 px-4 py-2.5 text-sm font-medium text-blue-800 hover:bg-blue-100 hover:text-blue-900 transition-colors duration-200 shadow-sm hover:shadow">
                 AI Innovation
               </Link>
             </NavigationMenuItem>
