@@ -8,9 +8,10 @@ import ProsecutorAdvantageSection from "@/components/ProsecutorAdvantageSection"
 import AIInnovationSection from "@/components/AIInnovationSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import { Mountain, ChevronDown } from "lucide-react";
+import { Mountain, ChevronDown, Cpu, SearchCheck, PieChart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   // Subtle scroll animation for section elements
