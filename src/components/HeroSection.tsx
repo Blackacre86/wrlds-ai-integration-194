@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-br from-blue-950 via-blue-900 to-slate-800 text-white overflow-hidden">
+    <section className="relative py-20 md:py-32 bg-gradient-to-br from-[hsl(var(--summit-blue))] via-[hsl(var(--summit-blue))] to-slate-800 text-white overflow-hidden">
       {/* Mountain Background Image with Overlay - Adjusted opacity */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -17,7 +17,7 @@ const HeroSection = () => {
             e.currentTarget.style.display = 'none';
           }}
         />
-        <div className="absolute inset-0 bg-blue-950/70 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-[hsl(var(--summit-blue))]/70 mix-blend-multiply"></div>
       </div>
       
       {/* Content */}
@@ -35,7 +35,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-5">
             <Link to="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white border-none text-lg md:text-xl font-semibold px-8 py-7">
+              <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white border-none text-lg md:text-xl font-semibold px-8 py-7">
                 Secure Your Case Strategy
               </Button>
             </Link>
