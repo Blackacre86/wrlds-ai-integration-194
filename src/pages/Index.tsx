@@ -54,8 +54,8 @@ const Index = () => {
         {/* Simplified Summit Divider with animation but no logo */}
         <div className="relative bg-white py-8 overflow-hidden">
           <div className="container mx-auto flex flex-col justify-center items-center">
-            {/* Logo blue variant */}
-            <div className="mb-4">
+            {/* Logo blue variant - now larger */}
+            <div className="mb-4 scale-125 transform"> {/* Added scaling */}
               <Logo variant="blue" />
             </div>
             <button 

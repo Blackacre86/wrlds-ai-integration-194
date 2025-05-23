@@ -26,7 +26,9 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Logo using white variant - Now with increased visibility */}
           <div className="flex items-center justify-center md:justify-start mb-8">
-            <Logo variant="white" />
+            <div className="scale-125 md:scale-150 origin-left"> {/* Added scaling for even larger display */}
+              <Logo variant="white" />
+            </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-6 drop-shadow-md">
             Massachusetts Criminal Defense Attorney
