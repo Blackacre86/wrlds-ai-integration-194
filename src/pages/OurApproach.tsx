@@ -1,10 +1,9 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Scale, Brain, ShieldCheck, BarChart3, Eye } from "lucide-react";
+import { ArrowRight, Scale, RefreshCw, ShieldCheck, BarChart3, Eye, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const OurApproach = () => {
@@ -35,10 +34,10 @@ const OurApproach = () => {
             </div>
           </div>
           
-          {/* Replace with new mountain background image */}
+          {/* Updated background image */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <img 
-              src="/lovable-uploads/0ef7cdec-653c-48b5-b344-f64f4575ed8e.png" 
+              src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
               alt="Mountain Background" 
               className="w-full h-full object-cover"
             />
@@ -62,13 +61,13 @@ const OurApproach = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-800">Prosecutorial Experience</h3>
                 <p className="text-gray-700">
-                  Having served extensively within the District Attorney's Office, we possess firsthand knowledge of prosecutorial methods, case evaluation techniques, evidence prioritization, and trial preparation strategies. This unique insider perspective enables us to anticipate prosecutorial actions and proactively counter them with precision and effectiveness.
+                  Having served extensively within the District Attorney's Office, Attorney Joe Brava possesses firsthand knowledge of prosecutorial methods, case evaluation techniques, evidence prioritization, and trial preparation strategies. This unique insider perspective enables us to anticipate prosecutorial actions and proactively counter them with precision and effectiveness.
                 </p>
               </div>
               
               <div className="bg-blue-50 rounded-lg p-8 border border-blue-100 transition-transform hover:shadow-lg hover:-translate-y-1">
                 <div className="bg-blue-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  <Brain className="h-6 w-6 text-white" />
+                  <RefreshCw className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-800">Reverse Engineering</h3>
                 <p className="text-gray-700">
@@ -78,7 +77,7 @@ const OurApproach = () => {
 
               <div className="bg-blue-50 rounded-lg p-8 border border-blue-100 transition-transform hover:shadow-lg hover:-translate-y-1">
                 <div className="bg-blue-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  <ShieldCheck className="h-6 w-6 text-white" />
+                  <Users className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-800">Personalized Advocacy</h3>
                 <p className="text-gray-700">
@@ -114,8 +113,8 @@ const OurApproach = () => {
                       </h3>
                     </div>
                     <p className="text-lg text-gray-700 mb-4">
-                      We spent five years prosecuting criminal cases in the Berkshire District Attorney's Office, 
-                      supervising district court domestic violence prosecutions. This experience provides us with unique insights 
+                      Attorney Joe Brava spent five years prosecuting criminal cases in the Berkshire District Attorney's Office, 
+                      supervising district court domestic violence prosecutions. This experience provides him with unique insights 
                       that benefit every client we represent.
                     </p>
                     <p className="text-lg text-gray-700 mb-6">
@@ -200,7 +199,7 @@ const OurApproach = () => {
                 <div className="flex flex-col md:flex-row items-start gap-12">
                   <div className="w-full md:w-1/2">
                     <div className="flex items-center gap-4 mb-6">
-                      <Brain className="h-10 w-10 text-blue-700" />
+                      <RefreshCw className="h-10 w-10 text-blue-700" />
                       <h3 className="text-2xl font-bold text-gray-900">
                         Our Reverse-Engineering Methodology
                       </h3>
