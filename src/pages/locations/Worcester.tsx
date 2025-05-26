@@ -14,10 +14,10 @@ const Worcester = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Helmet>
         <title>Worcester Criminal Defense Attorney | Summit Law</title>
-        <meta name="description" content="Experienced Worcester criminal defense attorney serving Worcester County. Former prosecutor Joe Brava provides expert defense for OUI, drug crimes, domestic violence, and violent crimes in Worcester, MA." />
+        <meta name="description" content="Expert Worcester criminal defense attorney serving Worcester County. Former prosecutor Joe Brava provides strategic defense for OUI, drug crimes, domestic violence, and violent crimes in Worcester, MA." />
         <meta name="keywords" content="Worcester criminal defense attorney, Worcester OUI lawyer, Worcester drug crime defense, Worcester County criminal lawyer, Worcester domestic violence attorney" />
         <meta property="og:title" content="Worcester Criminal Defense Attorney | Summit Law" />
-        <meta property="og:description" content="Experienced Worcester criminal defense attorney serving Worcester County. Former prosecutor Joe Brava provides expert defense for OUI, drug crimes, domestic violence, and violent crimes in Worcester, MA." />
+        <meta property="og:description" content="Expert Worcester criminal defense attorney serving Worcester County. Former prosecutor Joe Brava provides strategic defense for OUI, drug crimes, domestic violence, and violent crimes in Worcester, MA." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://summitlawoffices.com/locations/worcester" />
         <link rel="canonical" href="https://summitlawoffices.com/locations/worcester" />
@@ -26,7 +26,7 @@ const Worcester = () => {
       <StructuredData 
         type="LegalService"
         title="Worcester Criminal Defense Attorney | Summit Law"
-        description="Experienced Worcester criminal defense attorney serving Worcester County. Former prosecutor Joe Brava provides expert defense for OUI, drug crimes, domestic violence, and violent crimes in Worcester, MA."
+        description="Expert Worcester criminal defense attorney serving Worcester County. Former prosecutor Joe Brava provides strategic defense for OUI, drug crimes, domestic violence, and violent crimes in Worcester, MA."
         url="https://summitlawoffices.com/locations/worcester"
       />
       
@@ -41,7 +41,7 @@ const Worcester = () => {
               Worcester Criminal Defense Attorney
             </h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto text-center text-blue-100">
-              Expert criminal defense representation in Worcester County and Central Massachusetts
+              Strategic criminal defense representation in Worcester County and Central Massachusetts
             </p>
           </div>
           <div className="absolute bottom-0 left-0 right-0">
@@ -58,32 +58,32 @@ const Worcester = () => {
               Criminal Defense Services in Worcester, Massachusetts
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Summit Law provides comprehensive criminal defense representation throughout Worcester and Worcester County. 
-              Our office serves clients facing charges in Worcester District Court, Worcester Superior Court, and surrounding Central Massachusetts jurisdictions.
+              Summit Law provides experienced criminal defense representation throughout Worcester and Worcester County. 
+              Our office is conveniently located in nearby Clinton and serves clients facing charges in all Central Massachusetts courts.
             </p>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold text-blue-700 mb-4">Courts We Serve in Worcester Area</h3>
+                <h3 className="text-xl font-semibold text-blue-700 mb-4">Courts We Serve in Worcester County</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• Worcester District Court</li>
                   <li>• Worcester Superior Court</li>
-                  <li>• Central District Court</li>
-                  <li>• Fitchburg District Court</li>
                   <li>• Clinton District Court</li>
+                  <li>• Fitchburg District Court</li>
+                  <li>• Leominster District Court</li>
                   <li>• Gardner District Court</li>
                 </ul>
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold text-blue-700 mb-4">Common Worcester Charges We Defend</h3>
+                <h3 className="text-xl font-semibold text-blue-700 mb-4">Common Worcester County Charges</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• OUI/DUI charges</li>
                   <li>• Domestic violence allegations</li>
                   <li>• Drug possession and trafficking</li>
                   <li>• Assault and battery</li>
                   <li>• Theft and property crimes</li>
-                  <li>• Student disciplinary matters</li>
+                  <li>• Motor vehicle violations</li>
                 </ul>
               </div>
             </div>
@@ -106,7 +106,7 @@ const Worcester = () => {
               </div>
               <div className="flex items-center gap-2 text-summit-blue-800">
                 <MapPin className="h-5 w-5" />
-                <span>Serving Worcester & Central MA</span>
+                <span>Serving Worcester County</span>
               </div>
             </div>
             <Link to="/contact">

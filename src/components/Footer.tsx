@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
@@ -40,14 +41,13 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-white">Quick Links</h3>
+            <h3 className="text-xl font-semibold mb-6 text-white">Service Areas</h3>
             <ul className="space-y-3">
+              <li><Link to="/locations/boston" className="text-sm hover:text-white transition-colors">Boston Criminal Defense</Link></li>
+              <li><Link to="/locations/worcester" className="text-sm hover:text-white transition-colors">Worcester Criminal Defense</Link></li>
               <li><Link to="/about" className="text-sm hover:text-white transition-colors">About Attorney Brava</Link></li>
               <li><Link to="/prosecutor-advantage" className="text-sm hover:text-white transition-colors">Former Prosecutor Advantage</Link></li>
-              <li><Link to="/ai-innovation" className="text-sm hover:text-white transition-colors">AI Innovation</Link></li>
               <li><Link to="/case-results" className="text-sm hover:text-white transition-colors">Case Results</Link></li>
-              <li><Link to="/blog" className="text-sm hover:text-white transition-colors">Blog & Resources</Link></li>
-              <li><Link to="/testimonials" className="text-sm hover:text-white transition-colors">Client Testimonials</Link></li>
               <li><Link to="/contact" className="text-sm hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
