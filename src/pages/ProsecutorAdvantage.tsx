@@ -36,6 +36,9 @@ const ProsecutorAdvantage = () => {
               <p className="text-2xl font-semibold text-white mb-8 italic">
                 "Clarity of a Prosecutor. Strength of a Defender. Results That Matter."
               </p>
+              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+                At Summit Law, our approach to criminal defense is built on insider expertise, rigorous case analysis, and highly personalized advocacy. These foundational pillars provide our clients with clarity, confidence, and effective results throughout every stage of their criminal case in Massachusetts.
+              </p>
               <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none px-8 py-6 text-lg">
                 The Summit Advantage
               </Button>
@@ -136,7 +139,7 @@ const ProsecutorAdvantage = () => {
               <div className="text-center">
                 <Link to="/contact">
                   <Button className="group bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white text-lg border-none px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300">
-                    Discuss Your Case With Us
+                    Schedule Your Free Consultation
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>

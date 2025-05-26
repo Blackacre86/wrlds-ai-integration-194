@@ -35,11 +35,11 @@ const Index = () => {
     };
   }, []);
 
-  const scrollToNextSection = () => {
-    const firstSection = document.getElementById('services-section');
-    if (firstSection) {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
       window.scrollTo({
-        top: firstSection.offsetTop,
+        top: section.offsetTop,
         behavior: 'smooth'
       });
     }
@@ -57,6 +57,26 @@ const Index = () => {
     }
   };
 
+  const SectionDivider = ({ targetSectionId }: { targetSectionId: string }) => (
+    <div className="relative bg-white py-8 overflow-hidden">
+      <div className="container mx-auto flex flex-col justify-center items-center">
+        <div className="mb-4 transform scale-110">
+          <Logo variant="header" />
+        </div>
+        <button 
+          onClick={() => scrollToSection(targetSectionId)}
+          className="flex flex-col items-center gap-2 group cursor-pointer"
+          aria-label="Scroll to next section"
+        >
+          <div className="bg-gradient-to-br from-blue-100 to-teal-50 rounded-full p-5 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-105">
+            <ChevronDown className="h-8 w-8 text-blue-800" />
+          </div>
+        </button>
+      </div>
+      <Separator className="mt-8 bg-gradient-to-r from-transparent via-blue-200 to-transparent h-[2px]" />
+    </div>
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <StructuredData />
@@ -64,38 +84,29 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         
-        {/* Updated Summit Divider with header variant logo */}
-        <div className="relative bg-white py-8 overflow-hidden">
-          <div className="container mx-auto flex flex-col justify-center items-center">
-            {/* Header variant logo for divider */}
-            <div className="mb-4 transform scale-110">
-              <Logo variant="header" />
-            </div>
-            <button 
-              onClick={scrollToNextSection}
-              className="flex flex-col items-center gap-2 group cursor-pointer"
-              aria-label="Scroll to next section"
-            >
-              <div className="bg-gradient-to-br from-blue-100 to-teal-50 rounded-full p-5 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-105">
-                <ChevronDown className="h-8 w-8 text-blue-800" />
-              </div>
-            </button>
-          </div>
-          <Separator className="mt-8 bg-gradient-to-r from-transparent via-blue-200 to-transparent h-[2px]" />
-        </div>
+        {/* Divider to Services */}
+        <SectionDivider targetSectionId="services-section" />
         
-        {/* Add IDs and animation classes to sections */}
         <div id="services-section" className="animate-on-scroll">
           <ServicesSection />
         </div>
         
-        <div className="animate-on-scroll">
+        {/* Divider to Prosecutor Advantage */}
+        <SectionDivider targetSectionId="prosecutor-advantage-section" />
+        
+        <div id="prosecutor-advantage-section" className="animate-on-scroll">
           <ProsecutorAdvantageSection />
         </div>
         
-        <div className="animate-on-scroll">
+        {/* Divider to Testimonials */}
+        <SectionDivider targetSectionId="testimonials-section" />
+        
+        <div id="testimonials-section" className="animate-on-scroll">
           <TestimonialsSection />
         </div>
+        
+        {/* Divider to Contact */}
+        <SectionDivider targetSectionId="contact-section" />
         
         <div id="contact-section" className="animate-on-scroll">
           <CTASection />
