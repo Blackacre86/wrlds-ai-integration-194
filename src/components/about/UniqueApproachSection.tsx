@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import Logo from "../Logo";
 
 const UniqueApproachSection = () => {
   return (
@@ -26,7 +25,7 @@ const UniqueApproachSection = () => {
               
               <Link to="/our-approach" className="inline-block">
                 <Button className="group bg-blue-800 hover:bg-blue-900 text-white">
-                  Explore Our Complete Methodology
+                  Secure Your Case Strategy
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
