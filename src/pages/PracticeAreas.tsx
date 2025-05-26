@@ -7,7 +7,7 @@ import StructuredData from "@/components/StructuredData";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Gavel, Scale, Car, Shield, Courthouse } from "lucide-react";
+import { ArrowRight, Gavel, Scale, Car, Shield } from "lucide-react";
 
 const PracticeAreas = () => {
   const practiceAreas = [
@@ -51,7 +51,7 @@ const PracticeAreas = () => {
       title: "Magistrate Hearings",
       description: "Skilled representation at clerk magistrate hearings to prevent criminal charges from being issued against you.",
       link: "/practice-areas/magistrate-hearings",
-      icon: Courthouse
+      icon: Gavel
     },
     {
       title: "Motor Vehicle Offenses",
@@ -125,7 +125,7 @@ const PracticeAreas = () => {
             At Summit Law, Attorney Joe Brava has extensive experience representing clients in a wide range of criminal matters. Drawing on his background as a former prosecutor, he provides knowledgeable and effective defense strategies tailored to your specific situation.
           </p>
           
-          {/* New minimalistic card grid */}
+          {/* Minimalistic card grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {practiceAreas.map((area, index) => {
               const IconComponent = area.icon;
