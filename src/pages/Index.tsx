@@ -45,6 +45,18 @@ const Index = () => {
     }
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      // Scroll to just above the contact section
+      const offsetPosition = contactSection.offsetTop - 100;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <StructuredData />
@@ -85,7 +97,7 @@ const Index = () => {
           <TestimonialsSection />
         </div>
         
-        <div className="animate-on-scroll">
+        <div id="contact-section" className="animate-on-scroll">
           <CTASection />
         </div>
       </main>

@@ -42,25 +42,21 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
-              <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-summit-blue-900 border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-white border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                 Secure Your Case Strategy
               </Button>
             </Link>
             <Link to="/our-approach">
               <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                The Summit Difference
+                The Summit Advantage
               </Button>
             </Link>
           </div>
         </div>
       </div>
       
-      {/* Angled bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40" className="fill-white w-full h-10 transform translate-y-1">
-          <path d="M0,0L60,5.3C120,11,240,21,360,24C480,27,600,21,720,16C840,11,960,5,1080,8C1200,11,1320,21,1380,26.7L1440,32L1440,40L1380,40C1320,40,1200,40,1080,40C960,40,840,40,720,40C600,40,480,40,360,40C240,40,120,40,60,40L0,40Z"></path>
-        </svg>
-      </div>
+      {/* Clean solid bottom edge */}
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-white"></div>
     </section>
   );
 };

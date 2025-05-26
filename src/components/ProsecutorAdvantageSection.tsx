@@ -71,6 +71,9 @@ const ProsecutorAdvantageSection = () => {
           </div>
         </div>
       </div>
+      
+      {/* Clean solid bottom edge */}
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-white"></div>
     </section>
   );
 };

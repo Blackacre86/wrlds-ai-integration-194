@@ -37,7 +37,7 @@ const ProsecutorAdvantage = () => {
                 "Clarity of a Prosecutor. Strength of a Defender. Results That Matter."
               </p>
               <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none px-8 py-6 text-lg">
-                The Summit Difference
+                The Summit Advantage
               </Button>
             </div>
           </div>
@@ -57,7 +57,7 @@ const ProsecutorAdvantage = () => {
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              <div className="grid grid-cols-1 lg:grid-cols-1 gap-10">
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     Insider Knowledge That Makes the Difference
@@ -72,65 +72,17 @@ const ProsecutorAdvantage = () => {
                     cases, what evidence they prioritize, and the strategies they use to secure convictions.
                   </p>
                   <p className="text-lg text-gray-700">
-                    Unlike most defense attorneys, Attorney Brava begins by reverse-engineering the prosecution's case,
-                    identifying weaknesses and building a strategic defense that anticipates their every move.
+                    Unlike most defense attorneys, Attorney Brava leverages firsthand experience gained as a former Assistant District Attorney to anticipate exactly how prosecutors think, strategize, and prepare their cases. By knowing precisely which evidence they value and which tactics they'll deploy, he proactively exposes weaknesses in the prosecution's strategy, giving his clients a decisive advantage from the outset.
                   </p>
-                </div>
-                <div className="bg-blue-50 p-8 rounded-xl border border-blue-100">
-                  <h3 className="text-2xl font-bold text-blue-800 mb-6">Prosecutorial Experience</h3>
-                  <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 flex items-center justify-center">
-                        <img 
-                          src="/lovable-uploads/324ead09-04f1-45d2-bc57-9de8c4597282.png"
-                          alt="Five Years at DA's Office" 
-                          className="h-8 w-8 object-contain"
-                          style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-lg">Five Years at DA's Office</h4>
-                        <p className="text-gray-700">Extensive experience prosecuting various criminal cases</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 flex items-center justify-center">
-                        <img 
-                          src="/lovable-uploads/cecc7723-3b12-4db6-a4e0-ad9eb18f79bf.png"
-                          alt="Advanced Training" 
-                          className="h-8 w-8 object-contain"
-                          style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-lg">Advanced Training</h4>
-                        <p className="text-gray-700">Completed specialized investigative and prosecutorial training with state and federal agencies and various other organizations</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 flex items-center justify-center">
-                        <img 
-                          src="/lovable-uploads/cecc7723-3b12-4db6-a4e0-ad9eb18f79bf.png"
-                          alt="Domestic Violence Supervisor" 
-                          className="h-8 w-8 object-contain"
-                          style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-lg">Domestic Violence Supervisor</h4>
-                        <p className="text-gray-700">Specialized knowledge in handling sensitive and complex cases</p>
-                      </div>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Strategic Approach Section */}
+        {/* Strategic Approach Section - Enhanced and Redesigned */}
         <section className="py-16 bg-blue-50 relative overflow-hidden">
-          {/* Subtle mountain background - Adjusted opacity */}
+          {/* Subtle mountain background */}
           <div className="absolute inset-0 z-0">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
@@ -141,67 +93,49 @@ const ProsecutorAdvantage = () => {
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">
                 Our Unique Strategic Approach
               </h2>
               
-              <div className="space-y-8">
-                <div className="bg-white p-8 rounded-xl shadow-sm border border-blue-100">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/4 flex justify-center">
-                      <div className="bg-blue-100 h-20 w-20 rounded-full flex items-center justify-center">
-                        <span className="text-3xl font-bold text-blue-800">1</span>
-                      </div>
-                    </div>
-                    <div className="md:w-3/4">
-                      <h3 className="text-xl font-bold mb-3">Analyze the Prosecution's Case</h3>
-                      <p className="text-gray-700">
-                        Attorney Brava begins where most defense attorneys end. By first understanding how the prosecution 
-                        will build their case against you, he can identify critical weaknesses before they're even aware of them.
-                      </p>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div className="bg-white p-8 rounded-xl shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  <div className="bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span className="text-2xl font-bold text-white">1</span>
                   </div>
+                  <h3 className="text-xl font-bold mb-4 text-center text-blue-800">Analyze the Prosecution's Case</h3>
+                  <p className="text-gray-700 text-center leading-relaxed">
+                    Attorney Brava begins where most defense attorneys end. By first understanding how the prosecution 
+                    will build their case against you, he can identify critical weaknesses before they're even aware of them.
+                  </p>
                 </div>
                 
-                <div className="bg-white p-8 rounded-xl shadow-sm border border-blue-100">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/4 flex justify-center">
-                      <div className="bg-blue-100 h-20 w-20 rounded-full flex items-center justify-center">
-                        <span className="text-3xl font-bold text-blue-800">2</span>
-                      </div>
-                    </div>
-                    <div className="md:w-3/4">
-                      <h3 className="text-xl font-bold mb-3">Identify Strategic Vulnerabilities</h3>
-                      <p className="text-gray-700">
-                        With his prosecutor's perspective, Attorney Brava recognizes evidentiary gaps, procedural missteps, 
-                        and strategic flaws that other defense attorneys might miss entirely.
-                      </p>
-                    </div>
+                <div className="bg-white p-8 rounded-xl shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  <div className="bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span className="text-2xl font-bold text-white">2</span>
                   </div>
+                  <h3 className="text-xl font-bold mb-4 text-center text-blue-800">Identify Strategic Vulnerabilities</h3>
+                  <p className="text-gray-700 text-center leading-relaxed">
+                    With his prosecutor's perspective, Attorney Brava recognizes evidentiary gaps, procedural missteps, 
+                    and strategic flaws that other defense attorneys might miss entirely.
+                  </p>
                 </div>
                 
-                <div className="bg-white p-8 rounded-xl shadow-sm border border-blue-100">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/4 flex justify-center">
-                      <div className="bg-blue-100 h-20 w-20 rounded-full flex items-center justify-center">
-                        <span className="text-3xl font-bold text-blue-800">3</span>
-                      </div>
-                    </div>
-                    <div className="md:w-3/4">
-                      <h3 className="text-xl font-bold mb-3">Build a Proactive Defense</h3>
-                      <p className="text-gray-700">
-                        Rather than simply responding to the prosecution's moves, he anticipates them. 
-                        This allows Attorney Brava to develop a defense strategy that stays several steps ahead throughout your case.
-                      </p>
-                    </div>
+                <div className="bg-white p-8 rounded-xl shadow-lg border border-blue-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  <div className="bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span className="text-2xl font-bold text-white">3</span>
                   </div>
+                  <h3 className="text-xl font-bold mb-4 text-center text-blue-800">Build a Proactive Defense</h3>
+                  <p className="text-gray-700 text-center leading-relaxed">
+                    Rather than simply responding to the prosecution's moves, he anticipates them. 
+                    This allows Attorney Brava to develop a defense strategy that stays several steps ahead throughout your case.
+                  </p>
                 </div>
               </div>
               
-              <div className="mt-10 text-center">
+              <div className="text-center">
                 <Link to="/contact">
-                  <Button className="group bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white text-lg border-none px-6 py-3">
+                  <Button className="group bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white text-lg border-none px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300">
                     Discuss Your Case With Us
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>

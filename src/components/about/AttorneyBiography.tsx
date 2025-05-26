@@ -26,7 +26,7 @@ const AttorneyBiography = () => {
             </p>
             
             <p className="text-lg">
-              At Summit Law, Joe integrates his prosecutorial and investigative experience with secure, custom-built artificial intelligence technology. This innovative approach allows him to proactively identify and exploit weaknesses in the prosecution's case, crafting strategic, personalized, and effective defenses for his clients.
+              At Summit Law, Attorney Brava leverages his prosecutorial and investigative experience to proactively pinpoint vulnerabilities in the Commonwealth's case. His insider perspective enables him to craft highly strategic, personalized defenses tailored precisely to counteract the prosecution's tactics, giving his clients a powerful advantage both in negotiations and in the courtroom.
             </p>
           </div>
         </div>

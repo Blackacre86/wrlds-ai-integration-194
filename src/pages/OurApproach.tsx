@@ -26,11 +26,6 @@ const OurApproach = () => {
                   Secure Your Case Strategy
                 </Button>
               </Link>
-              <Link to="/prosecutor-advantage">
-                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  Learn About Our Prosecutor Background
-                </Button>
-              </Link>
             </div>
           </div>
           
@@ -42,6 +37,8 @@ const OurApproach = () => {
               className="w-full h-full object-cover"
             />
           </div>
+          {/* Clean solid bottom edge */}
+          <div className="absolute bottom-0 left-0 right-0 h-2 bg-white"></div>
         </section>
 
         {/* The Summit Advantage - Updated Content */}
@@ -88,111 +85,18 @@ const OurApproach = () => {
           </div>
         </section>
 
-        {/* Straight blue separator */}
-        <div className="h-1 bg-blue-800"></div>
+        {/* Solid blue separator */}
+        <div className="h-2 bg-blue-800"></div>
 
-        {/* Tabbed Content Section */}
+        {/* Tabbed Content Section - Updated to single tab */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-10">Our Comprehensive Approach</h2>
             
-            <Tabs defaultValue="prosecutor" className="w-full max-w-4xl mx-auto">
-              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 mb-8">
-                <TabsTrigger value="prosecutor">Former Prosecutor Advantage</TabsTrigger>
+            <Tabs defaultValue="methodology" className="w-full max-w-4xl mx-auto">
+              <TabsList className="grid w-full grid-cols-1 mb-8">
                 <TabsTrigger value="methodology">Our Methodology</TabsTrigger>
               </TabsList>
-              
-              {/* Former Prosecutor Tab Content */}
-              <TabsContent value="prosecutor" className="border rounded-lg bg-white p-6 shadow-sm">
-                <div className="flex flex-col md:flex-row items-start gap-12">
-                  <div className="w-full md:w-1/2">
-                    <div className="flex items-center gap-4 mb-6">
-                      <Scale className="h-10 w-10 text-blue-700" />
-                      <h3 className="text-2xl font-bold text-gray-900">
-                        The Former Prosecutor Advantage
-                      </h3>
-                    </div>
-                    <p className="text-lg text-gray-700 mb-4">
-                      Attorney Joe Brava spent five years prosecuting criminal cases in the Berkshire District Attorney's Office, 
-                      supervising district court domestic violence prosecutions. This experience provides him with unique insights 
-                      that benefit every client we represent.
-                    </p>
-                    <p className="text-lg text-gray-700 mb-6">
-                      Unlike defense attorneys who have never worked as prosecutors, we understand the internal workings of 
-                      the District Attorney's Office, including:
-                    </p>
-                    
-                    <ul className="space-y-3 mb-6">
-                      <li className="flex items-start gap-3">
-                        <div className="bg-blue-800 rounded-full p-1 mt-1">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                        </div>
-                        <span className="text-gray-700">How cases are prioritized and assigned to prosecutors</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <div className="bg-blue-800 rounded-full p-1 mt-1">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                        </div>
-                        <span className="text-gray-700">Which factors influence plea bargaining decisions</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <div className="bg-blue-800 rounded-full p-1 mt-1">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                        </div>
-                        <span className="text-gray-700">How evidence is evaluated for strengths and weaknesses</span>
-                      </li>
-                    </ul>
-                    
-                    <Link to="/prosecutor-advantage">
-                      <Button className="group bg-blue-800 hover:bg-blue-900 text-white">
-                        Learn More About Our Prosecutor Background
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
-                  </div>
-                  
-                  <div className="w-full md:w-1/2 bg-blue-50 rounded-lg p-8 border border-blue-100">
-                    <h4 className="text-xl font-semibold mb-6 text-blue-900 border-b border-blue-100 pb-4">The Prosecutor's Playbook</h4>
-                    <div className="space-y-6">
-                      <div className="flex items-start gap-4">
-                        <div className="bg-blue-100 rounded-full p-3 mt-1">
-                          <Eye className="h-5 w-5 text-blue-800" />
-                        </div>
-                        <div>
-                          <h5 className="font-medium text-gray-900 mb-1">Evidence Assessment</h5>
-                          <p className="text-gray-600">We know exactly how prosecutors evaluate evidence and witness credibility, allowing us to proactively address vulnerabilities.</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-4">
-                        <div className="bg-blue-100 rounded-full p-3 mt-1">
-                          <ShieldCheck className="h-5 w-5 text-blue-800" />
-                        </div>
-                        <div>
-                          <h5 className="font-medium text-gray-900 mb-1">Prosecution Strategies</h5>
-                          <p className="text-gray-600">We understand the tactical playbook prosecutors use and can anticipate their moves before they make them.</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-4">
-                        <div className="bg-blue-100 rounded-full p-3 mt-1">
-                          <BarChart3 className="h-5 w-5 text-blue-800" />
-                        </div>
-                        <div>
-                          <h5 className="font-medium text-gray-900 mb-1">Resource Allocation</h5>
-                          <p className="text-gray-600">We know how and where prosecutors allocate their limited resources, allowing us to leverage these constraints to your advantage.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </TabsContent>
               
               {/* Methodology Tab Content */}
               <TabsContent value="methodology" className="border rounded-lg bg-white p-6 shadow-sm">
@@ -277,8 +181,8 @@ const OurApproach = () => {
           </div>
         </section>
 
-        {/* Straight blue separator */}
-        <div className="h-1 bg-blue-800"></div>
+        {/* Solid blue separator */}
+        <div className="h-2 bg-blue-800"></div>
 
         {/* Why Choose Section - Enhanced */}
         <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
@@ -314,6 +218,8 @@ const OurApproach = () => {
               </Link>
             </div>
           </div>
+          {/* Clean solid bottom edge */}
+          <div className="absolute bottom-0 left-0 right-0 h-2 bg-white"></div>
         </section>
       </main>
       <Footer />
