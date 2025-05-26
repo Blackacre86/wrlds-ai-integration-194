@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -18,7 +17,7 @@ const PracticeAreaCard = ({ title, description, link, iconSrc }: PracticeAreaCar
           <img 
             src={iconSrc} 
             alt={`${title} icon`}
-            className="h-12 w-12 object-contain filter brightness-0 saturate-100"
+            className="h-20 w-20 object-contain filter brightness-0 saturate-100"
             style={{
               filter: 'brightness(0) saturate(100%) invert(26%) sepia(74%) saturate(1247%) hue-rotate(201deg) brightness(95%) contrast(95%)'
             }}

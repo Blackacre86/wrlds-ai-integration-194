@@ -1,4 +1,3 @@
-
 import React from "react";
 import PracticeAreaCard from "./PracticeAreaCard";
 
@@ -14,7 +13,7 @@ const PracticeAreasGrid = () => {
       title: "Domestic Violence Defense",
       description: "Strategic defense against domestic violence allegations, protecting your rights while navigating these sensitive and complex cases.",
       link: "/practice-areas/domestic-violence",
-      iconSrc: "/lovable-uploads/e2960c62-58f4-4527-93eb-97690136e15c.png"
+      iconSrc: "/lovable-uploads/cbb63e3c-159d-41d5-92d5-60c81fc7cc0e.png"
     },
     {
       title: "Drug Crimes",
