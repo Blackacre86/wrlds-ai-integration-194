@@ -24,9 +24,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Logo using white variant - Now with increased visibility */}
+          {/* Enhanced Logo with better visibility */}
           <div className="flex items-center justify-center md:justify-start mb-8">
-            <div className="scale-125 md:scale-150 origin-left"> {/* Added scaling for even larger display */}
+            <div className="transform scale-150 md:scale-175 bg-white/10 backdrop-blur-md rounded-xl p-4 shadow-2xl border border-white/20">
               <Logo variant="white" />
             </div>
           </div>

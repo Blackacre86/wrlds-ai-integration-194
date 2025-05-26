@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -52,11 +53,11 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         
-        {/* Simplified Summit Divider with animation but no logo */}
+        {/* Enhanced Summit Divider with better logo presentation */}
         <div className="relative bg-white py-8 overflow-hidden">
           <div className="container mx-auto flex flex-col justify-center items-center">
-            {/* Logo blue variant - now larger */}
-            <div className="mb-4 scale-125 transform"> {/* Added scaling */}
+            {/* Enhanced Logo presentation */}
+            <div className="mb-4 transform scale-125 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
               <Logo variant="blue" />
             </div>
             <button 
