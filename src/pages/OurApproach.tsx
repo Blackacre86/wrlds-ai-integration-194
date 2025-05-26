@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,7 +23,7 @@ const OurApproach = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-summit-blue-900 border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-white border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   Secure Your Case Strategy
                 </Button>
               </Link>
@@ -34,36 +35,34 @@ const OurApproach = () => {
             </div>
           </div>
           
-          {/* Add mountain silhouette in background */}
-          <div className="absolute -bottom-10 right-0 w-full opacity-10 pointer-events-none">
+          {/* Replace with new mountain background image */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
             <img 
-              src="/lovable-uploads/30517370-4045-4723-b7f5-447436e4e589.png" 
+              src="/lovable-uploads/0ef7cdec-653c-48b5-b344-f64f4575ed8e.png" 
               alt="Mountain Background" 
-              className="w-full h-auto max-h-96 object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
         </section>
 
-        {/* The Summit Advantage */}
+        {/* The Summit Advantage - Updated Content */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">The Summit Advantage</h2>
-              <p className="text-lg text-gray-700">
-                Our approach is built on two key pillars that form the foundation of our success in defending clients 
-                against criminal charges in Massachusetts.
+            <div className="text-center max-w-4xl mx-auto mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">The Summit Advantage</h2>
+              <p className="text-lg text-gray-700 mb-8">
+                At Summit Law, our defense strategy is built on three foundational pillars that distinctly position our firm in defending clients facing criminal charges throughout Massachusetts. These core principles reflect our commitment to strategic insight, meticulous analysis, and deeply personalized advocacy designed to deliver clarity and confidence to every client.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <div className="bg-blue-50 rounded-lg p-8 border border-blue-100 transition-transform hover:shadow-lg hover:-translate-y-1">
                 <div className="bg-blue-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <Scale className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-800">Prosecutorial Experience</h3>
                 <p className="text-gray-700">
-                  With five years in the District Attorney's Office, we know exactly how prosecutors build their cases, 
-                  what evidence they prioritize, and how they prepare for trial.
+                  Having served extensively within the District Attorney's Office, we possess firsthand knowledge of prosecutorial methods, case evaluation techniques, evidence prioritization, and trial preparation strategies. This unique insider perspective enables us to anticipate prosecutorial actions and proactively counter them with precision and effectiveness.
                 </p>
               </div>
               
@@ -71,15 +70,27 @@ const OurApproach = () => {
                 <div className="bg-blue-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <Brain className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-blue-800">Reverse-Engineering</h3>
+                <h3 className="text-xl font-bold mb-3 text-blue-800">Reverse Engineering</h3>
                 <p className="text-gray-700">
-                  We build the prosecution's case first, then systematically dismantle it by 
-                  identifying weaknesses that traditional defense attorneys often miss.
+                  Our defense process involves meticulously examining and dismantling the prosecution's case from the inside out. By identifying and leveraging overlooked weaknesses and strategic gaps in the prosecution's approach, we develop robust, targeted defenses tailored specifically to neutralize their strongest points.
+                </p>
+              </div>
+
+              <div className="bg-blue-50 rounded-lg p-8 border border-blue-100 transition-transform hover:shadow-lg hover:-translate-y-1">
+                <div className="bg-blue-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                  <ShieldCheck className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-blue-800">Personalized Advocacy</h3>
+                <p className="text-gray-700">
+                  We firmly believe each client deserves dedicated attention and individually tailored defense strategies. Our commitment extends beyond technical legal representation; we prioritize clear communication, compassionate counsel, and steadfast support. At Summit Law, each client receives personalized advocacy designed to protect their interests and guide them confidently through their legal journey.
                 </p>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Straight blue separator */}
+        <div className="h-1 bg-blue-800"></div>
 
         {/* Tabbed Content Section */}
         <section className="py-16 bg-gray-50">
@@ -267,6 +278,9 @@ const OurApproach = () => {
           </div>
         </section>
 
+        {/* Straight blue separator */}
+        <div className="h-1 bg-blue-800"></div>
+
         {/* Why Choose Section - Enhanced */}
         <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
           <div className="container mx-auto px-4 md:px-6">
@@ -295,7 +309,7 @@ const OurApproach = () => {
             
             <div className="flex justify-center">
               <Link to="/contact">
-                <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-summit-blue-900 border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-white border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   Secure Your Case Strategy
                 </Button>
               </Link>
