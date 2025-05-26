@@ -7,7 +7,7 @@ import StructuredData from "@/components/StructuredData";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Gavel, Scale, Car, Shield } from "lucide-react";
+import { ArrowRight, Gavel, Scale, Car, Shield, Handcuffs } from "lucide-react";
 
 const PracticeAreas = () => {
   const practiceAreas = [
@@ -21,7 +21,7 @@ const PracticeAreas = () => {
       title: "Domestic Violence Defense",
       description: "Strategic defense against domestic violence allegations, protecting your rights while navigating these sensitive and complex cases.",
       link: "/practice-areas/domestic-violence",
-      icon: Shield
+      icon: Handcuffs
     },
     {
       title: "Drug Crimes",
@@ -45,7 +45,7 @@ const PracticeAreas = () => {
       title: "Theft & Property Crimes",
       description: "Effective defense strategies for larceny, shoplifting, burglary, and other property crime allegations.",
       link: "/practice-areas/theft",
-      icon: Shield
+      icon: Scale
     },
     {
       title: "Magistrate Hearings",
@@ -107,7 +107,7 @@ const PracticeAreas = () => {
             </p>
           </div>
           
-          {/* Mountain background image */}
+          {/* Mountain background image - properly centered and visible */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <img 
               src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
@@ -120,29 +120,29 @@ const PracticeAreas = () => {
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-white"></div>
         </div>
 
-        <section className="container mx-auto px-4 py-12">
-          <p className="text-lg text-gray-700 mb-12 max-w-4xl mx-auto text-center">
+        <section className="container mx-auto px-4 py-16">
+          <p className="text-lg text-gray-700 mb-16 max-w-4xl mx-auto text-center leading-relaxed">
             At Summit Law, Attorney Joe Brava has extensive experience representing clients in a wide range of criminal matters. Drawing on his background as a former prosecutor, he provides knowledgeable and effective defense strategies tailored to your specific situation.
           </p>
           
-          {/* Minimalistic card grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {/* Enhanced minimalistic card grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {practiceAreas.map((area, index) => {
               const IconComponent = area.icon;
               return (
                 <div 
                   key={index} 
-                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 border border-gray-100 p-8"
+                  className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 p-10 group"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="mb-4">
-                      <IconComponent className="h-10 w-10 text-blue-700" />
+                    <div className="mb-6">
+                      <IconComponent className="h-12 w-12 text-blue-700 group-hover:text-blue-800 transition-colors duration-300" strokeWidth={1.5} />
                     </div>
-                    <h2 className="text-xl font-bold text-gray-900 mb-3 font-serif">{area.title}</h2>
-                    <p className="text-gray-600 mb-6 leading-relaxed">{area.description}</p>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4 font-serif leading-tight">{area.title}</h2>
+                    <p className="text-gray-600 mb-8 leading-relaxed text-base">{area.description}</p>
                     <Link 
                       to={area.link} 
-                      className="inline-flex items-center text-blue-700 font-medium hover:text-blue-800 transition-colors"
+                      className="inline-flex items-center text-blue-700 font-semibold hover:text-blue-800 transition-colors duration-300 group-hover:translate-x-1 transform"
                     >
                       Learn more 
                       <ArrowRight className="ml-2 h-4 w-4" />
