@@ -23,8 +23,16 @@ const Breadcrumb = () => {
       let label = pathname.replace(/-/g, ' ');
       label = label.charAt(0).toUpperCase() + label.slice(1);
       
+      // Special handling for locations
+      if (pathname === 'locations') {
+        label = 'Service Areas';
+      } else if (pathname === 'boston') {
+        label = 'Boston';
+      } else if (pathname === 'worcester') {
+        label = 'Worcester';
+      }
       // Special handling for practice areas
-      if (pathname === 'practice-areas') {
+      else if (pathname === 'practice-areas') {
         label = 'Practice Areas';
       } else if (pathname === 'oui-dui') {
         label = 'OUI/DUI Defense';

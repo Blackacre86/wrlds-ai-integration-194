@@ -14,6 +14,10 @@ import PracticeAreas from "./pages/PracticeAreas";
 import CaseResults from "./pages/CaseResults";
 import NotFound from "./pages/NotFound";
 
+// Location Pages
+import Boston from "./pages/locations/Boston";
+import Worcester from "./pages/locations/Worcester";
+
 // Practice Area Detail Pages
 import OuiDui from "./pages/practice-areas/OuiDui";
 import DomesticViolence from "./pages/practice-areas/DomesticViolence";
@@ -43,6 +47,10 @@ const App = () => (
             <Route path="/our-approach" element={<OurApproach />} />
             <Route path="/practice-areas" element={<PracticeAreas />} />
             <Route path="/case-results" element={<CaseResults />} />
+            
+            {/* Location Pages */}
+            <Route path="/locations/boston" element={<Boston />} />
+            <Route path="/locations/worcester" element={<Worcester />} />
             
             {/* Practice Area Detail Routes */}
             <Route path="/practice-areas/oui-dui" element={<OuiDui />} />
