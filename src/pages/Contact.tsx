@@ -1,8 +1,9 @@
-
 import React from "react";
 import { useForm } from "react-hook-form";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -80,7 +81,16 @@ const Contact = () => {
         <meta property="og:url" content="https://summitlawoffices.com/contact" />
         <link rel="canonical" href="https://summitlawoffices.com/contact" />
       </Helmet>
+      
+      <StructuredData 
+        type="LegalService"
+        title="Contact Summit Law | Criminal Defense Attorneys"
+        description="Get in touch with Summit Law's expert criminal defense team. We're ready to help with your legal needs."
+        url="https://summitlawoffices.com/contact"
+      />
+      
       <Header />
+      <Breadcrumb />
       <main className="flex-grow">
         {/* Hero Section */}
         <div className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white">

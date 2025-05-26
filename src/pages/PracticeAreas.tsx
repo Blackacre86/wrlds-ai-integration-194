@@ -2,6 +2,8 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
+import StructuredData from "@/components/StructuredData";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -74,7 +76,15 @@ const PracticeAreas = () => {
         <link rel="canonical" href="https://summitlawoffices.com/practice-areas" />
       </Helmet>
 
+      <StructuredData 
+        type="LegalService"
+        title="Practice Areas | Summit Law Criminal Defense"
+        description="Summit Law provides expert criminal defense representation across Massachusetts in areas including OUI/DUI defense, domestic violence, drug crimes, violent crimes, sex offenses, theft, and more."
+        url="https://summitlawoffices.com/practice-areas"
+      />
+
       <Header />
+      <Breadcrumb />
       <main className="flex-grow">
         {/* Hero Section */}
         <div className="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white">

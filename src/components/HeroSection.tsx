@@ -11,7 +11,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
-          alt="Mountain Path" 
+          alt="Mountain path leading to summit - representing the journey to successful legal defense" 
           className="w-full h-full object-cover opacity-25"
           onError={(e) => {
             console.error("Image failed to load:", e);

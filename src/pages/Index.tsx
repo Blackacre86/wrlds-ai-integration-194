@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -8,6 +7,7 @@ import ProsecutorAdvantageSection from "@/components/ProsecutorAdvantageSection"
 import AIInnovationSection from "@/components/AIInnovationSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 import { ChevronDown } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import Logo from "@/components/Logo";
@@ -47,6 +47,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <StructuredData />
       <Header />
       <main className="flex-grow">
         <HeroSection />
