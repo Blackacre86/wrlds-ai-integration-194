@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -53,12 +52,12 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         
-        {/* Updated Summit Divider with new logo design */}
+        {/* Updated Summit Divider with header variant logo */}
         <div className="relative bg-white py-8 overflow-hidden">
           <div className="container mx-auto flex flex-col justify-center items-center">
-            {/* New Logo Design presentation */}
+            {/* Header variant logo for divider */}
             <div className="mb-4 transform scale-110">
-              <Logo variant="blue" />
+              <Logo variant="header" />
             </div>
             <button 
               onClick={scrollToNextSection}

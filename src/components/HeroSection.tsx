@@ -24,10 +24,10 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* New Logo Design - prominently displayed */}
+          {/* Enhanced Logo for page content */}
           <div className="flex items-center justify-center md:justify-start mb-8">
             <div className="transform scale-125 md:scale-150">
-              <Logo variant="white" />
+              <Logo variant="page-content" />
             </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight mb-6 drop-shadow-md">

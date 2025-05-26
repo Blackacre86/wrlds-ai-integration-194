@@ -2,7 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Logo = ({ variant = "blue" }: { variant?: "blue" | "white" }) => {
+const Logo = ({ variant = "header" }: { variant?: "header" | "page-content" }) => {
   const navigate = useNavigate();
   
   const handleClick = () => {
@@ -12,29 +12,21 @@ const Logo = ({ variant = "blue" }: { variant?: "blue" | "white" }) => {
 
   return (
     <button onClick={handleClick} className="flex items-center group">
-      {variant === "blue" ? (
-        // Blue variant with solid background and text
-        <div className="bg-gradient-to-br from-summit-blue-600 to-summit-blue-800 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-summit-gold-400 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-full"></div>
-            </div>
-            <div>
-              <div className="text-xl font-bold tracking-wide">SUMMIT</div>
-              <div className="text-sm font-medium text-blue-100 -mt-1">LAW</div>
-            </div>
+      {variant === "header" ? (
+        // Original header logo - simple text design
+        <div className="flex items-center space-x-2">
+          <div className="text-summit-blue-700">
+            <div className="text-2xl font-bold tracking-wide">SUMMIT</div>
+            <div className="text-sm font-medium -mt-1">LAW</div>
           </div>
         </div>
       ) : (
-        // White variant with solid background for dark backgrounds
-        <div className="bg-white text-summit-blue-800 px-6 py-3 rounded-lg shadow-xl border-2 border-summit-gold-400 hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-summit-gold-400 to-summit-gold-500 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-summit-blue-800 rounded-full"></div>
-            </div>
-            <div>
-              <div className="text-xl font-bold tracking-wide">SUMMIT</div>
-              <div className="text-sm font-medium text-summit-blue-600 -mt-1">LAW</div>
+        // Enhanced page content logo - more prominent for hero sections
+        <div className="bg-white/95 backdrop-blur-sm text-summit-blue-800 px-8 py-4 rounded-xl shadow-2xl border-2 border-summit-gold-400 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:scale-105">
+          <div className="flex items-center space-x-4">
+            <div className="text-left">
+              <div className="text-3xl font-bold tracking-wide">SUMMIT</div>
+              <div className="text-lg font-medium text-summit-blue-600 -mt-1">LAW</div>
             </div>
           </div>
         </div>
