@@ -1,7 +1,6 @@
 
 import React from "react";
 import PracticeAreaCard from "./PracticeAreaCard";
-import { Gavel, Scale, Car, Shield, Handcuffs } from "lucide-react";
 
 const PracticeAreasGrid = () => {
   const practiceAreas = [
@@ -9,61 +8,61 @@ const PracticeAreasGrid = () => {
       title: "OUI/DUI Defense",
       description: "Expert defense for operating under the influence charges with strategies designed to protect your driving privileges and minimize penalties.",
       link: "/practice-areas/oui-dui",
-      icon: Car
+      iconSrc: "/lovable-uploads/6ab07878-5981-4ef7-b689-709b1e62cc5d.png"
     },
     {
       title: "Domestic Violence Defense",
       description: "Strategic defense against domestic violence allegations, protecting your rights while navigating these sensitive and complex cases.",
       link: "/practice-areas/domestic-violence",
-      icon: Handcuffs
+      iconSrc: "/lovable-uploads/e2960c62-58f4-4527-93eb-97690136e15c.png"
     },
     {
       title: "Drug Crimes",
       description: "Comprehensive defense against drug possession, distribution, and trafficking charges with strategies focused on case dismissal or charge reduction.",
       link: "/practice-areas/drug-crimes",
-      icon: Shield
+      iconSrc: "/lovable-uploads/6c46386c-f77c-4d8c-86cc-a0ea0d6f987b.png"
     },
     {
       title: "Violent Crimes",
       description: "Aggressive defense against assault, battery, and other violent crime charges, challenging evidence and protecting your rights throughout the process.",
       link: "/practice-areas/violent-crimes",
-      icon: Gavel
+      iconSrc: "/lovable-uploads/e2960c62-58f4-4527-93eb-97690136e15c.png"
     },
     {
       title: "Sex Offenses",
       description: "Strategic defense against sexual assault allegations and related charges, with careful attention to privacy, evidence examination, and constitutional rights.",
       link: "/practice-areas/sex-offenses",
-      icon: Scale
+      iconSrc: "/lovable-uploads/7e7181e8-3f65-47b3-86e4-01443fc4da0f.png"
     },
     {
       title: "Theft & Property Crimes",
       description: "Effective defense strategies for larceny, shoplifting, burglary, and other property crime allegations.",
       link: "/practice-areas/theft",
-      icon: Scale
+      iconSrc: "/lovable-uploads/8ca7c586-fa4c-46ba-aaad-3ac8e500b520.png"
     },
     {
       title: "Magistrate Hearings",
       description: "Skilled representation at clerk magistrate hearings to prevent criminal charges from being issued against you.",
       link: "/practice-areas/magistrate-hearings",
-      icon: Gavel
+      iconSrc: "/lovable-uploads/38d5632d-ff90-4405-95e5-fad362ff0396.png"
     },
     {
       title: "Motor Vehicle Offenses",
       description: "Defense against driving violations, license suspensions, and other motor vehicle-related legal issues.",
       link: "/practice-areas/motor-vehicle",
-      icon: Car
+      iconSrc: "/lovable-uploads/b59dd472-a3c0-4553-b4c7-c980e89b1346.png"
     },
     {
       title: "209A Hearings",
       description: "Strategic representation in restraining order hearings to protect your rights and interests.",
       link: "/practice-areas/209a-hearings",
-      icon: Scale
+      iconSrc: "/lovable-uploads/401f7142-9093-41ba-9b21-30ea6195984d.png"
     },
     {
       title: "Student Defense",
       description: "Specialized defense for students facing academic disciplinary proceedings, criminal charges, or Title IX investigations.",
       link: "/practice-areas/student-defense",
-      icon: Shield
+      iconSrc: "/lovable-uploads/a7532ce8-b0fb-46f0-a8d9-1c0cdb28aba6.png"
     }
   ];
 
@@ -80,7 +79,7 @@ const PracticeAreasGrid = () => {
             title={area.title}
             description={area.description}
             link={area.link}
-            icon={area.icon}
+            iconSrc={area.iconSrc}
           />
         ))}
       </div>
