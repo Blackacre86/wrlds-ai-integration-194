@@ -2,7 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Logo = ({ variant = "header" }: { variant?: "header" | "page-content" }) => {
+const Logo = ({ variant = "header" }: { variant?: "header" | "page-content" | "white" | "blue" }) => {
   const navigate = useNavigate();
   
   const handleClick = () => {
@@ -12,10 +12,18 @@ const Logo = ({ variant = "header" }: { variant?: "header" | "page-content" }) =
 
   return (
     <button onClick={handleClick} className="flex items-center group">
-      {variant === "header" ? (
+      {variant === "header" || variant === "blue" ? (
         // Original header logo - simple text design
         <div className="flex items-center space-x-2">
           <div className="text-summit-blue-700">
+            <div className="text-2xl font-bold tracking-wide">SUMMIT</div>
+            <div className="text-sm font-medium -mt-1">LAW</div>
+          </div>
+        </div>
+      ) : variant === "white" ? (
+        // White logo for footer
+        <div className="flex items-center space-x-2">
+          <div className="text-white">
             <div className="text-2xl font-bold tracking-wide">SUMMIT</div>
             <div className="text-sm font-medium -mt-1">LAW</div>
           </div>
