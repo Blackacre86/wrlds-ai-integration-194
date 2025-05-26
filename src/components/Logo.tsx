@@ -13,54 +13,32 @@ const Logo = ({ variant = "blue" }: { variant?: "blue" | "white" }) => {
   return (
     <button onClick={handleClick} className="flex items-center group">
       {variant === "blue" ? (
-        <img 
-          src="/lovable-uploads/f0b64e3b-37c8-4f95-86ce-8ba84a9bd94b.png" 
-          alt="Summit Law" 
-          className="h-20 md:h-28 transition-transform duration-300 group-hover:scale-105" 
-          onError={(e) => {
-            console.error("Logo failed to load:", e);
-            // Fallback to text if image fails to load
-            const target = e.currentTarget as HTMLElement;
-            if (target.style) {
-              target.style.display = 'none';
-            }
-            const nextSibling = target.nextElementSibling as HTMLElement;
-            if (nextSibling) {
-              nextSibling.style.display = 'block';
-            }
-          }}
-        />
+        // Blue variant with solid background and text
+        <div className="bg-gradient-to-br from-summit-blue-600 to-summit-blue-800 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-summit-gold-400 rounded-full flex items-center justify-center">
+              <div className="w-4 h-4 bg-white rounded-full"></div>
+            </div>
+            <div>
+              <div className="text-xl font-bold tracking-wide">SUMMIT</div>
+              <div className="text-sm font-medium text-blue-100 -mt-1">LAW</div>
+            </div>
+          </div>
+        </div>
       ) : (
-        <div className="relative">
-          {/* Enhanced background for better contrast */}
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-lg -m-2 shadow-lg"></div>
-          <img 
-            src="/lovable-uploads/2bcf743c-4503-407f-8f7b-2d68c3a69106.png" 
-            alt="Summit Law" 
-            className="relative h-24 md:h-32 filter drop-shadow-lg brightness-110 contrast-110 transition-all duration-300 group-hover:scale-105 group-hover:brightness-125" 
-            onError={(e) => {
-              console.error("Logo failed to load:", e);
-              // Fallback to text if image fails to load
-              const target = e.currentTarget as HTMLElement;
-              if (target.style) {
-                target.style.display = 'none';
-              }
-              const nextSibling = target.nextElementSibling as HTMLElement;
-              if (nextSibling) {
-                nextSibling.style.display = 'block';
-              }
-            }}
-          />
+        // White variant with solid background for dark backgrounds
+        <div className="bg-white text-summit-blue-800 px-6 py-3 rounded-lg shadow-xl border-2 border-summit-gold-400 hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-summit-gold-400 to-summit-gold-500 rounded-full flex items-center justify-center">
+              <div className="w-4 h-4 bg-summit-blue-800 rounded-full"></div>
+            </div>
+            <div>
+              <div className="text-xl font-bold tracking-wide">SUMMIT</div>
+              <div className="text-sm font-medium text-summit-blue-600 -mt-1">LAW</div>
+            </div>
+          </div>
         </div>
       )}
-      {/* Enhanced fallback text version */}
-      <div className={`font-bold text-2xl md:text-4xl hidden transition-all duration-300 group-hover:scale-105 ${
-        variant === "white" 
-          ? "text-white drop-shadow-lg bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg" 
-          : "text-blue-800"
-      }`}>
-        Summit Law
-      </div>
     </button>
   );
 };

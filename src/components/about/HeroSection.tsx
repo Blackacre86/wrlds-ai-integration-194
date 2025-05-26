@@ -25,7 +25,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/2 mb-6 md:mb-0">
-            {/* Logo using white variant */}
+            {/* New Logo Design using white variant */}
             <div className="flex items-center mb-6">
               <Logo variant="white" />
             </div>

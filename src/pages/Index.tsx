@@ -53,11 +53,11 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         
-        {/* Enhanced Summit Divider with better logo presentation */}
+        {/* Updated Summit Divider with new logo design */}
         <div className="relative bg-white py-8 overflow-hidden">
           <div className="container mx-auto flex flex-col justify-center items-center">
-            {/* Enhanced Logo presentation */}
-            <div className="mb-4 transform scale-125 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+            {/* New Logo Design presentation */}
+            <div className="mb-4 transform scale-110">
               <Logo variant="blue" />
             </div>
             <button 
