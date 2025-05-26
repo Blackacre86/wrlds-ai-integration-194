@@ -7,59 +7,69 @@ import StructuredData from "@/components/StructuredData";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Gavel, Scale, Car, Shield, Courthouse } from "lucide-react";
 
 const PracticeAreas = () => {
   const practiceAreas = [
     {
       title: "OUI/DUI Defense",
       description: "Expert defense for operating under the influence charges with strategies designed to protect your driving privileges and minimize penalties.",
-      link: "/practice-areas/oui-dui"
+      link: "/practice-areas/oui-dui",
+      icon: Car
     },
     {
       title: "Domestic Violence Defense",
       description: "Strategic defense against domestic violence allegations, protecting your rights while navigating these sensitive and complex cases.",
-      link: "/practice-areas/domestic-violence"
+      link: "/practice-areas/domestic-violence",
+      icon: Shield
     },
     {
       title: "Drug Crimes",
       description: "Comprehensive defense against drug possession, distribution, and trafficking charges with strategies focused on case dismissal or charge reduction.",
-      link: "/practice-areas/drug-crimes"
+      link: "/practice-areas/drug-crimes",
+      icon: Shield
     },
     {
       title: "Violent Crimes",
       description: "Aggressive defense against assault, battery, and other violent crime charges, challenging evidence and protecting your rights throughout the process.",
-      link: "/practice-areas/violent-crimes"
+      link: "/practice-areas/violent-crimes",
+      icon: Gavel
     },
     {
       title: "Sex Offenses",
       description: "Strategic defense against sexual assault allegations and related charges, with careful attention to privacy, evidence examination, and constitutional rights.",
-      link: "/practice-areas/sex-offenses"
+      link: "/practice-areas/sex-offenses",
+      icon: Scale
     },
     {
       title: "Theft & Property Crimes",
       description: "Effective defense strategies for larceny, shoplifting, burglary, and other property crime allegations.",
-      link: "/practice-areas/theft"
+      link: "/practice-areas/theft",
+      icon: Shield
     },
     {
       title: "Magistrate Hearings",
       description: "Skilled representation at clerk magistrate hearings to prevent criminal charges from being issued against you.",
-      link: "/practice-areas/magistrate-hearings"
+      link: "/practice-areas/magistrate-hearings",
+      icon: Courthouse
     },
     {
       title: "Motor Vehicle Offenses",
       description: "Defense against driving violations, license suspensions, and other motor vehicle-related legal issues.",
-      link: "/practice-areas/motor-vehicle"
+      link: "/practice-areas/motor-vehicle",
+      icon: Car
     },
     {
       title: "209A Hearings",
       description: "Strategic representation in restraining order hearings to protect your rights and interests.",
-      link: "/practice-areas/209a-hearings"
+      link: "/practice-areas/209a-hearings",
+      icon: Scale
     },
     {
       title: "Student Defense",
       description: "Specialized defense for students facing academic disciplinary proceedings, criminal charges, or Title IX investigations.",
-      link: "/practice-areas/student-defense"
+      link: "/practice-areas/student-defense",
+      icon: Shield
     }
   ];
 
@@ -96,28 +106,51 @@ const PracticeAreas = () => {
               Expert criminal defense representation across a wide range of legal matters
             </p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
-              <path fill="#ffffff" fillOpacity="1" d="M0,128L80,133.3C160,139,320,149,480,144C640,139,800,117,960,122.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-            </svg>
+          
+          {/* Mountain background image */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <img 
+              src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
+              alt="Mountain Background" 
+              className="w-full h-full object-cover object-center"
+            />
           </div>
+          
+          {/* Straight blue line separator */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-white"></div>
         </div>
 
         <section className="container mx-auto px-4 py-12">
-          <p className="text-lg text-gray-700 mb-8 max-w-4xl mx-auto text-center">
-            At Summit Law, our attorneys have extensive experience representing clients in a wide range of criminal matters. Drawing on our background as former prosecutors, we provide knowledgeable and effective defense strategies tailored to your specific situation.
+          <p className="text-lg text-gray-700 mb-12 max-w-4xl mx-auto text-center">
+            At Summit Law, Attorney Joe Brava has extensive experience representing clients in a wide range of criminal matters. Drawing on his background as a former prosecutor, he provides knowledgeable and effective defense strategies tailored to your specific situation.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {practiceAreas.map((area, index) => (
-              <div key={index} className="p-6 bg-blue-50/60 rounded-lg border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-                <h2 className="text-xl font-semibold text-blue-800 mb-3">{area.title}</h2>
-                <p className="text-gray-700 mb-4">{area.description}</p>
-                <Link to={area.link} className="inline-flex items-center text-blue-700 font-medium hover:underline">
-                  Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
-            ))}
+          {/* New minimalistic card grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {practiceAreas.map((area, index) => {
+              const IconComponent = area.icon;
+              return (
+                <div 
+                  key={index} 
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 border border-gray-100 p-8"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-4">
+                      <IconComponent className="h-10 w-10 text-blue-700" />
+                    </div>
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 font-serif">{area.title}</h2>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{area.description}</p>
+                    <Link 
+                      to={area.link} 
+                      className="inline-flex items-center text-blue-700 font-medium hover:text-blue-800 transition-colors"
+                    >
+                      Learn more 
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -132,7 +165,7 @@ const PracticeAreas = () => {
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold text-blue-700 mb-3">Former Prosecutor Insight</h3>
                 <p className="text-gray-700">
-                  Our attorneys' background as prosecutors gives us unique insight into how cases are built and prosecuted, allowing us to develop more effective defense strategies.
+                  Attorney Joe Brava's background as a prosecutor gives him unique insight into how cases are built and prosecuted, allowing him to develop more effective defense strategies.
                 </p>
               </div>
               

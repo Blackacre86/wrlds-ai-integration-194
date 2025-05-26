@@ -54,11 +54,18 @@ const PracticeAreaDetail = ({
               {description}
             </p>
           </div>
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
-              <path fill="#ffffff" fillOpacity="1" d="M0,128L80,133.3C160,139,320,149,480,144C640,139,800,117,960,122.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-            </svg>
+          
+          {/* Mountain background image */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <img 
+              src="/lovable-uploads/f98ed06a-60c2-411a-99b5-ef4657787c04.png" 
+              alt="Mountain Background" 
+              className="w-full h-full object-cover object-center"
+            />
           </div>
+          
+          {/* Straight blue line separator */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-white"></div>
         </div>
 
         {/* Content Section */}
