@@ -3,7 +3,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
-import { Scale, FileText, BookOpen, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -80,8 +80,13 @@ const ProsecutorAdvantage = () => {
                   <h3 className="text-2xl font-bold text-blue-800 mb-6">Prosecutorial Experience</h3>
                   <ul className="space-y-4">
                     <li className="flex items-start">
-                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1">
-                        <Scale className="h-5 w-5 text-blue-700" />
+                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 flex items-center justify-center">
+                        <img 
+                          src="/lovable-uploads/324ead09-04f1-45d2-bc57-9de8c4597282.png"
+                          alt="Five Years at DA's Office" 
+                          className="h-8 w-8 object-contain"
+                          style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
+                        />
                       </div>
                       <div>
                         <h4 className="font-semibold text-lg">Five Years at DA's Office</h4>
@@ -89,8 +94,13 @@ const ProsecutorAdvantage = () => {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1">
-                        <BookOpen className="h-5 w-5 text-blue-700" />
+                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 flex items-center justify-center">
+                        <img 
+                          src="/lovable-uploads/cecc7723-3b12-4db6-a4e0-ad9eb18f79bf.png"
+                          alt="Advanced Training" 
+                          className="h-8 w-8 object-contain"
+                          style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
+                        />
                       </div>
                       <div>
                         <h4 className="font-semibold text-lg">Advanced Training</h4>
@@ -98,8 +108,13 @@ const ProsecutorAdvantage = () => {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1">
-                        <FileText className="h-5 w-5 text-blue-700" />
+                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 flex items-center justify-center">
+                        <img 
+                          src="/lovable-uploads/cecc7723-3b12-4db6-a4e0-ad9eb18f79bf.png"
+                          alt="Domestic Violence Supervisor" 
+                          className="h-8 w-8 object-contain"
+                          style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
+                        />
                       </div>
                       <div>
                         <h4 className="font-semibold text-lg">Domestic Violence Supervisor</h4>

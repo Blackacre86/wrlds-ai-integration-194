@@ -3,7 +3,6 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Trophy } from "lucide-react";
 
 const WhyChooseUsSection = () => {
   return (
@@ -35,8 +34,8 @@ const WhyChooseUsSection = () => {
               {/* Process/Cycle Icon */}
               <div className="flex justify-center mb-4">
                 <img 
-                  src="/lovable-uploads/28bf46a3-558e-4eb4-800b-4d9d79ba5ffd.png" 
-                  alt="Reverse Engineering" 
+                  src="/lovable-uploads/6fd3c81e-7018-49fe-9a97-7cf5f2351eb0.png" 
+                  alt="Strategic Defense" 
                   className="h-20 w-20 object-contain"
                   style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
                 />
@@ -50,9 +49,14 @@ const WhyChooseUsSection = () => {
       
           <Card className="border-t-4 border-blue-700">
             <CardContent className="pt-8">
-              <div className="flex justify-center mb-4 h-20">
-                {/* Trophy icon for proven track record */}
-                <Trophy className="h-20 w-20 text-blue-700" />
+              <div className="flex justify-center mb-4">
+                {/* Trophy with stars icon for proven track record */}
+                <img 
+                  src="/lovable-uploads/cecc7723-3b12-4db6-a4e0-ad9eb18f79bf.png" 
+                  alt="Proven Track Record" 
+                  className="h-20 w-20 object-contain"
+                  style={{ filter: "brightness(0) saturate(100%) invert(22%) sepia(70%) saturate(2921%) hue-rotate(212deg) brightness(94%) contrast(94%)" }}
+                />
               </div>
               <h3 className="text-xl font-bold text-center mb-2">Proven Track Record</h3>
               <p className="text-center">
