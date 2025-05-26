@@ -44,14 +44,6 @@ const DesktopNavigation = ({ handleNavigation }: DesktopNavigationProps) => {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <button 
-            onClick={() => handleNavigation('/case-results')} 
-            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-medium text-summit-blue-700 hover:bg-summit-blue-50 hover:text-summit-blue-800 transition-colors duration-200"
-          >
-            Case Results
-          </button>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <button 
             onClick={() => handleNavigation('/our-approach')} 
             className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-medium text-summit-blue-700 hover:bg-summit-blue-50 hover:text-summit-blue-800 transition-colors duration-200"
           >

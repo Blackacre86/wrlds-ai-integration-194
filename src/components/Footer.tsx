@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
@@ -46,7 +47,6 @@ const Footer = () => {
               <li><Link to="/locations/worcester" className="text-sm hover:text-white transition-colors">Worcester Criminal Defense</Link></li>
               <li><Link to="/about" className="text-sm hover:text-white transition-colors">About Attorney Brava</Link></li>
               <li><Link to="/prosecutor-advantage" className="text-sm hover:text-white transition-colors">Former Prosecutor Advantage</Link></li>
-              <li><Link to="/case-results" className="text-sm hover:text-white transition-colors">Case Results</Link></li>
               <li><Link to="/contact" className="text-sm hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>

@@ -61,9 +61,6 @@ const MobileNavigation = ({ isMenuOpen, handleNavigation }: MobileNavigationProp
         <button onClick={() => handleNavigation('/prosecutor-advantage')} className="font-medium text-left text-blue-800 hover:text-blue-600 py-2 border-b border-gray-100 w-full">
           Former Prosecutor Advantage
         </button>
-        <button onClick={() => handleNavigation('/case-results')} className="font-medium text-left text-blue-800 hover:text-blue-600 py-2 border-b border-gray-100 w-full">
-          Case Results
-        </button>
         <button onClick={() => handleNavigation('/our-approach')} className="font-medium text-left text-blue-800 hover:text-blue-600 py-2 border-b border-gray-100 w-full">
           Our Approach
         </button>
