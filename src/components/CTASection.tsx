@@ -40,15 +40,13 @@ const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
-            <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white px-8 py-7 text-lg font-semibold relative overflow-hidden group transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg">
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[hsl(var(--summit-gold))] to-amber-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-              <Phone className="mr-2 h-5 w-5 relative z-10" />
-              <span className="relative z-10">Call 508-454-0822</span>
+            <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-summit-blue-900 border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Phone className="mr-2 h-5 w-5" />
+              Call 508-454-0822
             </Button>
             
             <Link to="/contact" className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-400 to-[hsl(var(--summit-blue))] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-500 group-hover:duration-200"></div>
-              <Button size="lg" variant="outline" className="relative border-teal-300/50 text-teal-200 hover:text-white hover:bg-[hsl(var(--summit-blue))]/30 px-8 py-7 text-lg font-semibold w-full">
+              <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                 <Calendar className="mr-2 h-5 w-5" />
                 <span>Schedule Free Consultation</span>
                 <ArrowRight className="ml-2 h-4 w-4 opacity-70 group-hover:translate-x-1 transition-transform" />

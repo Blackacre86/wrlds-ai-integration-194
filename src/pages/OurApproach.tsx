@@ -1,10 +1,9 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Scale, Brain, Cpu, ShieldCheck, BarChart3, Eye, SearchCheck, PieChart } from "lucide-react";
+import { ArrowRight, Scale, Brain, ShieldCheck, BarChart3, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const OurApproach = () => {
@@ -19,17 +18,16 @@ const OurApproach = () => {
               Our Strategic Approach to Criminal Defense
             </h1>
             <p className="text-xl max-w-3xl text-blue-100 mb-8">
-              We combine prosecutorial experience, strategic case analysis, and cutting-edge 
-              technology to develop defense strategies that others simply cannot match.
+              We combine prosecutorial experience and strategic case analysis to develop defense strategies that others simply cannot match.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none">
+                <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-summit-blue-900 border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   Secure Your Case Strategy
                 </Button>
               </Link>
               <Link to="/prosecutor-advantage">
-                <Button size="lg" variant="outline" className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20">
+                <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   Learn About Our Prosecutor Background
                 </Button>
               </Link>
@@ -52,12 +50,12 @@ const OurApproach = () => {
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">The Summit Advantage</h2>
               <p className="text-lg text-gray-700">
-                Our approach is built on three key pillars that form the foundation of our success in defending clients 
+                Our approach is built on two key pillars that form the foundation of our success in defending clients 
                 against criminal charges in Massachusetts.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="bg-blue-50 rounded-lg p-8 border border-blue-100 transition-transform hover:shadow-lg hover:-translate-y-1">
                 <div className="bg-blue-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <Scale className="h-6 w-6 text-white" />
@@ -79,17 +77,6 @@ const OurApproach = () => {
                   identifying weaknesses that traditional defense attorneys often miss.
                 </p>
               </div>
-              
-              <div className="bg-blue-50 rounded-lg p-8 border border-blue-100 transition-transform hover:shadow-lg hover:-translate-y-1">
-                <div className="bg-blue-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  <Cpu className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-blue-800">AI-Enhanced Analysis</h3>
-                <p className="text-gray-700">
-                  Our proprietary AI tools analyze case documents, identify precedents, and help us develop 
-                  stronger arguments with greater efficiency than traditional methods.
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -100,10 +87,9 @@ const OurApproach = () => {
             <h2 className="text-3xl font-bold text-center mb-10">Our Comprehensive Approach</h2>
             
             <Tabs defaultValue="prosecutor" className="w-full max-w-4xl mx-auto">
-              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 mb-8">
+              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 mb-8">
                 <TabsTrigger value="prosecutor">Former Prosecutor Advantage</TabsTrigger>
                 <TabsTrigger value="methodology">Our Methodology</TabsTrigger>
-                <TabsTrigger value="ai-innovation">AI Innovation</TabsTrigger>
               </TabsList>
               
               {/* Former Prosecutor Tab Content */}
@@ -125,6 +111,7 @@ const OurApproach = () => {
                       Unlike defense attorneys who have never worked as prosecutors, we understand the internal workings of 
                       the District Attorney's Office, including:
                     </p>
+                    
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-start gap-3">
                         <div className="bg-blue-800 rounded-full p-1 mt-1">
@@ -151,6 +138,7 @@ const OurApproach = () => {
                         <span className="text-gray-700">How evidence is evaluated for strengths and weaknesses</span>
                       </li>
                     </ul>
+                    
                     <Link to="/prosecutor-advantage">
                       <Button className="group bg-blue-800 hover:bg-blue-900 text-white">
                         Learn More About Our Prosecutor Background
@@ -158,6 +146,7 @@ const OurApproach = () => {
                       </Button>
                     </Link>
                   </div>
+                  
                   <div className="w-full md:w-1/2 bg-blue-50 rounded-lg p-8 border border-blue-100">
                     <h4 className="text-xl font-semibold mb-6 text-blue-900 border-b border-blue-100 pb-4">The Prosecutor's Playbook</h4>
                     <div className="space-y-6">
@@ -274,128 +263,6 @@ const OurApproach = () => {
                   </div>
                 </div>
               </TabsContent>
-              
-              {/* AI Innovation Tab Content */}
-              <TabsContent value="ai-innovation" className="border rounded-lg bg-white p-6 shadow-sm">
-                <div className="space-y-8">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      Innovative Legal Defense with AI Technology
-                    </h3>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                      Summit Law leverages cutting-edge artificial intelligence tools to provide you with superior criminal defense representation.
-                    </p>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                    <div className="flex flex-col items-center text-center p-6 bg-gradient-to-b from-gray-50 to-blue-50/30 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-3px]">
-                      <div className="bg-blue-50 rounded-full p-4 mb-4">
-                        <Cpu className="h-10 w-10 text-blue-700" />
-                      </div>
-                      <h4 className="text-xl font-bold mb-3">Advanced Case Analysis</h4>
-                      <p className="text-gray-600 text-sm">
-                        Our proprietary AI tools analyze case evidence and documentation to identify patterns, inconsistencies, and opportunities that human review might miss.
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center text-center p-6 bg-gradient-to-b from-gray-50 to-blue-50/30 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-3px]">
-                      <div className="bg-blue-50 rounded-full p-4 mb-4">
-                        <SearchCheck className="h-10 w-10 text-blue-700" />
-                      </div>
-                      <h4 className="text-xl font-bold mb-3">Enhanced Legal Research</h4>
-                      <p className="text-gray-600 text-sm">
-                        AI-powered legal research gives us instant access to relevant precedents and legal strategies that strengthen your defense.
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center text-center p-6 bg-gradient-to-b from-gray-50 to-blue-50/30 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-3px]">
-                      <div className="bg-blue-50 rounded-full p-4 mb-4">
-                        <PieChart className="h-10 w-10 text-blue-700" />
-                      </div>
-                      <h4 className="text-xl font-bold mb-3">Compelling Evidence Presentation</h4>
-                      <p className="text-gray-600 text-sm">
-                        We create clear, persuasive visualizations of complex evidence and timelines that make your case stronger in court.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-col md:flex-row gap-10">
-                    <div className="w-full md:w-1/2">
-                      <h4 className="text-xl font-bold mb-4 text-blue-800">Why Our AI Approach Sets Us Apart</h4>
-                      <p className="text-gray-700 mb-4">
-                        At Summit Law, we recognize that the legal industry is traditionally slow to adopt change. 
-                        However, we break this mold by leveraging cutting-edge Artificial Intelligence (AI) technologies, 
-                        setting us distinctly apart from traditional criminal defense practices.
-                      </p>
-                      <p className="text-gray-700 mb-4">
-                        Our team employs secure, private AI systems that adhere to strict attorney-client confidentiality standards. 
-                        Your data is never shared with third-party AI providers, ensuring maximum security and privacy while still
-                        benefiting from advanced technological analysis.
-                      </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                        <div className="border border-blue-100 rounded-md p-4 bg-blue-50/50">
-                          <h5 className="font-bold text-gray-900 mb-2">Case Law Analysis</h5>
-                          <p className="text-sm text-gray-700">
-                            Our AI tools scan thousands of similar cases to identify winning defense strategies and favorable precedents.
-                          </p>
-                        </div>
-                        <div className="border border-blue-100 rounded-md p-4 bg-blue-50/50">
-                          <h5 className="font-bold text-gray-900 mb-2">Evidence Processing</h5>
-                          <p className="text-sm text-gray-700">
-                            Advanced document analysis identifies contradictions and inconsistencies in evidence.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-full md:w-1/2">
-                      <h4 className="text-xl font-bold mb-4 text-blue-800">What This Means For You</h4>
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-4">
-                          <div className="bg-blue-100 rounded-full p-2 mt-1">
-                            <svg className="w-4 h-4 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                          </div>
-                          <div>
-                            <h5 className="font-medium text-gray-900">Strategic Edge</h5>
-                            <p className="text-gray-700">
-                              By proactively uncovering and addressing the prosecution's tactics, our AI-driven strategies position clients ahead of traditional defense approaches.
-                            </p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start gap-4">
-                          <div className="bg-blue-100 rounded-full p-2 mt-1">
-                            <svg className="w-4 h-4 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                          </div>
-                          <div>
-                            <h5 className="font-medium text-gray-900">Confidence & Clarity</h5>
-                            <p className="text-gray-700">
-                              Our transparent, technology-aided process gives clients greater clarity and assurance about their legal situation, removing uncertainty and reducing stress.
-                            </p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start gap-4">
-                          <div className="bg-blue-100 rounded-full p-2 mt-1">
-                            <svg className="w-4 h-4 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                          </div>
-                          <div>
-                            <h5 className="font-medium text-gray-900">Proven Results</h5>
-                            <p className="text-gray-700">
-                              Cases utilizing our AI innovations consistently yield exceptional results, positioning Summit Law as a trusted leader in technologically-enhanced criminal defense.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </TabsContent>
             </Tabs>
           </div>
         </section>
@@ -406,12 +273,11 @@ const OurApproach = () => {
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl font-bold mb-6">Why Choose Our Approach?</h2>
               <p className="text-xl mb-6">
-                Our distinctive methodology combines prosecutorial insights, strategic case preparation, and innovative 
-                AI-driven analysis to provide a level of defense unmatched in Massachusetts.
+                Our distinctive methodology combines prosecutorial insights and strategic case preparation to provide a level of defense unmatched in Massachusetts.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 hover:bg-white/15 transition">
                 <h3 className="text-xl font-bold mb-4 text-yellow-400">Comprehensive Analysis</h3>
                 <p className="text-blue-50">
@@ -425,18 +291,11 @@ const OurApproach = () => {
                   By anticipating the prosecution's strategy, we position your defense to counter their strongest arguments before they even make them.
                 </p>
               </div>
-              
-              <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 hover:bg-white/15 transition">
-                <h3 className="text-xl font-bold mb-4 text-yellow-400">Technological Edge</h3>
-                <p className="text-blue-50">
-                  Our AI-enhanced legal research and case preparation provide insights and advantages that traditional defense methods simply cannot match.
-                </p>
-              </div>
             </div>
             
             <div className="flex justify-center">
               <Link to="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none">
+                <Button size="lg" className="bg-summit-gold-400 hover:bg-summit-gold-500 text-summit-blue-900 border-none text-base md:text-lg font-semibold px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   Secure Your Case Strategy
                 </Button>
               </Link>

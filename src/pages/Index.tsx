@@ -1,10 +1,10 @@
+
 import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ProsecutorAdvantageSection from "@/components/ProsecutorAdvantageSection";
-import AIInnovationSection from "@/components/AIInnovationSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
@@ -83,10 +83,6 @@ const Index = () => {
         
         <div className="animate-on-scroll">
           <TestimonialsSection />
-        </div>
-        
-        <div className="animate-on-scroll">
-          <AIInnovationSection />
         </div>
         
         <div className="animate-on-scroll">

@@ -20,8 +20,8 @@ const UniqueApproachSection = () => {
             <div className="bg-blue-50 p-8 rounded-lg border border-blue-100 my-8">
               <h3 className="text-xl font-bold mb-4 text-blue-800">The Summit Advantage</h3>
               <p className="text-gray-700 mb-6">
-                Our approach is built on three key pillars: prosecutorial experience, strategic case analysis, and cutting-edge technology. 
-                By thinking like prosecutors while leveraging advanced legal tech, we develop defense strategies that others simply cannot match.
+                Our approach is built on two key pillars: prosecutorial experience and strategic case analysis. 
+                By thinking like prosecutors while leveraging proven defense strategies, we develop defense approaches that others simply cannot match.
               </p>
               
               <Link to="/our-approach" className="inline-block">
