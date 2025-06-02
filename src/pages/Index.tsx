@@ -58,9 +58,9 @@ const Index = () => {
   };
 
   const SectionDivider = ({ targetSectionId }: { targetSectionId: string }) => (
-    <div className="relative bg-white py-8 overflow-hidden">
+    <div className="relative bg-gradient-to-r from-summit-slate-50 to-white py-8 overflow-hidden">
       <div className="container mx-auto flex flex-col justify-center items-center">
-        <div className="mb-4 transform scale-110">
+        <div className="mb-4 transform scale-110 bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-md border border-summit-slate-200">
           <Logo variant="header" />
         </div>
         <button 
@@ -68,12 +68,12 @@ const Index = () => {
           className="flex flex-col items-center gap-2 group cursor-pointer"
           aria-label="Scroll to next section"
         >
-          <div className="bg-gradient-to-br from-blue-100 to-teal-50 rounded-full p-5 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-105">
-            <ChevronDown className="h-8 w-8 text-blue-800" />
+          <div className="bg-gradient-to-br from-summit-blue-100 to-summit-teal-50 rounded-full p-5 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-105 border border-summit-blue-200">
+            <ChevronDown className="h-8 w-8 text-summit-blue-700" />
           </div>
         </button>
       </div>
-      <Separator className="mt-8 bg-gradient-to-r from-transparent via-blue-200 to-transparent h-[2px]" />
+      <Separator className="mt-8 bg-gradient-to-r from-transparent via-summit-teal-300 to-transparent h-[2px]" />
     </div>
   );
 
