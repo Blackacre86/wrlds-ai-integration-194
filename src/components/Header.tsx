@@ -17,19 +17,17 @@ const Header = () => {
 
   const handleNavigation = (path: string) => {
     navigate(path);
-    // Ensure scroll to top
     window.scrollTo(0, 0);
-    // Close mobile menu if open
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-summit-slate-200 shadow-sm">
-      <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-8">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-mountain-stone-300 shadow-sm">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
         <div className="flex items-center justify-center">
-          <Logo variant="header" />
+          <Logo variant="dark" />
         </div>
         
         {/* Desktop Navigation */}

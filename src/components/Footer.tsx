@@ -1,20 +1,17 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-summit-slate-800 to-summit-slate-900 text-summit-slate-100">
+    <footer className="bg-gradient-to-b from-mountain-stone-800 to-mountain-stone-900 text-mountain-stone-100">
       <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="space-y-5">
             <div className="mb-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 inline-block">
-                <Logo variant="white" />
-              </div>
+              <Logo variant="light" />
             </div>
-            <p className="text-sm md:text-base text-summit-slate-300">
+            <p className="text-sm md:text-base text-mountain-stone-300">
               Strategic criminal defense representation that knows how to dismantle the state's case against you.
             </p>
             <div className="flex items-center space-x-4 pt-2">
