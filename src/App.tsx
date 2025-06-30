@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import ProsecutorAdvantage from "./pages/ProsecutorAdvantage";
 import OurApproach from "./pages/OurApproach";
 import PracticeAreas from "./pages/PracticeAreas";
+import CaseResults from "./pages/CaseResults";
 import NotFound from "./pages/NotFound";
 
 // Location Pages
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/prosecutor-advantage" element={<ProsecutorAdvantage />} />
             <Route path="/our-approach" element={<OurApproach />} />
             <Route path="/practice-areas" element={<PracticeAreas />} />
+            <Route path="/case-results" element={<CaseResults />} />
             
             {/* Location Pages */}
             <Route path="/locations/boston" element={<Boston />} />
