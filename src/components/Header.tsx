@@ -24,10 +24,10 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-mountain-stone-300 shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-summit-navy-900 shadow-lg">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
         <div className="flex items-center justify-center">
-          <Logo variant="dark" />
+          <Logo variant="light" />
         </div>
         
         {/* Desktop Navigation */}

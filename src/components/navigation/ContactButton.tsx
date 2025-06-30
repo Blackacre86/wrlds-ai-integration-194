@@ -1,19 +1,20 @@
 
 import React from "react";
+import { Button } from "@/components/ui/button";
 
-type ContactButtonProps = {
+interface ContactButtonProps {
   handleNavigation: (path: string) => void;
-};
+}
 
 const ContactButton = ({ handleNavigation }: ContactButtonProps) => {
   return (
-    <div className="hidden md:flex items-center space-x-4">
-      <button 
-        onClick={() => handleNavigation('/contact')} 
-        className="inline-flex items-center justify-center bg-summit-blue-600 hover:bg-summit-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300"
+    <div className="hidden lg:block">
+      <Button
+        onClick={() => handleNavigation("/contact")}
+        className="bg-summit-orange-500 hover:bg-summit-orange-600 text-white border-none font-semibold px-6 py-2 shadow-md hover:shadow-lg transition-all duration-300"
       >
         Contact Us
-      </button>
+      </Button>
     </div>
   );
 };

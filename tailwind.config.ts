@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,10 +19,38 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'serif': ['Playfair Display', 'Georgia', 'serif'],
+				'serif': ['Merriweather', 'Georgia', 'serif'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
-				// New mountain-inspired color palette
+				// New primary navy color scheme
+				'summit-navy': {
+					50: '#f0f4f8',
+					100: '#d9e2ec',
+					200: '#bcccdc',
+					300: '#9fb3c8',
+					400: '#829ab1',
+					500: '#627d98',
+					600: '#486581',
+					700: '#334e68',
+					800: '#243b53',
+					900: '#0f2344', // Primary navy
+					950: '#0a1929',
+				},
+				'summit-orange': {
+					50: '#fff5f2',
+					100: '#ffe8e0',
+					200: '#ffd4c7',
+					300: '#ffb8a0',
+					400: '#ff9472',
+					500: '#ff6a3d', // Primary accent
+					600: '#f0541f',
+					700: '#d63e0f',
+					800: '#b73411',
+					900: '#9a2e12',
+					950: '#541606',
+				},
+				// Keep existing mountain colors for consistency
 				'summit-slate': {
 					50: '#f8fafc',
 					100: '#f1f5f9',
@@ -49,19 +76,6 @@ export default {
 					800: '#075985',
 					900: '#0c4a6e',
 					950: '#082f49',
-				},
-				'summit-teal': {
-					50: '#f0fdfa',
-					100: '#ccfbf1',
-					200: '#99f6e4',
-					300: '#5eead4',
-					400: '#2dd4bf',
-					500: '#14b8a6',
-					600: '#0d9488',
-					700: '#0f766e',
-					800: '#115e59',
-					900: '#134e4a',
-					950: '#042f2e',
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
