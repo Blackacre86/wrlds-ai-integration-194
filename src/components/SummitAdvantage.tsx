@@ -1,5 +1,5 @@
 
-import { Shield, Search, Users, TrendingUp, CheckCircle, Phone } from "lucide-react";
+import { Eye, Brain, Target, TrendingUp, CheckCircle, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -26,25 +26,25 @@ const SummitAdvantage = () => {
 
   const advantages = [
     {
-      icon: <Shield className="w-8 h-8 text-gray-600" />,
-      title: "Prosecutorial Experience",
-      description: "Former prosecutor with first-hand insight into DA tactics, evidence evaluation, and courtroom strategies.",
-      stat: "1,000+",
-      statLabel: "Cases Prosecuted & Defended"
-    },
-    {
-      icon: <Search className="w-8 h-8 text-gray-600" />,
-      title: "Reverse Engineering",
-      description: "Meticulous case analysis to identify weaknesses and dismantle prosecution arguments before they're presented.",
+      icon: <Eye className="w-8 h-8 text-gray-600" />,
+      title: "Smart Evidence Presentation",
+      description: "Clearly communicate your story with Summit Law's AI-powered visual evidence tools. Transform complex evidence into straightforward, persuasive visuals that resonate with judges and juries.",
       stat: "100%",
-      statLabel: "Cases Thoroughly Analyzed"
+      statLabel: "Clear Communication"
     },
     {
-      icon: <Users className="w-8 h-8 text-gray-600" />,
-      title: "Personalized Advocacy",
-      description: "Individualized strategies, clear communication, and steadfast support throughout your legal journey.",
+      icon: <Brain className="w-8 h-8 text-gray-600" />,
+      title: "AI-Powered Legal Research Agents",
+      description: "Get instant, precise answers to critical legal questions. Summit Law's custom-built research agents scan thousands of legal sources in seconds, delivering accurate insights tailored specifically to your case.",
+      stat: "1000s",
+      statLabel: "Sources Analyzed"
+    },
+    {
+      icon: <Target className="w-8 h-8 text-gray-600" />,
+      title: "Predictive Case Strategy Insights",
+      description: "Anticipate your opponent's moves before they happen. Leverage Summit Law's advanced predictive AI to analyze past cases and prosecution strategies, giving you a strategic advantage from start to finish.",
       stat: "24/7",
-      statLabel: "Client Support Available"
+      statLabel: "Strategic Advantage"
     }
   ];
 
@@ -66,8 +66,8 @@ const SummitAdvantage = () => {
               The Summit Advantage
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Strategic criminal defense backed by prosecutorial experience and a deep understanding 
-              of Massachusetts criminal law.
+              Strategic criminal defense powered by cutting-edge AI technology and prosecutorial experience, 
+              giving you an unprecedented advantage in Massachusetts criminal law.
             </p>
           </motion.div>
         </motion.div>
@@ -151,7 +151,7 @@ const SummitAdvantage = () => {
                 </h4>
                 <p className="text-gray-600 mb-6">
                   Every case receives personalized attention and strategic planning 
-                  based on insider knowledge of how prosecutors build their cases.
+                  enhanced by cutting-edge AI technology and insider knowledge of prosecution tactics.
                 </p>
                 <Button 
                   onClick={() => window.location.href = 'tel:508-454-0822'}
