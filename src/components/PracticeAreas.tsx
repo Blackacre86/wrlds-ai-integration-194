@@ -12,22 +12,22 @@ const PracticeAreas = () => {
     icon: <Scale className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Criminal Defense",
     description: "Comprehensive defense for all felonies and misdemeanors in District and Superior Courts across Massachusetts.",
-    image: "/images/criminal-defense.jpg"
+    image: "/lovable-uploads/criminal-defense.jpg"
   }, {
     icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Restraining & Harassment Orders",
     description: "Expert representation for 209A restraining orders and 258E harassment prevention orders, both seeking and defending.",
-    image: "/images/restraining-orders.jpg"
+    image: "/lovable-uploads/restraining-orders.jpg"
   }, {
     icon: <Car className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Motor Vehicle Offenses",
     description: "Skilled defense for OUI/DUI, reckless driving, operating after suspension, and all motor vehicle violations.",
-    image: "/images/motor-vehicle.jpg"
+    image: "/lovable-uploads/motor-vehicle.jpg"
   }, {
     icon: <FileText className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Show Cause Hearings",
     description: "Strategic representation at Clerk Magistrate show cause hearings to prevent criminal charges from being filed.",
-    image: "/images/show-cause.jpg"
+    image: "/lovable-uploads/show-cause.jpg"
   }];
 
   const scrollToContact = (e: React.MouseEvent) => {
