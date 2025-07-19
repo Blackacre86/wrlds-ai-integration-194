@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Award, MapPin, Calendar, ArrowRight } from "lucide-react";
+import { Briefcase, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -28,32 +28,6 @@ const AttorneyProfile = () => {
       }
     }
   };
-  const timeline = [{
-    year: "2009",
-    title: "B.A., American Government",
-    institution: "Suffolk University",
-    description: "Graduated with Bachelor of Arts in American Government, establishing foundation in legal and political systems."
-  }, {
-    year: "2016",
-    title: "J.D., Juris Doctor",
-    institution: "Massachusetts School of Law",
-    description: "Earned law degree with focus on criminal law and courtroom advocacy."
-  }, {
-    year: "2016-2022",
-    title: "Assistant District Attorney",
-    institution: "Berkshire County DA's Office",
-    description: "Prosecuted over 1,000 criminal cases, specialized in domestic violence, served as District Court DV Supervisor."
-  }, {
-    year: "2022",
-    title: "Private Practice",
-    institution: "Barry & Kinzer, LLP",
-    description: "Transitioned to defense work, handling criminal defense, family law, and probate matters."
-  }, {
-    year: "2023",
-    title: "Summit Law Offices Founded",
-    institution: "Clinton, Massachusetts",
-    description: "Established independent practice focused on strategic criminal defense across Massachusetts."
-  }];
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-info');
     if (contactSection) {
@@ -81,7 +55,8 @@ const AttorneyProfile = () => {
           </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-12 items-center justify-center mb-16">
+          <div className="max-w-2xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{
           once: true
         }} variants={itemVariants}>
@@ -119,70 +94,27 @@ const AttorneyProfile = () => {
               </div>
             </div>
 
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6">
-                <h4 className="text-lg font-semibold mb-4 flex items-center">
-                  <Award className="w-5 h-5 text-gray-600 mr-2" />
-                  Notable Achievements
-                </h4>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start">
-                    
-                    <span>
-                  </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Advanced training with National District Attorneys Association (Arizona, 2022)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>District Court Domestic Violence Supervisor, Berkshire County</span>
-                  </li>
-                  <li className="flex items-start">
-                    
-                    
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{
-          once: true
-        }} variants={containerVariants}>
-            <h3 className="text-2xl font-bold mb-8 text-gray-900 flex items-center">
-              <GraduationCap className="w-6 h-6 mr-3 text-gray-600" />
-              Education & Career Timeline
-            </h3>
-            
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-              
-              {timeline.map((item, index) => <motion.div key={index} variants={itemVariants} className="relative flex items-start mb-8 last:mb-0">
-                  {/* Timeline dot */}
-                  <div className="relative z-10 w-12 h-12 bg-white border-4 border-gray-300 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                    <span className="text-sm font-bold text-gray-600">{item.year}</span>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-1">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 font-medium mb-2">
-                        {item.institution}
-                      </p>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>)}
+            {/* Office Location Map */}
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h4 className="text-lg font-semibold mb-4 flex items-center">
+                <MapPin className="w-5 h-5 text-gray-600 mr-2" />
+                Office Location
+              </h4>
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=400&fit=crop"
+                  alt="Summit Law Offices Location - 1042 Main Street, Clinton, MA"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              <div className="mt-4">
+                <p className="text-gray-600 text-sm">
+                  1042 Main Street, Suite C, Clinton, MA 01510
+                </p>
+              </div>
             </div>
           </motion.div>
+
         </div>
 
         <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{
@@ -201,8 +133,9 @@ const AttorneyProfile = () => {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
-        </motion.div>
-      </div>
+          </motion.div>
+          </div>
+        </div>
     </section>;
 };
 export default AttorneyProfile;
