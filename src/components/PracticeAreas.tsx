@@ -12,22 +12,22 @@ const PracticeAreas = () => {
     icon: <Scale className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Criminal Defense",
     description: "Comprehensive defense for all felonies and misdemeanors in District and Superior Courts across Massachusetts.",
-    image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/criminal-defense.jpg"
   }, {
     icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Restraining & Harassment Orders",
     description: "Expert representation for 209A restraining orders and 258E harassment prevention orders, both seeking and defending.",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/restraining-orders.jpg"
   }, {
     icon: <Car className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Motor Vehicle Offenses",
     description: "Skilled defense for OUI/DUI, reckless driving, operating after suspension, and all motor vehicle violations.",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/motor-vehicle.jpg"
   }, {
     icon: <FileText className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Show Cause Hearings",
     description: "Strategic representation at Clerk Magistrate show cause hearings to prevent criminal charges from being filed.",
-    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/images/show-cause.jpg"
   }];
 
   const scrollToContact = (e: React.MouseEvent) => {
@@ -84,14 +84,24 @@ const PracticeAreas = () => {
           transitionDelay: `${index * 100}ms`
         }} onMouseEnter={() => setHoveredArea(index)} onMouseLeave={() => setHoveredArea(null)}>
               <div className="absolute inset-0 w-full h-full">
-                <img src={area.image} alt={area.title} className="w-full h-full object-cover transition-all duration-300 grayscale" />
+                <img 
+                  src={area.image} 
+                  alt={
+                    area.title === "Criminal Defense" ? "Courtroom scene - Criminal Defense representation" :
+                    area.title === "Restraining & Harassment Orders" ? "Legal protection - Restraining and Harassment Orders" :
+                    area.title === "Motor Vehicle Offenses" ? "Traffic law enforcement - Motor Vehicle Offenses" :
+                    "Legal hearing preparation - Show Cause Hearings"
+                  }
+                  className="w-full h-full object-cover object-center transition-all duration-300 grayscale max-h-[140px] md:max-h-[180px] aspect-square md:aspect-[4/3]" 
+                  loading="lazy"
+                />
                 <div className={cn("absolute inset-0 transition-opacity duration-300", hoveredArea === index ? "bg-black/50" : "bg-black/70")}></div>
               </div>
               
               <div className="relative z-10 flex flex-col justify-between p-6 h-full">
                 <div>
                   <div className={cn("inline-block p-3 bg-gray-800/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform mb-4", hoveredArea === index ? "hover:scale-110" : "")}>
-                    
+                    {area.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">
                     {area.title}
