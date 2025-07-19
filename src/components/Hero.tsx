@@ -1,9 +1,12 @@
-import { ArrowRight, Phone, MessageSquare, Scale, Shield, Gavel } from "lucide-react";
+
+import { ArrowRight, Phone, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+
 const Hero = () => {
   const isMobile = useIsMobile();
+  
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -17,6 +20,7 @@ const Hero = () => {
       }
     }
   };
+  
   const itemVariants = {
     hidden: {
       y: 20,
@@ -30,6 +34,7 @@ const Hero = () => {
       }
     }
   };
+  
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     const contactSection = document.getElementById('contact');
@@ -39,70 +44,76 @@ const Hero = () => {
       });
     }
   };
+  
   const handlePhoneCall = () => {
     window.location.href = 'tel:508-454-0822';
   };
-  return <motion.div className="relative w-full" initial="hidden" animate="visible" variants={containerVariants}>
-      <div className="banner-container bg-black relative overflow-hidden h-[50vh] sm:h-[60vh] md:h-[500px] lg:h-[550px] xl:h-[600px] w-full">
+  
+  return (
+    <motion.div 
+      className="relative w-full" 
+      initial="hidden" 
+      animate="visible" 
+      variants={containerVariants}
+    >
+      <div className="banner-container bg-black relative overflow-hidden h-[60vh] sm:h-[70vh] md:h-[600px] lg:h-[650px] xl:h-[700px] w-full">
         <div className="absolute inset-0 bg-black w-full">
-          <video autoPlay loop muted playsInline preload="metadata" className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-center' : 'object-center'}`}>
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            preload="metadata" 
+            className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-center' : 'object-center'}`}
+          >
             <source src="/summit_hero_1.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30"></div>
         </div>
         
         <div className="banner-overlay bg-transparent pt-20 sm:pt-24 md:pt-32 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
-            <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
-              <motion.h1 className="banner-title text-white" variants={itemVariants}>Strategic Criminal Defense Across Massachusetts</motion.h1>
-              <motion.p className="banner-subtitle text-gray-300 mt-4 sm:mt-6" variants={itemVariants}>Strategic Criminal Defense Enhanced by AI</motion.p>
-              <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 justify-center items-center" variants={itemVariants}>
+            <motion.div className="w-full max-w-5xl text-center" variants={itemVariants}>
+              <motion.h1 
+                className="banner-title text-white font-bold leading-tight" 
+                variants={itemVariants}
+              >
+                Strategic Criminal Defense Across Massachusetts
+              </motion.h1>
+              <motion.p 
+                className="banner-subtitle text-gray-200 mt-6 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto" 
+                variants={itemVariants}
+              >
+                Strategic Criminal Defense Enhanced by AI
+              </motion.p>
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10 justify-center items-center" 
+                variants={itemVariants}
+              >
                 {/* Phone call button */}
-                <button className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm sm:text-base font-medium" onClick={handlePhoneCall}>
+                <button 
+                  className="w-full sm:w-auto min-h-[48px] px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:shadow-white/10 flex items-center justify-center group text-base font-semibold"
+                  onClick={handlePhoneCall}
+                >
                   Call 508-454-0822
-                  <Phone className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
+                  <Phone className="ml-3 w-5 h-5 group-hover:scale-110 transition-transform" />
                 </button>
                 
                 {/* Contact form button */}
-                <button className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm sm:text-base font-medium" onClick={scrollToContact}>
+                <button 
+                  className="w-full sm:w-auto min-h-[48px] px-8 py-4 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-base font-semibold border border-gray-600"
+                  onClick={scrollToContact}
+                >
                   Request Consultation
-                  <MessageSquare className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
+                  <MessageSquare className="ml-3 w-5 h-5 group-hover:scale-110 transition-transform" />
                 </button>
               </motion.div>
             </motion.div>
           </div>
         </div>
       </div>
-      
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
-        <motion.div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4" variants={containerVariants} initial="hidden" animate="visible" transition={{
-        delay: 0.6
-      }}>
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Scale className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Prosecutorial Experience</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Former prosecutor with insider knowledge of DA tactics and courtroom strategies.</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Shield className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Strategic Defense</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Meticulous case analysis and reverse engineering to dismantle prosecution arguments.</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Gavel className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Full-Service Legal</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Criminal defense, restraining orders, motor vehicle offenses, and show cause hearings.</p>
-          </motion.div>
-        </motion.div>
-      </div>
-    </motion.div>;
+    </motion.div>
+  );
 };
+
 export default Hero;
