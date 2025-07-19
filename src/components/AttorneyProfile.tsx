@@ -1,12 +1,12 @@
-
 import { GraduationCap, Briefcase, Award, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
 const AttorneyProfile = () => {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
       transition: {
@@ -15,66 +15,58 @@ const AttorneyProfile = () => {
       }
     }
   };
-
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: { 
-      y: 0, 
+    hidden: {
+      y: 30,
+      opacity: 0
+    },
+    visible: {
+      y: 0,
       opacity: 1,
-      transition: { duration: 0.8 }
+      transition: {
+        duration: 0.8
+      }
     }
   };
-
-  const timeline = [
-    {
-      year: "2009",
-      title: "B.A., American Government",
-      institution: "Suffolk University",
-      description: "Graduated with Bachelor of Arts in American Government, establishing foundation in legal and political systems."
-    },
-    {
-      year: "2016",
-      title: "J.D., Juris Doctor",
-      institution: "Massachusetts School of Law",
-      description: "Earned law degree with focus on criminal law and courtroom advocacy."
-    },
-    {
-      year: "2016-2022",
-      title: "Assistant District Attorney",
-      institution: "Berkshire County DA's Office",
-      description: "Prosecuted over 1,000 criminal cases, specialized in domestic violence, served as District Court DV Supervisor."
-    },
-    {
-      year: "2022",
-      title: "Private Practice",
-      institution: "Barry & Kinzer, LLP",
-      description: "Transitioned to defense work, handling criminal defense, family law, and probate matters."
-    },
-    {
-      year: "2023",
-      title: "Summit Law Offices Founded",
-      institution: "Clinton, Massachusetts",
-      description: "Established independent practice focused on strategic criminal defense across Massachusetts."
-    }
-  ];
-
+  const timeline = [{
+    year: "2009",
+    title: "B.A., American Government",
+    institution: "Suffolk University",
+    description: "Graduated with Bachelor of Arts in American Government, establishing foundation in legal and political systems."
+  }, {
+    year: "2016",
+    title: "J.D., Juris Doctor",
+    institution: "Massachusetts School of Law",
+    description: "Earned law degree with focus on criminal law and courtroom advocacy."
+  }, {
+    year: "2016-2022",
+    title: "Assistant District Attorney",
+    institution: "Berkshire County DA's Office",
+    description: "Prosecuted over 1,000 criminal cases, specialized in domestic violence, served as District Court DV Supervisor."
+  }, {
+    year: "2022",
+    title: "Private Practice",
+    institution: "Barry & Kinzer, LLP",
+    description: "Transitioned to defense work, handling criminal defense, family law, and probate matters."
+  }, {
+    year: "2023",
+    title: "Summit Law Offices Founded",
+    institution: "Clinton, Massachusetts",
+    description: "Established independent practice focused on strategic criminal defense across Massachusetts."
+  }];
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-info');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section id="attorney-profile" className="bg-white py-16 md:py-24 w-full">
+  return <section id="attorney-profile" className="bg-white py-16 md:py-24 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-        >
+        <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{
+        once: true
+      }} variants={containerVariants}>
           <motion.div variants={itemVariants}>
             <div className="inline-block mb-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
               About Your Attorney
@@ -90,12 +82,9 @@ const AttorneyProfile = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={itemVariants}
-          >
+          <motion.div initial="hidden" whileInView="visible" viewport={{
+          once: true
+        }} variants={itemVariants}>
             <div className="bg-gray-50 rounded-2xl p-8 mb-8">
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mr-4">
@@ -138,8 +127,9 @@ const AttorneyProfile = () => {
                 </h4>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Landmark 5-year sentence in no-witness domestic violence case—county record</span>
+                    
+                    <span>
+                  </span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -158,12 +148,9 @@ const AttorneyProfile = () => {
             </Card>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
+          <motion.div initial="hidden" whileInView="visible" viewport={{
+          once: true
+        }} variants={containerVariants}>
             <h3 className="text-2xl font-bold mb-8 text-gray-900 flex items-center">
               <GraduationCap className="w-6 h-6 mr-3 text-gray-600" />
               Education & Career Timeline
@@ -173,12 +160,7 @@ const AttorneyProfile = () => {
               {/* Timeline line */}
               <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200"></div>
               
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="relative flex items-start mb-8 last:mb-0"
-                >
+              {timeline.map((item, index) => <motion.div key={index} variants={itemVariants} className="relative flex items-start mb-8 last:mb-0">
                   {/* Timeline dot */}
                   <div className="relative z-10 w-12 h-12 bg-white border-4 border-gray-300 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
                     <span className="text-sm font-bold text-gray-600">{item.year}</span>
@@ -198,19 +180,14 @@ const AttorneyProfile = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </motion.div>
         </div>
 
-        <motion.div 
-          className="text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={itemVariants}
-        >
+        <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{
+        once: true
+      }} variants={itemVariants}>
           <div className="bg-gray-900 text-white rounded-2xl p-8 md:p-12">
             <h3 className="text-3xl font-bold mb-4">
               Strategic Defense. Insider Knowledge. Proven Results.
@@ -219,18 +196,13 @@ const AttorneyProfile = () => {
               When your freedom is on the line, you need an attorney who understands both sides of the courtroom. 
               Let's discuss your case today.
             </p>
-            <Button 
-              onClick={scrollToContact}
-              className="px-8 py-3 bg-white text-gray-900 hover:bg-gray-100 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
+            <Button onClick={scrollToContact} className="px-8 py-3 bg-white text-gray-900 hover:bg-gray-100 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
               Schedule Your Consultation
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AttorneyProfile;
