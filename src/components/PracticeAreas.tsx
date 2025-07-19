@@ -3,30 +3,33 @@ import { Scale, Shield, Car, FileText, ArrowRight, MessageSquare } from "lucide-
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 const PracticeAreas = () => {
   const practiceAreasRef = useRef<HTMLDivElement>(null);
   const [hoveredArea, setHoveredArea] = useState<number | null>(null);
+
   const practiceAreas = [{
     icon: <Scale className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Criminal Defense",
     description: "Comprehensive defense for all felonies and misdemeanors in District and Superior Courts across Massachusetts.",
-    image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png"
+    image: "/images/criminal-defense.jpg"
   }, {
     icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Restraining & Harassment Orders",
     description: "Expert representation for 209A restraining orders and 258E harassment prevention orders, both seeking and defending.",
-    image: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png"
+    image: "/images/restraining-orders.jpg"
   }, {
     icon: <Car className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Motor Vehicle Offenses",
     description: "Skilled defense for OUI/DUI, reckless driving, operating after suspension, and all motor vehicle violations.",
-    image: "/lovable-uploads/cf8966e3-de0d-445f-9fbd-ee6c48daa7ff.png"
+    image: "/images/motor-vehicle.jpg"
   }, {
     icon: <FileText className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Show Cause Hearings",
     description: "Strategic representation at Clerk Magistrate show cause hearings to prevent criminal charges from being filed.",
-    image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
+    image: "/images/show-cause.jpg"
   }];
+
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     const contactSection = document.getElementById('contact-info');
@@ -36,6 +39,7 @@ const PracticeAreas = () => {
       });
     }
   };
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -48,6 +52,7 @@ const PracticeAreas = () => {
     }, {
       threshold: 0.1
     });
+
     if (practiceAreasRef.current) {
       const elements = practiceAreasRef.current.querySelectorAll('.practice-area-item');
       elements.forEach(el => {
@@ -57,8 +62,10 @@ const PracticeAreas = () => {
         }
       });
     }
+
     return () => observer.disconnect();
   }, []);
+
   return <section id="practice-areas" className="relative bg-white overflow-hidden py-10 md:py-[50px] w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={practiceAreasRef}> 
         <div className="text-center mb-10 max-w-3xl mx-auto practice-area-item">
@@ -112,4 +119,5 @@ const PracticeAreas = () => {
       </div>
     </section>;
 };
+
 export default PracticeAreas;
