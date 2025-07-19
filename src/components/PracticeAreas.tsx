@@ -92,7 +92,7 @@ const PracticeAreas = () => {
                     area.title === "Motor Vehicle Offenses" ? "Traffic law enforcement - Motor Vehicle Offenses" :
                     "Legal hearing preparation - Show Cause Hearings"
                   }
-                  className="w-full h-full object-cover object-center transition-all duration-300 grayscale max-h-[140px] md:max-h-[180px] aspect-square md:aspect-[4/3]" 
+                  className="w-full h-full object-cover object-center transition-all duration-300 grayscale" 
                   loading="lazy"
                 />
                 <div className={cn("absolute inset-0 transition-opacity duration-300", hoveredArea === index ? "bg-black/50" : "bg-black/70")}></div>
