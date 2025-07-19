@@ -1,4 +1,5 @@
-import { ArrowRight, Phone, MessageSquare, Scale, Shield, Gavel } from "lucide-react";
+
+import { ArrowRight, Phone, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -91,36 +92,6 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-      </div>
-      
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
-        <motion.div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4" variants={containerVariants} initial="hidden" animate="visible" transition={{
-        delay: 0.6
-      }}>
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Scale className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Prosecutorial Experience</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Former prosecutor with insider knowledge of DA tactics and courtroom strategies.</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Shield className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Strategic Defense</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Meticulous case analysis and reverse engineering to dismantle prosecution arguments.</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Gavel className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Full-Service Legal</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Criminal defense, restraining orders, motor vehicle offenses, and show cause hearings.</p>
-          </motion.div>
-        </motion.div>
       </div>
     </motion.div>;
 };

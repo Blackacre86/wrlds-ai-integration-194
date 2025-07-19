@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { cn } from '@/lib/utils';
@@ -62,7 +63,7 @@ const PracticeAreas = () => {
     return () => observer.disconnect();
   }, []);
 
-  return <section id="practice-areas" className="relative bg-white overflow-hidden py-10 md:py-[50px] w-full">
+  return <section id="practice-areas" className="relative bg-white overflow-hidden py-16 md:py-20 w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8" ref={practiceAreasRef}> 
         <div className="text-center mb-10 max-w-3xl mx-auto practice-area-item">
           <div className="inline-block mb-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
