@@ -133,7 +133,7 @@ const SummitAdvantage = () => {
                 <div className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                   <p className="text-gray-600">
-                    <strong>Landmark Achievement:</strong> Secured 5-year sentence in no-witness DV case—county record
+                    <strong>Landmark Achievement:</strong> Secured 5-year sentence in no-witness DV case
                   </p>
                 </div>
                 <div className="flex items-start">
