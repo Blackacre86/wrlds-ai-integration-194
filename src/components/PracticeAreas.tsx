@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Scale, Shield, Car, FileText, ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight, MessageSquare } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,22 +9,18 @@ const PracticeAreas = () => {
   const [hoveredArea, setHoveredArea] = useState<number | null>(null);
 
   const practiceAreas = [{
-    icon: <Scale className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Criminal Defense",
     description: "Comprehensive defense for all felonies and misdemeanors in District and Superior Courts across Massachusetts.",
     image: "/lovable-uploads/criminal-defense.jpg"
   }, {
-    icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-    title: "Restraining & Harassment Orders",
+    title: "Restraining & Harassment Orders", 
     description: "Expert representation for 209A restraining orders and 258E harassment prevention orders, both seeking and defending.",
     image: "/lovable-uploads/restraining-orders.jpg"
   }, {
-    icon: <Car className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Motor Vehicle Offenses",
     description: "Skilled defense for OUI/DUI, reckless driving, operating after suspension, and all motor vehicle violations.",
     image: "/lovable-uploads/motor-vehicle.jpg"
   }, {
-    icon: <FileText className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Show Cause Hearings",
     description: "Strategic representation at Clerk Magistrate show cause hearings to prevent criminal charges from being filed.",
     image: "/lovable-uploads/show-cause.jpg"
@@ -100,9 +96,6 @@ const PracticeAreas = () => {
               
               <div className="relative z-10 flex flex-col justify-between p-6 h-full">
                 <div>
-                  <div className={cn("inline-block p-3 bg-gray-800/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform mb-4", hoveredArea === index ? "hover:scale-110" : "")}>
-                    {area.icon}
-                  </div>
                   <h3 className="text-xl font-semibold text-white mb-2">
                     {area.title}
                   </h3>

@@ -1,5 +1,4 @@
-
-import { Eye, Brain, Target, TrendingUp, CheckCircle, Phone } from "lucide-react";
+import { TrendingUp, CheckCircle, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -26,25 +25,25 @@ const SummitAdvantage = () => {
 
   const advantages = [
     {
-      icon: <Eye className="w-8 h-8 text-gray-600" />,
       title: "Smart Evidence Presentation",
       description: "Clearly communicate your story with Summit Law's AI-powered visual evidence tools. Transform complex evidence into straightforward, persuasive visuals that resonate with judges and juries.",
       stat: "100%",
-      statLabel: "Clear Communication"
+      statLabel: "Clear Communication",
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop&auto=format"
     },
     {
-      icon: <Brain className="w-8 h-8 text-gray-600" />,
-      title: "AI-Powered Legal Research Agents",
+      title: "AI-Powered Legal Research Agents", 
       description: "Get instant, precise answers to critical legal questions. Summit Law's custom-built research agents scan thousands of legal sources in seconds, delivering accurate insights tailored specifically to your case.",
       stat: "1000s",
-      statLabel: "Sources Analyzed"
+      statLabel: "Sources Analyzed",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format"
     },
     {
-      icon: <Target className="w-8 h-8 text-gray-600" />,
-      title: "Predictive Case Strategy Insights",
-      description: "Anticipate your opponent's moves before they happen. Leverage Summit Law's advanced predictive AI to analyze past cases and prosecution strategies, giving you a strategic advantage from start to finish.",
+      title: "Strategic Negotiation Intelligence",
+      description: "Gain an edge at the negotiation table. Summit Law's AI analyzes historical plea agreements, guiding you toward more favorable outcomes with strategic, data-backed negotiation tactics.",
       stat: "24/7",
-      statLabel: "Strategic Advantage"
+      statLabel: "Strategic Advantage",
+      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&auto=format"
     }
   ];
 
@@ -83,23 +82,29 @@ const SummitAdvantage = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="flex items-center justify-between mb-6">
-                <div className="p-3 bg-gray-50 rounded-xl">
-                  {advantage.icon}
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-gray-900">{advantage.stat}</div>
-                  <div className="text-sm text-gray-500">{advantage.statLabel}</div>
-                </div>
+              <div className="h-48 w-full">
+                <img 
+                  src={advantage.image} 
+                  alt={advantage.title}
+                  className="w-full h-full object-cover grayscale"
+                />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                {advantage.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {advantage.description}
-              </p>
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {advantage.title}
+                  </h3>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-gray-900">{advantage.stat}</div>
+                    <div className="text-sm text-gray-500">{advantage.statLabel}</div>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  {advantage.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
