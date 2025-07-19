@@ -1,5 +1,5 @@
 
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -31,10 +31,10 @@ const Footer = () => {
       const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
       
       const templateParams = {
-        from_name: "Website Subscriber",
+        from_name: "Legal Newsletter Subscriber",
         from_email: email,
-        message: `New subscription request from the website footer.`,
-        to_name: 'WRLDS Team',
+        message: `New legal newsletter subscription request from the Summit Law website.`,
+        to_name: 'Summit Law Offices',
         reply_to: email
       };
       
@@ -47,7 +47,7 @@ const Footer = () => {
       
       toast({
         title: "Success!",
-        description: "Thank you for subscribing to our newsletter.",
+        description: "Thank you for subscribing to our legal updates.",
         variant: "default"
       });
       
@@ -70,41 +70,46 @@ const Footer = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
           <div className="lg:col-span-2">
-            <img 
-              src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" 
-              alt="WRLDS Technologies Logo" 
-              className="h-10 w-auto mb-6 invert" // Added invert to make logo white
-            />
+            <div className="text-2xl font-bold mb-6 text-white">
+              Summit Law Offices
+            </div>
             <p className="text-gray-300 mb-6">
-              WRLDS Technologies provides an end-to-end platform for the creation and deployment of AI-powered smart sensor devices, giving customers 100% ownership while handling the complete technological development.
+              Strategic criminal defense across Massachusetts. Attorney Joe Brava provides expert legal representation 
+              with the insight of a former prosecutor and the dedication of a passionate advocate.
             </p>
-            <p className="text-gray-300 mb-6">
-              Hornsgatan 110<br />
-              117 26, Stockholm Sweden
-            </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/wrldstechnologies/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
-              >
-                <Linkedin size={20} />
-              </a>
+            
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center text-gray-300">
+                <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
+                <span>1042 Main Street, Suite C<br />Clinton, MA 01510</span>
+              </div>
+              <div className="flex items-center text-gray-300">
+                <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
+                <a href="tel:508-454-0822" className="hover:text-white transition-colors">
+                  508-454-0822
+                </a>
+              </div>
+              <div className="flex items-center text-gray-300">
+                <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
+                <a href="mailto:joe@summitlawoffices.com" className="hover:text-white transition-colors">
+                  joe@summitlawoffices.com
+                </a>
+              </div>
             </div>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Company</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Practice Areas</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><span className="text-gray-300">Criminal Defense</span></li>
+              <li><span className="text-gray-300">Restraining Orders</span></li>
+              <li><span className="text-gray-300">Motor Vehicle Offenses</span></li>
+              <li><span className="text-gray-300">Show Cause Hearings</span></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Get in Touch</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Legal Updates</h3>
             <form className="space-y-4" onSubmit={handleSubscribe}>
               <div>
                 <input 
@@ -134,11 +139,13 @@ const Footer = () => {
         
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} WRLDS Technologies. All rights reserved.
+            © {new Date().getFullYear()} Summit Law Offices. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
-          </div>
+          <p className="text-gray-400 text-xs text-center md:text-left max-w-md">
+            Attorney Advertising. This website is designed for general information only. 
+            The information presented should not be construed to be formal legal advice 
+            nor the formation of a lawyer/client relationship.
+          </p>
         </div>
       </div>
     </footer>

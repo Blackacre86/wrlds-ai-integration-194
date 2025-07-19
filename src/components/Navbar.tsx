@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
@@ -48,7 +48,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <img src="/lovable-uploads/7d120ee6-3614-4b75-9c35-716d54490d67.png" alt="WRLDS Technologies Logo" className={cn("h-8 w-auto", isScrolled ? "" : "brightness-0 invert")} />
+              <div className={cn("text-xl font-bold", isScrolled ? "text-gray-900" : "text-white")}>
+                Summit Law Offices
+              </div>
             </Link>
           </div>
           
@@ -65,96 +67,64 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/about">
+                  <button onClick={() => scrollToSection('attorney-profile')}>
                     <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                      About Us
+                      About Attorney
                     </NavigationMenuLink>
-                  </Link>
+                  </button>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={cn(isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                    Customer Cases
+                    Practice Areas
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[400px]">
                       <li>
-                        <Link to="/projects/firecat" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">FireCat 6th SENSE</div>
-                          <p className="text-sm text-gray-500">Smart textiles for firefighter safety</p>
-                        </Link>
+                        <button onClick={() => scrollToSection('practice-areas')} className="block p-3 space-y-1 rounded-md hover:bg-gray-100 w-full text-left">
+                          <div className="font-medium">Criminal Defense</div>
+                          <p className="text-sm text-gray-500">Felonies and misdemeanors in all Massachusetts courts</p>
+                        </button>
                       </li>
                       <li>
-                        <Link to="/projects/sport-retail" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Sports Performance</div>
-                          <p className="text-sm text-gray-500">Advanced tracking for athletes</p>
-                        </Link>
+                        <button onClick={() => scrollToSection('practice-areas')} className="block p-3 space-y-1 rounded-md hover:bg-gray-100 w-full text-left">
+                          <div className="font-medium">Restraining Orders</div>
+                          <p className="text-sm text-gray-500">209A and 258E harassment prevention orders</p>
+                        </button>
                       </li>
                       <li>
-                        <Link to="/projects/workwear" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Workwear Climate Control</div>
-                          <p className="text-sm text-gray-500">Temperature regulation for extreme environments</p>
-                        </Link>
+                        <button onClick={() => scrollToSection('practice-areas')} className="block p-3 space-y-1 rounded-md hover:bg-gray-100 w-full text-left">
+                          <div className="font-medium">Motor Vehicle Offenses</div>
+                          <p className="text-sm text-gray-500">OUI/DUI, reckless driving, license suspensions</p>
+                        </button>
                       </li>
                       <li>
-                        <Link to="/projects/hockey" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Ice Hockey Elite Tracker</div>
-                          <p className="text-sm text-gray-500">Performance tracking for ice hockey</p>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/projects/pet-tracker" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Pet Activity Counter</div>
-                          <p className="text-sm text-gray-500">Smart collars for pet activity monitoring</p>
-                        </Link>
+                        <button onClick={() => scrollToSection('practice-areas')} className="block p-3 space-y-1 rounded-md hover:bg-gray-100 w-full text-left">
+                          <div className="font-medium">Show Cause Hearings</div>
+                          <p className="text-sm text-gray-500">Clerk Magistrate hearings and criminal applications</p>
+                        </button>
                       </li>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={cn(isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                    Learn More
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 w-[400px]">
-                      <li>
-                        <Link to="/tech-details" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Technology Details</div>
-                          <p className="text-sm text-gray-500">How our smart textile platform works</p>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/development-process" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
-                          <div className="font-medium">Development Process</div>
-                          <p className="text-sm text-gray-500">Our approach to creating custom solutions</p>
-                        </Link>
-                      </li>
-                      <li>
-                        
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <Link to="/blog">
+                  <button onClick={() => scrollToSection('summit-advantage')}>
                     <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                      News
+                      Why Choose Us
                     </NavigationMenuLink>
-                  </Link>
+                  </button>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/careers">
-                    <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                      Careers
-                    </NavigationMenuLink>
-                  </Link>
+                  <a href="tel:508-454-0822" className={cn("px-4 py-2 rounded-md transition-colors flex items-center", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-gray-700 text-white hover:bg-gray-600")}>
+                    <Phone className="w-4 h-4 mr-2" />
+                    508-454-0822
+                  </a>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <button onClick={() => scrollToSection('contact')} className={cn("px-4 py-2 rounded-md transition-colors", isScrolled ? "bg-gray-200 text-gray-700 hover:bg-gray-300" : "bg-gray-700 text-white hover:bg-gray-600")}>
+                  <button onClick={() => scrollToSection('contact')} className={cn("px-4 py-2 rounded-md transition-colors", isScrolled ? "bg-gray-900 text-white hover:bg-gray-800" : "bg-white text-gray-900 hover:bg-gray-100")}>
                     Contact Us
                   </button>
                 </NavigationMenuItem>
@@ -171,7 +141,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu - Reduced height and simplified */}
+      {/* Mobile Navigation Menu */}
       <div className={cn("md:hidden transition-all duration-300 overflow-hidden w-full", isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0")}>
         <div className={cn("px-3 pt-2 pb-3 space-y-1 shadow-sm overflow-y-auto max-h-80", isScrolled ? "bg-white" : "bg-black")}>
           <Link to="/" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
@@ -181,42 +151,22 @@ const Navbar = () => {
             Home
           </Link>
           
-          <Link to="/about" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
-            setIsMenuOpen(false);
-            window.scrollTo(0, 0);
-          }}>
-            About Us
-          </Link>
+          <button onClick={() => scrollToSection('attorney-profile')} className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+            About Attorney
+          </button>
           
-          {/* Simplified Customer Cases - no dropdown */}
-          <Link to="/projects/firecat" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
-            setIsMenuOpen(false);
-            window.scrollTo(0, 0);
-          }}>
-            Customer Cases
-          </Link>
+          <button onClick={() => scrollToSection('practice-areas')} className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+            Practice Areas
+          </button>
           
-          {/* Simplified Learn More - no dropdown */}
-          <Link to="/tech-details" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
-            setIsMenuOpen(false);
-            window.scrollTo(0, 0);
-          }}>
-            Learn More
-          </Link>
+          <button onClick={() => scrollToSection('summit-advantage')} className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
+            Why Choose Us
+          </button>
           
-          <Link to="/blog" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
-            setIsMenuOpen(false);
-            window.scrollTo(0, 0);
-          }}>
-            News
-          </Link>
-          
-          <Link to="/careers" className={cn("block px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")} onClick={() => {
-            setIsMenuOpen(false);
-            window.scrollTo(0, 0);
-          }}>
-            Careers
-          </Link>
+          <a href="tel:508-454-0822" className={cn("block px-3 py-1.5 rounded-md text-sm flex items-center", isScrolled ? "text-gray-700 bg-gray-100 hover:bg-gray-200" : "text-white bg-gray-800 hover:bg-gray-700")} onClick={() => setIsMenuOpen(false)}>
+            <Phone className="w-4 h-4 mr-2" />
+            Call 508-454-0822
+          </a>
           
           <button onClick={() => scrollToSection('contact')} className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 bg-gray-200 hover:bg-gray-300" : "text-white bg-gray-700 hover:bg-gray-600")}>
             Contact Us
