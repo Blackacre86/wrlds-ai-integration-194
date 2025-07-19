@@ -1,4 +1,3 @@
-
 import { ArrowRight, Phone, MessageSquare, Scale, Shield, Gavel } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
@@ -57,15 +56,8 @@ const Hero = () => {
             playsInline 
             preload="metadata"
             className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-center' : 'object-center'}`}
-            poster="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png"
           >
             <source src="/summit_hero_1.mp4" type="video/mp4" />
-            {/* Fallback image if video fails to load */}
-            <img 
-              src="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png" 
-              alt="Summit Law Offices - Massachusetts Criminal Defense" 
-              className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-center' : 'object-center'}`} 
-            />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white"></div>
         </div>
