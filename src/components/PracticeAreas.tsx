@@ -12,22 +12,22 @@ const PracticeAreas = () => {
     icon: <Scale className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Criminal Defense",
     description: "Comprehensive defense for all felonies and misdemeanors in District and Superior Courts across Massachusetts.",
-    image: "/images/criminal-defense.jpg"
+    image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }, {
     icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Restraining & Harassment Orders",
     description: "Expert representation for 209A restraining orders and 258E harassment prevention orders, both seeking and defending.",
-    image: "/images/restraining-orders.jpg"
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }, {
     icon: <Car className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Motor Vehicle Offenses",
     description: "Skilled defense for OUI/DUI, reckless driving, operating after suspension, and all motor vehicle violations.",
-    image: "/images/motor-vehicle.jpg"
+    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }, {
     icon: <FileText className="w-10 h-10 text-white transition-transform duration-300 transform" />,
     title: "Show Cause Hearings",
     description: "Strategic representation at Clerk Magistrate show cause hearings to prevent criminal charges from being filed.",
-    image: "/images/show-cause.jpg"
+    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }];
 
   const scrollToContact = (e: React.MouseEvent) => {
