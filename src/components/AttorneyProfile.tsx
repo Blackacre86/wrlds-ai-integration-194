@@ -140,8 +140,8 @@ const AttorneyProfile = () => {
                     <span>District Court Domestic Violence Supervisor, Berkshire County</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Former political consultant for campaigns across New England</span>
+                    
+                    
                   </li>
                 </ul>
               </CardContent>
