@@ -77,7 +77,7 @@ const AttorneyProfile = () => {
                   <div className="text-sm text-gray-600">Criminal Cases</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-lg">
-                  <div className="text-3xl font-bold text-gray-900">7+</div>
+                  <div className="text-3xl font-bold text-gray-900">9+</div>
                   <div className="text-sm text-gray-600">Years Experience</div>
                 </div>
               </div>
@@ -88,27 +88,14 @@ const AttorneyProfile = () => {
                   <span className="text-gray-600">1042 Main Street, Suite C, Clinton, MA 01510</span>
                 </div>
                 <div className="flex items-center">
-                  <Calendar className="w-5 h-5 text-gray-500 mr-3" />
-                  <span className="text-gray-600">Founded Summit Law - January 2023</span>
+                  
+                  
                 </div>
               </div>
             </div>
 
             {/* Office Location Map */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h4 className="text-lg font-semibold mb-4 flex items-center">
-                <MapPin className="w-5 h-5 text-gray-600 mr-2" />
-                Office Location
-              </h4>
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                
-              </div>
-              <div className="mt-4">
-                <p className="text-gray-600 text-sm">
-                  1042 Main Street, Suite C, Clinton, MA 01510
-                </p>
-              </div>
-            </div>
+            
           </motion.div>
 
         </div>

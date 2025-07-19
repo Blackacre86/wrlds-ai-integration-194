@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
-
 const ContactInfo = () => {
-  return (
-    <section id="contact-info" className="bg-gradient-to-b from-white to-black text-white relative py-[15px] md:py-[25px]">
+  return <section id="contact-info" className="bg-gradient-to-b from-white to-black text-white relative py-[15px] md:py-[25px]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
           <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
@@ -30,17 +27,11 @@ const ContactInfo = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                 <div className="space-y-4">
-                  <a 
-                    href="mailto:joe@summitlawoffices.com" 
-                    className="flex items-center text-gray-700 hover:text-blue-600 p-3 bg-gray-50 rounded-lg transition-colors"
-                  >
+                  <a href="mailto:joe@summitlawoffices.com" className="flex items-center text-gray-700 hover:text-blue-600 p-3 bg-gray-50 rounded-lg transition-colors">
                     <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
                     <span className="text-sm">joe@summitlawoffices.com</span>
                   </a>
-                  <a 
-                    href="tel:508-454-0822" 
-                    className="flex items-center text-gray-700 hover:text-blue-600 p-3 bg-gray-50 rounded-lg transition-colors"
-                  >
+                  <a href="tel:508-454-0822" className="flex items-center text-gray-700 hover:text-blue-600 p-3 bg-gray-50 rounded-lg transition-colors">
                     <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
                     <span className="font-semibold">508-454-0822</span>
                   </a>
@@ -54,10 +45,7 @@ const ContactInfo = () => {
                       <div>Clinton, MA 01510</div>
                     </div>
                   </div>
-                  <div className="flex items-center text-gray-700 p-3 bg-gray-50 rounded-lg">
-                    <Clock className="w-5 h-5 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Available 24/7 for emergencies</span>
-                  </div>
+                  
                 </div>
               </div>
 
@@ -85,20 +73,13 @@ const ContactInfo = () => {
           </div>
           
           <div className="mt-4 text-center">
-            <a 
-              href="https://maps.google.com/?q=1042+Main+Street+Suite+C+Clinton+MA+01510" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-            >
+            <a href="https://maps.google.com/?q=1042+Main+Street+Suite+C+Clinton+MA+01510" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
               <MapPin className="w-4 h-4 mr-1" />
               View on Google Maps
             </a>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactInfo;
