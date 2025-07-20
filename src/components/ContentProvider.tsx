@@ -51,7 +51,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
       'attorney': {
         name: "Joe Brava",
         title: "Attorney",
-        description: "With over a decade of legal experience and a proven track record of success, Attorney Joe Brava brings strategic thinking and tenacious advocacy to every case.",
+        description: "With 8+ years of legal experience and a proven track record of success, Attorney Joe Brava brings strategic thinking and tenacious advocacy to every case.",
         background: {
           prosecutor: "Served as an Assistant District Attorney, gaining invaluable insight into prosecution strategies and case development from the inside.",
           experience: "Successfully handled over 1,000 criminal cases, from minor infractions to serious felonies, with a focus on achieving the best possible outcomes for clients.",
