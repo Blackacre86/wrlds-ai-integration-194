@@ -8,7 +8,7 @@ const Hero = () => {
   const heroContent = getContent('hero');
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         <video
@@ -16,13 +16,13 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale"
         >
           <source src="/summit_hero_1.mp4" type="video/mp4" />
           <source src="/summit_hero_2.mp4" type="video/mp4" />
           <source src="/summit_hero_3.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       {/* Content */}
