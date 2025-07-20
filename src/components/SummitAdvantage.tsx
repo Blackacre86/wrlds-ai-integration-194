@@ -40,10 +40,10 @@ const SummitAdvantage = () => {
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format"
     },
     {
-      title: "Strategic Negotiation Intelligence",
-      description: "Gain an edge at the negotiation table. Summit Law's AI analyzes historical plea agreements, guiding you toward more favorable outcomes with strategic, data-backed negotiation tactics.",
-      stat: "24/7",
-      statLabel: "Strategic Advantage",
+      title: "Streamlined Case Preparation",
+      description: "Reduce case preparation time with Summit Law's AI-enhanced research and document review. Advanced technology handles routine tasks, allowing more focus on strategy and delivering cost-effective defense without compromising quality.",
+      stat: "More Time",
+      statLabel: "For Strategy",
       image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&auto=format"
     }
   ];
