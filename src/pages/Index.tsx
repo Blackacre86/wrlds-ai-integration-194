@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
 import PracticeAreas from '@/components/PracticeAreas';
@@ -53,17 +54,17 @@ const Index = () => {
                 Available 24/7 for your peace of mind.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a 
-                  href="/client-auth" 
+                <Link 
+                  to="/client-auth" 
                   className="inline-flex items-center px-8 py-4 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group"
                 >
                   Access Client Portal
                   <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </a>
+                </Link>
                 <div className="text-sm text-gray-500">
-                  New client? <a href="/client-auth" className="text-black hover:underline font-medium">Create account</a>
+                  New client? <Link to="/client-auth" className="text-black hover:underline font-medium">Create account</Link>
                 </div>
               </div>
             </div>
