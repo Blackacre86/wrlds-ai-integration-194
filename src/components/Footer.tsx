@@ -1,6 +1,5 @@
 
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from 'emailjs-com';
@@ -25,7 +24,6 @@ const Footer = () => {
     setIsSubmitting(true);
     
     try {
-      // EmailJS configuration
       const EMAILJS_SERVICE_ID = "service_i3h66xg";
       const EMAILJS_TEMPLATE_ID = "template_fgq53nh";
       const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
@@ -66,10 +64,105 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-black text-white pt-16 pb-8 w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-700">
-          <div className="lg:col-span-2">
+    <footer id="contact" className="bg-black text-white pt-20 pb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Contact Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block mb-4 px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium">
+            Get Legal Help
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Contact Summit Law Offices
+          </h2>
+          <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+            Facing criminal charges? Need legal representation? Contact Attorney Joe Brava today 
+            for a confidential consultation about your case.
+          </p>
+        </div>
+
+        {/* Main Contact & Map Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-8">Get In Touch</h3>
+            
+            <div className="space-y-6 mb-8">
+              <a 
+                href="tel:508-454-0822" 
+                className="flex items-center text-gray-300 hover:text-white transition-colors p-4 bg-white/5 rounded-lg hover:bg-white/10"
+              >
+                <Phone className="w-6 h-6 mr-4 flex-shrink-0" />
+                <div>
+                  <div className="font-semibold text-xl">508-454-0822</div>
+                  <div className="text-sm text-gray-400">Call for immediate consultation</div>
+                </div>
+              </a>
+              
+              <a 
+                href="mailto:joe@summitlawoffices.com" 
+                className="flex items-center text-gray-300 hover:text-white transition-colors p-4 bg-white/5 rounded-lg hover:bg-white/10"
+              >
+                <Mail className="w-6 h-6 mr-4 flex-shrink-0" />
+                <div>
+                  <div className="font-semibold">joe@summitlawoffices.com</div>
+                  <div className="text-sm text-gray-400">Email us anytime</div>
+                </div>
+              </a>
+              
+              <div className="flex items-start text-gray-300 p-4 bg-white/5 rounded-lg">
+                <MapPin className="w-6 h-6 mr-4 mt-1 flex-shrink-0" />
+                <div>
+                  <div className="font-semibold">Office Location</div>
+                  <div className="text-sm text-gray-400 mt-1">
+                    1042 Main Street, Suite C<br />
+                    Clinton, MA 01510
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 bg-blue-900/30 rounded-lg border border-blue-800/50">
+              <h4 className="font-semibold text-white mb-2">Free Consultation Available</h4>
+              <p className="text-sm text-gray-300">
+                All initial consultations are confidential and protected by attorney-client privilege. 
+                We're here to help you understand your options and protect your rights.
+              </p>
+            </div>
+          </div>
+
+          {/* Google Maps */}
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-8">Office Location</h3>
+            <div className="bg-white/5 rounded-lg p-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.8623456789!2d-71.68234548455432!3d42.41234567891234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s1042+Main+St+%23C%2C+Clinton%2C+MA+01510!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg"
+                title="Summit Law Offices Location"
+              ></iframe>
+              <div className="mt-4 text-center">
+                <a 
+                  href="https://maps.google.com/?q=1042+Main+Street+Suite+C+Clinton+MA+01510" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                >
+                  <MapPin className="w-4 h-4 mr-2" />
+                  Get Directions
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
+          <div>
             <div className="text-2xl font-bold mb-6 text-white">
               Summit Law Offices
             </div>
@@ -77,25 +170,6 @@ const Footer = () => {
               Strategic criminal defense across Massachusetts. Attorney Joe Brava provides expert legal representation 
               with the insight of a former prosecutor and the dedication of a passionate advocate.
             </p>
-            
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center text-gray-300">
-                <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
-                <span>1042 Main Street, Suite C<br />Clinton, MA 01510</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
-                <a href="tel:508-454-0822" className="hover:text-white transition-colors">
-                  508-454-0822
-                </a>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
-                <a href="mailto:joe@summitlawoffices.com" className="hover:text-white transition-colors">
-                  joe@summitlawoffices.com
-                </a>
-              </div>
-            </div>
           </div>
           
           <div>
