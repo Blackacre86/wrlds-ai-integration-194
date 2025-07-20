@@ -2,30 +2,11 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Gavel } from 'lucide-react';
+import { useContentContext } from '@/components/ContentProvider';
 
 const PracticeAreas = () => {
-  const practiceAreas = [
-    {
-      title: "Criminal Defense",
-      description: "Comprehensive defense for felonies and misdemeanors in all Massachusetts courts. From initial arraignment through trial, we fight to protect your rights and freedom.",
-      image: "/lovable-uploads/6a396c18-f5b0-4821-bc71-bcc05bb64089.png"
-    },
-    {
-      title: "Restraining Orders",
-      description: "Expert representation for 209A domestic violence restraining orders and 258E harassment prevention orders. We handle both defense and petitioning.",
-      image: "/lovable-uploads/restraining-orders.jpg"
-    },
-    {
-      title: "Motor Vehicle Offenses",
-      description: "Skilled defense for OUI/DUI, reckless driving, suspended license charges, and all motor vehicle violations throughout Massachusetts.",
-      image: "/lovable-uploads/motor-vehicle.jpg"
-    },
-    {
-      title: "Show Cause Hearings",
-      description: "Strategic representation at Clerk Magistrate hearings and criminal applications to prevent charges from being filed against you.",
-      image: "/lovable-uploads/show-cause.jpg"
-    }
-  ];
+  const { getContent } = useContentContext();
+  const practiceContent = getContent('practiceAreas');
 
   return (
     <section id="practice-areas" className="py-12 md:py-24 px-4 md:px-12 bg-gray-50">
@@ -37,15 +18,16 @@ const PracticeAreas = () => {
               Legal Services
             </Badge>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Practice Areas</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+            {practiceContent?.title || "Practice Areas"}
+          </h2>
           <p className="text-gray-800 max-w-3xl">
-            Focused legal representation across key areas of Massachusetts criminal law, 
-            with deep expertise in both trial advocacy and pre-trial resolution strategies.
+            {practiceContent?.subtitle || "Focused legal representation across key areas of Massachusetts criminal law."}
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {practiceAreas.map((area, index) => (
+          {practiceContent?.areas?.map((area: any, index: number) => (
             <Card key={index} className="overflow-hidden bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300 h-64">
               <div className="flex h-full">
                 <div className="w-1/3 relative overflow-hidden">

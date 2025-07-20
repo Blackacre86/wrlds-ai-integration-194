@@ -1,7 +1,11 @@
 
 import { Badge } from '@/components/ui/badge';
+import { useContentContext } from '@/components/ContentProvider';
 
 const AttorneyProfile = () => {
+  const { getContent } = useContentContext();
+  const attorneyContent = getContent('attorney');
+
   return (
     <section id="attorney-profile" className="py-12 md:py-24 px-4 md:px-12 bg-white">
       <div className="container mx-auto max-w-6xl">
@@ -12,10 +16,11 @@ const AttorneyProfile = () => {
                 About Your Attorney
               </Badge>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Meet Attorney Joe Brava</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+              Meet Attorney {attorneyContent?.name || "Joe Brava"}
+            </h2>
             <p className="text-gray-800 text-lg leading-relaxed mb-6">
-              With over a decade of legal experience and a proven track record of success, 
-              Attorney Joe Brava brings strategic thinking and tenacious advocacy to every case.
+              {attorneyContent?.description || "With over a decade of legal experience and a proven track record of success."}
             </p>
           </div>
 
@@ -24,16 +29,13 @@ const AttorneyProfile = () => {
               <h3 className="text-2xl font-bold mb-4 text-black">Professional Background</h3>
               <div className="space-y-4 text-gray-800">
                 <p className="leading-relaxed">
-                  <strong>Former Prosecutor:</strong> Served as an Assistant District Attorney, gaining invaluable insight 
-                  into prosecution strategies and case development from the inside.
+                  <strong>Former Prosecutor:</strong> {attorneyContent?.background?.prosecutor || "Served as an Assistant District Attorney, gaining invaluable insight into prosecution strategies and case development from the inside."}
                 </p>
                 <p className="leading-relaxed">
-                  <strong>Trial Experience:</strong> Successfully handled over 1,000 criminal cases, from minor infractions 
-                  to serious felonies, with a focus on achieving the best possible outcomes for clients.
+                  <strong>Trial Experience:</strong> {attorneyContent?.background?.experience || "Successfully handled over 1,000 criminal cases, from minor infractions to serious felonies."}
                 </p>
                 <p className="leading-relaxed">
-                  <strong>Legal Education:</strong> Graduated from Suffolk University Law School with honors and 
-                  maintains active membership in the Massachusetts Bar Association.
+                  <strong>Legal Education:</strong> {attorneyContent?.background?.education || "Graduated from Suffolk University Law School with honors."}
                 </p>
               </div>
             </div>
@@ -42,12 +44,10 @@ const AttorneyProfile = () => {
               <h3 className="text-2xl font-bold mb-4 text-black">Practice Philosophy</h3>
               <div className="space-y-4 text-gray-800">
                 <p className="leading-relaxed">
-                  "Every client deserves aggressive representation and personalized attention. I believe in fighting 
-                  hard for my clients while maintaining the highest ethical standards."
+                  "{attorneyContent?.philosophy?.quote || "Every client deserves aggressive representation and personalized attention. I believe in fighting hard for my clients while maintaining the highest ethical standards."}"
                 </p>
                 <p className="leading-relaxed">
-                  My approach combines thorough case preparation, strategic thinking, and clear communication 
-                  to ensure clients understand their options and feel confident in their defense.
+                  {attorneyContent?.philosophy?.approach || "My approach combines thorough case preparation, strategic thinking, and clear communication to ensure clients understand their options and feel confident in their defense."}
                 </p>
               </div>
             </div>

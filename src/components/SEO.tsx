@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
@@ -14,186 +15,144 @@ interface SEOProps {
   category?: string;
   keywords?: string[];
   isBlogPost?: boolean;
+  legalService?: {
+    serviceType?: string;
+    areaServed?: string;
+    provider?: string;
+  };
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'WRLDS',
-  description = 'WRLDS Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring.',
+  title = 'Summit Law Offices - Strategic Criminal Defense Across Massachusetts',
+  description = 'Attorney Joe Brava provides strategic criminal defense across Massachusetts. Former prosecutor with 1,000+ cases of experience. Call 508-454-0822 for consultation.',
   type = 'website',
-  name = 'WRLDS Technologies',
-  imageUrl = '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png',
+  name = 'Summit Law Offices',
+  imageUrl = '/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png',
   publishDate,
   modifiedDate,
   author,
   category,
-  keywords = ['smart textiles', 'wearable technology', 'textile sensors', 'sports tech', 'safety monitoring', 'performance analytics'],
-  isBlogPost = false
+  keywords = ['criminal defense attorney', 'Massachusetts lawyer', 'DUI defense', 'restraining orders', 'Clinton MA attorney', 'former prosecutor'],
+  isBlogPost = false,
+  legalService
 }) => {
   const location = useLocation();
-  const currentUrl = `https://wrlds.com${location.pathname}`;
-  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
+  const currentUrl = `https://summitlawoffices.com${location.pathname}`;
+  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://summitlawoffices.com${imageUrl}`;
 
-  // Enhanced keywords for specific posts
-  const enhancedKeywords = location.pathname.includes('smart-ppe-revolution') 
+  // Legal service specific keywords
+  const enhancedKeywords = location.pathname.includes('criminal-defense') 
     ? [
         ...keywords,
-        'personal protective equipment',
-        'workplace safety solutions',
-        'smart safety gear',
-        'construction safety technology',
-        'industrial safety monitoring',
-        'occupational health technology',
-        'safety compliance',
-        'worker protection systems',
-        'smart hard hats',
-        'connected safety equipment'
+        'criminal defense lawyer',
+        'Massachusetts criminal attorney',
+        'felony defense',
+        'misdemeanor defense',
+        'court representation',
+        'legal defense strategy'
       ]
-    : location.pathname.includes('wearable-safety-tech-protecting-workers-roi')
+    : location.pathname.includes('restraining-orders')
     ? [
         ...keywords,
-        'workplace injury costs',
-        'safety ROI',
-        'workers compensation savings',
-        'ergonomic sensors',
-        'workplace safety investment',
-        'safety technology ROI',
-        'industrial wearables',
-        'safety cost reduction',
-        'occupational safety economics',
-        'safety technology partnerships',
-        'workplace injury statistics',
-        'safety equipment financing',
-        'injury prevention technology'
+        '209A restraining order',
+        '258E harassment order',
+        'domestic violence defense',
+        'restraining order attorney',
+        'harassment prevention'
       ]
     : keywords;
 
-  // Create base Organization JSON-LD structured data
+  // Organization structured data for law firm
   const organizationStructuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'WRLDS Technologies',
-    url: 'https://wrlds.com',
-    logo: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
-    description: 'Pioneering smart engineering solutions with textile sensors',
+    '@type': 'LegalService',
+    name: 'Summit Law Offices',
+    url: 'https://summitlawoffices.com',
+    logo: 'https://summitlawoffices.com/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png',
+    description: 'Strategic criminal defense representation across Massachusetts',
+    areaServed: {
+      '@type': 'State',
+      name: 'Massachusetts'
+    },
+    serviceType: 'Criminal Defense',
+    provider: {
+      '@type': 'Person',
+      name: 'Joe Brava',
+      jobTitle: 'Attorney',
+      alumniOf: 'Suffolk University Law School',
+      memberOf: 'Massachusetts Bar Association'
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'info@wrlds.com'
+      telephone: '+1-508-454-0822',
+      email: 'info@summitlawoffices.com'
     },
-    sameAs: [
-      'https://www.linkedin.com/company/wrlds-technologies',
-      'https://twitter.com/wrldstechnologies'
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'MA',
+      addressCountry: 'US'
+    }
+  };
+
+  // Attorney profile structured data
+  const attorneyStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Joe Brava',
+    jobTitle: 'Criminal Defense Attorney',
+    worksFor: {
+      '@type': 'LegalService',
+      name: 'Summit Law Offices'
+    },
+    alumniOf: 'Suffolk University Law School',
+    memberOf: 'Massachusetts Bar Association',
+    knowsAbout: [
+      'Criminal Defense',
+      'DUI Defense',
+      'Restraining Orders',
+      'Motor Vehicle Violations',
+      'Show Cause Hearings'
+    ],
+    areaServed: {
+      '@type': 'State',
+      name: 'Massachusetts'
+    }
+  };
+
+  // FAQ structured data for legal services
+  const legalFAQData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What should I do if I\'m arrested in Massachusetts?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'If you\'re arrested in Massachusetts, exercise your right to remain silent and request an attorney immediately. Do not discuss your case with anyone except your lawyer. Contact Summit Law Offices at 508-454-0822 for immediate legal representation.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'How much does a criminal defense attorney cost in Massachusetts?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Criminal defense attorney fees vary based on case complexity and severity. Summit Law Offices offers free consultations to discuss your case and provide transparent pricing. Call 508-454-0822 to discuss your specific situation.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the difference between a 209A and 258E restraining order?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A 209A order is for domestic violence situations involving family or household members. A 258E order is for harassment situations involving anyone. Both require different legal strategies and we handle both types at Summit Law Offices.'
+        }
+      }
     ]
   };
 
-  // Enhanced BlogPosting JSON-LD structured data
-  const blogPostStructuredData = isBlogPost && publishDate ? {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': currentUrl
-    },
-    headline: title,
-    image: {
-      '@type': 'ImageObject',
-      url: absoluteImageUrl,
-      width: 1200,
-      height: 630
-    },
-    datePublished: publishDate,
-    dateModified: modifiedDate || publishDate,
-    author: {
-      '@type': 'Organization',
-      name: author || 'WRLDS Technologies',
-      url: 'https://wrlds.com'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'WRLDS Technologies',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
-        width: 512,
-        height: 512
-      },
-      url: 'https://wrlds.com'
-    },
-    description: description,
-    keywords: enhancedKeywords.join(', '),
-    articleSection: category,
-    inLanguage: 'en-US',
-    isAccessibleForFree: true
-  } : null;
-
-  // Add FAQ structured data for Smart PPE post
-  const smartPPEFAQData = location.pathname.includes('smart-ppe-revolution') ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'What is Smart PPE?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Smart PPE (Personal Protective Equipment) refers to traditional safety gear enhanced with sensors, connectivity, and intelligence. Unlike ordinary PPE that acts as a passive barrier, smart PPE actively monitors conditions and provides real-time alerts to prevent accidents.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: 'How does smart PPE improve workplace safety?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Smart PPE improves safety by providing real-time monitoring of environmental conditions, worker health metrics, and potential hazards. It can detect falls, monitor vital signs, sense toxic gases, and automatically alert emergency responders when needed.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: 'What industries benefit from smart PPE?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Smart PPE benefits multiple industries including construction, manufacturing, oil & gas, fire & rescue, healthcare, mining, and any workplace where safety is paramount. Each industry can customize the technology to address specific safety challenges.'
-        }
-      }
-    ]
-  } : null;
-
-  // Add FAQ structured data for Wearable Safety Tech ROI post
-  const wearableSafetyROIFAQData = location.pathname.includes('wearable-safety-tech-protecting-workers-roi') ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'How much do workplace injuries cost?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'According to the National Safety Council, the average cost for a medically consulted work injury is $43,000 in 2023. With 2.2 injuries per 100 full-time workers, a 200-person site can expect about $215,000 in injury costs annually before accounting for downtime or replacement training.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: 'What ROI can wearable safety technology deliver?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Real-world deployments show significant returns: one study found 54% lower OSHA recordables and 88% fewer lost workdays. Another warehouse study showed 62% of workers reduced risky movements by half, with total ergonomic hazards falling 39%.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: 'Do insurance companies support wearable safety technology?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes, many insurers now bundle wearable device costs into workers compensation premiums. Employers keep the hardware as long as usage stays high because fewer claims leave insurers ahead financially. Regional carriers are expanding similar rebate schemes.'
-        }
-      }
-    ]
-  } : null;
-
-  // Combine keywords with any additional category terms
-  const keywordString = category 
-    ? [...enhancedKeywords, category.toLowerCase()].join(', ') 
-    : enhancedKeywords.join(', ');
+  const keywordString = enhancedKeywords.join(', ');
 
   return (
     <Helmet>
@@ -211,12 +170,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={absoluteImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="WRLDS Technologies" />
+      <meta property="og:site_name" content="Summit Law Offices" />
       <meta property="og:locale" content="en_US" />
-      {isBlogPost && category && <meta property="article:section" content={category} />}
-      {isBlogPost && publishDate && <meta property="article:published_time" content={publishDate} />}
-      {isBlogPost && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
-      {isBlogPost && <meta property="article:publisher" content="https://wrlds.com" />}
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -224,43 +179,24 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImageUrl} />
-      <meta name="twitter:site" content="@wrldstechnologies" />
-      <meta name="twitter:creator" content="@wrldstechnologies" />
       
-      {/* LinkedIn specific */}
-      <meta property="og:image:secure_url" content={absoluteImageUrl} />
-      <meta name="author" content={author || name} />
-      
-      {/* Pinterest specific */}
-      <meta name="pinterest:description" content={description} />
-      <meta name="pinterest:image" content={absoluteImageUrl} />
-      
-      {/* Additional SEO meta tags */}
-      <meta name="theme-color" content="#000000" />
-      <meta name="msapplication-TileColor" content="#000000" />
+      {/* Additional legal-specific meta tags */}
+      <meta name="geo.region" content="US-MA" />
+      <meta name="geo.placename" content="Massachusetts" />
+      <meta name="author" content={author || 'Attorney Joe Brava'} />
       
       {/* JSON-LD structured data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
       </script>
       
-      {blogPostStructuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(blogPostStructuredData)}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(attorneyStructuredData)}
+      </script>
       
-      {smartPPEFAQData && (
-        <script type="application/ld+json">
-          {JSON.stringify(smartPPEFAQData)}
-        </script>
-      )}
-      
-      {wearableSafetyROIFAQData && (
-        <script type="application/ld+json">
-          {JSON.stringify(wearableSafetyROIFAQData)}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(legalFAQData)}
+      </script>
     </Helmet>
   );
 };
