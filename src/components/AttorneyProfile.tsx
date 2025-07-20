@@ -96,9 +96,7 @@ const AttorneyProfile = () => {
               <CardContent className="space-y-8 p-0">
                 {/* Attorney Photo Placeholder */}
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <div className="text-4xl font-bold text-gray-600">JB</div>
-                  </div>
+                  
                   <h4 className="text-xl font-bold text-gray-900">Joe Brava, Esq.</h4>
                   <p className="text-gray-600">Founder & Principal Attorney</p>
                 </div>
