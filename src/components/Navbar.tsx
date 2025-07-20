@@ -116,7 +116,7 @@ const Navbar = () => {
                 <NavigationMenuItem>
                   <button onClick={() => scrollToSection('summit-advantage')}>
                     <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
-                      Why Choose Us
+                      The Summit Advantage
                     </NavigationMenuLink>
                   </button>
                 </NavigationMenuItem>
@@ -165,7 +165,7 @@ const Navbar = () => {
           </button>
           
           <button onClick={() => scrollToSection('summit-advantage')} className={cn("block w-full text-left px-3 py-1.5 rounded-md text-sm", isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-gray-200 hover:bg-gray-900")}>
-            Why Choose Us
+            The Summit Advantage
           </button>
           
           <a href="tel:508-454-0822" className={cn("block px-3 py-1.5 rounded-md text-sm flex items-center", isScrolled ? "text-gray-700 bg-gray-100 hover:bg-gray-200" : "text-white bg-gray-800 hover:bg-gray-700")} onClick={() => setIsMenuOpen(false)}>

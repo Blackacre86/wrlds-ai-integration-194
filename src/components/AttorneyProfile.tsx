@@ -1,160 +1,75 @@
-import { Award, Users } from "lucide-react";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
+import { Badge } from '@/components/ui/badge';
+import { User } from 'lucide-react';
+
 const AttorneyProfile = () => {
-  const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-  const itemVariants = {
-    hidden: {
-      y: 30,
-      opacity: 0
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8
-      }
-    }
-  };
-  const scrollToContact = () => {
-    const footer = document.querySelector('footer');
-    if (footer) {
-      footer.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-  return <section id="attorney-profile" className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{
-        once: true
-      }} variants={containerVariants}>
-          <motion.div variants={itemVariants}>
-            <div className="inline-block mb-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-              About Your Attorney
+  return (
+    <section id="attorney-profile" className="py-12 md:py-24 px-4 md:px-12 bg-white">
+      <div className="container mx-auto max-w-6xl">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
+          <div className="lg:w-1/3">
+            <div className="relative">
+              <img
+                src="/lovable-uploads/92cc4676-3f43-4a6e-9bbe-1cb528cc4386.png"
+                alt="Attorney Joe Brava"
+                className="w-full rounded-lg shadow-lg"
+              />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Attorney Joe Brava
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          </p>
-          </motion.div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
-          {/* Left Column - Biography */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{
-          once: true
-        }} variants={itemVariants}>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-left">
-                  Professional Background
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Attorney Joe Brava brings a unique perspective to criminal defense, having served 
-                  as both a prosecutor and defense attorney throughout Massachusetts. This dual 
-                  experience provides invaluable insight into courtroom strategies and prosecutorial tactics.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  After years of successfully defending clients across the Commonwealth, Joe founded 
-                  Summit Law Offices in January 2023 to provide strategic, personalized criminal 
-                  defense representation to individuals facing serious charges.
-                </p>
+          </div>
+          
+          <div className="lg:w-2/3">
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <User size={20} className="text-black" />
+                <Badge variant="outline" className="text-base px-4 py-2 border-black text-black bg-transparent">
+                  About Your Attorney
+                </Badge>
               </div>
-
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-left">
-                  Practice Philosophy
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Every client deserves aggressive, strategic defense backed by thorough case preparation 
-                  and insider knowledge of the legal system. Joe's approach combines meticulous attention 
-                  to detail with the courtroom experience necessary to protect your rights and freedom.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Credentials & Stats */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{
-          once: true
-        }} variants={itemVariants}>
-            <Card className="p-8 shadow-lg">
-              <CardContent className="space-y-8 p-0">
-                {/* Attorney Photo Placeholder */}
-                <div className="text-center">
-                  
-                  <h4 className="text-xl font-bold text-gray-900">Joe Brava, Esq.</h4>
-                  <p className="text-gray-600">Founder & Principal Attorney</p>
-                </div>
-
-                {/* Statistics */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <div className="text-3xl font-bold text-gray-900 mb-2">1,000+</div>
-                    <div className="text-sm text-gray-600">Criminal Cases</div>
-                  </div>
-                  <div className="text-center p-4 bg-gray-50 rounded-lg">
-                    <div className="text-3xl font-bold text-gray-900 mb-2">9+</div>
-                    <div className="text-sm text-gray-600">Years Experience</div>
-                  </div>
-                </div>
-
-                {/* Key Qualifications */}
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <Award className="w-5 h-5 text-gray-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h5 className="font-semibold text-gray-900">Former Prosecutor</h5>
-                      <p className="text-sm text-gray-600">Insider knowledge of DA tactics and strategies</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Users className="w-5 h-5 text-gray-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h5 className="font-semibold text-gray-900">Comprehensive Defense</h5>
-                      <p className="text-sm text-gray-600">Criminal defense, restraining orders, motor vehicle offenses</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-
-        {/* Call to Action */}
-        <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{
-        once: true
-      }} variants={itemVariants}>
-          <Card className="bg-gray-900 text-white p-8 md:p-12">
-            <CardContent className="p-0">
-              <h3 className="text-3xl font-bold mb-4">
-                Strategic Defense. Insider Knowledge. Proven Results.
-              </h3>
-              <p className="text-gray-300 text-lg mb-6 max-w-2xl mx-auto">
-                When your freedom is on the line, you need an attorney who understands both sides of the courtroom. 
-                Let's discuss your case today.
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Meet Attorney Joe Brava</h2>
+              <p className="text-gray-800 text-lg leading-relaxed mb-6">
+                With over a decade of legal experience and a proven track record of success, 
+                Attorney Joe Brava brings strategic thinking and tenacious advocacy to every case.
               </p>
-              <Button onClick={scrollToContact} className="px-8 py-3 bg-white text-gray-900 hover:bg-gray-100 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
-                Schedule Your Consultation
-              </Button>
-            </CardContent>
-          </Card>
-        </motion.div>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-black">Professional Background</h3>
+                <div className="space-y-4 text-gray-800">
+                  <p className="leading-relaxed">
+                    <strong>Former Prosecutor:</strong> Served as an Assistant District Attorney, gaining invaluable insight 
+                    into prosecution strategies and case development from the inside.
+                  </p>
+                  <p className="leading-relaxed">
+                    <strong>Trial Experience:</strong> Successfully handled over 1,000 criminal cases, from minor infractions 
+                    to serious felonies, with a focus on achieving the best possible outcomes for clients.
+                  </p>
+                  <p className="leading-relaxed">
+                    <strong>Legal Education:</strong> Graduated from Suffolk University Law School with honors and 
+                    maintains active membership in the Massachusetts Bar Association.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-black">Practice Philosophy</h3>
+                <div className="space-y-4 text-gray-800">
+                  <p className="leading-relaxed">
+                    "Every client deserves aggressive representation and personalized attention. I believe in fighting 
+                    hard for my clients while maintaining the highest ethical standards."
+                  </p>
+                  <p className="leading-relaxed">
+                    My approach combines thorough case preparation, strategic thinking, and clear communication 
+                    to ensure clients understand their options and feel confident in their defense.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default AttorneyProfile;

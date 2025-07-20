@@ -1,118 +1,68 @@
 
-import { TrendingUp, CheckCircle, Phone } from "lucide-react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { Zap, Shield, Target, Users } from 'lucide-react';
 
 const SummitAdvantage = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: { duration: 0.6 }
-    }
-  };
-
   const advantages = [
     {
-      title: "Evidence Strategy Optimization",
-      description: "AI-powered analysis evaluates evidence presentation strategies, identifying the most compelling arguments and optimal sequencing. Summit Law's technology helps craft persuasive narratives that resonate in court.",
-      stat: "AI-Powered",
-      statLabel: "Analysis",
-      image: "/lovable-uploads/810c64ae-5dff-4a0a-ab8b-555b99cf604a.png"
+      icon: Shield,
+      title: "Former Prosecutor Insight",
+      description: "Understanding prosecution strategies from the inside gives us a unique advantage in building your defense."
     },
     {
-      title: "Smart Evidence Presentation",
-      description: "Clearly communicate your story with Summit Law's AI-powered visual evidence tools. Transform complex evidence into straightforward, persuasive visuals that resonate with judges and juries.",
-      stat: "100%",
-      statLabel: "Clear Communication",
-      image: "/lovable-uploads/92cc4676-3f43-4a6e-9bbe-1cb528cc4386.png"
+      icon: Target,
+      title: "Strategic Case Analysis",
+      description: "Every case receives thorough analysis to identify the best defense strategies and potential weaknesses in the prosecution's case."
     },
     {
-      title: "AI-Powered Legal Research Agents", 
-      description: "Get instant, precise answers to critical legal questions. Summit Law's custom-built research agents scan thousands of legal sources in seconds, delivering accurate insights tailored specifically to your case.",
-      stat: "1000s",
-      statLabel: "Sources Analyzed",
-      image: "/lovable-uploads/13a21a8f-d1ab-4a67-9b0e-0efc97b1ab04.png"
+      icon: Zap,
+      title: "AI-Enhanced Research",
+      description: "Cutting-edge AI technology helps us analyze case law, identify precedents, and develop stronger legal arguments."
+    },
+    {
+      icon: Users,
+      title: "Personal Attention",
+      description: "Direct access to your attorney throughout your case with responsive communication and regular updates."
     }
   ];
 
   return (
-    <section id="summit-advantage" className="bg-gray-50 py-16 md:py-24 w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants}>
-            <div className="inline-block mb-4 px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm">
+    <section id="summit-advantage" className="py-12 md:py-24 px-4 md:px-12 bg-gray-50">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-8 md:mb-12">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Zap size={20} className="text-black" />
+            <Badge variant="outline" className="text-base px-4 py-2 border-black text-black bg-transparent">
               The Summit Advantage
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Strategic Defense Enhanced by AI
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Strategic criminal defense powered by cutting-edge AI technology and prosecutorial experience, 
-              giving you an unprecedented advantage in Massachusetts criminal law.
-            </p>
-          </motion.div>
-        </motion.div>
-
-        <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-        >
+            </Badge>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Why Choose Summit Law</h2>
+          <p className="text-gray-800 max-w-3xl mx-auto">
+            Experience the difference that strategic thinking, cutting-edge technology, 
+            and personalized attention can make in your criminal defense case.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {advantages.map((advantage, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-            >
-              <div className="h-48 w-full">
-                <img 
-                  src={advantage.image} 
-                  alt={
-                    advantage.title === "Evidence Strategy Optimization" ? "AI-powered evidence analysis and strategy optimization" :
-                    advantage.title === "Smart Evidence Presentation" ? "Digital evidence presentation and visualization tools" :
-                    "AI-powered legal research and analysis system"
-                  }
-                  className="w-full h-full object-cover grayscale"
-                />
-              </div>
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900">
+            <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300 h-48">
+              <CardContent className="p-6 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-black text-white rounded-lg">
+                    <advantage.icon size={20} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">
                     {advantage.title}
                   </h3>
-                  <div className="text-right min-w-[80px]">
-                    <div className="text-2xl font-bold text-gray-900 leading-tight">{advantage.stat}</div>
-                    <div className="text-sm text-gray-500 text-center">{advantage.statLabel}</div>
-                  </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed flex-1">
                   {advantage.description}
                 </p>
-              </div>
-            </motion.div>
+              </CardContent>
+            </Card>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
