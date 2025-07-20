@@ -1,6 +1,4 @@
-
 import { Badge } from '@/components/ui/badge';
-import { User } from 'lucide-react';
 
 const AttorneyProfile = () => {
   return (
@@ -19,8 +17,7 @@ const AttorneyProfile = () => {
           
           <div className="lg:w-2/3">
             <div className="mb-6">
-              <div className="flex items-center gap-2 mb-4">
-                <User size={20} className="text-black" />
+              <div className="mb-4">
                 <Badge variant="outline" className="text-base px-4 py-2 border-black text-black bg-transparent">
                   About Your Attorney
                 </Badge>

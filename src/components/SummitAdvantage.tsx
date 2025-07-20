@@ -1,7 +1,5 @@
-
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Zap } from 'lucide-react';
 
 const SummitAdvantage = () => {
   const advantages = [
@@ -26,8 +24,7 @@ const SummitAdvantage = () => {
     <section id="summit-advantage" className="py-12 md:py-24 px-4 md:px-12 bg-gray-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Zap size={20} className="text-black" />
+          <div className="mb-4">
             <Badge variant="outline" className="text-base px-4 py-2 border-black text-black bg-transparent">
               The Summit Advantage
             </Badge>
