@@ -12,7 +12,7 @@ const PracticeAreas = () => {
   const practiceAreas = [{
     title: "Criminal Defense",
     description: "Comprehensive defense for all felonies and misdemeanors in District and Superior Courts across Massachusetts.",
-    image: "/lovable-uploads/criminal-defense.jpg"
+    image: "/lovable-uploads/f2b58f1f-cad1-4db7-877d-b231214922c0.png"
   }, {
     title: "Restraining & Harassment Orders", 
     description: "Expert representation for 209A restraining orders and 258E harassment prevention orders, both seeking and defending.",
@@ -20,11 +20,11 @@ const PracticeAreas = () => {
   }, {
     title: "Motor Vehicle Offenses",
     description: "Skilled defense for OUI/DUI, reckless driving, operating after suspension, and all motor vehicle violations.",
-    image: "/lovable-uploads/motor-vehicle.jpg"
+    image: "/lovable-uploads/a6b4b356-4246-4c8e-b810-2d264ed0a61d.png"
   }, {
     title: "Show Cause Hearings",
     description: "Strategic representation at Clerk Magistrate show cause hearings to prevent criminal charges from being filed.",
-    image: "/lovable-uploads/show-cause.jpg"
+    image: "/lovable-uploads/c5bdf326-c48c-4785-9f8c-5f9b049f03d1.png"
   }];
 
   const scrollToContact = (e: React.MouseEvent) => {
@@ -84,10 +84,10 @@ const PracticeAreas = () => {
                 <img 
                   src={area.image} 
                   alt={
-                    area.title === "Criminal Defense" ? "Courtroom scene - Criminal Defense representation" :
+                    area.title === "Criminal Defense" ? "Courthouse aerial view - Criminal Defense representation" :
                     area.title === "Restraining & Harassment Orders" ? "Legal protection - Restraining and Harassment Orders" :
-                    area.title === "Motor Vehicle Offenses" ? "Traffic law enforcement - Motor Vehicle Offenses" :
-                    "Legal hearing preparation - Show Cause Hearings"
+                    area.title === "Motor Vehicle Offenses" ? "Police officer writing citation - Motor Vehicle Offenses" :
+                    "Judge's bench in courtroom - Show Cause Hearings"
                   }
                   className="w-full h-full object-cover object-center transition-all duration-300 grayscale" 
                   loading="lazy"
