@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -57,6 +58,18 @@ const STEP_SCHEMAS = [
   filesConsentSchema,
 ];
 
+// Type casting utilities for database data
+const safeJsonCast = <T>(value: any, fallback: T): T => {
+  if (value === null || value === undefined) return fallback;
+  if (typeof value === 'object' && !Array.isArray(value)) return value as T;
+  return fallback;
+};
+
+const safeArrayCast = <T>(value: any, fallback: T[]): T[] => {
+  if (Array.isArray(value)) return value as T[];
+  return fallback;
+};
+
 export default function RefactoredClientIntakeForm({ userId }: RefactoredClientIntakeFormProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<Partial<IntakeFormData>>({
@@ -84,7 +97,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
     substance_mental_health: { past_treatment: false, current_medications: '' },
     immigration_info: { us_citizen: true, prior_deportation: false },
     criminal_history: { open_cases: false, probation_parole: false, prior_record: false },
-    representation_type: '',
+    representation_type: undefined,
     case_facts: '',
     uploaded_files: [],
     consent_given: false,
@@ -127,15 +140,25 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         setIntakeId(data.id);
         setCurrentStep(data.progress_step || 1);
         
-        // Merge existing data with form data
-        setFormData(prev => ({
-          ...prev,
+        // Safely cast database JSON types to TypeScript interfaces
+        const safeFormData: Partial<IntakeFormData> = {
           ...data,
-          // Ensure arrays are properly initialized
-          charges: data.charges || [],
-          phone_numbers: data.phone_numbers || [{ type: 'cell', number: '' }],
-          uploaded_files: data.uploaded_files || [],
-        }));
+          charges: safeArrayCast(data.charges, []),
+          phone_numbers: safeArrayCast(data.phone_numbers, [{ type: 'cell', number: '' }]),
+          uploaded_files: safeArrayCast(data.uploaded_files, []),
+          bail_info: safeJsonCast(data.bail_info, { bail_set: false }),
+          emergency_contact: safeJsonCast(data.emergency_contact, { name: '', relation: '', phone: '' }),
+          employment_info: safeJsonCast(data.employment_info, { employed: false }),
+          education_info: safeJsonCast(data.education_info, { in_school: false }),
+          family_info: safeJsonCast(data.family_info, { marital_status: '', children: [] }),
+          substance_mental_health: safeJsonCast(data.substance_mental_health, { past_treatment: false, current_medications: '' }),
+          immigration_info: safeJsonCast(data.immigration_info, { us_citizen: true, prior_deportation: false }),
+          criminal_history: safeJsonCast(data.criminal_history, { open_cases: false, probation_parole: false, prior_record: false }),
+          e_signature: safeJsonCast(data.e_signature, { full_name: '', date: new Date().toISOString().split('T')[0] }),
+          representation_type: data.representation_type as 'bar_advocate' | 'private_client' | undefined,
+        };
+        
+        setFormData(safeFormData);
       }
     } catch (error: any) {
       console.error('Error loading intake:', error);
@@ -311,7 +334,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Label htmlFor="docket">Docket Number *</Label>
                 <Input
                   id="docket"
-                  value={formData.docket_number}
+                  value={formData.docket_number || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, docket_number: e.target.value }))}
                   placeholder="Enter docket number"
                   required
@@ -322,7 +345,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
               </div>
               <div className="space-y-2">
                 <Label htmlFor="court">Court Name *</Label>
-                <Select value={formData.court_name} onValueChange={(value) => setFormData(prev => ({ ...prev, court_name: value }))}>
+                <Select value={formData.court_name || ''} onValueChange={(value) => setFormData(prev => ({ ...prev, court_name: value }))}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select court" />
                   </SelectTrigger>
@@ -345,7 +368,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Input
                   id="arraignment"
                   type="date"
-                  value={formData.arraignment_date}
+                  value={formData.arraignment_date || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, arraignment_date: e.target.value }))}
                 />
               </div>
@@ -354,13 +377,13 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Input
                   id="nextCourt"
                   type="date"
-                  value={formData.next_court_date}
+                  value={formData.next_court_date || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, next_court_date: e.target.value }))}
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="session">Court Session</Label>
-                <Select value={formData.court_session} onValueChange={(value) => setFormData(prev => ({ ...prev, court_session: value }))}>
+                <Select value={formData.court_session || ''} onValueChange={(value) => setFormData(prev => ({ ...prev, court_session: value }))}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select session" />
                   </SelectTrigger>
@@ -377,7 +400,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
               <Label htmlFor="ada">ADA/Prosecutor Name</Label>
               <Input
                 id="ada"
-                value={formData.ada_prosecutor}
+                value={formData.ada_prosecutor || ''}
                 onChange={(e) => setFormData(prev => ({ ...prev, ada_prosecutor: e.target.value }))}
                 placeholder="Enter prosecutor's name"
               />
@@ -387,7 +410,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
               <div className="flex items-center space-x-2">
                 <Checkbox
                   id="bailSet"
-                  checked={formData.bail_info.bail_set}
+                  checked={formData.bail_info?.bail_set || false}
                   onCheckedChange={(checked) => setFormData(prev => ({
                     ...prev,
                     bail_info: { ...prev.bail_info, bail_set: checked as boolean }
@@ -396,13 +419,13 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Label htmlFor="bailSet">Bail/Bond has been set</Label>
               </div>
               
-              {formData.bail_info.bail_set && (
+              {formData.bail_info?.bail_set && (
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="bailAmount">Bail Amount</Label>
                     <Input
                       id="bailAmount"
-                      value={formData.bail_info.bail_amount || ''}
+                      value={formData.bail_info?.bail_amount || ''}
                       onChange={(e) => setFormData(prev => ({
                         ...prev,
                         bail_info: { ...prev.bail_info, bail_amount: e.target.value }
@@ -414,7 +437,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                     <Label htmlFor="bailConditions">Bail Conditions</Label>
                     <Input
                       id="bailConditions"
-                      value={formData.bail_info.bail_conditions || ''}
+                      value={formData.bail_info?.bail_conditions || ''}
                       onChange={(e) => setFormData(prev => ({
                         ...prev,
                         bail_info: { ...prev.bail_info, bail_conditions: e.target.value }
@@ -437,7 +460,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
             <ChargeAutocomplete onSelectCharge={(charge) => {
               setFormData(prev => ({
                 ...prev,
-                charges: [...prev.charges, charge]
+                charges: [...(prev.charges || []), charge]
               }));
             }} />
             {validationErrors['charges'] && (
@@ -459,7 +482,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                       onClick={() => {
                         setFormData(prev => ({
                           ...prev,
-                          charges: prev.charges.filter((_, i) => i !== index)
+                          charges: prev.charges?.filter((_, i) => i !== index) || []
                         }));
                       }}
                     >
@@ -489,7 +512,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Label htmlFor="firstName">First Name *</Label>
                 <Input
                   id="firstName"
-                  value={formData.first_name}
+                  value={formData.first_name || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, first_name: e.target.value }))}
                   placeholder="Enter first name"
                   required
@@ -502,7 +525,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Label htmlFor="middleName">Middle Name</Label>
                 <Input
                   id="middleName"
-                  value={formData.middle_name}
+                  value={formData.middle_name || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, middle_name: e.target.value }))}
                   placeholder="Enter middle name"
                 />
@@ -511,7 +534,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Label htmlFor="lastName">Last Name *</Label>
                 <Input
                   id="lastName"
-                  value={formData.last_name}
+                  value={formData.last_name || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, last_name: e.target.value }))}
                   placeholder="Enter last name"
                   required
@@ -528,7 +551,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Input
                   id="dob"
                   type="date"
-                  value={formData.date_of_birth}
+                  value={formData.date_of_birth || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, date_of_birth: e.target.value }))}
                   required
                 />
@@ -540,7 +563,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                 <Label htmlFor="ssn">Last 4 digits of SSN</Label>
                 <Input
                   id="ssn"
-                  value={formData.ssn_last4}
+                  value={formData.ssn_last4 || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, ssn_last4: e.target.value }))}
                   placeholder="XXXX"
                   maxLength={4}
@@ -552,7 +575,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
               <Label htmlFor="homeAddress">Home Address *</Label>
               <Textarea
                 id="homeAddress"
-                value={formData.home_address}
+                value={formData.home_address || ''}
                 onChange={(e) => setFormData(prev => ({ ...prev, home_address: e.target.value }))}
                 placeholder="Enter your complete home address"
                 required
@@ -566,7 +589,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
               <Label htmlFor="mailingAddress">Mailing Address (if different)</Label>
               <Textarea
                 id="mailingAddress"
-                value={formData.mailing_address}
+                value={formData.mailing_address || ''}
                 onChange={(e) => setFormData(prev => ({ ...prev, mailing_address: e.target.value }))}
                 placeholder="Enter mailing address if different from home"
               />
@@ -577,7 +600,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
               <Input
                 id="email"
                 type="email"
-                value={formData.email}
+                value={formData.email || ''}
                 onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                 placeholder="Enter your email address"
                 required
@@ -604,8 +627,8 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   <Select
                     value={phone.type}
                     onValueChange={(value) => {
-                      const newPhones = [...formData.phone_numbers!];
-                      newPhones[index].type = value;
+                      const newPhones = [...(formData.phone_numbers || [])];
+                      newPhones[index] = { ...newPhones[index], type: value };
                       setFormData(prev => ({ ...prev, phone_numbers: newPhones }));
                     }}
                   >
@@ -621,19 +644,19 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   <Input
                     value={phone.number}
                     onChange={(e) => {
-                      const newPhones = [...formData.phone_numbers!];
-                      newPhones[index].number = e.target.value;
+                      const newPhones = [...(formData.phone_numbers || [])];
+                      newPhones[index] = { ...newPhones[index], number: e.target.value };
                       setFormData(prev => ({ ...prev, phone_numbers: newPhones }));
                     }}
                     placeholder="(555) 123-4567"
                   />
-                  {formData.phone_numbers.length > 1 && (
+                  {(formData.phone_numbers?.length || 0) > 1 && (
                     <Button
                       type="button"
                       variant="outline"
                       size="sm"
                       onClick={() => {
-                        const newPhones = [...formData.phone_numbers!];
+                        const newPhones = [...(formData.phone_numbers || [])];
                         newPhones.splice(index, 1);
                         setFormData(prev => ({ ...prev, phone_numbers: newPhones }));
                       }}
@@ -648,8 +671,6 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
               )}
             </div>
 
-            
-
             <div className="space-y-4">
               <Label className="text-base font-semibold">Emergency Contact</Label>
               <div className="grid gap-4 md:grid-cols-3">
@@ -657,7 +678,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   <Label htmlFor="emergencyName">Name</Label>
                   <Input
                     id="emergencyName"
-                    value={formData.emergency_contact?.name}
+                    value={formData.emergency_contact?.name || ''}
                     onChange={(e) => setFormData(prev => ({
                       ...prev,
                       emergency_contact: { ...prev.emergency_contact, name: e.target.value }
@@ -669,7 +690,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   <Label htmlFor="emergencyRelation">Relation</Label>
                   <Input
                     id="emergencyRelation"
-                    value={formData.emergency_contact?.relation}
+                    value={formData.emergency_contact?.relation || ''}
                     onChange={(e) => setFormData(prev => ({
                       ...prev,
                       emergency_contact: { ...prev.emergency_contact, relation: e.target.value }
@@ -681,7 +702,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   <Label htmlFor="emergencyPhone">Phone</Label>
                   <Input
                     id="emergencyPhone"
-                    value={formData.emergency_contact?.phone}
+                    value={formData.emergency_contact?.phone || ''}
                     onChange={(e) => setFormData(prev => ({
                       ...prev,
                       emergency_contact: { ...prev.emergency_contact, phone: e.target.value }
