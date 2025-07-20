@@ -4,6 +4,8 @@ import Hero from '@/components/Hero';
 import PracticeAreas from '@/components/PracticeAreas';
 import AttorneyProfile from '@/components/AttorneyProfile';
 import SummitAdvantage from '@/components/SummitAdvantage';
+import { HomeAIFeatures } from '@/components/HomeAIFeatures';
+import { LegalChatbot } from '@/components/LegalChatbot';
 import SEO from '@/components/SEO';
 
 const Index = () => {
@@ -16,9 +18,11 @@ const Index = () => {
         keywords={['criminal defense attorney', 'Massachusetts lawyer', 'DUI defense', 'restraining orders', 'Clinton MA attorney', 'former prosecutor']}
       />
       <Hero />
+      <HomeAIFeatures />
       <PracticeAreas />
       <SummitAdvantage />
       <AttorneyProfile />
+      <LegalChatbot />
     </PageLayout>
   );
 };
