@@ -1,3 +1,4 @@
+
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -14,7 +15,7 @@ const SummitAdvantage = () => {
       description: "Advanced visualization and presentation tools that help judges and juries understand complex evidence in clear, compelling ways."
     },
     {
-      image: "/lovable-uploads/a6b4b356-4246-4c8e-b810-2d264ed0a61d.png",
+      image: "/lovable-uploads/92cc4676-3f43-4a6e-9bbe-1cb528cc4386.png",
       title: "AI-Powered Legal Research Agents",
       description: "Cutting-edge AI technology that analyzes thousands of cases to find relevant precedents and build stronger legal arguments for your defense."
     }

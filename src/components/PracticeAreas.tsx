@@ -8,7 +8,7 @@ const PracticeAreas = () => {
     {
       title: "Criminal Defense",
       description: "Comprehensive defense for felonies and misdemeanors in all Massachusetts courts. From initial arraignment through trial, we fight to protect your rights and freedom.",
-      image: "/lovable-uploads/criminal-defense.jpg"
+      image: "/lovable-uploads/c5bdf326-c48c-4785-9f8c-5f9b049f03d1.png"
     },
     {
       title: "Restraining Orders",
@@ -18,12 +18,12 @@ const PracticeAreas = () => {
     {
       title: "Motor Vehicle Offenses",
       description: "Skilled defense for OUI/DUI, reckless driving, suspended license charges, and all motor vehicle violations throughout Massachusetts.",
-      image: "/lovable-uploads/motor-vehicle.jpg"
+      image: "/lovable-uploads/f2b58f1f-cad1-4db7-877d-b231214922c0.png"
     },
     {
       title: "Show Cause Hearings",
       description: "Strategic representation at Clerk Magistrate hearings and criminal applications to prevent charges from being filed against you.",
-      image: "/lovable-uploads/show-cause.jpg"
+      image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
     }
   ];
 
