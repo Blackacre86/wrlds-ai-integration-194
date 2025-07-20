@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -110,25 +111,6 @@ export default function ClientAuth() {
     }
   };
 
-  const validateInviteCode = async (email: string, code: string) => {
-    try {
-      const { data, error } = await supabase
-        .from('client_allowlist')
-        .select('*')
-        .eq('email', email)
-        .eq('invite_code', code)
-        .eq('status', 'pending')
-        .gt('expires_at', new Date().toISOString())
-        .single();
-      
-      if (error && error.code !== 'PGRST116') throw error;
-      return !!data;
-    } catch (error) {
-      console.error('Error validating invite code:', error);
-      return false;
-    }
-  };
-
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
@@ -220,6 +202,16 @@ export default function ClientAuth() {
       return;
     }
 
+    // Check for universal invite code
+    if (inviteCode.toLowerCase() !== 'summit') {
+      toast({
+        title: "Access Denied",
+        description: "Invalid invite code. Please contact Summit Law Offices for access.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     if (!recaptchaToken) {
       toast({
         title: "Error",
@@ -231,21 +223,6 @@ export default function ClientAuth() {
 
     setLoading(true);
     try {
-      // Check if email is on allowlist
-      const isAllowed = await checkEmailAllowlist(email);
-      if (!isAllowed) {
-        // Check invite code
-        const isValidInvite = await validateInviteCode(email, inviteCode);
-        if (!isValidInvite) {
-          toast({
-            title: "Access Denied",
-            description: "Invalid invite code or email not authorized for registration",
-            variant: "destructive"
-          });
-          return;
-        }
-      }
-
       cleanupAuthState();
       try {
         await supabase.auth.signOut({ scope: 'global' });
@@ -283,15 +260,6 @@ export default function ClientAuth() {
 
         if (profileError) {
           console.error('Error creating profile:', profileError);
-        }
-
-        // Update allowlist status if using invite code
-        if (!isAllowed) {
-          await supabase
-            .from('client_allowlist')
-            .update({ status: 'approved' })
-            .eq('email', email)
-            .eq('invite_code', inviteCode);
         }
       }
     } catch (error: any) {
@@ -397,7 +365,7 @@ export default function ClientAuth() {
               <form onSubmit={handleSignUp} className="space-y-4">
                 <Alert className="border-blue-500">
                   <AlertDescription>
-                    Registration requires an invite code from Summit Law Offices. 
+                    Registration requires the access code provided by Summit Law Offices. 
                     Contact our office if you need access.
                   </AlertDescription>
                 </Alert>
@@ -415,13 +383,13 @@ export default function ClientAuth() {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="invite-code">Invite Code *</Label>
+                  <Label htmlFor="invite-code">Access Code *</Label>
                   <Input
                     id="invite-code"
                     type="text"
                     value={inviteCode}
                     onChange={(e) => setInviteCode(e.target.value)}
-                    placeholder="Enter your invite code"
+                    placeholder="Enter your access code"
                     required
                   />
                 </div>
