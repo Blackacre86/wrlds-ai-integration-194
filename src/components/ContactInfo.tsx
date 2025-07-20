@@ -1,7 +1,10 @@
+
 import React from 'react';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+
 const ContactInfo = () => {
-  return <section id="contact-info" className="bg-gradient-to-b from-white to-black text-white relative py-[15px] md:py-[25px]">
+  return (
+    <section id="contact-info" className="bg-gradient-to-b from-white to-black text-white relative py-[15px] md:py-[25px]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-16">
           <div className="inline-block mb-3 px-3 py-1 bg-white text-black rounded-full text-sm font-medium">
@@ -45,7 +48,6 @@ const ContactInfo = () => {
                       <div>Clinton, MA 01510</div>
                     </div>
                   </div>
-                  
                 </div>
               </div>
 
@@ -63,13 +65,17 @@ const ContactInfo = () => {
         {/* Office Location Map */}
         <div className="mt-8 bg-white rounded-xl shadow-xl p-6 max-w-2xl mx-auto">
           <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Our Office Location</h3>
-          <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-            <div className="text-center text-gray-600">
-              <MapPin className="w-12 h-12 mx-auto mb-2" />
-              <p className="font-semibold">Summit Law Offices</p>
-              <p className="text-sm">1042 Main Street, Suite C</p>
-              <p className="text-sm">Clinton, MA 01510</p>
-            </div>
+          <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2943.825635!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&q=1042+Main+Street+Suite+C+Clinton+MA+01510"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Summit Law Offices - 1042 Main Street, Suite C, Clinton, MA 01510"
+            ></iframe>
           </div>
           
           <div className="mt-4 text-center">
@@ -80,6 +86,8 @@ const ContactInfo = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ContactInfo;

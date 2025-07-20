@@ -135,7 +135,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold text-white mb-8">Office Location</h3>
             <div className="bg-white/5 rounded-lg p-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.1234567890!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e39f5b123456789%3A0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2943.825635!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&q=1042+Main+Street+Suite+C+Clinton+MA+01510"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
@@ -143,7 +143,7 @@ const Footer = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="rounded-lg"
-                title="Summit Law Offices Location"
+                title="Summit Law Offices - 1042 Main Street, Suite C, Clinton, MA 01510"
               ></iframe>
               <div className="mt-4 text-center">
                 <a 
