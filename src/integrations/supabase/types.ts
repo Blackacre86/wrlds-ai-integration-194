@@ -107,6 +107,53 @@ export type Database = {
         }
         Relationships: []
       }
+      client_intake_files: {
+        Row: {
+          file_name: string
+          file_path: string
+          file_size: number
+          file_type: string
+          id: string
+          intake_id: string
+          is_safe: boolean | null
+          scan_result: string | null
+          scanned_at: string | null
+          uploaded_at: string
+        }
+        Insert: {
+          file_name: string
+          file_path: string
+          file_size: number
+          file_type: string
+          id?: string
+          intake_id: string
+          is_safe?: boolean | null
+          scan_result?: string | null
+          scanned_at?: string | null
+          uploaded_at?: string
+        }
+        Update: {
+          file_name?: string
+          file_path?: string
+          file_size?: number
+          file_type?: string
+          id?: string
+          intake_id?: string
+          is_safe?: boolean | null
+          scan_result?: string | null
+          scanned_at?: string | null
+          uploaded_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "client_intake_files_intake_id_fkey"
+            columns: ["intake_id"]
+            isOneToOne: false
+            referencedRelation: "client_intakes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       client_intakes: {
         Row: {
           ada_prosecutor: string | null
@@ -320,6 +367,36 @@ export type Database = {
           id?: string
           section?: string
           statute_code?: string
+        }
+        Relationships: []
+      }
+      user_mfa_settings: {
+        Row: {
+          backup_codes: string[] | null
+          created_at: string
+          id: string
+          is_mfa_enabled: boolean | null
+          totp_secret: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          backup_codes?: string[] | null
+          created_at?: string
+          id?: string
+          is_mfa_enabled?: boolean | null
+          totp_secret?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          backup_codes?: string[] | null
+          created_at?: string
+          id?: string
+          is_mfa_enabled?: boolean | null
+          totp_secret?: string | null
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }

@@ -7,12 +7,16 @@ import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { LogOut, FileText, User as UserIcon } from 'lucide-react';
 import EnhancedClientIntakeForm from '@/components/EnhancedClientIntakeForm';
+import MFASetup from '@/components/MFASetup';
+import MFAVerification from '@/components/MFAVerification';
 
 export default function ClientPortal() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('intake');
+  const [mfaRequired, setMfaRequired] = useState(false);
+  const [mfaSetupRequired, setMfaSetupRequired] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -26,6 +30,8 @@ export default function ClientPortal() {
         
         if (!session?.user) {
           navigate('/client-auth');
+        } else {
+          setTimeout(() => checkMFAStatus(session.user), 0);
         }
       }
     );
@@ -38,11 +44,72 @@ export default function ClientPortal() {
       
       if (!session?.user) {
         navigate('/client-auth');
+      } else {
+        checkMFAStatus(session.user);
       }
     });
 
     return () => subscription.unsubscribe();
   }, [navigate]);
+
+  const checkMFAStatus = async (user: User) => {
+    try {
+      const { data: mfaSettings, error } = await supabase
+        .from('user_mfa_settings')
+        .select('*')
+        .eq('user_id', user.id)
+        .single();
+
+      if (error && error.code !== 'PGRST116') {
+        console.error('Error checking MFA status:', error);
+        setLoading(false);
+        return;
+      }
+
+      if (!mfaSettings) {
+        // No MFA setup - require setup
+        setMfaSetupRequired(true);
+        setLoading(false);
+        return;
+      }
+
+      if (!mfaSettings.is_mfa_enabled) {
+        // MFA exists but not enabled - require setup
+        setMfaSetupRequired(true);
+        setLoading(false);
+        return;
+      }
+
+      // Check if MFA verification is needed (check session metadata)
+      const sessionAge = Date.now() - new Date(user.created_at).getTime();
+      const maxSessionAge = 30 * 60 * 1000; // 30 minutes
+
+      if (sessionAge > maxSessionAge) {
+        setMfaRequired(true);
+      }
+
+      setLoading(false);
+    } catch (error) {
+      console.error('Error in MFA check:', error);
+      setLoading(false);
+    }
+  };
+
+  const handleMFAVerified = () => {
+    setMfaRequired(false);
+    toast({
+      title: "Access Granted",
+      description: "Two-factor authentication verified successfully",
+    });
+  };
+
+  const handleMFASetupComplete = () => {
+    setMfaSetupRequired(false);
+    toast({
+      title: "Security Enhanced",
+      description: "Two-factor authentication is now enabled for your account",
+    });
+  };
 
   const cleanupAuthState = () => {
     localStorage.removeItem('supabase.auth.token');
@@ -82,6 +149,20 @@ export default function ClientPortal() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto"></div>
           <p className="mt-4 text-muted-foreground">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (mfaRequired && user) {
+    return <MFAVerification user={user} onMFAVerified={handleMFAVerified} />;
+  }
+
+  if (mfaSetupRequired && user) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted p-4">
+        <div className="max-w-2xl mx-auto pt-8">
+          <MFASetup user={user} onMFAEnabled={handleMFASetupComplete} />
         </div>
       </div>
     );

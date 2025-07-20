@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -23,6 +24,8 @@ export default function ClientAuth() {
     failed_attempts: number;
     locked_until?: string;
   } | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -67,6 +70,65 @@ export default function ClientAuth() {
     });
   };
 
+  const checkAccountLockout = async (email: string) => {
+    try {
+      const { data, error } = await supabase.rpc('check_account_lockout', {
+        p_email: email
+      });
+      
+      if (error) throw error;
+      
+      // Type assertion for the lockout data
+      const lockoutData = data as {
+        is_locked: boolean;
+        failed_attempts: number;
+        locked_until?: string;
+      };
+      
+      setLockoutInfo(lockoutData);
+      return lockoutData;
+    } catch (error) {
+      console.error('Error checking account lockout:', error);
+      return null;
+    }
+  };
+
+  const checkEmailAllowlist = async (email: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('client_allowlist')
+        .select('*')
+        .eq('email', email)
+        .eq('status', 'approved')
+        .single();
+      
+      if (error && error.code !== 'PGRST116') throw error;
+      return !!data;
+    } catch (error) {
+      console.error('Error checking email allowlist:', error);
+      return false;
+    }
+  };
+
+  const validateInviteCode = async (email: string, code: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('client_allowlist')
+        .select('*')
+        .eq('email', email)
+        .eq('invite_code', code)
+        .eq('status', 'pending')
+        .gt('expires_at', new Date().toISOString())
+        .single();
+      
+      if (error && error.code !== 'PGRST116') throw error;
+      return !!data;
+    } catch (error) {
+      console.error('Error validating invite code:', error);
+      return false;
+    }
+  };
+
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
@@ -78,8 +140,29 @@ export default function ClientAuth() {
       return;
     }
 
+    if (!recaptchaToken) {
+      toast({
+        title: "Error",
+        description: "Please complete the reCAPTCHA verification",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setLoading(true);
     try {
+      // Check account lockout status
+      const lockoutData = await checkAccountLockout(email);
+      if (lockoutData?.is_locked) {
+        const lockedUntil = lockoutData.locked_until ? new Date(lockoutData.locked_until) : null;
+        toast({
+          title: "Account Locked",
+          description: `Too many failed attempts. ${lockedUntil ? `Account is locked until ${lockedUntil.toLocaleString()}` : 'Please try again later.'}`,
+          variant: "destructive"
+        });
+        return;
+      }
+
       cleanupAuthState();
       try {
         await supabase.auth.signOut({ scope: 'global' });
@@ -92,9 +175,15 @@ export default function ClientAuth() {
         password,
       });
 
-      if (error) throw error;
+      if (error) {
+        // Record failed login attempt
+        await supabase.rpc('record_failed_login', { p_email: email });
+        throw error;
+      }
 
       if (data.user) {
+        // Reset failed login attempts on successful login
+        await supabase.rpc('reset_failed_login', { p_email: email });
         window.location.href = '/client-portal';
       }
     } catch (error: any) {
@@ -103,6 +192,9 @@ export default function ClientAuth() {
         description: error.message || "Failed to sign in",
         variant: "destructive"
       });
+      // Reset reCAPTCHA
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
     } finally {
       setLoading(false);
     }
@@ -110,10 +202,10 @@ export default function ClientAuth() {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password || !confirmPassword) {
+    if (!email || !password || !confirmPassword || !inviteCode) {
       toast({
         title: "Error",
-        description: "Please fill in all fields",
+        description: "Please fill in all fields including the invite code",
         variant: "destructive"
       });
       return;
@@ -128,8 +220,32 @@ export default function ClientAuth() {
       return;
     }
 
+    if (!recaptchaToken) {
+      toast({
+        title: "Error",
+        description: "Please complete the reCAPTCHA verification",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setLoading(true);
     try {
+      // Check if email is on allowlist
+      const isAllowed = await checkEmailAllowlist(email);
+      if (!isAllowed) {
+        // Check invite code
+        const isValidInvite = await validateInviteCode(email, inviteCode);
+        if (!isValidInvite) {
+          toast({
+            title: "Access Denied",
+            description: "Invalid invite code or email not authorized for registration",
+            variant: "destructive"
+          });
+          return;
+        }
+      }
+
       cleanupAuthState();
       try {
         await supabase.auth.signOut({ scope: 'global' });
@@ -168,6 +284,15 @@ export default function ClientAuth() {
         if (profileError) {
           console.error('Error creating profile:', profileError);
         }
+
+        // Update allowlist status if using invite code
+        if (!isAllowed) {
+          await supabase
+            .from('client_allowlist')
+            .update({ status: 'approved' })
+            .eq('email', email)
+            .eq('invite_code', inviteCode);
+        }
       }
     } catch (error: any) {
       toast({
@@ -175,6 +300,9 @@ export default function ClientAuth() {
         description: error.message || "Failed to create account",
         variant: "destructive"
       });
+      // Reset reCAPTCHA
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
     } finally {
       setLoading(false);
     }
@@ -198,13 +326,38 @@ export default function ClientAuth() {
             
             <TabsContent value="signin">
               <form onSubmit={handleSignIn} className="space-y-4">
+                {lockoutInfo?.is_locked && (
+                  <Alert className="border-destructive">
+                    <AlertDescription>
+                      Account temporarily locked due to multiple failed login attempts. 
+                      {lockoutInfo.locked_until && (
+                        <> Locked until {new Date(lockoutInfo.locked_until).toLocaleString()}</>
+                      )}
+                    </AlertDescription>
+                  </Alert>
+                )}
+                
+                {lockoutInfo && !lockoutInfo.is_locked && lockoutInfo.failed_attempts > 0 && (
+                  <Alert className="border-orange-500">
+                    <AlertDescription>
+                      Warning: {lockoutInfo.failed_attempts} failed login attempt(s). 
+                      Account will be locked after 5 failed attempts.
+                    </AlertDescription>
+                  </Alert>
+                )}
+                
                 <div className="space-y-2">
                   <Label htmlFor="signin-email">Email</Label>
                   <Input
                     id="signin-email"
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={async (e) => {
+                      setEmail(e.target.value);
+                      if (e.target.value) {
+                        await checkAccountLockout(e.target.value);
+                      }
+                    }}
                     placeholder="Enter your email"
                     required
                   />
@@ -220,7 +373,21 @@ export default function ClientAuth() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={loading}>
+                
+                <div className="flex justify-center">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with real key
+                    onChange={(token) => setRecaptchaToken(token)}
+                    onExpired={() => setRecaptchaToken(null)}
+                  />
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  disabled={loading || !recaptchaToken || lockoutInfo?.is_locked}
+                >
                   {loading ? 'Signing In...' : 'Sign In'}
                 </Button>
               </form>
@@ -228,6 +395,13 @@ export default function ClientAuth() {
             
             <TabsContent value="signup">
               <form onSubmit={handleSignUp} className="space-y-4">
+                <Alert className="border-blue-500">
+                  <AlertDescription>
+                    Registration requires an invite code from Summit Law Offices. 
+                    Contact our office if you need access.
+                  </AlertDescription>
+                </Alert>
+                
                 <div className="space-y-2">
                   <Label htmlFor="signup-email">Email</Label>
                   <Input
@@ -239,6 +413,19 @@ export default function ClientAuth() {
                     required
                   />
                 </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="invite-code">Invite Code *</Label>
+                  <Input
+                    id="invite-code"
+                    type="text"
+                    value={inviteCode}
+                    onChange={(e) => setInviteCode(e.target.value)}
+                    placeholder="Enter your invite code"
+                    required
+                  />
+                </div>
+                
                 <div className="space-y-2">
                   <Label htmlFor="signup-password">Password</Label>
                   <Input
@@ -246,8 +433,9 @@ export default function ClientAuth() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Create a password"
+                    placeholder="Create a password (min 8 characters)"
                     required
+                    minLength={8}
                   />
                 </div>
                 <div className="space-y-2">
@@ -261,12 +449,28 @@ export default function ClientAuth() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={loading}>
+                
+                <div className="flex justify-center">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with real key
+                    onChange={(token) => setRecaptchaToken(token)}
+                    onExpired={() => setRecaptchaToken(null)}
+                  />
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  disabled={loading || !recaptchaToken}
+                >
                   {loading ? 'Creating Account...' : 'Create Account'}
                 </Button>
+                
                 <Alert>
                   <AlertDescription>
                     By creating an account, you agree to provide accurate information for your legal case.
+                    All information is protected by attorney-client privilege.
                   </AlertDescription>
                 </Alert>
               </form>
