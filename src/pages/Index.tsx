@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import PracticeAreas from '@/components/PracticeAreas';
 import AttorneyProfile from '@/components/AttorneyProfile';
 import SummitAdvantage from '@/components/SummitAdvantage';
+import TransitionShape from '@/components/TransitionShape';
 import SEO from '@/components/SEO';
 
 const Index = () => {
@@ -16,35 +17,56 @@ const Index = () => {
         keywords={['criminal defense attorney', 'Massachusetts lawyer', 'DUI defense', 'restraining orders', 'Clinton MA attorney', 'former prosecutor']}
       />
       {/* Semantic HTML structure for AI agents */}
-      <main role="main" itemScope itemType="https://schema.org/LegalService">
+      <main role="main" itemScope itemType="https://schema.org/LegalService" className="smooth-scroll">
         <header id="hero" role="banner">
           <Hero />
         </header>
         
-        <section id="summit-advantage" role="region" aria-labelledby="advantage-heading">
+        <TransitionShape variant="wave" direction="down" color="gray" />
+        
+        <section id="summit-advantage" role="region" aria-labelledby="advantage-heading" className="animate-fade-in">
           <SummitAdvantage />
         </section>
         
-        <section id="practice-areas" role="region" aria-labelledby="services-heading" itemScope itemType="https://schema.org/Service">
+        <TransitionShape variant="diagonal" direction="up" color="white" />
+        
+        <section id="practice-areas" role="region" aria-labelledby="services-heading" itemScope itemType="https://schema.org/Service" className="animate-fade-in animation-delay-200">
           <PracticeAreas />
         </section>
         
-        <section id="attorney-profile" role="region" aria-labelledby="attorney-heading" itemScope itemType="https://schema.org/Person">
+        <TransitionShape variant="curve" direction="down" color="gray" />
+        
+        <section id="attorney-profile" role="region" aria-labelledby="attorney-heading" itemScope itemType="https://schema.org/Person" className="animate-fade-in animation-delay-300">
           <AttorneyProfile />
         </section>
         
-        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-16 bg-muted/50">
+        <TransitionShape variant="angular" direction="up" color="white" />
+        
+        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-400">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 id="portal-heading" className="text-3xl font-bold mb-6">Client Portal</h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Securely access your case information and submit intake forms through our client portal.
-            </p>
-            <a 
-              href="/client-auth" 
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors"
-            >
-              Access Client Portal
-            </a>
+            <div className="relative">
+              <h2 id="portal-heading" className="text-3xl md:text-4xl font-bold mb-6 text-black">
+                Client Portal Access
+              </h2>
+              <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Secure, convenient access to your case information, documents, and communication tools. 
+                Available 24/7 for your peace of mind.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a 
+                  href="/client-auth" 
+                  className="inline-flex items-center px-8 py-4 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group"
+                >
+                  Access Client Portal
+                  <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+                <div className="text-sm text-gray-500">
+                  New client? <a href="/client-auth" className="text-black hover:underline font-medium">Create account</a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

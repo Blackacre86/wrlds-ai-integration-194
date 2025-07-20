@@ -23,6 +23,7 @@ const Navbar = () => {
     { name: 'The Summit Advantage', action: () => scrollToSection('summit-advantage') },
     { name: 'Practice Areas', action: () => scrollToSection('practice-areas') },
     { name: 'About', action: () => scrollToSection('attorney-profile') },
+    { name: 'Client Portal', href: '/client-auth' },
   ];
 
   return (
@@ -42,13 +43,23 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={item.action}
-                className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors cursor-pointer"
-              >
-                {item.name}
-              </button>
+              item.href ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors cursor-pointer"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={item.action}
+                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors cursor-pointer"
+                >
+                  {item.name}
+                </button>
+              )
             ))}
             <Button className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
@@ -73,13 +84,24 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={item.action}
-                className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors"
-              >
-                {item.name}
-              </button>
+              item.href ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors block"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={item.action}
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors"
+                >
+                  {item.name}
+                </button>
+              )
             ))}
             <div className="px-3 py-2">
               <Button className="w-full flex items-center justify-center gap-2">
