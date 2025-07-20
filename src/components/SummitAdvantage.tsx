@@ -28,8 +28,8 @@ const SummitAdvantage = () => {
     {
       title: "Evidence Strategy Optimization",
       description: "AI-powered analysis evaluates evidence presentation strategies, identifying the most compelling arguments and optimal sequencing. Summit Law's technology helps craft persuasive narratives that resonate in court.",
-      stat: "Strategic",
-      statLabel: "Approach Planned",
+      stat: "AI-Powered",
+      statLabel: "Analysis",
       image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&auto=format"
     },
     {
@@ -97,9 +97,9 @@ const SummitAdvantage = () => {
                   <h3 className="text-xl font-semibold text-gray-900">
                     {advantage.title}
                   </h3>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-gray-900">{advantage.stat}</div>
-                    <div className="text-sm text-gray-500">{advantage.statLabel}</div>
+                  <div className="text-right min-w-[80px]">
+                    <div className="text-2xl font-bold text-gray-900 leading-tight">{advantage.stat}</div>
+                    <div className="text-sm text-gray-500 text-center">{advantage.statLabel}</div>
                   </div>
                 </div>
                 <p className="text-gray-600 leading-relaxed">
