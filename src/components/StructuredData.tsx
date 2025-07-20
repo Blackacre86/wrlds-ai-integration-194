@@ -12,7 +12,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
     const baseUrl = "https://summitlawsite.com";
     
     switch (type) {
-      case 'attorney':
+      case 'attorney': {
         const attorneyContent = getContent('attorney');
         return {
           "@context": "https://schema.org",
@@ -39,8 +39,9 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
           "telephone": attorneyContent?.phone || "508-454-0822",
           "url": `${baseUrl}/attorney/joe-brava`
         };
+      }
 
-      case 'legal-service':
+      case 'legal-service': {
         const practiceContent = getContent('practiceAreas');
         return {
           "@context": "https://schema.org",
@@ -77,6 +78,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             })) || []
           }
         };
+      }
 
       case 'faq':
         return {

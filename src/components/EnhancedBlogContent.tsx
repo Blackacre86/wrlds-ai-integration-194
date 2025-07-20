@@ -107,11 +107,11 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
           </div>
         );
       
-      case 'chart':
+      case 'chart': {
         if (!section.chartData) return null;
-        
+
         const colors = ['#000000', '#666666', '#999999', '#CCCCCC'];
-        
+
         return (
           <Card key={index} className="border-2 border-black mb-8">
             <CardContent className="p-6">
@@ -149,6 +149,7 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
             </CardContent>
           </Card>
         );
+      }
       
       case 'table':
         if (!section.tableData) return null;
@@ -186,7 +187,7 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
           <Card key={index} className="border-2 border-black bg-black text-white mb-8">
             <CardContent className="p-8 text-center">
               <blockquote className="text-xl italic font-medium">
-                "{section.content}"
+                {section.content}
               </blockquote>
             </CardContent>
           </Card>
