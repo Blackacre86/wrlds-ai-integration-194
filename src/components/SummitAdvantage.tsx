@@ -30,21 +30,21 @@ const SummitAdvantage = () => {
       description: "AI-powered analysis evaluates evidence presentation strategies, identifying the most compelling arguments and optimal sequencing. Summit Law's technology helps craft persuasive narratives that resonate in court.",
       stat: "AI-Powered",
       statLabel: "Analysis",
-      image: "/lovable-uploads/ec3e0f8f-2c62-41d7-946b-96f52b6a1b1a.png"
+      image: "/lovable-uploads/810c64ae-5dff-4a0a-ab8b-555b99cf604a.png"
     },
     {
       title: "Smart Evidence Presentation",
       description: "Clearly communicate your story with Summit Law's AI-powered visual evidence tools. Transform complex evidence into straightforward, persuasive visuals that resonate with judges and juries.",
       stat: "100%",
       statLabel: "Clear Communication",
-      image: "/lovable-uploads/f99a8ea4-e654-4d1e-9a6c-b17de9b9c567.png"
+      image: "/lovable-uploads/92cc4676-3f43-4a6e-9bbe-1cb528cc4386.png"
     },
     {
       title: "AI-Powered Legal Research Agents", 
       description: "Get instant, precise answers to critical legal questions. Summit Law's custom-built research agents scan thousands of legal sources in seconds, delivering accurate insights tailored specifically to your case.",
       stat: "1000s",
       statLabel: "Sources Analyzed",
-      image: "/lovable-uploads/84e3e39e-e5ba-4c57-b7e6-28d7f7f84b4c.png"
+      image: "/lovable-uploads/13a21a8f-d1ab-4a67-9b0e-0efc97b1ab04.png"
     }
   ];
 
