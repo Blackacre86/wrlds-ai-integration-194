@@ -23,13 +23,13 @@ const Index = () => {
           <Hero />
         </header>
         
-        <TransitionShape variant="wave" direction="down" color="gray" />
+        <TransitionShape variant="seamless" direction="down" color="gray" />
         
         <section id="summit-advantage" role="region" aria-labelledby="advantage-heading" className="animate-fade-in">
           <SummitAdvantage />
         </section>
         
-        <TransitionShape variant="diagonal" direction="up" color="white" />
+        <TransitionShape variant="seamless" direction="up" color="white" />
         
         <section id="practice-areas" role="region" aria-labelledby="services-heading" itemScope itemType="https://schema.org/Service" className="animate-fade-in animation-delay-200">
           <PracticeAreas />
@@ -43,7 +43,7 @@ const Index = () => {
         
         <TransitionShape variant="angular" direction="up" color="white" />
         
-        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-400">
+        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-400">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="relative">
               <h2 id="portal-heading" className="text-3xl md:text-4xl font-bold mb-6 text-black">
