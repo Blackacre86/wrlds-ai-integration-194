@@ -1,12 +1,12 @@
-
 import { Award, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
 const AttorneyProfile = () => {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
       transition: {
@@ -15,33 +15,32 @@ const AttorneyProfile = () => {
       }
     }
   };
-
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: {
+      y: 30,
+      opacity: 0
+    },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8 }
+      transition: {
+        duration: 0.8
+      }
     }
   };
-
   const scrollToContact = () => {
     const footer = document.querySelector('footer');
     if (footer) {
-      footer.scrollIntoView({ behavior: 'smooth' });
+      footer.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section id="attorney-profile" className="py-20 bg-white">
+  return <section id="attorney-profile" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-16" 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true }} 
-          variants={containerVariants}
-        >
+        <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{
+        once: true
+      }} variants={containerVariants}>
           <motion.div variants={itemVariants}>
             <div className="inline-block mb-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
               About Your Attorney
@@ -50,20 +49,15 @@ const AttorneyProfile = () => {
               Attorney Joe Brava
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Founded Summit Law in January 2023 after extensive experience as both a prosecutor 
-              and criminal defense attorney in Massachusetts.
-            </p>
+          </p>
           </motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
           {/* Left Column - Biography */}
-          <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }} 
-            variants={itemVariants}
-          >
+          <motion.div initial="hidden" whileInView="visible" viewport={{
+          once: true
+        }} variants={itemVariants}>
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 text-left">
@@ -95,12 +89,9 @@ const AttorneyProfile = () => {
           </motion.div>
 
           {/* Right Column - Credentials & Stats */}
-          <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }} 
-            variants={itemVariants}
-          >
+          <motion.div initial="hidden" whileInView="visible" viewport={{
+          once: true
+        }} variants={itemVariants}>
             <Card className="p-8 shadow-lg">
               <CardContent className="space-y-8 p-0">
                 {/* Attorney Photo Placeholder */}
@@ -147,13 +138,9 @@ const AttorneyProfile = () => {
         </div>
 
         {/* Call to Action */}
-        <motion.div 
-          className="text-center" 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true }} 
-          variants={itemVariants}
-        >
+        <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{
+        once: true
+      }} variants={itemVariants}>
           <Card className="bg-gray-900 text-white p-8 md:p-12">
             <CardContent className="p-0">
               <h3 className="text-3xl font-bold mb-4">
@@ -163,18 +150,13 @@ const AttorneyProfile = () => {
                 When your freedom is on the line, you need an attorney who understands both sides of the courtroom. 
                 Let's discuss your case today.
               </p>
-              <Button 
-                onClick={scrollToContact} 
-                className="px-8 py-3 bg-white text-gray-900 hover:bg-gray-100 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
+              <Button onClick={scrollToContact} className="px-8 py-3 bg-white text-gray-900 hover:bg-gray-100 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
                 Schedule Your Consultation
               </Button>
             </CardContent>
           </Card>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AttorneyProfile;
