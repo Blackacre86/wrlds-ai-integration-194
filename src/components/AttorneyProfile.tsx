@@ -22,7 +22,7 @@ const AttorneyProfile = () => {
               Meet Attorney {attorneyContent?.name || "Joe Brava"}
             </h2>
             <p className="text-gray-800 text-lg leading-relaxed mb-6">
-              {attorneyContent?.description || "With over a decade of legal experience and a proven track record of success."}
+              {attorneyContent?.description || "With 8+ years of legal experience"}
             </p>
           </div>
 
