@@ -26,6 +26,13 @@ const SummitAdvantage = () => {
 
   const advantages = [
     {
+      title: "Evidence Strategy Optimization",
+      description: "AI-powered analysis evaluates evidence presentation strategies, identifying the most compelling arguments and optimal sequencing. Summit Law's technology helps craft persuasive narratives that resonate in court.",
+      stat: "Every Detail",
+      statLabel: "Strategically Planned",
+      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&auto=format"
+    },
+    {
       title: "Smart Evidence Presentation",
       description: "Clearly communicate your story with Summit Law's AI-powered visual evidence tools. Transform complex evidence into straightforward, persuasive visuals that resonate with judges and juries.",
       stat: "100%",
@@ -38,13 +45,6 @@ const SummitAdvantage = () => {
       stat: "1000s",
       statLabel: "Sources Analyzed",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format"
-    },
-    {
-      title: "Evidence Strategy Optimization",
-      description: "AI-powered analysis evaluates evidence presentation strategies, identifying the most compelling arguments and optimal sequencing. Summit Law's technology helps craft persuasive narratives that resonate in court.",
-      stat: "Every Detail",
-      statLabel: "Strategically Planned",
-      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&auto=format"
     }
   ];
 
