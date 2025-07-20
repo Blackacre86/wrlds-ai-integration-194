@@ -49,7 +49,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <div className={cn("text-xl font-bold", isScrolled ? "text-gray-900" : "text-white")}>
-                Summit Law Offices
+                Summit Law
               </div>
             </Link>
           </div>
