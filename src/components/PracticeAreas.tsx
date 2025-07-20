@@ -18,12 +18,12 @@ const PracticeAreas = () => {
     {
       title: "Motor Vehicle Offenses",
       description: "Skilled defense for OUI/DUI, reckless driving, suspended license charges, and all motor vehicle violations throughout Massachusetts.",
-      image: "/lovable-uploads/801cb263-0fed-414b-bf75-345bebc32a9e.png"
+      image: "/lovable-uploads/motor-vehicle.jpg"
     },
     {
       title: "Show Cause Hearings",
       description: "Strategic representation at Clerk Magistrate hearings and criminal applications to prevent charges from being filed against you.",
-      image: "/lovable-uploads/c5bdf326-c48c-4785-9f8c-5f9b049f03d1.png"
+      image: "/lovable-uploads/show-cause.jpg"
     }
   ];
 
