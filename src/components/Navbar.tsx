@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Search, Target } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -10,17 +10,20 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const navItems = [
-    { name: 'Home', path: '/', icon: null },
-    { name: 'AI Search', path: '/ai/search', icon: <Search className="h-4 w-4" /> },
-    { name: 'Service Matcher', path: '/ai/service-matcher', icon: <Target className="h-4 w-4" /> },
-    { name: 'About', path: '/about', icon: null },
-    { name: 'Blog', path: '/blog', icon: null },
-  ];
-
-  const isActivePath = (path: string) => {
-    return location.pathname === path;
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
   };
+
+  const navItems = [
+    { name: 'Home', action: () => scrollToSection('hero') },
+    { name: 'The Summit Advantage', action: () => scrollToSection('summit-advantage') },
+    { name: 'Practice Areas', action: () => scrollToSection('practice-areas') },
+    { name: 'About', action: () => scrollToSection('attorney-profile') },
+  ];
 
   return (
     <nav className="bg-white shadow-lg fixed w-full top-0 z-50">
@@ -39,18 +42,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.name}
-                to={item.path}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActivePath(item.path)
-                    ? 'text-black bg-gray-100'
-                    : 'text-gray-700 hover:text-black hover:bg-gray-50'
-                }`}
+                onClick={item.action}
+                className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors cursor-pointer"
               >
-                {item.icon}
                 {item.name}
-              </Link>
+              </button>
             ))}
             <Button className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
@@ -75,19 +73,13 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.name}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                  isActivePath(item.path)
-                    ? 'text-black bg-gray-100'
-                    : 'text-gray-700 hover:text-black hover:bg-gray-50'
-                }`}
+                onClick={item.action}
+                className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-colors"
               >
-                {item.icon}
                 {item.name}
-              </Link>
+              </button>
             ))}
             <div className="px-3 py-2">
               <Button className="w-full flex items-center justify-center gap-2">

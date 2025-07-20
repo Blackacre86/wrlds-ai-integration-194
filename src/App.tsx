@@ -7,16 +7,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { ContentProvider } from "@/components/ContentProvider";
 import Index from "./pages/Index";
-import AdminAI from "./pages/AdminAI";
-import AIServiceMatcher from "./pages/AIServiceMatcher";
-import AISearch from "./pages/AISearch";
 import About from "./pages/About";
-import Blog from "./pages/Blog";
-import BlogPostDetail from "./pages/BlogPostDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Careers from "./pages/Careers";
 import TechDetails from "./pages/TechDetails";
-import AIServices from "./pages/AIServices";
 import NotFound from "./pages/NotFound";
 import HockeyProject from "./pages/HockeyProject"; 
 import PetProject from "./pages/PetProject";
@@ -36,15 +30,9 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/admin/ai" element={<AdminAI />} />
-              <Route path="/ai/service-matcher" element={<AIServiceMatcher />} />
-              <Route path="/ai/search" element={<AISearch />} />
               <Route path="/about" element={<About />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/tech-details" element={<TechDetails />} />
-              <Route path="/ai-services" element={<AIServices />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPostDetail />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/projects/hockey" element={<HockeyProject />} />
               <Route path="/projects/pet" element={<PetProject />} />

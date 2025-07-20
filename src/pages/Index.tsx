@@ -4,8 +4,6 @@ import Hero from '@/components/Hero';
 import PracticeAreas from '@/components/PracticeAreas';
 import AttorneyProfile from '@/components/AttorneyProfile';
 import SummitAdvantage from '@/components/SummitAdvantage';
-import { HomeAIFeatures } from '@/components/HomeAIFeatures';
-import { LegalChatbot } from '@/components/LegalChatbot';
 import SEO from '@/components/SEO';
 
 const Index = () => {
@@ -17,12 +15,18 @@ const Index = () => {
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['criminal defense attorney', 'Massachusetts lawyer', 'DUI defense', 'restraining orders', 'Clinton MA attorney', 'former prosecutor']}
       />
-      <Hero />
-      <HomeAIFeatures />
-      <PracticeAreas />
-      <SummitAdvantage />
-      <AttorneyProfile />
-      <LegalChatbot />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="summit-advantage">
+        <SummitAdvantage />
+      </div>
+      <div id="practice-areas">
+        <PracticeAreas />
+      </div>
+      <div id="attorney-profile">
+        <AttorneyProfile />
+      </div>
     </PageLayout>
   );
 };
