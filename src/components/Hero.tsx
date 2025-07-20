@@ -75,13 +75,13 @@ const Hero = () => {
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-5xl text-center" variants={itemVariants}>
               <motion.h1 
-                className="banner-title text-white font-bold leading-tight" 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6" 
                 variants={itemVariants}
               >
                 Strategic Criminal Defense Across Massachusetts
               </motion.h1>
               <motion.p 
-                className="banner-subtitle text-gray-200 mt-6 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto" 
+                className="text-gray-200 mt-6 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto" 
                 variants={itemVariants}
               >
                 Strategic Criminal Defense Enhanced by AI
