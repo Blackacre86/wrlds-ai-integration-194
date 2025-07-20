@@ -6,6 +6,11 @@ import { supabase } from '@/integrations/supabase/client';
 import { Save, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
 
 import { IntakeFormData } from './intake-form/IntakeFormValidation';
+import { EmploymentEducationStep } from './intake-form/EmploymentEducationStep';
+import { FamilyHealthStep } from './intake-form/FamilyHealthStep';
+import { ImmigrationHistoryStep } from './intake-form/ImmigrationHistoryStep';
+import { RepresentationFactsStep } from './intake-form/RepresentationFactsStep';
+import { FileUploadStep } from './intake-form/FileUploadStep';
 
 interface RefactoredClientIntakeFormProps {
   userId: string;
@@ -22,16 +27,16 @@ const STEPS = [
 ];
 
 // Type casting utilities for database data
-const safeJsonCast = function<T>(value: any, fallback: T): T {
+function safeJsonCast<T>(value: any, fallback: T): T {
   if (value === null || value === undefined) return fallback;
   if (typeof value === 'object' && !Array.isArray(value)) return value as T;
   return fallback;
-};
+}
 
-const safeArrayCast = function<T>(value: any, fallback: T[]): T[] {
+function safeArrayCast<T>(value: any, fallback: T[]): T[] {
   if (Array.isArray(value)) return value as T[];
   return fallback;
-};
+}
 
 export default function RefactoredClientIntakeForm({ userId }: RefactoredClientIntakeFormProps) {
   const [currentStep, setCurrentStep] = useState(1);
@@ -345,44 +350,19 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         );
 
       case 3:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Employment & Education</h2>
-            <p className="text-muted-foreground">Employment and education details will be implemented here.</p>
-          </div>
-        );
+        return <EmploymentEducationStep formData={formData} setFormData={updateFormData} />;
 
       case 4:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Family & Health</h2>
-            <p className="text-muted-foreground">Family and health information will be implemented here.</p>
-          </div>
-        );
+        return <FamilyHealthStep formData={formData} setFormData={updateFormData} />;
 
       case 5:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Immigration & History</h2>
-            <p className="text-muted-foreground">Immigration status and criminal history will be implemented here.</p>
-          </div>
-        );
+        return <ImmigrationHistoryStep formData={formData} setFormData={updateFormData} />;
 
       case 6:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Representation & Facts</h2>
-            <p className="text-muted-foreground">Case representation and facts will be implemented here.</p>
-          </div>
-        );
+        return <RepresentationFactsStep formData={formData} setFormData={updateFormData} />;
 
       case 7:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Files & Consent</h2>
-            <p className="text-muted-foreground">File upload and consent forms will be implemented here.</p>
-          </div>
-        );
+        return <FileUploadStep formData={formData} setFormData={updateFormData} userId={userId} />;
 
       default:
         return <div>Invalid step</div>;
