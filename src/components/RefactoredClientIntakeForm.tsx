@@ -110,9 +110,35 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         setIntakeId(data.id);
         setCurrentStep(data.progress_step || 1);
         
-        // Safely cast database JSON types to TypeScript interfaces
+        // Transform database data back to form structure
+        const biographicalInfo = safeJsonCast(data.biographical_info, {}) as any;
+        const contactInfo = safeJsonCast(data.contact_info, {}) as any;
+        
         const safeFormData: Partial<IntakeFormData> = {
-          ...data,
+          // Direct columns
+          docket_number: data.docket_number || '',
+          arraignment_date: data.arraignment_date || '',
+          next_court_date: data.next_court_date || '',
+          court_name: data.court_name || '',
+          court_session: data.court_session || '',
+          ada_prosecutor: data.ada_prosecutor || '',
+          middle_name: data.middle_name || '',
+          ssn_last4: data.ssn_last4 || '',
+          mailing_address: data.mailing_address || '',
+          representation_type: data.representation_type as 'bar_advocate' | 'private_client' | undefined,
+          case_facts: data.case_facts || '',
+          about_me: data.about_me || '',
+          consent_given: data.consent_given || false,
+          
+          // Extract from biographical_info JSONB
+          first_name: biographicalInfo.first_name || '',
+          last_name: biographicalInfo.last_name || '',
+          
+          // Extract from contact_info JSONB
+          email: contactInfo.email || '',
+          home_address: contactInfo.home_address || '',
+          
+          // JSONB columns
           charges: safeArrayCast(data.charges, []),
           phone_numbers: safeArrayCast(data.phone_numbers, [{ type: 'cell', number: '' }]),
           uploaded_files: safeArrayCast(data.uploaded_files, []),
@@ -125,7 +151,6 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
           immigration_info: safeJsonCast(data.immigration_info, { us_citizen: false, prior_deportation: false }),
           criminal_history: safeJsonCast(data.criminal_history, { open_cases: false, probation_parole: false, prior_record: false }),
           e_signature: safeJsonCast(data.e_signature, { full_name: '', date: new Date().toISOString().split('T')[0] }),
-          representation_type: data.representation_type as 'bar_advocate' | 'private_client' | undefined,
         };
         
         setFormData(safeFormData);
@@ -150,12 +175,49 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
     
     setSaving(true);
     try {
+      // Transform form data to match database schema
       const dataToSave = {
-        ...formData,
         user_id: userId,
         progress_step: currentStep,
         status: 'draft',
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
+        
+        // Direct columns
+        docket_number: formData.docket_number || null,
+        arraignment_date: formData.arraignment_date || null,
+        next_court_date: formData.next_court_date || null,
+        court_name: formData.court_name || null,
+        court_session: formData.court_session || null,
+        ada_prosecutor: formData.ada_prosecutor || null,
+        middle_name: formData.middle_name || null,
+        ssn_last4: formData.ssn_last4 || null,
+        mailing_address: formData.mailing_address || null,
+        representation_type: formData.representation_type || null,
+        case_facts: formData.case_facts || null,
+        about_me: formData.about_me || null,
+        consent_given: formData.consent_given || false,
+        
+        // JSONB columns with proper structure
+        biographical_info: {
+          first_name: formData.first_name || '',
+          last_name: formData.last_name || '',
+        },
+        contact_info: {
+          email: formData.email || '',
+          home_address: formData.home_address || '',
+        },
+        bail_info: formData.bail_info || { bail_set: false },
+        phone_numbers: formData.phone_numbers || [{ type: 'cell', number: '' }],
+        emergency_contact: formData.emergency_contact || { name: '', relation: '', phone: '' },
+        employment_info: formData.employment_info || { employed: false, unemployed: false },
+        education_info: formData.education_info || { in_school: false, highest_education: '', school_location: '' },
+        family_info: formData.family_info || { marital_status: '', children: [] },
+        substance_mental_health: formData.substance_mental_health || { past_treatment: false, current_medications: '' },
+        immigration_info: formData.immigration_info || { us_citizen: false, prior_deportation: false },
+        criminal_history: formData.criminal_history || { open_cases: false, probation_parole: false, prior_record: false },
+        e_signature: formData.e_signature || { full_name: '', date: '' },
+        charges: formData.charges || [],
+        uploaded_files: formData.uploaded_files || [],
       };
 
       if (intakeId) {
@@ -226,12 +288,49 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
 
     setSubmitting(true);
     try {
+      // Transform form data for submission using same structure as saveProgress
       const dataToSubmit = {
-        ...formData,
         user_id: userId,
         status: 'submitted',
         submitted_at: new Date().toISOString(),
-        progress_step: STEPS.length
+        progress_step: STEPS.length,
+        
+        // Direct columns
+        docket_number: formData.docket_number || null,
+        arraignment_date: formData.arraignment_date || null,
+        next_court_date: formData.next_court_date || null,
+        court_name: formData.court_name || null,
+        court_session: formData.court_session || null,
+        ada_prosecutor: formData.ada_prosecutor || null,
+        middle_name: formData.middle_name || null,
+        ssn_last4: formData.ssn_last4 || null,
+        mailing_address: formData.mailing_address || null,
+        representation_type: formData.representation_type || null,
+        case_facts: formData.case_facts || null,
+        about_me: formData.about_me || null,
+        consent_given: formData.consent_given || false,
+        
+        // JSONB columns with proper structure
+        biographical_info: {
+          first_name: formData.first_name || '',
+          last_name: formData.last_name || '',
+        },
+        contact_info: {
+          email: formData.email || '',
+          home_address: formData.home_address || '',
+        },
+        bail_info: formData.bail_info || { bail_set: false },
+        phone_numbers: formData.phone_numbers || [{ type: 'cell', number: '' }],
+        emergency_contact: formData.emergency_contact || { name: '', relation: '', phone: '' },
+        employment_info: formData.employment_info || { employed: false, unemployed: false },
+        education_info: formData.education_info || { in_school: false, highest_education: '', school_location: '' },
+        family_info: formData.family_info || { marital_status: '', children: [] },
+        substance_mental_health: formData.substance_mental_health || { past_treatment: false, current_medications: '' },
+        immigration_info: formData.immigration_info || { us_citizen: false, prior_deportation: false },
+        criminal_history: formData.criminal_history || { open_cases: false, probation_parole: false, prior_record: false },
+        e_signature: formData.e_signature || { full_name: '', date: '' },
+        charges: formData.charges || [],
+        uploaded_files: formData.uploaded_files || [],
       };
 
       if (intakeId) {

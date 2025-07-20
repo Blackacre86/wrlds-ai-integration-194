@@ -156,6 +156,7 @@ export type Database = {
       }
       client_intakes: {
         Row: {
+          about_me: string | null
           ada_prosecutor: string | null
           arraignment_date: string | null
           bail_info: Json | null
@@ -193,6 +194,7 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          about_me?: string | null
           ada_prosecutor?: string | null
           arraignment_date?: string | null
           bail_info?: Json | null
@@ -230,6 +232,7 @@ export type Database = {
           user_id: string
         }
         Update: {
+          about_me?: string | null
           ada_prosecutor?: string | null
           arraignment_date?: string | null
           bail_info?: Json | null
