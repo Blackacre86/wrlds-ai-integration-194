@@ -1,3 +1,4 @@
+
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.52.0';
@@ -73,7 +74,24 @@ serve(async (req) => {
 
   try {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
-    const { content } = await req.json() as { content: ContentChunk };
+    const requestBody = await req.json();
+    
+    // Handle query-only requests (for search)
+    if (requestBody.query_only) {
+      const { query } = requestBody;
+      const embedding = await generateEmbedding(query);
+      
+      return new Response(
+        JSON.stringify({ 
+          embedding: embedding,
+          success: true 
+        }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Handle content storage requests (existing functionality)
+    const { content } = requestBody as { content: ContentChunk };
 
     // Chunk the content if it's too long
     const textChunks = chunkContent(content.content_text);

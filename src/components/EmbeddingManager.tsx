@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, CheckCircle, AlertCircle, Database } from 'lucide-react';
+import { Loader2, CheckCircle, AlertCircle, Database, Play } from 'lucide-react';
 import { EmbeddingService } from '@/services/embeddingService';
 import { SemanticSearch } from '@/components/SemanticSearch';
 
@@ -13,6 +14,31 @@ export const EmbeddingManager: React.FC = () => {
     message: string;
   }>({ type: 'idle', message: '' });
 
+  // Auto-generate embeddings on component mount if needed
+  useEffect(() => {
+    const checkAndGenerateEmbeddings = async () => {
+      // Only auto-generate if no status message is set (first time load)
+      if (status.message === '') {
+        try {
+          setStatus({ type: 'idle', message: 'Checking content embeddings...' });
+          await EmbeddingService.processContentFromMDX();
+          setStatus({
+            type: 'success',
+            message: 'Content embeddings are ready! You can now use semantic search and AI features.'
+          });
+        } catch (error) {
+          console.error('Auto-generation failed:', error);
+          setStatus({
+            type: 'idle',
+            message: 'Click the button below to generate content embeddings for AI features.'
+          });
+        }
+      }
+    };
+
+    checkAndGenerateEmbeddings();
+  }, []);
+
   const generateAllEmbeddings = async () => {
     setIsGenerating(true);
     setStatus({ type: 'idle', message: 'Generating embeddings...' });
@@ -21,7 +47,7 @@ export const EmbeddingManager: React.FC = () => {
       await EmbeddingService.processContentFromMDX();
       setStatus({
         type: 'success',
-        message: 'All content embeddings generated successfully! You can now use semantic search.'
+        message: 'All content embeddings generated successfully! AI features are now fully operational.'
       });
     } catch (error) {
       setStatus({
@@ -42,7 +68,7 @@ export const EmbeddingManager: React.FC = () => {
             AI Content Embeddings
           </CardTitle>
           <CardDescription>
-            Generate vector embeddings for your legal content to enable AI-powered semantic search
+            Vector embeddings enable AI-powered semantic search and intelligent content recommendations for your legal services
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -50,6 +76,7 @@ export const EmbeddingManager: React.FC = () => {
             onClick={generateAllEmbeddings}
             disabled={isGenerating}
             className="w-full"
+            size="lg"
           >
             {isGenerating ? (
               <>
@@ -58,7 +85,7 @@ export const EmbeddingManager: React.FC = () => {
               </>
             ) : (
               <>
-                <Database className="mr-2 h-4 w-4" />
+                <Play className="mr-2 h-4 w-4" />
                 Generate Content Embeddings
               </>
             )}
@@ -76,13 +103,16 @@ export const EmbeddingManager: React.FC = () => {
           )}
 
           <div className="text-sm text-muted-foreground space-y-2">
-            <p><strong>This will generate embeddings for:</strong></p>
+            <p><strong>This process generates vector embeddings for:</strong></p>
             <ul className="list-disc list-inside space-y-1 ml-4">
               <li>Hero section content</li>
               <li>Practice area descriptions</li>
               <li>Attorney profile information</li>
               <li>Legal service advantages</li>
             </ul>
+            <p className="text-xs text-muted-foreground mt-2">
+              Embeddings enable AI-powered search, recommendations, and content matching.
+            </p>
           </div>
         </CardContent>
       </Card>
@@ -91,7 +121,7 @@ export const EmbeddingManager: React.FC = () => {
         <CardHeader>
           <CardTitle>AI-Powered Semantic Search</CardTitle>
           <CardDescription>
-            Search through your legal content using natural language queries
+            Search through your legal content using natural language queries powered by AI
           </CardDescription>
         </CardHeader>
         <CardContent>
