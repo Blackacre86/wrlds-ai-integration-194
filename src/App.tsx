@@ -17,6 +17,8 @@ import PetProject from "./pages/PetProject";
 import WorkwearProject from "./pages/WorkwearProject";
 import SportRetailProject from "./pages/SportRetailProject";
 import FireCatProject from "./pages/FireCatProject";
+import ClientAuth from "./pages/ClientAuth";
+import ClientPortal from "./pages/ClientPortal";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +41,8 @@ const App = () => (
               <Route path="/projects/workwear" element={<WorkwearProject />} />
               <Route path="/projects/sport-retail" element={<SportRetailProject />} />
               <Route path="/projects/firecat" element={<FireCatProject />} />
+              <Route path="/client-auth" element={<ClientAuth />} />
+              <Route path="/client-portal" element={<ClientPortal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

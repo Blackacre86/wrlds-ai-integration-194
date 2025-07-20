@@ -32,6 +32,21 @@ const Index = () => {
         <section id="attorney-profile" role="region" aria-labelledby="attorney-heading" itemScope itemType="https://schema.org/Person">
           <AttorneyProfile />
         </section>
+        
+        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-16 bg-muted/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 id="portal-heading" className="text-3xl font-bold mb-6">Client Portal</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Securely access your case information and submit intake forms through our client portal.
+            </p>
+            <a 
+              href="/client-auth" 
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors"
+            >
+              Access Client Portal
+            </a>
+          </div>
+        </section>
       </main>
     </PageLayout>
   );

@@ -14,6 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
+      client_intakes: {
+        Row: {
+          biographical_info: Json | null
+          case_facts: string | null
+          charges: Json | null
+          contact_info: Json | null
+          court_name: string | null
+          created_at: string
+          docket_number: string | null
+          id: string
+          status: string | null
+          submitted_at: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          biographical_info?: Json | null
+          case_facts?: string | null
+          charges?: Json | null
+          contact_info?: Json | null
+          court_name?: string | null
+          created_at?: string
+          docket_number?: string | null
+          id?: string
+          status?: string | null
+          submitted_at?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          biographical_info?: Json | null
+          case_facts?: string | null
+          charges?: Json | null
+          contact_info?: Json | null
+          court_name?: string | null
+          created_at?: string
+          docket_number?: string | null
+          id?: string
+          status?: string | null
+          submitted_at?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      client_profiles: {
+        Row: {
+          client_number: string | null
+          created_at: string
+          id: string
+          status: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          client_number?: string | null
+          created_at?: string
+          id?: string
+          status?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          client_number?: string | null
+          created_at?: string
+          id?: string
+          status?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       content_embeddings: {
         Row: {
           chunk_index: number | null
@@ -56,6 +128,36 @@ export type Database = {
           practice_area?: string | null
           title?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      ma_criminal_statutes: {
+        Row: {
+          chapter: string
+          charge_name: string
+          created_at: string
+          full_description: string | null
+          id: string
+          section: string
+          statute_code: string
+        }
+        Insert: {
+          chapter: string
+          charge_name: string
+          created_at?: string
+          full_description?: string | null
+          id?: string
+          section: string
+          statute_code: string
+        }
+        Update: {
+          chapter?: string
+          charge_name?: string
+          created_at?: string
+          full_description?: string | null
+          id?: string
+          section?: string
+          statute_code?: string
         }
         Relationships: []
       }
