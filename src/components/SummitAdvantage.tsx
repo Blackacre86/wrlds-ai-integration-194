@@ -1,29 +1,24 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Zap, Shield, Target, Users } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 const SummitAdvantage = () => {
   const advantages = [
     {
-      icon: Shield,
-      title: "Former Prosecutor Insight",
-      description: "Understanding prosecution strategies from the inside gives us a unique advantage in building your defense."
+      image: "/lovable-uploads/810c64ae-5dff-4a0a-ab8b-555b99cf604a.png",
+      title: "Evidence Strategy Optimization",
+      description: "AI-powered analysis of evidence patterns and prosecution strategies to identify the strongest defense approaches and potential case weaknesses."
     },
     {
-      icon: Target,
-      title: "Strategic Case Analysis",
-      description: "Every case receives thorough analysis to identify the best defense strategies and potential weaknesses in the prosecution's case."
+      image: "/lovable-uploads/13a21a8f-d1ab-4a67-9b0e-0efc97b1ab04.png",
+      title: "Smart Evidence Presentation",
+      description: "Advanced visualization and presentation tools that help judges and juries understand complex evidence in clear, compelling ways."
     },
     {
-      icon: Zap,
-      title: "AI-Enhanced Research",
-      description: "Cutting-edge AI technology helps us analyze case law, identify precedents, and develop stronger legal arguments."
-    },
-    {
-      icon: Users,
-      title: "Personal Attention",
-      description: "Direct access to your attorney throughout your case with responsive communication and regular updates."
+      image: "/lovable-uploads/a6b4b356-4246-4c8e-b810-2d264ed0a61d.png",
+      title: "AI-Powered Legal Research Agents",
+      description: "Cutting-edge AI technology that analyzes thousands of cases to find relevant precedents and build stronger legal arguments for your defense."
     }
   ];
 
@@ -44,18 +39,20 @@ const SummitAdvantage = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {advantages.map((advantage, index) => (
-            <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300 h-48">
-              <CardContent className="p-6 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-black text-white rounded-lg">
-                    <advantage.icon size={20} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {advantage.title}
-                  </h3>
+            <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="mb-4">
+                  <img 
+                    src={advantage.image} 
+                    alt={advantage.title}
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
                 </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {advantage.title}
+                </h3>
                 <p className="text-gray-700 leading-relaxed flex-1">
                   {advantage.description}
                 </p>
