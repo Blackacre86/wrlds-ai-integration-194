@@ -57,31 +57,33 @@ const Hero = () => {
       variants={containerVariants}
     >
       <div className="banner-container bg-black relative overflow-hidden h-[60vh] sm:h-[70vh] md:h-[600px] lg:h-[650px] xl:h-[700px] w-full">
-        <div className="absolute inset-0 bg-black w-full">
+        <div className="absolute inset-0 bg-black w-full z-0">
           <video 
             autoPlay 
             loop 
             muted 
             playsInline 
             preload="metadata" 
-            className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-center' : 'object-center'}`}
+            className={`w-full h-full object-cover opacity-70 grayscale z-10 ${isMobile ? 'object-center' : 'object-center'}`}
           >
             <source src="/summit_hero_1.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 z-10"></div>
         </div>
         
-        <div className="banner-overlay bg-transparent pt-20 sm:pt-24 md:pt-32 w-full">
+        <div className="banner-overlay absolute inset-0 z-20 pt-20 sm:pt-24 md:pt-32 w-full">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
             <motion.div className="w-full max-w-5xl text-center" variants={itemVariants}>
               <motion.h1 
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6" 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6"
+                style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
                 variants={itemVariants}
               >
                 Strategic Criminal Defense Across Massachusetts
               </motion.h1>
               <motion.p 
-                className="text-gray-200 mt-6 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto" 
+                className="text-gray-200 mt-6 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
                 variants={itemVariants}
               >
                 Strategic Criminal Defense Enhanced by AI
