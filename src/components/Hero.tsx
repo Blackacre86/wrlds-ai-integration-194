@@ -86,7 +86,7 @@ const Hero = () => {
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
                 variants={itemVariants}
               >
-                Strategic Criminal Defense Enhanced by AI
+                Enhanced by Cutting-Edge AI Technology
               </motion.p>
               <motion.div 
                 className="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10 justify-center items-center" 

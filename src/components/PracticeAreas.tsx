@@ -74,7 +74,7 @@ const PracticeAreas = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
-          {practiceAreas.map((area, index) => <div key={index} className="practice-area-item rounded-xl overflow-hidden transform transition-all duration-500 relative shadow-lg hover:-translate-y-1 h-[280px]" style={{
+          {practiceAreas.map((area, index) => <div key={index} className="practice-area-item rounded-xl overflow-hidden transform transition-all duration-500 relative shadow-lg hover:-translate-y-1 h-[200px]" style={{
           transitionDelay: `${index * 100}ms`
         }}>
               <div className="absolute inset-0 w-full h-full">
@@ -92,9 +92,9 @@ const PracticeAreas = () => {
                 <div className="absolute inset-0 bg-black/50"></div>
               </div>
               
-              <div className="relative z-10 flex flex-col justify-between p-6 h-full">
+              <div className="relative z-10 flex flex-col justify-between p-4 h-full">
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">
+                  <h3 className="text-lg font-semibold text-white mb-2">
                     {area.title}
                   </h3>
                   <p className="text-white/90 text-sm">

@@ -4,7 +4,6 @@ import Hero from '@/components/Hero';
 import PracticeAreas from '@/components/PracticeAreas';
 import AttorneyProfile from '@/components/AttorneyProfile';
 import SummitAdvantage from '@/components/SummitAdvantage';
-import BlogPreview from '@/components/BlogPreview';
 import SEO from '@/components/SEO';
 
 const Index = () => {
@@ -20,7 +19,6 @@ const Index = () => {
       <PracticeAreas />
       <SummitAdvantage />
       <AttorneyProfile />
-      <BlogPreview />
     </PageLayout>
   );
 };

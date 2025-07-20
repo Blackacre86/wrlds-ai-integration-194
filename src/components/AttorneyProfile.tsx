@@ -1,5 +1,5 @@
 
-import { Briefcase, Award, Scale, Users } from "lucide-react";
+import { Award, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -66,8 +66,7 @@ const AttorneyProfile = () => {
           >
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <Briefcase className="w-6 h-6 mr-3 text-gray-600" />
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-left">
                   Professional Background
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
@@ -83,8 +82,7 @@ const AttorneyProfile = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <Scale className="w-6 h-6 mr-3 text-gray-600" />
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-left">
                   Practice Philosophy
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -140,13 +138,6 @@ const AttorneyProfile = () => {
                     <div>
                       <h5 className="font-semibold text-gray-900">Comprehensive Defense</h5>
                       <p className="text-sm text-gray-600">Criminal defense, restraining orders, motor vehicle offenses</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Scale className="w-5 h-5 text-gray-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h5 className="font-semibold text-gray-900">Strategic Approach</h5>
-                      <p className="text-sm text-gray-600">Meticulous case analysis and reverse engineering</p>
                     </div>
                   </div>
                 </div>
