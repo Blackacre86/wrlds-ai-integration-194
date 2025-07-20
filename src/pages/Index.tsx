@@ -15,18 +15,24 @@ const Index = () => {
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['criminal defense attorney', 'Massachusetts lawyer', 'DUI defense', 'restraining orders', 'Clinton MA attorney', 'former prosecutor']}
       />
-      <div id="hero">
-        <Hero />
-      </div>
-      <div id="summit-advantage">
-        <SummitAdvantage />
-      </div>
-      <div id="practice-areas">
-        <PracticeAreas />
-      </div>
-      <div id="attorney-profile">
-        <AttorneyProfile />
-      </div>
+      {/* Semantic HTML structure for AI agents */}
+      <main role="main" itemScope itemType="https://schema.org/LegalService">
+        <header id="hero" role="banner">
+          <Hero />
+        </header>
+        
+        <section id="summit-advantage" role="region" aria-labelledby="advantage-heading">
+          <SummitAdvantage />
+        </section>
+        
+        <section id="practice-areas" role="region" aria-labelledby="services-heading" itemScope itemType="https://schema.org/Service">
+          <PracticeAreas />
+        </section>
+        
+        <section id="attorney-profile" role="region" aria-labelledby="attorney-heading" itemScope itemType="https://schema.org/Person">
+          <AttorneyProfile />
+        </section>
+      </main>
     </PageLayout>
   );
 };

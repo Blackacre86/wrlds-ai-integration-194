@@ -40,59 +40,168 @@ const SEO: React.FC<SEOProps> = ({
   const currentUrl = `https://summitlawoffices.com${location.pathname}`;
   const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://summitlawoffices.com${imageUrl}`;
 
-  // Legal service specific keywords
-  const enhancedKeywords = location.pathname.includes('criminal-defense') 
-    ? [
-        ...keywords,
-        'criminal defense lawyer',
-        'Massachusetts criminal attorney',
-        'felony defense',
-        'misdemeanor defense',
-        'court representation',
-        'legal defense strategy'
-      ]
-    : location.pathname.includes('restraining-orders')
-    ? [
-        ...keywords,
-        '209A restraining order',
-        '258E harassment order',
-        'domestic violence defense',
-        'restraining order attorney',
-        'harassment prevention'
-      ]
-    : keywords;
+  // AI-optimized route-specific content enhancement
+  const getRouteSpecificData = () => {
+    const path = location.pathname;
+    
+    if (path.includes('criminal-defense') || path === '/') {
+      return {
+        serviceType: 'Criminal Defense Legal Services',
+        practiceArea: 'Criminal Law',
+        urgency: 'high',
+        aiKeywords: [
+          'criminal defense lawyer Massachusetts',
+          'felony defense attorney',
+          'misdemeanor lawyer',
+          'criminal court representation',
+          'arrest defense strategy',
+          'criminal charges defense'
+        ]
+      };
+    }
+    
+    if (path.includes('restraining-orders')) {
+      return {
+        serviceType: 'Restraining Order Legal Services',
+        practiceArea: 'Domestic Relations',
+        urgency: 'high',
+        aiKeywords: [
+          '209A restraining order attorney',
+          '258E harassment order lawyer',
+          'domestic violence defense',
+          'restraining order violation defense',
+          'harassment prevention order'
+        ]
+      };
+    }
+    
+    return {
+      serviceType: 'Legal Services',
+      practiceArea: 'General Law',
+      urgency: 'medium',
+      aiKeywords: keywords
+    };
+  };
 
-  // Organization structured data for law firm
+  const routeData = getRouteSpecificData();
+
+  // Enhanced AI-focused keywords
+  const enhancedKeywords = [...keywords, ...routeData.aiKeywords];
+
+  // Comprehensive AI-optimized structured data
   const organizationStructuredData = {
     '@context': 'https://schema.org',
-    '@type': 'LegalService',
+    '@type': ['LegalService', 'LocalBusiness', 'ProfessionalService'],
+    '@id': 'https://summitlawoffices.com/#organization',
     name: 'Summit Law Offices',
+    alternateName: 'Summit Law',
     url: 'https://summitlawoffices.com',
     logo: 'https://summitlawoffices.com/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png',
-    description: 'Strategic criminal defense representation across Massachusetts',
-    areaServed: {
-      '@type': 'State',
-      name: 'Massachusetts'
+    description: 'Strategic criminal defense representation across Massachusetts by former prosecutor Attorney Joe Brava. Over 1,000 cases of experience.',
+    slogan: 'Strategic Defense. Proven Results.',
+    foundingDate: '2010',
+    areaServed: [
+      {
+        '@type': 'State',
+        name: 'Massachusetts',
+        containsPlace: [
+          { '@type': 'City', name: 'Clinton' },
+          { '@type': 'City', name: 'Worcester' },
+          { '@type': 'City', name: 'Boston' },
+          { '@type': 'City', name: 'Leominster' },
+          { '@type': 'City', name: 'Fitchburg' }
+        ]
+      }
+    ],
+    serviceType: [routeData.serviceType, 'Criminal Defense', 'Legal Consultation', 'Court Representation'],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Legal Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Criminal Defense',
+            description: 'Strategic defense for felonies, misdemeanors, and criminal charges',
+            serviceType: 'Criminal Defense',
+            areaServed: 'Massachusetts'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Restraining Order Defense',
+            description: '209A and 258E restraining order legal representation',
+            serviceType: 'Family Law',
+            areaServed: 'Massachusetts'
+          }
+        }
+      ]
     },
-    serviceType: 'Criminal Defense',
     provider: {
       '@type': 'Person',
+      '@id': 'https://summitlawoffices.com/attorney/joe-brava',
       name: 'Joe Brava',
-      jobTitle: 'Attorney',
-      alumniOf: 'Suffolk University Law School',
-      memberOf: 'Massachusetts Bar Association'
+      givenName: 'Joe',
+      familyName: 'Brava',
+      jobTitle: 'Criminal Defense Attorney',
+      description: 'Former prosecutor with over 1,000 cases of criminal defense experience',
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'Suffolk University Law School'
+      },
+      memberOf: [
+        {
+          '@type': 'Organization',
+          name: 'Massachusetts Bar Association'
+        },
+        {
+          '@type': 'Organization',
+          name: 'National Association of Criminal Defense Lawyers'
+        }
+      ],
+      knowsAbout: [
+        'Criminal Defense',
+        'Former Prosecutor Experience',
+        'DUI Defense',
+        'Restraining Orders',
+        'Motor Vehicle Violations',
+        'Massachusetts Criminal Law'
+      ]
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      telephone: '+1-508-454-0822',
-      email: 'info@summitlawoffices.com'
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: '+1-508-454-0822',
+        email: 'info@summitlawoffices.com',
+        availableLanguage: 'English',
+        areaServed: 'Massachusetts',
+        hoursAvailable: '24/7'
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'emergency',
+        telephone: '+1-508-454-0822',
+        description: 'Emergency criminal defense consultation available 24/7'
+      }
+    ],
     address: {
       '@type': 'PostalAddress',
       addressRegion: 'MA',
-      addressCountry: 'US'
-    }
+      addressCountry: 'US',
+      addressLocality: 'Clinton'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '42.4167',
+      longitude: '-71.6833'
+    },
+    priceRange: '$$',
+    paymentAccepted: ['Cash', 'Check', 'Credit Card'],
+    currenciesAccepted: 'USD'
   };
 
   // Attorney profile structured data
@@ -161,6 +270,17 @@ const SEO: React.FC<SEOProps> = ({
       <link rel="canonical" href={currentUrl} />
       <meta name="keywords" content={keywordString} />
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      
+      {/* AI Agent Optimization Meta Tags */}
+      <meta name="article:author" content="Attorney Joe Brava" />
+      <meta name="article:publisher" content="Summit Law Offices" />
+      <meta name="legal-service-type" content={routeData.serviceType} />
+      <meta name="practice-area" content={routeData.practiceArea} />
+      <meta name="service-urgency" content={routeData.urgency} />
+      <meta name="jurisdiction" content="Massachusetts" />
+      <meta name="attorney-experience" content="Former prosecutor with 1,000+ cases" />
+      <meta name="contact-availability" content="24/7 emergency consultation" />
+      <meta name="case-evaluation" content="Free initial consultation available" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={isBlogPost ? 'article' : type} />

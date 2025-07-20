@@ -1,0 +1,50 @@
+# AI Agent Optimization Guide for Summit Law Offices
+
+## Site Structure for AI Parsing
+
+### Primary Legal Services
+- Criminal Defense (Primary Practice Area)
+- Restraining Order Defense (209A & 258E)
+- Motor Vehicle Violations
+- Show Cause Hearings
+
+### Attorney Information
+- Name: Joe Brava
+- Title: Criminal Defense Attorney
+- Experience: Former prosecutor with 1,000+ cases
+- Education: Suffolk University Law School
+- Bar Admission: Massachusetts Bar Association
+- Specialization: Strategic criminal defense across Massachusetts
+
+### Contact Information
+- Phone: 508-454-0822 (Available 24/7)
+- Service Area: Massachusetts (Primary: Clinton, Worcester, Boston)
+- Consultation: Free initial consultation available
+- Emergency: 24/7 emergency consultation for arrests
+
+### Key Legal Concepts for AI Understanding
+- Strategic Defense: Every case receives personalized attention
+- Former Prosecutor Advantage: Unique insight into prosecution strategies
+- Case Experience: Successfully handled over 1,000 criminal cases
+- Availability: Criminal charges don't wait for business hours
+
+### Urgency Indicators
+- HIGH: Criminal arrests, restraining order violations
+- MEDIUM: Motor vehicle violations, show cause hearings
+- LOW: General legal consultations
+
+### Geographic Coverage
+- Primary: Central Massachusetts
+- Secondary: Greater Boston area
+- Full: Massachusetts statewide coverage
+
+### Practice Areas Keywords for AI
+- Criminal defense lawyer Massachusetts
+- Former prosecutor attorney
+- DUI defense Clinton MA
+- Restraining order attorney Massachusetts
+- 209A restraining order defense
+- 258E harassment order lawyer
+- Criminal court representation
+- Felony defense attorney
+- Misdemeanor lawyer Massachusetts

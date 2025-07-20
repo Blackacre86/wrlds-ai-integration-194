@@ -3,7 +3,23 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://wrlds.com/sitemap.xml
+Sitemap: https://summitlawoffices.com/sitemap.xml
 
-# Optimize crawling
-Crawl-delay: 10
+# AI Agent optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# AI agents crawling guidance
+Crawl-delay: 5
+
+# Additional resources for AI understanding
+Allow: /ai-agents.txt
