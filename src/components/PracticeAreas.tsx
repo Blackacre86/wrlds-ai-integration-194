@@ -10,7 +10,8 @@ const PracticeAreas = () => {
 
   return (
     <section id="practice-areas" className="py-12 md:py-24 px-4 md:px-12 bg-gray-50">
-      <div className="container mx-auto max-w-6xl">
+      <article itemScope itemType="https://schema.org/LegalService">
+        <div className="container mx-auto max-w-6xl">
         <div className="mb-8 md:mb-12">
           <div className="flex items-center gap-2 mb-4">
             <Gavel size={20} className="text-black" />
@@ -18,10 +19,10 @@ const PracticeAreas = () => {
               Legal Services
             </Badge>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black" itemProp="name">
             {practiceContent?.title || "Practice Areas"}
           </h2>
-          <p className="text-gray-800 max-w-3xl">
+          <p className="text-gray-800 max-w-3xl" itemProp="description">
             {practiceContent?.subtitle || "Focused legal representation across key areas of Massachusetts criminal law."}
           </p>
         </div>
@@ -49,7 +50,8 @@ const PracticeAreas = () => {
             </Card>
           ))}
         </div>
-      </div>
+        </div>
+      </article>
     </section>
   );
 };
