@@ -40,10 +40,10 @@ const SummitAdvantage = () => {
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format"
     },
     {
-      title: "Streamlined Case Preparation",
-      description: "Reduce case preparation time with Summit Law's AI-enhanced research and document review. Advanced technology handles routine tasks, allowing more focus on strategy and delivering cost-effective defense without compromising quality.",
-      stat: "More Time",
-      statLabel: "For Strategy",
+      title: "Evidence Strategy Optimization",
+      description: "AI-powered analysis evaluates evidence presentation strategies, identifying the most compelling arguments and optimal sequencing. Summit Law's technology helps craft persuasive narratives that resonate in court.",
+      stat: "Every Detail",
+      statLabel: "Strategically Planned",
       image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&auto=format"
     }
   ];
