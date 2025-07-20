@@ -27,7 +27,7 @@ const PracticeAreas = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {practiceContent?.areas?.map((area: any, index: number) => (
             <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6 flex flex-col h-full">
@@ -35,7 +35,7 @@ const PracticeAreas = () => {
                   <img 
                     src={area.image} 
                     alt={area.title}
-                    className="w-full h-48 object-cover rounded-lg"
+                    className="w-full h-48 object-cover rounded-lg grayscale"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
