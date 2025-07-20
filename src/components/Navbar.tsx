@@ -36,6 +36,11 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const navigateHome = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   return (
     <motion.nav className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full", isScrolled ? "bg-white shadow-sm" : "bg-black")} initial={{
       opacity: 1,
@@ -59,11 +64,11 @@ const Navbar = () => {
             <NavigationMenu className={cn(isScrolled ? "" : "text-white")}>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link to="/">
+                  <button onClick={navigateHome}>
                     <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), isScrolled ? "text-gray-700 hover:text-gray-900" : "text-gray-100 hover:text-white bg-transparent hover:bg-gray-800")}>
                       Home
                     </NavigationMenuLink>
-                  </Link>
+                  </button>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
