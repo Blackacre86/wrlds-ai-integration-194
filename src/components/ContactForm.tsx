@@ -8,7 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import emailjs from 'emailjs-com';
+import { supabase } from '@/integrations/supabase/client';
 
 // Updated schema with honeypot field validation
 const formSchema = z.object({
@@ -20,11 +20,6 @@ const formSchema = z.object({
 });
 
 type FormValues = z.infer<typeof formSchema>;
-
-// EmailJS configuration - Updated with correct template ID
-const EMAILJS_SERVICE_ID = "service_i3h66xg";
-const EMAILJS_TEMPLATE_ID = "template_fgq53nh"; // Updated to the correct template ID
-const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,29 +72,22 @@ const ContactForm = () => {
       // Remove honeypot and timestamp fields before sending
       const { honeypot, timestamp, ...emailData } = data;
       
-      // Using parameters exactly as expected by EmailJS templates
-      const templateParams = {
-        from_name: emailData.name,
-        from_email: emailData.email,
-        message: emailData.message,
-        to_name: 'WRLDS Team', // Adding recipient name parameter
-        reply_to: emailData.email // Keeping reply_to for compatibility
-      };
+      // Call the secure edge function
+      const { data: response, error } = await supabase.functions.invoke('send-email', {
+        body: {
+          type: 'contact',
+          name: emailData.name,
+          email: emailData.email,
+          message: emailData.message
+        }
+      });
       
-      console.log('Sending email with params:', templateParams);
-      console.log('Using service:', EMAILJS_SERVICE_ID);
-      console.log('Using template:', EMAILJS_TEMPLATE_ID);
-      console.log('Using public key:', EMAILJS_PUBLIC_KEY);
+      if (error) {
+        console.error('Error calling edge function:', error);
+        throw error;
+      }
       
-      // Send email directly without initializing, as it's not needed with the send method that includes the key
-      const response = await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY // Re-adding the public key parameter
-      );
-      
-      console.log('Email sent successfully:', response);
+      console.log('Email sent successfully via edge function:', response);
       
       toast({
         title: "Message sent!",
@@ -116,11 +104,6 @@ const ContactForm = () => {
       });
     } catch (error) {
       console.error('Error sending email:', error);
-      
-      // More detailed error logging
-      if (error && typeof error === 'object' && 'text' in error) {
-        console.error('Error details:', (error as any).text);
-      }
       
       toast({
         title: "Error",
@@ -142,7 +125,7 @@ const ContactForm = () => {
             Contact Us Today
           </h2>
           <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-            Have questions about our AI-powered sensor solutions? Reach out to our team and let's discuss how we can help bring your ideas to life.
+            Have questions about our legal services? Reach out to our team and let's discuss how we can help you with your legal needs.
           </p>
         </div>
         
@@ -183,7 +166,7 @@ const ContactForm = () => {
                       <div className="relative">
                         <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                         <FormControl>
-                          <Textarea placeholder="Tell us about your project or inquiry..." className="min-h-[120px] pl-10 resize-none" {...field} />
+                          <Textarea placeholder="Tell us about your legal question or case..." className="min-h-[120px] pl-10 resize-none" {...field} />
                         </FormControl>
                       </div>
                       <FormMessage />
@@ -225,7 +208,7 @@ const ContactForm = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
               <p className="text-gray-600 mb-2">For general inquiries:</p>
-              <a href="mailto:info@wrlds.com" className="text-blue-500 hover:underline">hello@wrlds.com</a>
+              <a href="mailto:joe@summitlawoffices.com" className="text-blue-500 hover:underline">joe@summitlawoffices.com</a>
               <p className="text-gray-600 mt-2 mb-2">
             </p>
             </div>

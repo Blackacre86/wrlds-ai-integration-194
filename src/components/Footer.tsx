@@ -2,7 +2,7 @@
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from 'emailjs-com';
+import { supabase } from '@/integrations/supabase/client';
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -24,24 +24,20 @@ const Footer = () => {
     setIsSubmitting(true);
     
     try {
-      const EMAILJS_SERVICE_ID = "service_i3h66xg";
-      const EMAILJS_TEMPLATE_ID = "template_fgq53nh";
-      const EMAILJS_PUBLIC_KEY = "wQmcZvoOqTAhGnRZ3";
+      // Call the secure edge function
+      const { data: response, error } = await supabase.functions.invoke('send-email', {
+        body: {
+          type: 'newsletter',
+          email: email
+        }
+      });
       
-      const templateParams = {
-        from_name: "Legal Newsletter Subscriber",
-        from_email: email,
-        message: `New legal newsletter subscription request from the Summit Law website.`,
-        to_name: 'Summit Law Offices',
-        reply_to: email
-      };
+      if (error) {
+        console.error('Error calling edge function:', error);
+        throw error;
+      }
       
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      );
+      console.log('Newsletter subscription sent successfully:', response);
       
       toast({
         title: "Success!",
