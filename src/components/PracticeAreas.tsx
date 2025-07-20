@@ -1,13 +1,10 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { ArrowRight, MessageSquare } from "lucide-react";
-import { cn } from '@/lib/utils';
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const PracticeAreas = () => {
   const practiceAreasRef = useRef<HTMLDivElement>(null);
-  const [hoveredArea, setHoveredArea] = useState<number | null>(null);
 
   const practiceAreas = [{
     title: "Criminal Defense",
@@ -79,7 +76,7 @@ const PracticeAreas = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
           {practiceAreas.map((area, index) => <div key={index} className="practice-area-item rounded-xl overflow-hidden transform transition-all duration-500 relative shadow-lg hover:-translate-y-1 h-[280px]" style={{
           transitionDelay: `${index * 100}ms`
-        }} onMouseEnter={() => setHoveredArea(index)} onMouseLeave={() => setHoveredArea(null)}>
+        }}>
               <div className="absolute inset-0 w-full h-full">
                 <img 
                   src={area.image} 
@@ -89,10 +86,10 @@ const PracticeAreas = () => {
                     area.title === "Motor Vehicle Offenses" ? "Police officer writing citation - Motor Vehicle Offenses" :
                     "Judge's bench in courtroom - Show Cause Hearings"
                   }
-                  className="w-full h-full object-cover object-center transition-all duration-300 grayscale" 
+                  className="w-full h-full object-cover object-center grayscale" 
                   loading="lazy"
                 />
-                <div className={cn("absolute inset-0 transition-opacity duration-300", hoveredArea === index ? "bg-black/50" : "bg-black/70")}></div>
+                <div className="absolute inset-0 bg-black/50"></div>
               </div>
               
               <div className="relative z-10 flex flex-col justify-between p-6 h-full">
@@ -104,7 +101,7 @@ const PracticeAreas = () => {
                     {area.description}
                   </p>
                 </div>
-                <div className={`h-0.5 bg-white/70 mt-3 transition-all duration-500 ${hoveredArea === index ? 'w-full' : 'w-0'}`}></div>
+                <div className="h-0.5 bg-white/70 mt-3 w-full"></div>
               </div>
             </div>)}
         </div>

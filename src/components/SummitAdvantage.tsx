@@ -30,21 +30,21 @@ const SummitAdvantage = () => {
       description: "AI-powered analysis evaluates evidence presentation strategies, identifying the most compelling arguments and optimal sequencing. Summit Law's technology helps craft persuasive narratives that resonate in court.",
       stat: "AI-Powered",
       statLabel: "Analysis",
-      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&auto=format"
+      image: "/lovable-uploads/evidence-strategy-optimization.png"
     },
     {
       title: "Smart Evidence Presentation",
       description: "Clearly communicate your story with Summit Law's AI-powered visual evidence tools. Transform complex evidence into straightforward, persuasive visuals that resonate with judges and juries.",
       stat: "100%",
       statLabel: "Clear Communication",
-      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop&auto=format"
+      image: "/lovable-uploads/smart-evidence-presentation.png"
     },
     {
       title: "AI-Powered Legal Research Agents", 
       description: "Get instant, precise answers to critical legal questions. Summit Law's custom-built research agents scan thousands of legal sources in seconds, delivering accurate insights tailored specifically to your case.",
       stat: "1000s",
       statLabel: "Sources Analyzed",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format"
+      image: "/lovable-uploads/ai-powered-legal-research-agents.png"
     }
   ];
 
@@ -88,7 +88,11 @@ const SummitAdvantage = () => {
               <div className="h-48 w-full">
                 <img 
                   src={advantage.image} 
-                  alt={advantage.title}
+                  alt={
+                    advantage.title === "Evidence Strategy Optimization" ? "AI-powered evidence analysis and strategy optimization" :
+                    advantage.title === "Smart Evidence Presentation" ? "Digital evidence presentation and visualization tools" :
+                    "AI-powered legal research and analysis system"
+                  }
                   className="w-full h-full object-cover grayscale"
                 />
               </div>
