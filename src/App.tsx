@@ -19,37 +19,40 @@ import SportRetailProject from "./pages/SportRetailProject";
 import FireCatProject from "./pages/FireCatProject";
 import ClientAuth from "./pages/ClientAuth";
 import ClientPortal from "./pages/ClientPortal";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <HelmetProvider>
-      <ContentProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/tech-details" element={<TechDetails />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/projects/hockey" element={<HockeyProject />} />
-              <Route path="/projects/pet" element={<PetProject />} />
-              <Route path="/projects/workwear" element={<WorkwearProject />} />
-              <Route path="/projects/sport-retail" element={<SportRetailProject />} />
-              <Route path="/projects/firecat" element={<FireCatProject />} />
-              <Route path="/client-auth" element={<ClientAuth />} />
-              <Route path="/client-portal" element={<ClientPortal />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </ContentProvider>
-    </HelmetProvider>
-  </QueryClientProvider>
+  <ErrorBoundary>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <ContentProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/tech-details" element={<TechDetails />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/projects/hockey" element={<HockeyProject />} />
+                <Route path="/projects/pet" element={<PetProject />} />
+                <Route path="/projects/workwear" element={<WorkwearProject />} />
+                <Route path="/projects/sport-retail" element={<SportRetailProject />} />
+                <Route path="/projects/firecat" element={<FireCatProject />} />
+                <Route path="/client-auth" element={<ClientAuth />} />
+                <Route path="/client-portal" element={<ClientPortal />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </ContentProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;
