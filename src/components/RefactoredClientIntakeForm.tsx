@@ -13,6 +13,8 @@ import { ImmigrationHistoryStep } from './intake-form/ImmigrationHistoryStep';
 import { RepresentationFactsStep } from './intake-form/RepresentationFactsStep';
 import { FileUploadStep } from './intake-form/FileUploadStep';
 import { AboutMeStep } from './intake-form/AboutMeStep';
+import { CaseDetailsStep } from './intake-form/CaseDetailsStep';
+import { ClientInformationStep } from './intake-form/ClientInformationStep';
 
 interface RefactoredClientIntakeFormProps {
   userId: string;
@@ -371,82 +373,10 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Case Details</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Docket Number
-                </label>
-                <input
-                  type="text"
-                  value={formData.docket_number || ''}
-                  onChange={(e) => updateFormData({ docket_number: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
-                  placeholder="Enter docket number"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Court Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.court_name || ''}
-                  onChange={(e) => updateFormData({ court_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
-                  placeholder="Enter court name"
-                />
-              </div>
-            </div>
-          </div>
-        );
+        return <CaseDetailsStep formData={formData} setFormData={updateFormData} />;
       
       case 2:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Client Information</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.first_name || ''}
-                  onChange={(e) => updateFormData({ first_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
-                  placeholder="Enter first name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Middle Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.middle_name || ''}
-                  onChange={(e) => updateFormData({ middle_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
-                  placeholder="Enter middle name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.last_name || ''}
-                  onChange={(e) => updateFormData({ last_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
-                  placeholder="Enter last name"
-                />
-              </div>
-            </div>
-          </div>
-        );
+        return <ClientInformationStep formData={formData} setFormData={updateFormData} />;
 
       case 3:
         return <EmploymentEducationStep formData={formData} setFormData={updateFormData} />;

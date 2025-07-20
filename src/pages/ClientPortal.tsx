@@ -110,7 +110,7 @@ export default function ClientPortal() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid gap-6 md:grid-cols-4">
           <div className="md:col-span-1">
-            <Card>
+            <Card className="h-fit">
               <CardHeader>
                 <CardTitle className="text-lg">Navigation</CardTitle>
               </CardHeader>
@@ -137,9 +137,7 @@ export default function ClientPortal() {
 
           <div className="md:col-span-3">
             {activeTab === 'intake' && (
-              <div>
-                <RefactoredClientIntakeForm userId={user.id} />
-              </div>
+              <RefactoredClientIntakeForm userId={user.id} />
             )}
 
             {activeTab === 'profile' && (
