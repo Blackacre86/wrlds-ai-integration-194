@@ -52,7 +52,7 @@ const PracticeAreas = () => {
                   <img 
                     src={area.image} 
                     alt={area.title}
-                    className={`w-full h-full object-cover ${area.title === "Motor Vehicle Offenses" ? "grayscale" : ""}`}
+                    className={`w-full h-full object-cover ${area.title === "Motor Vehicle Offenses" || area.title === "Show Cause Hearings" ? "grayscale" : ""}`}
                   />
                 </div>
                 <CardContent className="w-2/3 p-6 flex flex-col justify-center">
