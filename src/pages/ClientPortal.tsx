@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
-import { LogOut, FileText, User as UserIcon } from 'lucide-react';
+import { LogOut, FileText, User as UserIcon, Home } from 'lucide-react';
 import RefactoredClientIntakeForm from '@/components/RefactoredClientIntakeForm';
 
 export default function ClientPortal() {
@@ -95,14 +95,30 @@ export default function ClientPortal() {
       <header className="bg-background border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div>
-              <h1 className="text-2xl font-bold">Client Portal</h1>
-              <p className="text-sm text-muted-foreground">Welcome, {user.email}</p>
+            <div className="flex items-center space-x-6">
+              <Link 
+                to="/" 
+                className="flex items-center text-2xl font-bold hover:text-primary transition-colors"
+              >
+                Summit Law
+              </Link>
+              <div className="border-l pl-6">
+                <h1 className="text-xl font-semibold">Client Portal</h1>
+                <p className="text-sm text-muted-foreground">Welcome, {user.email}</p>
+              </div>
             </div>
-            <Button onClick={handleSignOut} variant="outline" size="sm">
-              <LogOut className="w-4 h-4 mr-2" />
-              Sign Out
-            </Button>
+            <div className="flex items-center space-x-3">
+              <Button asChild variant="outline" size="sm">
+                <Link to="/">
+                  <Home className="w-4 h-4 mr-2" />
+                  Back to Site
+                </Link>
+              </Button>
+              <Button onClick={handleSignOut} variant="outline" size="sm">
+                <LogOut className="w-4 h-4 mr-2" />
+                Sign Out
+              </Button>
+            </div>
           </div>
         </div>
       </header>
