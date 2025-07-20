@@ -27,26 +27,24 @@ const PracticeAreas = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {practiceContent?.areas?.map((area: any, index: number) => (
-            <Card key={index} className="overflow-hidden bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300 h-64">
-              <div className="flex h-full">
-                <div className="w-1/3 relative overflow-hidden">
+            <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="mb-4">
                   <img 
                     src={area.image} 
                     alt={area.title}
-                    className={`w-full h-full object-cover ${area.title === "Motor Vehicle Offenses" || area.title === "Show Cause Hearings" ? "grayscale" : ""}`}
+                    className="w-full h-48 object-cover rounded-lg"
                   />
                 </div>
-                <CardContent className="w-2/3 p-6 flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
-                    {area.title}
-                  </h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {area.description}
-                  </p>
-                </CardContent>
-              </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {area.title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed flex-1">
+                  {area.description}
+                </p>
+              </CardContent>
             </Card>
           ))}
         </div>
