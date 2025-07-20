@@ -17,6 +17,12 @@ export default function ClientAuth() {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
+  const [inviteCode, setInviteCode] = useState('');
+  const [lockoutInfo, setLockoutInfo] = useState<{
+    is_locked: boolean;
+    failed_attempts: number;
+    locked_until?: string;
+  } | null>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
 

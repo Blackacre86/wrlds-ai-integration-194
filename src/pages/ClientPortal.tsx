@@ -6,7 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { LogOut, FileText, User as UserIcon } from 'lucide-react';
-import ClientIntakeForm from '@/components/ClientIntakeForm';
+import EnhancedClientIntakeForm from '@/components/EnhancedClientIntakeForm';
 
 export default function ClientPortal() {
   const [user, setUser] = useState<User | null>(null);
@@ -146,7 +146,7 @@ export default function ClientPortal() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ClientIntakeForm userId={user.id} />
+                  <EnhancedClientIntakeForm userId={user.id} />
                 </CardContent>
               </Card>
             )}

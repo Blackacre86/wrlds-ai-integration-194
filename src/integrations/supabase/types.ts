@@ -14,47 +14,209 @@ export type Database = {
   }
   public: {
     Tables: {
+      account_lockouts: {
+        Row: {
+          created_at: string
+          email: string
+          failed_attempts: number | null
+          id: string
+          locked_until: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          failed_attempts?: number | null
+          id?: string
+          locked_until?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          failed_attempts?: number | null
+          id?: string
+          locked_until?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          details: Json | null
+          id: string
+          ip_address: unknown | null
+          resource_id: string | null
+          resource_type: string
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          ip_address?: unknown | null
+          resource_id?: string | null
+          resource_type: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          ip_address?: unknown | null
+          resource_id?: string | null
+          resource_type?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      client_allowlist: {
+        Row: {
+          created_at: string
+          email: string
+          expires_at: string | null
+          id: string
+          invite_code: string | null
+          invited_by: string | null
+          status: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          expires_at?: string | null
+          id?: string
+          invite_code?: string | null
+          invited_by?: string | null
+          status?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          expires_at?: string | null
+          id?: string
+          invite_code?: string | null
+          invited_by?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
       client_intakes: {
         Row: {
+          ada_prosecutor: string | null
+          arraignment_date: string | null
+          bail_info: Json | null
           biographical_info: Json | null
           case_facts: string | null
           charges: Json | null
+          consent_given: boolean | null
           contact_info: Json | null
           court_name: string | null
+          court_session: string | null
           created_at: string
+          criminal_history: Json | null
           docket_number: string | null
+          e_signature: Json | null
+          education_info: Json | null
+          emergency_contact: Json | null
+          employment_info: Json | null
+          family_info: Json | null
+          google_doc_url: string | null
           id: string
+          immigration_info: Json | null
+          mailing_address: string | null
+          middle_name: string | null
+          next_court_date: string | null
+          pdf_backup_url: string | null
+          phone_numbers: Json | null
+          progress_step: number | null
+          representation_type: string | null
+          ssn_last4: string | null
           status: string | null
           submitted_at: string | null
+          substance_mental_health: Json | null
           updated_at: string
+          uploaded_files: Json | null
           user_id: string
         }
         Insert: {
+          ada_prosecutor?: string | null
+          arraignment_date?: string | null
+          bail_info?: Json | null
           biographical_info?: Json | null
           case_facts?: string | null
           charges?: Json | null
+          consent_given?: boolean | null
           contact_info?: Json | null
           court_name?: string | null
+          court_session?: string | null
           created_at?: string
+          criminal_history?: Json | null
           docket_number?: string | null
+          e_signature?: Json | null
+          education_info?: Json | null
+          emergency_contact?: Json | null
+          employment_info?: Json | null
+          family_info?: Json | null
+          google_doc_url?: string | null
           id?: string
+          immigration_info?: Json | null
+          mailing_address?: string | null
+          middle_name?: string | null
+          next_court_date?: string | null
+          pdf_backup_url?: string | null
+          phone_numbers?: Json | null
+          progress_step?: number | null
+          representation_type?: string | null
+          ssn_last4?: string | null
           status?: string | null
           submitted_at?: string | null
+          substance_mental_health?: Json | null
           updated_at?: string
+          uploaded_files?: Json | null
           user_id: string
         }
         Update: {
+          ada_prosecutor?: string | null
+          arraignment_date?: string | null
+          bail_info?: Json | null
           biographical_info?: Json | null
           case_facts?: string | null
           charges?: Json | null
+          consent_given?: boolean | null
           contact_info?: Json | null
           court_name?: string | null
+          court_session?: string | null
           created_at?: string
+          criminal_history?: Json | null
           docket_number?: string | null
+          e_signature?: Json | null
+          education_info?: Json | null
+          emergency_contact?: Json | null
+          employment_info?: Json | null
+          family_info?: Json | null
+          google_doc_url?: string | null
           id?: string
+          immigration_info?: Json | null
+          mailing_address?: string | null
+          middle_name?: string | null
+          next_court_date?: string | null
+          pdf_backup_url?: string | null
+          phone_numbers?: Json | null
+          progress_step?: number | null
+          representation_type?: string | null
+          ssn_last4?: string | null
           status?: string | null
           submitted_at?: string | null
+          substance_mental_health?: Json | null
           updated_at?: string
+          uploaded_files?: Json | null
           user_id?: string
         }
         Relationships: []
@@ -170,6 +332,10 @@ export type Database = {
         Args: { "": string } | { "": unknown }
         Returns: unknown
       }
+      check_account_lockout: {
+        Args: { p_email: string }
+        Returns: Json
+      }
       halfvec_avg: {
         Args: { "": number[] }
         Returns: unknown
@@ -221,6 +387,26 @@ export type Database = {
       l2_normalize: {
         Args: { "": string } | { "": unknown } | { "": unknown }
         Returns: unknown
+      }
+      log_audit_event: {
+        Args: {
+          p_user_id: string
+          p_action: string
+          p_resource_type: string
+          p_resource_id?: string
+          p_details?: Json
+          p_ip_address?: unknown
+          p_user_agent?: string
+        }
+        Returns: string
+      }
+      record_failed_login: {
+        Args: { p_email: string }
+        Returns: undefined
+      }
+      reset_failed_login: {
+        Args: { p_email: string }
+        Returns: undefined
       }
       search_content_by_similarity: {
         Args: {
