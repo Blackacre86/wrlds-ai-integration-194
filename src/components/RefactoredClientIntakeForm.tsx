@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -11,6 +12,7 @@ import { FamilyHealthStep } from './intake-form/FamilyHealthStep';
 import { ImmigrationHistoryStep } from './intake-form/ImmigrationHistoryStep';
 import { RepresentationFactsStep } from './intake-form/RepresentationFactsStep';
 import { FileUploadStep } from './intake-form/FileUploadStep';
+import { AboutMeStep } from './intake-form/AboutMeStep';
 
 interface RefactoredClientIntakeFormProps {
   userId: string;
@@ -22,8 +24,9 @@ const STEPS = [
   { id: 3, title: 'Employment & Education', description: 'Work and education background' },
   { id: 4, title: 'Family & Health', description: 'Family status and health information' },
   { id: 5, title: 'Immigration & History', description: 'Immigration status and criminal history' },
-  { id: 6, title: 'Representation & Facts', description: 'Case representation and facts' },
-  { id: 7, title: 'Files & Consent', description: 'Upload documents and provide consent' }
+  { id: 6, title: 'About Me', description: 'Tell us about yourself' },
+  { id: 7, title: 'Representation & Facts', description: 'Case representation and facts' },
+  { id: 8, title: 'Files & Consent', description: 'Upload documents and provide consent' }
 ];
 
 // Type casting utilities for database data
@@ -52,25 +55,24 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
     first_name: '',
     middle_name: '',
     last_name: '',
-    date_of_birth: '',
     ssn_last4: '',
     home_address: '',
     mailing_address: '',
     phone_numbers: [{ type: 'cell', number: '' }],
     email: '',
     emergency_contact: { name: '', relation: '', phone: '' },
-    employment_info: { employed: false },
-    education_info: { in_school: false },
+    employment_info: { employed: false, unemployed: false },
+    education_info: { in_school: false, highest_education: '', school_location: '' },
     family_info: { marital_status: '', children: [] },
     substance_mental_health: { past_treatment: false, current_medications: '' },
-    immigration_info: { us_citizen: true, prior_deportation: false },
+    immigration_info: { us_citizen: false, prior_deportation: false },
     criminal_history: { open_cases: false, probation_parole: false, prior_record: false },
     representation_type: undefined,
     case_facts: '',
+    about_me: '',
     uploaded_files: [],
     consent_given: false,
     e_signature: { full_name: '', date: new Date().toISOString().split('T')[0] },
-    
   });
   
   const [saving, setSaving] = useState(false);
@@ -116,11 +118,11 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
           uploaded_files: safeArrayCast(data.uploaded_files, []),
           bail_info: safeJsonCast(data.bail_info, { bail_set: false }),
           emergency_contact: safeJsonCast(data.emergency_contact, { name: '', relation: '', phone: '' }),
-          employment_info: safeJsonCast(data.employment_info, { employed: false }),
-          education_info: safeJsonCast(data.education_info, { in_school: false }),
+          employment_info: safeJsonCast(data.employment_info, { employed: false, unemployed: false }),
+          education_info: safeJsonCast(data.education_info, { in_school: false, highest_education: '', school_location: '' }),
           family_info: safeJsonCast(data.family_info, { marital_status: '', children: [] }),
           substance_mental_health: safeJsonCast(data.substance_mental_health, { past_treatment: false, current_medications: '' }),
-          immigration_info: safeJsonCast(data.immigration_info, { us_citizen: true, prior_deportation: false }),
+          immigration_info: safeJsonCast(data.immigration_info, { us_citizen: false, prior_deportation: false }),
           criminal_history: safeJsonCast(data.criminal_history, { open_cases: false, probation_parole: false, prior_record: false }),
           e_signature: safeJsonCast(data.e_signature, { full_name: '', date: new Date().toISOString().split('T')[0] }),
           representation_type: data.representation_type as 'bar_advocate' | 'private_client' | undefined,
@@ -273,7 +275,6 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         return (
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold text-foreground">Case Details</h2>
-            {/* Case Details form fields would go here */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
@@ -283,7 +284,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   type="text"
                   value={formData.docket_number || ''}
                   onChange={(e) => updateFormData({ docket_number: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
                   placeholder="Enter docket number"
                 />
               </div>
@@ -295,7 +296,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   type="text"
                   value={formData.court_name || ''}
                   onChange={(e) => updateFormData({ court_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
                   placeholder="Enter court name"
                 />
               </div>
@@ -307,7 +308,6 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         return (
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold text-foreground">Client Information</h2>
-            {/* Client Information form fields would go here */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
@@ -317,7 +317,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   type="text"
                   value={formData.first_name || ''}
                   onChange={(e) => updateFormData({ first_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
                   placeholder="Enter first name"
                 />
               </div>
@@ -329,7 +329,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   type="text"
                   value={formData.middle_name || ''}
                   onChange={(e) => updateFormData({ middle_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
                   placeholder="Enter middle name"
                 />
               </div>
@@ -341,7 +341,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
                   type="text"
                   value={formData.last_name || ''}
                   onChange={(e) => updateFormData({ last_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
                   placeholder="Enter last name"
                 />
               </div>
@@ -359,9 +359,12 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         return <ImmigrationHistoryStep formData={formData} setFormData={updateFormData} />;
 
       case 6:
-        return <RepresentationFactsStep formData={formData} setFormData={updateFormData} />;
+        return <AboutMeStep formData={formData} setFormData={updateFormData} />;
 
       case 7:
+        return <RepresentationFactsStep formData={formData} setFormData={updateFormData} />;
+
+      case 8:
         return <FileUploadStep formData={formData} setFormData={updateFormData} userId={userId} />;
 
       default:
