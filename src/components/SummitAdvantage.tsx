@@ -1,7 +1,7 @@
-
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { useContentContext } from '@/components/ContentProvider';
+import { SmartRecommendations } from '@/components/SmartRecommendations';
 
 const SummitAdvantage = () => {
   const { getContent } = useContentContext();
@@ -24,7 +24,7 @@ const SummitAdvantage = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {advantagesContent?.items?.map((advantage: any, index: number) => (
             <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6 flex flex-col h-full">
@@ -45,6 +45,13 @@ const SummitAdvantage = () => {
             </Card>
           ))}
         </div>
+
+        {/* AI-Powered Recommendations based on advantages content */}
+        <SmartRecommendations 
+          currentContent="Attorney Joe Brava strategic criminal defense former prosecutor experience Massachusetts legal services"
+          title="Legal Services Matched to Your Needs"
+          maxRecommendations={3}
+        />
       </div>
     </section>
   );

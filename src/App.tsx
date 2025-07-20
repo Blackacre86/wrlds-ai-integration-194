@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,6 +19,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
 import AdminAI from "./pages/AdminAI";
+import AIServices from "./pages/AIServices";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -45,6 +45,7 @@ const App = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPostDetail />} />
               <Route path="/admin/ai" element={<AdminAI />} />
+              <Route path="/ai-services" element={<AIServices />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

@@ -1,8 +1,8 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Gavel } from 'lucide-react';
 import { useContentContext } from '@/components/ContentProvider';
+import { SmartRecommendations } from '@/components/SmartRecommendations';
 
 const PracticeAreas = () => {
   const { getContent } = useContentContext();
@@ -27,7 +27,7 @@ const PracticeAreas = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {practiceContent?.areas?.map((area: any, index: number) => (
             <Card key={index} className="overflow-hidden bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300 h-64">
               <div className="flex h-full">
@@ -50,6 +50,13 @@ const PracticeAreas = () => {
             </Card>
           ))}
         </div>
+
+        {/* AI-Powered Smart Recommendations */}
+        <SmartRecommendations 
+          currentContent="Criminal defense legal services Massachusetts attorney Joe Brava practice areas"
+          title="Other Legal Services You Might Need"
+          maxRecommendations={3}
+        />
         </div>
       </article>
     </section>
