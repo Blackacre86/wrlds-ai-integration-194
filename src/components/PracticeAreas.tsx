@@ -8,7 +8,7 @@ const PracticeAreas = () => {
     {
       title: "Criminal Defense",
       description: "Comprehensive defense for felonies and misdemeanors in all Massachusetts courts. From initial arraignment through trial, we fight to protect your rights and freedom.",
-      image: "/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
+      image: "/lovable-uploads/6a396c18-f5b0-4821-bc71-bcc05bb64089.png"
     },
     {
       title: "Restraining Orders",
