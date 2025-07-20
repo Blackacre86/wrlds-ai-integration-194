@@ -6,7 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { LogOut, FileText, User as UserIcon } from 'lucide-react';
-import EnhancedClientIntakeForm from '@/components/EnhancedClientIntakeForm';
+import RefactoredClientIntakeForm from '@/components/RefactoredClientIntakeForm';
 import MFASetup from '@/components/MFASetup';
 import MFAVerification from '@/components/MFAVerification';
 
@@ -21,7 +21,6 @@ export default function ClientPortal() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Set up auth state listener
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setSession(session);
@@ -36,7 +35,6 @@ export default function ClientPortal() {
       }
     );
 
-    // Check for existing session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
@@ -67,22 +65,19 @@ export default function ClientPortal() {
       }
 
       if (!mfaSettings) {
-        // No MFA setup - require setup
         setMfaSetupRequired(true);
         setLoading(false);
         return;
       }
 
       if (!mfaSettings.is_mfa_enabled) {
-        // MFA exists but not enabled - require setup
         setMfaSetupRequired(true);
         setLoading(false);
         return;
       }
 
-      // Check if MFA verification is needed (check session metadata)
       const sessionAge = Date.now() - new Date(user.created_at).getTime();
-      const maxSessionAge = 30 * 60 * 1000; // 30 minutes
+      const maxSessionAge = 30 * 60 * 1000;
 
       if (sessionAge > maxSessionAge) {
         setMfaRequired(true);
@@ -169,7 +164,7 @@ export default function ClientPortal() {
   }
 
   if (!user) {
-    return null; // Will redirect to auth page
+    return null;
   }
 
   return (
@@ -219,17 +214,9 @@ export default function ClientPortal() {
 
           <div className="md:col-span-3">
             {activeTab === 'intake' && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Client Intake Form</CardTitle>
-                  <CardDescription>
-                    Please provide detailed information about your case. This information will help us serve you better.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <EnhancedClientIntakeForm userId={user.id} />
-                </CardContent>
-              </Card>
+              <div>
+                <RefactoredClientIntakeForm userId={user.id} />
+              </div>
             )}
 
             {activeTab === 'profile' && (
