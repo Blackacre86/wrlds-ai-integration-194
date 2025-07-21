@@ -15,7 +15,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
     // Static content mapping for immediate implementation
     const contentMap: Record<string, any> = {
       'hero': {
-        title: "Strategic Criminal Defense",
+        title: "Proven Criminal Defense in Massachusetts",
         subtitle: "Former Prosecutor • 1,000+ Cases • Massachusetts",
         description: "Strategic defense partner who understands both sides of the courtroom.",
         ctaText: "Get Consultation",
