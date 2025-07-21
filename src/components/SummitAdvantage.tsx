@@ -26,17 +26,18 @@ const SummitAdvantage = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {advantagesContent?.items?.map((advantage: any, index: number) => (
-            <Card key={index} className="bg-white border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group overflow-hidden min-h-[420px] flex flex-col">
+            <Card key={index} className="bg-white border-gray-200 hover:shadow-xl hover:-translate-y-2 focus-within:shadow-xl focus-within:-translate-y-2 transition-all duration-500 ease-out group overflow-hidden min-h-[420px] flex flex-col touch-manipulation">
               <CardContent className="p-6 flex flex-col h-full">
                 <div className="mb-4 overflow-hidden rounded-lg flex-shrink-0">
                   <img 
                     src={advantage.image} 
                     alt={advantage.title}
-                    className="w-full h-48 object-cover rounded-lg grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    className="w-full h-48 object-cover rounded-lg grayscale saturate-0 brightness-105 group-hover:grayscale-0 group-hover:saturate-100 group-hover:brightness-100 group-hover:scale-110 group-focus-within:grayscale-0 group-focus-within:saturate-100 group-focus-within:brightness-100 group-focus-within:scale-110 active:grayscale-0 active:saturate-100 active:brightness-100 active:scale-110 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform"
+                    loading="lazy"
                   />
                 </div>
                 <div className="flex flex-col flex-1 items-start">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-black transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-black group-focus-within:text-black transition-colors duration-500 ease-out">
                     {advantage.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed flex-1 text-left">
