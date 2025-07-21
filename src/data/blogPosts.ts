@@ -87,7 +87,7 @@ export const blogPosts: BlogPost[] = [
           rows: [
             ['Show Cause', 'Non-arrest misdemeanors', 'Complaint issued or dismissed'],
             ['Arraignment', 'After arrest or complaint', 'Bail set, plea entered'],
-            ['Pretrial Conference', 'Most cases', 'Plea negotiations, motion practice']
+            ['Pretrial Conference', 'Most cases', 'Predictable resolution, reduced risk']
           ]
         }
       },
