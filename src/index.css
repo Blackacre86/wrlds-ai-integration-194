@@ -55,6 +55,11 @@
     line-height: 1.6;
   }
 
+  /* Apply grayscale filter to all images to ensure no color images */
+  img {
+    filter: grayscale(100%);
+  }
+
   /* Improved Typography Hierarchy */
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;

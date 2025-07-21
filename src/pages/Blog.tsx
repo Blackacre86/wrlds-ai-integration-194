@@ -9,8 +9,8 @@ import BlogPostCard from '@/components/BlogPostCard';
 import { blogPosts } from '@/data/blogPosts';
 
 const Blog = () => {
-  // Get the newest blog post for the featured post section (the new DV post with id '4')
-  const featuredPost = blogPosts.find(post => post.id === '4') || blogPosts[0];
+  // Get the "What to Expect" guide for the featured post section (id '1')
+  const featuredPost = blogPosts.find(post => post.id === '1') || blogPosts[0];
   // Get the rest of the blog posts for the grid section
   const otherPosts = blogPosts.filter(post => post.id !== featuredPost?.id);
   
