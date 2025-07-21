@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import { blogPosts } from '@/data/blogPosts';
 import PageLayout from '@/components/PageLayout';
@@ -7,14 +6,13 @@ import EnhancedBlogContent from '@/components/EnhancedBlogContent';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const BlogPostDetail = () => {
-  const { slug } = useParams();
+  const {
+    slug
+  } = useParams();
   const post = blogPosts.find(post => post.slug === slug);
-
   if (!post) {
-    return (
-      <PageLayout>
+    return <PageLayout>
         <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
           <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
@@ -25,34 +23,15 @@ const BlogPostDetail = () => {
             </Button>
           </Link>
         </div>
-      </PageLayout>
-    );
+      </PageLayout>;
   }
-
-  return (
-    <PageLayout>
-      <SEO 
-        title={`${post.title} - WRLDS`}
-        description={post.metaDescription || post.excerpt}
-        imageUrl={post.imageUrl}
-        keywords={post.keywords}
-        isBlogPost={true}
-        publishDate={new Date(post.date).toISOString()}
-        author={post.author}
-        category={post.category}
-        type="article"
-      />
+  return <PageLayout>
+      <SEO title={`${post.title} - WRLDS`} description={post.metaDescription || post.excerpt} imageUrl={post.imageUrl} keywords={post.keywords} isBlogPost={true} publishDate={new Date(post.date).toISOString()} author={post.author} category={post.category} type="article" />
       
       <article className="w-full pt-16 pb-16">
         {/* Hero Section - Taller to accommodate text content */}
         <div className="banner-container h-96 sm:h-[450px] md:h-[500px] lg:h-[550px] relative">
-          {post.imageUrl && (
-            <img 
-              src={post.imageUrl} 
-              alt={post.title}
-              className="absolute inset-0 w-full h-full object-cover filter grayscale"
-            />
-          )}
+          {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="absolute inset-0 w-full h-full object-cover filter grayscale" />}
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
           
           <div className="banner-overlay">
@@ -82,9 +61,7 @@ const BlogPostDetail = () => {
                   </div>
                   
                   <div className="flex justify-start md:justify-center">
-                    <div className="px-3 py-1 sm:px-4 sm:py-2 bg-white/15 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium border border-white/20">
-                      {post.category}
-                    </div>
+                    
                   </div>
                 </div>
                 
@@ -104,8 +81,6 @@ const BlogPostDetail = () => {
           </div>
         </div>
       </article>
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default BlogPostDetail;
