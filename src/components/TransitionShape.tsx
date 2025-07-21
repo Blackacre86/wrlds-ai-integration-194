@@ -49,7 +49,7 @@ const TransitionShape: React.FC<TransitionShapeProps> = ({
     <div className={`relative -mb-1 ${className}`}>
       <svg
         viewBox="0 0 1350 100"
-        className={`w-full h-16 md:h-24 lg:h-32 ${direction === 'up' ? 'rotate-180' : ''} transition-all duration-700 ease-in-out`}
+        className={`w-full h-8 md:h-12 lg:h-16 ${direction === 'up' ? 'rotate-180' : ''} transition-all duration-700 ease-in-out`}
         preserveAspectRatio="none"
       >
         {variant === 'seamless' ? (

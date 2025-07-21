@@ -9,7 +9,7 @@ const PracticeAreas = () => {
   const practiceContent = getContent('practiceAreas');
 
   return (
-    <section id="practice-areas" className="py-8 md:py-12 px-4 md:px-12 bg-gradient-to-b from-transparent via-white to-white pt-0">
+    <section id="practice-areas" className="py-12 md:py-16 px-4 md:px-12 bg-gradient-to-b from-transparent via-white to-white">
       <article itemScope itemType="https://schema.org/LegalService">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-8 md:mb-12 text-center">

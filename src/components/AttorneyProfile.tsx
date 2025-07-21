@@ -9,7 +9,7 @@ const AttorneyProfile = () => {
   const attorneyContent = getContent('attorney');
   
   return (
-    <section id="attorney-profile" className="px-4 md:px-12 bg-white">
+    <section id="attorney-profile" className="py-12 md:py-16 px-4 md:px-12 bg-white">
       <article itemScope itemType="https://schema.org/Attorney">
         <div className="container mx-auto max-w-6xl">
           <div className="max-w-4xl mx-auto">
