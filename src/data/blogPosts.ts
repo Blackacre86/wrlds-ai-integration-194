@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -38,7 +37,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Domestic Violence Defense: Why Experience Matters - A Former Prosecutor\'s Perspective',
     slug: 'domestic-violence-defense-experience-matters',
     excerpt: 'In Massachusetts, domestic violence charges can upend lives overnight. As a former Assistant District Attorney, I bring unique insider experience to defense strategy.',
-    date: '',
+    date: '2024-01-15',
     author: 'Attorney Joe Brava',
     category: 'Domestic Violence',
     imageUrl: '/lovable-uploads/2228ddd2-e50e-4f5e-b0f4-5744b4b264cb.png',
@@ -99,7 +98,7 @@ export const blogPosts: BlogPost[] = [
     title: 'What to Expect When Charged in Massachusetts: A Step-by-Step Guide',
     slug: 'what-to-expect-criminal-charges-guide',
     excerpt: 'Understanding the criminal justice process can reduce anxiety and help you make informed decisions. Learn what happens from arraignment to resolution with this comprehensive step-by-step guide.',
-    date: '',
+    date: '2024-01-10',
     author: 'Attorney Joe Brava',
     category: 'Criminal Defense',
     imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop&sat=-100',

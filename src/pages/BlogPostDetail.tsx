@@ -9,6 +9,7 @@ import ExpandableContentSection from '@/components/ExpandableContentSection';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 
 const BlogPostDetail = () => {
   const { slug } = useParams();
@@ -86,6 +87,32 @@ const BlogPostDetail = () => {
 
   const contentSections = groupContentIntoSections(post.content);
 
+  // Format the date for display
+  const formatPostDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) {
+        return 'Recent';
+      }
+      return format(date, 'MMMM d, yyyy');
+    } catch (error) {
+      return 'Recent';
+    }
+  };
+
+  // Get valid ISO date for SEO
+  const getValidISODate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) {
+        return undefined;
+      }
+      return date.toISOString();
+    } catch (error) {
+      return undefined;
+    }
+  };
+
   return (
     <PageLayout>
       <SEO 
@@ -94,7 +121,7 @@ const BlogPostDetail = () => {
         imageUrl={post.imageUrl} 
         keywords={post.keywords} 
         isBlogPost={true} 
-        publishDate={new Date(post.date).toISOString()} 
+        publishDate={getValidISODate(post.date)}
         author={post.author} 
         category={post.category} 
         type="article" 
@@ -128,7 +155,7 @@ const BlogPostDetail = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start md:justify-center gap-2 sm:gap-6">
                     <div className="flex items-center text-xs sm:text-base">
                       <Calendar className="mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                      <span>{post.date}</span>
+                      <span>{formatPostDate(post.date)}</span>
                     </div>
                     <div className="flex items-center text-xs sm:text-base">
                       <User className="mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />

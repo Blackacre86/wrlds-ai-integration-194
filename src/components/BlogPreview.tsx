@@ -5,11 +5,35 @@ import { Button } from '@/components/ui/button';
 import BlogPostCard from '@/components/BlogPostCard';
 import { blogPosts } from '@/data/blogPosts';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { format } from 'date-fns';
 
 const BlogPreview = () => {
-  // Get the 3 most recent blog posts
+  // Helper function to safely parse dates
+  const parseDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      return isNaN(date.getTime()) ? new Date(0) : date;
+    } catch (error) {
+      return new Date(0);
+    }
+  };
+
+  // Helper function to format dates for display
+  const formatPostDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) {
+        return 'Recent';
+      }
+      return format(date, 'MMM d, yyyy');
+    } catch (error) {
+      return 'Recent';
+    }
+  };
+
+  // Get the 3 most recent blog posts with proper date sorting
   const recentPosts = [...blogPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
     .slice(0, 3);
 
   return (
@@ -43,7 +67,7 @@ const BlogPreview = () => {
                     title={post.title}
                     excerpt={post.excerpt}
                     imageUrl={post.imageUrl || '/placeholder.svg'}
-                    date={post.date}
+                    date={formatPostDate(post.date)}
                     slug={post.slug}
                     category={post.category}
                   />
@@ -60,7 +84,7 @@ const BlogPreview = () => {
                 title={post.title}
                 excerpt={post.excerpt}
                 imageUrl={post.imageUrl || '/placeholder.svg'}
-                date={post.date}
+                date={formatPostDate(post.date)}
                 slug={post.slug}
                 category={post.category}
               />
