@@ -56,26 +56,6 @@ export const blogPosts: BlogPost[] = [
         content: 'Understanding the criminal justice process reduces stress and empowers you to make informed decisions about your defense. Knowledge is your greatest ally when facing criminal charges.'
       },
       {
-        type: 'stats',
-        statsData: [
-          {
-            value: '6',
-            label: 'Key Steps in MA Criminal Process',
-            icon: 'TrendingUp'
-          },
-          {
-            value: '72hrs',
-            label: 'Typical Time to Arraignment',
-            icon: 'Users'
-          },
-          {
-            value: '90%',
-            label: 'Cases Resolved Before Trial',
-            icon: 'DollarSign'
-          }
-        ]
-      },
-      {
         type: 'heading',
         content: 'Step 1: Arrest or Criminal Summons'
       },
