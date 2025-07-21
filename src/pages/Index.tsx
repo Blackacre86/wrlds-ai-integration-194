@@ -7,50 +7,71 @@ import AttorneyProfile from '@/components/AttorneyProfile';
 import SummitAdvantage from '@/components/SummitAdvantage';
 import BlogPreview from '@/components/BlogPreview';
 import TransitionShape from '@/components/TransitionShape';
+import FloatingGraphics from '@/components/FloatingGraphics';
+import GradientDivider from '@/components/GradientDivider';
+import EnhancedFloatingContact from '@/components/EnhancedFloatingContact';
+import BackgroundPattern from '@/components/BackgroundPattern';
 import SEO from '@/components/SEO';
 
 const Index = () => {
   return (
-    <PageLayout>
+    <PageLayout showContact={false}>
       <SEO 
         title="Summit Law Offices - Strategic Criminal Defense Across Massachusetts" 
         description="Attorney Joe Brava provides strategic criminal defense across Massachusetts. Former prosecutor with 1,000+ cases of experience. Call 508-454-0822 for consultation."
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['criminal defense attorney', 'Massachusetts lawyer', 'DUI defense', 'restraining orders', 'Clinton MA attorney', 'former prosecutor']}
       />
-      {/* Semantic HTML structure for AI agents */}
+      
       <main role="main" itemScope itemType="https://schema.org/LegalService" className="smooth-scroll">
         <header id="hero" role="banner">
           <Hero />
         </header>
         
-        <TransitionShape variant="seamless" direction="down" color="gray" />
+        {/* Replace bulky transition with subtle gradient and floating elements */}
+        <div className="relative py-8 bg-gradient-to-b from-gray-50 to-white">
+          <FloatingGraphics variant="legal" />
+          <GradientDivider variant="medium" color="gray" />
+        </div>
         
-        <section id="summit-advantage" role="region" aria-labelledby="advantage-heading" className="animate-fade-in">
+        <section id="summit-advantage" role="region" aria-labelledby="advantage-heading" className="animate-fade-in relative">
+          <BackgroundPattern variant="dots" opacity="subtle" />
           <SummitAdvantage />
         </section>
         
         <TransitionShape variant="seamless" direction="up" color="white" />
         
-        <section id="practice-areas" role="region" aria-labelledby="services-heading" itemScope itemType="https://schema.org/Service" className="animate-fade-in animation-delay-200">
+        <section id="practice-areas" role="region" aria-labelledby="services-heading" itemScope itemType="https://schema.org/Service" className="animate-fade-in animation-delay-200 relative">
+          <FloatingGraphics variant="stats" />
           <PracticeAreas />
         </section>
         
-        <TransitionShape variant="curve" direction="down" color="gray" />
+        {/* Replace with gradient divider and floating elements */}
+        <div className="relative py-6 bg-gradient-to-b from-white to-gray-50">
+          <FloatingGraphics variant="abstract" />
+          <GradientDivider variant="thick" direction="diagonal" color="gray" />
+        </div>
         
-        <section id="attorney-profile" role="region" aria-labelledby="attorney-heading" itemScope itemType="https://schema.org/Person" className="animate-fade-in animation-delay-300">
+        <section id="attorney-profile" role="region" aria-labelledby="attorney-heading" itemScope itemType="https://schema.org/Person" className="animate-fade-in animation-delay-300 relative">
+          <BackgroundPattern variant="lines" opacity="light" />
           <AttorneyProfile />
         </section>
         
         <TransitionShape variant="angular" direction="up" color="white" />
         
-        <section id="blog" role="region" aria-labelledby="blog-heading" className="animate-fade-in animation-delay-400">
+        <section id="blog" role="region" aria-labelledby="blog-heading" className="animate-fade-in animation-delay-400 relative">
+          <FloatingGraphics variant="legal" />
           <BlogPreview />
         </section>
         
-        <TransitionShape variant="seamless" direction="down" color="gray" />
+        {/* Replace with enhanced visual transition */}
+        <div className="relative py-8 bg-gradient-to-b from-white to-gray-50">
+          <BackgroundPattern variant="grid" opacity="subtle" />
+          <GradientDivider variant="medium" color="gray" />
+        </div>
         
-        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-500">
+        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-500 relative">
+          <FloatingGraphics variant="stats" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="relative">
               <h2 id="portal-heading" className="text-3xl md:text-4xl font-bold mb-6 text-black">
@@ -78,6 +99,8 @@ const Index = () => {
           </div>
         </section>
       </main>
+      
+      <EnhancedFloatingContact />
     </PageLayout>
   );
 };
