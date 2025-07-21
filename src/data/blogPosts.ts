@@ -126,15 +126,12 @@ export const blogPosts: BlogPost[] = [
         content: 'If your case doesn\'t resolve through plea negotiations, it will proceed to trial. You have the right to choose between a jury trial (decided by 6 or 12 jurors) or a bench trial (decided by a judge). The prosecution must prove your guilt beyond a reasonable doubt.'
       },
       {
-        type: 'table',
-        tableData: {
-          headers: ['Trial Type', 'Decision Makers', 'Best For'],
-          rows: [
-            ['Jury Trial', '6-12 jurors', 'Complex cases, emotional appeals'],
-            ['Bench Trial', 'Judge only', 'Technical legal issues, professional defendants'],
-            ['Plea Agreement', 'Negotiated', 'Guaranteed outcome, reduced penalties']
-          ]
-        }
+        type: 'icon-list',
+        items: [
+          '**Jury Trial** — Best when the facts are complicated or you need jurors to connect emotionally with your story',
+          '**Bench Trial** — Best for cases that hinge on technical legal arguments where a judge can decide quickly',
+          '**Plea Agreement** — Best when you want a predictable resolution and lower overall risk'
+        ]
       },
       {
         type: 'heading',
@@ -269,7 +266,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it\'s understanding how the system actually works from the inside.'
+        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it's understanding how the system actually works from the inside.'
       }
     ]
   }
