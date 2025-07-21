@@ -1,3 +1,4 @@
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -32,67 +33,6 @@ export interface ContentSection {
 }
 
 export const blogPosts: BlogPost[] = [
-  {
-    id: '4',
-    title: 'Domestic Violence Defense: Why Experience Matters - A Former Prosecutor\'s Perspective',
-    slug: 'domestic-violence-defense-experience-matters',
-    excerpt: 'In Massachusetts, domestic violence charges can upend lives overnight. As a former Assistant District Attorney, I bring unique insider experience to defense strategy.',
-    date: 'January 22, 2025',
-    author: 'Attorney Joe Brava',
-    category: 'Domestic Violence',
-    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop&sat=-100',
-    keywords: [
-      'domestic violence defense',
-      'former prosecutor',
-      'Massachusetts domestic violence',
-      'criminal defense attorney',
-      'domestic violence charges',
-      'coercive control'
-    ],
-    metaDescription: 'Expert domestic violence defense from a former Massachusetts prosecutor. Learn why prosecutorial experience matters for your defense strategy.',
-    content: [
-      {
-        type: 'paragraph',
-        content: 'In Massachusetts, domestic violence charges can upend lives overnight. With 19 domestic violence homicides reported in 2023 alone, and recent expansions to include coercive control as abuse under state law, the stakes are higher than ever. As a former Assistant District Attorney (ADA) in Massachusetts, I\'ve prosecuted these cases, collaborating closely with law enforcement and victim advocates. Now, as a criminal defense attorney, that insider experience offers a unique lens. It turns prosecution tactics into defense advantages.'
-      },
-      {
-        type: 'heading',
-        content: 'The Prosecutor\'s Playbook: An Insider\'s Edge'
-      },
-      {
-        type: 'paragraph',
-        content: 'Working hand-in-hand with police during investigations, I saw how evidence is gathered as a former prosecutor. This includes everything from 911 calls and witness statements to forensic details. Victim advocates provided crucial insights into survivor needs, shaping how cases were charged under M.G.L. c. 209A, Massachusetts\' key domestic violence statute.'
-      },
-      {
-        type: 'paragraph',
-        content: 'This perspective reveals blind spots many defense attorneys miss. Prosecutors often overcharge to leverage plea deals, assuming emotional dynamics will pressure defendants. But with my background, I anticipate these moves: spotting weak links in "he-said-she-said" narratives, challenging biased assumptions, or highlighting inconsistencies in reports. For instance, coercive control (now legally recognized) involves non-physical patterns like isolation or threats. I know how advocates frame these, allowing me to counter with evidence of mutual conflict or fabrication.'
-      },
-      {
-        type: 'heading',
-        content: 'Beyond the Courtroom: Empathy from Both Sides'
-      },
-      {
-        type: 'paragraph',
-        content: 'What sets my approach apart? It\'s not just strategy; it\'s empathy forged from duality. As an ADA, I advocated for victims, ensuring their voices drove justice. That taught me the system\'s human side. I learned how trauma influences testimony and why cases sometimes escalate without intent. Now, defending clients, I use that to humanize them, negotiating resolutions that prioritize rehabilitation over punishment. Statistics show domestic violence rates dipping slightly in MA, but individual lives hang in the balance.'
-      },
-      {
-        type: 'quote',
-        content: 'Think outside the courtroom: Like a whistleblower exposing corporate secrets, my prosecutorial past uncovers systemic flaws. I decode "pro-victim" policies that can inadvertently bias proceedings, arming clients with defenses rooted in fairness.'
-      },
-      {
-        type: 'heading',
-        content: 'Why This Matters for Your Defense'
-      },
-      {
-        type: 'paragraph',
-        content: 'Hiring a former prosecutor isn\'t about shortcuts. It\'s about leveling the field. We understand how DAs build cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving DV landscape, this insight can mean dismissed charges, reduced sentences, or alternative dispositions.'
-      },
-      {
-        type: 'paragraph',
-        content: 'If you\'re facing domestic violence allegations in Massachusetts, an attorney with this dual perspective can make all the difference. Contact my office for a confidential consultation. Let\'s navigate this together.'
-      }
-    ]
-  },
   {
     id: '1',
     title: 'What to Expect When Charged in Massachusetts: A Step-by-Step Guide',
@@ -218,116 +158,63 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    id: '2',
-    title: 'Domestic Violence Defense: Why Experience Matters',
+    id: '4',
+    title: 'Domestic Violence Defense: Why Experience Matters - A Former Prosecutor\'s Perspective',
     slug: 'domestic-violence-defense-experience-matters',
-    excerpt: 'Domestic violence allegations require immediate, experienced legal representation. Learn why having the right attorney can make all the difference in your case.',
-    date: 'January 8, 2025',
+    excerpt: 'In Massachusetts, domestic violence charges can upend lives overnight. As a former Assistant District Attorney, I bring unique insider experience to defense strategy.',
+    date: 'January 22, 2025',
     author: 'Attorney Joe Brava',
     category: 'Domestic Violence',
     imageUrl: '/lovable-uploads/429cf62b-eccf-43e9-943b-5ed52555fed2.png',
     keywords: [
       'domestic violence defense',
-      'domestic violence charges',
-      'restraining order',
+      'former prosecutor',
       'Massachusetts domestic violence',
       'criminal defense attorney',
-      'domestic violence lawyer'
+      'domestic violence charges',
+      'coercive control'
     ],
-    metaDescription: 'Expert domestic violence defense in Massachusetts. Learn why experience matters when facing domestic violence charges and restraining orders.',
+    metaDescription: 'Expert domestic violence defense from a former Massachusetts prosecutor. Learn why prosecutorial experience matters for your defense strategy.',
     content: [
       {
         type: 'paragraph',
-        content: 'Domestic violence allegations can devastate your personal life, career, and future opportunities. These cases require immediate attention and strategic defense from an attorney who understands both the legal complexities and the emotional dynamics involved.'
+        content: 'In Massachusetts, domestic violence charges can upend lives overnight. With 19 domestic violence homicides reported in 2023 alone, and recent expansions to include coercive control as abuse under state law, the stakes are higher than ever. As a former Assistant District Attorney (ADA) in Massachusetts, I\'ve prosecuted these cases, collaborating closely with law enforcement and victim advocates. Now, as a criminal defense attorney, that insider experience offers a unique lens. It turns prosecution tactics into defense advantages.'
       },
       {
         type: 'heading',
-        content: 'The Immediate Impact'
+        content: 'The Prosecutor\'s Playbook: An Insider\'s Edge'
       },
       {
         type: 'paragraph',
-        content: 'When domestic violence charges are filed, the consequences begin immediately. You may face restraining orders that prevent you from returning home, contacting family members, or even picking up your children from school. Swift legal action is essential to protect your rights.'
+        content: 'Working hand-in-hand with police during investigations, I saw how evidence is gathered as a former prosecutor. This includes everything from 911 calls and witness statements to forensic details. Victim advocates provided crucial insights into survivor needs, shaping how cases were charged under M.G.L. c. 209A, Massachusetts\' key domestic violence statute.'
+      },
+      {
+        type: 'paragraph',
+        content: 'This perspective reveals blind spots many defense attorneys miss. Prosecutors often overcharge to leverage plea deals, assuming emotional dynamics will pressure defendants. But with my background, I anticipate these moves: spotting weak links in "he-said-she-said" narratives, challenging biased assumptions, or highlighting inconsistencies in reports. For instance, coercive control (now legally recognized) involves non-physical patterns like isolation or threats. I know how advocates frame these, allowing me to counter with evidence of mutual conflict or fabrication.'
       },
       {
         type: 'heading',
-        content: 'Understanding the Evidence'
+        content: 'Beyond the Courtroom: Empathy from Both Sides'
       },
       {
         type: 'paragraph',
-        content: 'Domestic violence cases often involve complex evidence including 911 calls, medical records, photographs, and witness testimony. An experienced attorney knows how to analyze this evidence, identify weaknesses in the prosecution\'s case, and develop effective counter-strategies.'
-      },
-      {
-        type: 'heading',
-        content: 'Long-term Consequences'
-      },
-      {
-        type: 'paragraph',
-        content: 'Beyond immediate penalties, domestic violence convictions can affect employment, housing, custody arrangements, and gun ownership rights. Experienced defense counsel understands these collateral consequences and works to minimize their impact.'
+        content: 'What sets my approach apart? It\'s not just strategy; it\'s empathy forged from duality. As an ADA, I advocated for victims, ensuring their voices drove justice. That taught me the system\'s human side. I learned how trauma influences testimony and why cases sometimes escalate without intent. Now, defending clients, I use that to humanize them, negotiating resolutions that prioritize rehabilitation over punishment. Statistics show domestic violence rates dipping slightly in MA, but individual lives hang in the balance.'
       },
       {
         type: 'quote',
-        content: 'In domestic violence cases, the difference between an experienced attorney and an inexperienced one can be the difference between preserving your future and losing everything you\'ve worked for.'
-      }
-    ]
-  },
-  {
-    id: '3',
-    title: 'Why Former Prosecutors Make Different Defense Attorneys',
-    slug: 'former-prosecutors-different-defense-attorneys',
-    excerpt: 'Having prosecuted over 1,000 cases gives unique insights into how the other side thinks and operates. Learn the advantages of hiring a former prosecutor for your defense.',
-    date: 'January 2, 2025',
-    author: 'Attorney Joe Brava',
-    category: 'Legal Insights',
-    imageUrl: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?q=80&w=2076&auto=format&fit=crop&sat=-100',
-    keywords: [
-      'former prosecutor',
-      'defense attorney',
-      'criminal defense',
-      'Massachusetts attorney',
-      'prosecutorial experience',
-      'legal strategy'
-    ],
-    metaDescription: 'Discover the unique advantages of hiring a former prosecutor for your criminal defense. Learn how prosecutorial experience benefits your case.',
-    content: [
-      {
-        type: 'paragraph',
-        content: 'As a former prosecutor who handled over 1,000 cases, I bring a unique perspective to criminal defense. Understanding how prosecutors think, what evidence they prioritize, and how they build their cases provides significant advantages for my clients.'
+        content: 'Think outside the courtroom: Like a whistleblower exposing corporate secrets, my prosecutorial past uncovers systemic flaws. I decode "pro-victim" policies that can inadvertently bias proceedings, arming clients with defenses rooted in fairness.'
       },
       {
         type: 'heading',
-        content: 'Inside Knowledge of Prosecutorial Strategy'
+        content: 'Why This Matters for Your Defense'
       },
       {
         type: 'paragraph',
-        content: 'Having been on the other side of the courtroom, I understand prosecutorial priorities and decision-making processes. This insight helps me anticipate their moves, identify weaknesses in their case, and develop more effective defense strategies.'
-      },
-      {
-        type: 'heading',
-        content: 'Relationships and Credibility'
+        content: 'Hiring a former prosecutor isn\'t about shortcuts. It\'s about leveling the field. We understand how DAs build cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving DV landscape, this insight can mean dismissed charges, reduced sentences, or alternative dispositions.'
       },
       {
         type: 'paragraph',
-        content: 'Former prosecutors often maintain professional relationships with current prosecutors, judges, and court staff. This doesn\'t guarantee favorable outcomes, but it does facilitate more productive negotiations and communications throughout the legal process.'
-      },
-      {
-        type: 'heading',
-        content: 'Understanding Case Evaluation'
-      },
-      {
-        type: 'paragraph',
-        content: 'Prosecutors must evaluate cases based on evidence strength, witness credibility, and resource allocation. Having made these evaluations myself, I can better assess what prosecutors will prioritize and where they might be willing to negotiate.'
-      },
-      {
-        type: 'heading',
-        content: 'Realistic Expectations'
-      },
-      {
-        type: 'paragraph',
-        content: 'Prosecutorial experience provides realistic perspective on likely outcomes. I can help clients understand what to expect, when to fight, and when negotiation might serve their interests better than trial.'
-      },
-      {
-        type: 'quote',
-        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it\'s understanding how the system actually works from the inside.'
+        content: 'If you\'re facing domestic violence allegations in Massachusetts, an attorney with this dual perspective can make all the difference. Contact my office for a confidential consultation. Let\'s navigate this together.'
       }
     ]
   }

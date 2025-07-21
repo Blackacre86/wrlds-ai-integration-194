@@ -11,8 +11,8 @@ import { blogPosts } from '@/data/blogPosts';
 const Blog = () => {
   // Get the "What to Expect" guide for the featured post section (id '1')
   const featuredPost = blogPosts.find(post => post.id === '1') || blogPosts[0];
-  // Get the rest of the blog posts for the grid section
-  const otherPosts = blogPosts.filter(post => post.id !== featuredPost?.id);
+  // Get the domestic violence post for the single additional post
+  const domesticViolencePost = blogPosts.find(post => post.id === '4');
   
   return (
     <PageLayout>
@@ -78,40 +78,21 @@ const Blog = () => {
             </Link>
           )}
           
-          {/* Other blog posts */}
-          {otherPosts.map((post) => (
-            <BlogPostCard 
-              key={post.id}
-              title={post.title}
-              excerpt={post.excerpt}
-              imageUrl={post.imageUrl || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop&sat=-100'}
-              date={post.date}
-              slug={post.slug}
-              category={post.category}
-            />
-          ))}
-          
-          {/* If there are fewer than 4 published posts, add placeholders */}
-          {blogPosts.length < 5 && Array.from({ length: Math.max(0, 5 - blogPosts.length) }).map((_, index) => (
-            <Card key={`placeholder-${index}`} className="overflow-hidden border-2 border-gray-200">
-              <div 
-                className="h-48 bg-black flex items-center justify-center"
-              >
-                <div className="text-white text-center">
-                  <Scale className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                  <h3 className="text-lg font-medium opacity-75">Coming Soon</h3>
-                </div>
+          {/* Domestic Violence blog post */}
+          {domesticViolencePost && (
+            <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center">
+              <div className="w-full max-w-md">
+                <BlogPostCard 
+                  title={domesticViolencePost.title}
+                  excerpt={domesticViolencePost.excerpt}
+                  imageUrl={domesticViolencePost.imageUrl || '/lovable-uploads/429cf62b-eccf-43e9-943b-5ed52555fed2.png'}
+                  date={domesticViolencePost.date}
+                  slug={domesticViolencePost.slug}
+                  category={domesticViolencePost.category}
+                />
               </div>
-              <CardContent className="p-6 bg-white">
-                <span className="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-medium rounded-full inline-block mb-3">Upcoming</span>
-                <h3 className="text-lg font-semibold mb-2 text-black">New Legal Insights</h3>
-                <p className="text-gray-600 text-sm">
-                  Stay tuned for more expert legal guidance and insights from Attorney Joe Brava.
-                </p>
-                <p className="text-gray-400 text-xs mt-4">Coming soon</p>
-              </CardContent>
-            </Card>
-          ))}
+            </div>
+          )}
         </div>
       </div>
     </PageLayout>
