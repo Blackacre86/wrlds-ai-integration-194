@@ -46,18 +46,18 @@ const Blog = () => {
               <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full border-2 border-gray-200 hover:border-black">
                 <div className="grid md:grid-cols-2 h-full">
                   <div 
-                    className="bg-cover bg-center h-64 md:h-full p-8 flex items-center justify-center bg-black"
+                    className="bg-cover bg-center h-64 md:h-full p-8 flex items-center justify-center relative"
                     style={{ 
-                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${featuredPost.imageUrl}')`,
+                      backgroundImage: `url('${featuredPost.imageUrl}')`,
                       backgroundSize: 'cover',
                       backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center',
-                      filter: 'grayscale(100%)'
+                      backgroundPosition: 'center'
                     }}
                   >
-                    <div className="text-white text-center">
+                    <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+                    <div className="text-white text-center relative z-10">
                       <span className="px-4 py-2 bg-white text-black rounded-full text-sm font-bold inline-block mb-4">Featured Article</span>
-                      <h3 className="text-2xl md:text-3xl font-bold">{featuredPost.title}</h3>
+                      <h3 className="text-2xl md:text-3xl font-bold drop-shadow-lg">{featuredPost.title}</h3>
                     </div>
                   </div>
                   <CardContent className="p-8 bg-white">
