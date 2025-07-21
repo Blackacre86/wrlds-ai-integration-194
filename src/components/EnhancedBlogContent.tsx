@@ -24,30 +24,30 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
     switch (section.type) {
       case 'heading':
         return (
-          <h2 key={index} className="text-3xl font-bold mb-6 text-black border-b-2 border-black pb-2">
+          <h2 key={index} className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black border-b-2 border-black pb-2">
             {section.content}
           </h2>
         );
       
       case 'subheading':
         return (
-          <h3 key={index} className="text-2xl font-semibold mb-4 text-black">
+          <h3 key={index} className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-black">
             {section.content}
           </h3>
         );
       
       case 'paragraph':
         return (
-          <p key={index} className="text-gray-800 mb-6 leading-relaxed text-lg">
+          <p key={index} className="text-gray-800 mb-4 md:mb-6 leading-relaxed text-base md:text-lg">
             {section.content}
           </p>
         );
       
       case 'list':
         return (
-          <ul key={index} className="list-disc list-inside mb-6 space-y-2">
+          <ul key={index} className="list-disc list-inside mb-4 md:mb-6 space-y-2 pl-4">
             {section.items?.map((item, itemIndex) => (
-              <li key={itemIndex} className="text-gray-800 leading-relaxed">
+              <li key={itemIndex} className="text-gray-800 leading-relaxed text-sm md:text-base">
                 {item}
               </li>
             ))}
@@ -56,17 +56,17 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
       
       case 'icon-list':
         return (
-          <div key={index} className="grid gap-4 mb-8">
+          <div key={index} className="grid gap-3 md:gap-4 mb-6 md:mb-8">
             {section.items?.map((item, itemIndex) => {
               const icons = [Shield, Zap, Settings, Database];
               const IconComponent = icons[itemIndex % icons.length];
               return (
-                <Card key={itemIndex} className="border-2 border-black">
-                  <CardContent className="p-4 flex items-start space-x-4">
-                    <div className="bg-black p-2 rounded-lg">
-                      <IconComponent className="h-6 w-6 text-white" />
+                <Card key={itemIndex} className="border-2 border-black hover:shadow-lg transition-shadow">
+                  <CardContent className="p-3 md:p-4 flex items-start space-x-3 md:space-x-4">
+                    <div className="bg-black p-2 rounded-lg flex-shrink-0">
+                      <IconComponent className="h-4 w-4 md:h-6 md:w-6 text-white" />
                     </div>
-                    <p className="text-gray-800 leading-relaxed flex-1">{item}</p>
+                    <p className="text-gray-800 leading-relaxed flex-1 text-sm md:text-base">{item}</p>
                   </CardContent>
                 </Card>
               );
@@ -76,10 +76,10 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
 
       case 'bibliography':
         return (
-          <div key={index} className="mb-8">
-            <ol className="list-none space-y-3">
+          <div key={index} className="mb-6 md:mb-8">
+            <ol className="list-none space-y-2 md:space-y-3">
               {section.items?.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-gray-800 leading-relaxed text-sm bg-gray-50 p-3 rounded border-l-4 border-black">
+                <li key={itemIndex} className="text-gray-800 leading-relaxed text-xs md:text-sm bg-gray-50 p-2 md:p-3 rounded border-l-4 border-black">
                   {item}
                 </li>
               ))}
@@ -89,17 +89,17 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
       
       case 'stats':
         return (
-          <div key={index} className="grid md:grid-cols-3 gap-6 mb-8">
+          <div key={index} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
             {section.statsData?.map((stat, statIndex) => {
               const IconComponent = iconMap[stat.icon as keyof typeof iconMap] || TrendingUp;
               return (
-                <Card key={statIndex} className="border-2 border-black text-center">
-                  <CardContent className="p-6">
-                    <div className="bg-black p-3 rounded-full inline-block mb-4">
-                      <IconComponent className="h-8 w-8 text-white" />
+                <Card key={statIndex} className="border-2 border-black text-center hover:shadow-lg transition-shadow">
+                  <CardContent className="p-4 md:p-6">
+                    <div className="bg-black p-2 md:p-3 rounded-full inline-block mb-3 md:mb-4">
+                      <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-white" />
                     </div>
-                    <div className="text-3xl font-bold text-black mb-2">{stat.value}</div>
-                    <div className="text-gray-700 font-medium">{stat.label}</div>
+                    <div className="text-2xl md:text-3xl font-bold text-black mb-1 md:mb-2">{stat.value}</div>
+                    <div className="text-gray-700 font-medium text-sm md:text-base">{stat.label}</div>
                   </CardContent>
                 </Card>
               );
@@ -153,39 +153,41 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
       case 'table':
         if (!section.tableData) return null;
         return (
-          <Card key={index} className="border-2 border-black mb-8 overflow-hidden">
+          <Card key={index} className="border-2 border-black mb-6 md:mb-8 overflow-hidden">
             <CardContent className="p-0">
-              <table className="w-full">
-                <thead className="bg-black text-white">
-                  <tr>
-                    {section.tableData.headers.map((header, headerIndex) => (
-                      <th key={headerIndex} className="p-4 text-left font-semibold">
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {section.tableData.rows.map((row, rowIndex) => (
-                    <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                      {row.map((cell, cellIndex) => (
-                        <td key={cellIndex} className="p-4 border-b border-gray-200">
-                          {cell}
-                        </td>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-full">
+                  <thead className="bg-black text-white">
+                    <tr>
+                      {section.tableData.headers.map((header, headerIndex) => (
+                        <th key={headerIndex} className="p-3 md:p-4 text-left font-semibold text-sm md:text-base">
+                          {header}
+                        </th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {section.tableData.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                        {row.map((cell, cellIndex) => (
+                          <td key={cellIndex} className="p-3 md:p-4 border-b border-gray-200 text-sm md:text-base">
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </CardContent>
           </Card>
         );
       
       case 'quote':
         return (
-          <Card key={index} className="border-2 border-black bg-black text-white mb-8">
-            <CardContent className="p-8 text-center">
-              <blockquote className="text-xl italic font-medium">
+          <Card key={index} className="border-2 border-black bg-black text-white mb-6 md:mb-8 hover:shadow-lg transition-shadow">
+            <CardContent className="p-6 md:p-8 text-center">
+              <blockquote className="text-lg md:text-xl italic font-medium leading-relaxed">
                 "{section.content}"
               </blockquote>
             </CardContent>

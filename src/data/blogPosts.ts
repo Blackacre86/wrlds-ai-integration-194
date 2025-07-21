@@ -34,55 +34,168 @@ export interface ContentSection {
 export const blogPosts: BlogPost[] = [
   {
     id: '1',
-    title: 'What to Expect When Facing Criminal Charges: A Step-by-Step Guide',
+    title: 'What to Expect When Charged in Massachusetts: A Step-by-Step Guide',
     slug: 'what-to-expect-criminal-charges-guide',
-    excerpt: 'Understanding the criminal justice process can reduce anxiety and help you make informed decisions. Learn what happens from arraignment to resolution.',
+    excerpt: 'Understanding the criminal justice process can reduce anxiety and help you make informed decisions. Learn what happens from arraignment to resolution with this comprehensive step-by-step guide.',
     date: 'January 15, 2025',
     author: 'Attorney Joe Brava',
     category: 'Criminal Defense',
     imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop&sat=-100',
     keywords: [
-      'criminal charges',
-      'criminal defense process',
-      'arraignment',
-      'criminal court',
-      'Massachusetts criminal law',
-      'defense attorney',
-      'legal representation'
+      'charged with crime in Massachusetts',
+      'MA criminal process',
+      'criminal defense attorney',
+      'Massachusetts criminal charges',
+      'criminal court process',
+      'criminal defense lawyer'
     ],
-    metaDescription: 'Learn what to expect when facing criminal charges in Massachusetts. A step-by-step guide from a former prosecutor turned defense attorney.',
+    metaDescription: 'Complete guide to the Massachusetts criminal justice process. Learn what to expect when charged with a crime in MA from arrest to resolution.',
     content: [
       {
-        type: 'paragraph',
-        content: 'Facing criminal charges can be overwhelming and confusing. Understanding the process ahead can help reduce anxiety and empower you to make informed decisions about your defense. Here\'s what you can expect from arraignment to resolution.'
+        type: 'quote',
+        content: 'Understanding the criminal justice process reduces stress and empowers you to make informed decisions about your defense. Knowledge is your greatest ally when facing criminal charges.'
+      },
+      {
+        type: 'stats',
+        statsData: [
+          {
+            value: '6',
+            label: 'Key Steps in MA Criminal Process',
+            icon: 'TrendingUp'
+          },
+          {
+            value: '72hrs',
+            label: 'Typical Time to Arraignment',
+            icon: 'Users'
+          },
+          {
+            value: '90%',
+            label: 'Cases Resolved Before Trial',
+            icon: 'Shield'
+          }
+        ]
       },
       {
         type: 'heading',
-        content: 'The Arraignment Process'
+        content: 'Step 1: Arrest or Criminal Summons'
       },
       {
         type: 'paragraph',
-        content: 'Your first court appearance is the arraignment, where you\'ll be formally notified of the charges against you. The judge will read the charges, inform you of your rights, and ask how you plead. This is also when bail conditions are typically set.'
+        content: 'Criminal charges in Massachusetts begin with either an arrest or the issuance of a criminal summons. Police may arrest you if they have probable cause to believe you committed a crime, or they may issue a summons requiring you to appear in court at a later date.'
+      },
+      {
+        type: 'icon-list',
+        items: [
+          'Remain silent - anything you say can be used against you in court',
+          'Request an attorney immediately - this is your constitutional right',
+          'Do not resist arrest, even if you believe the charges are unfounded',
+          'For misdemeanors without arrest, you may receive a clerk magistrate\'s hearing'
+        ]
       },
       {
         type: 'heading',
-        content: 'Pre-Trial Motions and Discovery'
+        content: 'Step 2: Clerk Magistrate\'s Hearing (Show Cause)'
       },
       {
         type: 'paragraph',
-        content: 'After arraignment, your attorney will review all evidence through the discovery process. This includes police reports, witness statements, and any physical evidence. Your lawyer may file motions to suppress evidence or dismiss charges if appropriate.'
+        content: 'For certain misdemeanor charges that didn\'t result in arrest, you may be summoned to a clerk magistrate\'s hearing, also known as a "show cause" hearing. This is an informal proceeding where a complainant must convince a clerk magistrate that probable cause exists to issue a criminal complaint.'
+      },
+      {
+        type: 'table',
+        tableData: {
+          headers: ['Hearing Type', 'When Required', 'Possible Outcomes'],
+          rows: [
+            ['Show Cause', 'Non-arrest misdemeanors', 'Complaint issued or dismissed'],
+            ['Arraignment', 'After arrest or complaint', 'Bail set, plea entered'],
+            ['Pretrial Conference', 'Most cases', 'Plea negotiations, motion practice']
+          ]
+        }
       },
       {
         type: 'heading',
-        content: 'Plea Negotiations'
+        content: 'Step 3: Arraignment - Your First Court Appearance'
       },
       {
         type: 'paragraph',
-        content: 'Most criminal cases are resolved through plea negotiations rather than trial. Your attorney will work with prosecutors to potentially reduce charges or penalties. Every decision remains yours, but experienced counsel can guide you through the options.'
+        content: 'The arraignment is your first formal court appearance. During this proceeding, you will be officially notified of the charges against you, informed of your constitutional rights, and asked to enter a plea. The judge will also address the issue of bail or release conditions.'
+      },
+      {
+        type: 'icon-list',
+        items: [
+          'Charges will be read aloud and explained to you',
+          'Your constitutional rights will be outlined by the judge',
+          'You will enter a plea (typically "not guilty" at this stage)',
+          'Bail conditions will be set or you may be released on personal recognizance',
+          'The court will appoint counsel if you cannot afford an attorney'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Step 4: Pretrial Proceedings and Discovery'
+      },
+      {
+        type: 'paragraph',
+        content: 'The pretrial phase involves the exchange of evidence (discovery), pretrial conferences to resolve procedural issues, and the filing of various motions. This is often the most important phase of your case, where skilled defense work can significantly impact the outcome.'
+      },
+      {
+        type: 'stats',
+        statsData: [
+          {
+            value: '30-90',
+            label: 'Days for Discovery Process',
+            icon: 'Database'
+          },
+          {
+            value: '85%',
+            label: 'Cases with Plea Negotiations',
+            icon: 'Users'
+          },
+          {
+            value: '15%',
+            label: 'Cases Dismissed on Motions',
+            icon: 'Shield'
+          }
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Step 5: Trial or Plea Resolution'
+      },
+      {
+        type: 'paragraph',
+        content: 'If your case doesn\'t resolve through plea negotiations, it will proceed to trial. You have the right to choose between a jury trial (decided by 6 or 12 jurors) or a bench trial (decided by a judge). The prosecution must prove your guilt beyond a reasonable doubt.'
+      },
+      {
+        type: 'table',
+        tableData: {
+          headers: ['Trial Type', 'Decision Makers', 'Best For'],
+          rows: [
+            ['Jury Trial', '6-12 jurors', 'Complex cases, emotional appeals'],
+            ['Bench Trial', 'Judge only', 'Technical legal issues, professional defendants'],
+            ['Plea Agreement', 'Negotiated', 'Guaranteed outcome, reduced penalties']
+          ]
+        }
+      },
+      {
+        type: 'heading',
+        content: 'Step 6: Verdict and Sentencing'
+      },
+      {
+        type: 'paragraph',
+        content: 'If you are found not guilty (acquitted), your case ends and you are free to go. If found guilty, the court will proceed to sentencing, which may include fines, probation, community service, or incarceration. You have the right to appeal a conviction.'
       },
       {
         type: 'quote',
-        content: 'Knowledge is power in criminal defense. Understanding the process helps you work more effectively with your attorney and make the best decisions for your situation.'
+        content: 'Every criminal case is unique, and having experienced legal representation from the beginning can make the difference between conviction and acquittal, or between harsh penalties and favorable resolutions.'
+      },
+      {
+        type: 'icon-list',
+        items: [
+          'Sentencing options include fines, probation, community service, or jail time',
+          'You have the right to appeal both the conviction and the sentence',
+          'Some convictions can be sealed or expunged after a waiting period',
+          'Experienced defense counsel can negotiate for alternative sentencing options'
+        ]
       }
     ]
   },
@@ -196,7 +309,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it\'s understanding how the system actually works from the inside.'
+        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it's understanding how the system actually works from the inside.'
       }
     ]
   }
