@@ -34,11 +34,72 @@ export interface ContentSection {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: '4',
+    title: 'Domestic Violence Defense: Why Experience Matters - A Former Prosecutor\'s Perspective',
+    slug: 'domestic-violence-defense-experience-matters',
+    excerpt: 'In Massachusetts, domestic violence charges can upend lives overnight. As a former Assistant District Attorney, I bring unique insider experience to defense strategy.',
+    date: '',
+    author: 'Attorney Joe Brava',
+    category: 'Domestic Violence',
+    imageUrl: '/lovable-uploads/2228ddd2-e50e-4f5e-b0f4-5744b4b264cb.png',
+    keywords: [
+      'domestic violence defense',
+      'former prosecutor',
+      'Massachusetts domestic violence',
+      'criminal defense attorney',
+      'domestic violence charges',
+      'coercive control'
+    ],
+    metaDescription: 'Expert domestic violence defense from a former Massachusetts prosecutor. Learn why prosecutorial experience matters for your defense strategy.',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'In Massachusetts, domestic violence charges can upend lives overnight. With 19 domestic violence homicides reported in 2023 alone, and recent expansions to include coercive control as abuse under state law, the stakes are higher than ever. As a former Assistant District Attorney (ADA) in Massachusetts, I\'ve prosecuted these cases, collaborating closely with law enforcement and victim advocates. Now, as a criminal defense attorney, that insider experience offers a unique lens. It turns prosecution tactics into defense advantages.'
+      },
+      {
+        type: 'heading',
+        content: 'The Prosecutor\'s Playbook: An Insider\'s Edge'
+      },
+      {
+        type: 'paragraph',
+        content: 'Working hand-in-hand with police during investigations, I saw how evidence is gathered as a former prosecutor. This includes everything from 911 calls and witness statements to forensic details. Victim advocates provided crucial insights into survivor needs, shaping how cases were charged under M.G.L. c. 209A, Massachusetts\' key domestic violence statute.'
+      },
+      {
+        type: 'paragraph',
+        content: 'This perspective reveals blind spots many defense attorneys miss. Prosecutors often overcharge to leverage plea deals, assuming emotional dynamics will pressure defendants. But with my background, I anticipate these moves: spotting weak links in "he-said-she-said" narratives, challenging biased assumptions, or highlighting inconsistencies in reports. For instance, coercive control (now legally recognized) involves non-physical patterns like isolation or threats. I know how advocates frame these, allowing me to counter with evidence of mutual conflict or fabrication.'
+      },
+      {
+        type: 'heading',
+        content: 'Beyond the Courtroom: Empathy from Both Sides'
+      },
+      {
+        type: 'paragraph',
+        content: 'What sets my approach apart? It\'s not just strategy; it\'s empathy forged from duality. As an ADA, I advocated for victims, ensuring their voices drove justice. That taught me the system\'s human side. I learned how trauma influences testimony and why cases sometimes escalate without intent. Now, defending clients, I use that to humanize them, negotiating resolutions that prioritize rehabilitation over punishment. Statistics show domestic violence rates dipping slightly in MA, but individual lives hang in the balance.'
+      },
+      {
+        type: 'quote',
+        content: 'Think outside the courtroom: Like a whistleblower exposing corporate secrets, my prosecutorial past uncovers systemic flaws. I decode "pro-victim" policies that can inadvertently bias proceedings, arming clients with defenses rooted in fairness.'
+      },
+      {
+        type: 'heading',
+        content: 'Why This Matters for Your Defense'
+      },
+      {
+        type: 'paragraph',
+        content: 'Hiring a former prosecutor isn\'t about shortcuts. It\'s about leveling the field. We understand how DAs build cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving DV landscape, this insight can mean dismissed charges, reduced sentences, or alternative dispositions.'
+      },
+      {
+        type: 'paragraph',
+        content: 'If you\'re facing domestic violence allegations in Massachusetts, an attorney with this dual perspective can make all the difference. Contact my office for a confidential consultation. Let\'s navigate this together.'
+      }
+    ]
+  },
+  {
     id: '1',
     title: 'What to Expect When Charged in Massachusetts: A Step-by-Step Guide',
     slug: 'what-to-expect-criminal-charges-guide',
     excerpt: 'Understanding the criminal justice process can reduce anxiety and help you make informed decisions. Learn what happens from arraignment to resolution with this comprehensive step-by-step guide.',
-    date: 'January 15, 2025',
+    date: '',
     author: 'Attorney Joe Brava',
     category: 'Criminal Defense',
     imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop&sat=-100',
@@ -154,67 +215,6 @@ export const blogPosts: BlogPost[] = [
           'Some convictions can be sealed or expunged after a waiting period',
           'Experienced defense counsel can negotiate for alternative sentencing options'
         ]
-      }
-    ]
-  },
-  {
-    id: '4',
-    title: 'Domestic Violence Defense: Why Experience Matters - A Former Prosecutor\'s Perspective',
-    slug: 'domestic-violence-defense-experience-matters',
-    excerpt: 'In Massachusetts, domestic violence charges can upend lives overnight. As a former Assistant District Attorney, I bring unique insider experience to defense strategy.',
-    date: 'January 22, 2025',
-    author: 'Attorney Joe Brava',
-    category: 'Domestic Violence',
-    imageUrl: '/lovable-uploads/2228ddd2-e50e-4f5e-b0f4-5744b4b264cb.png',
-    keywords: [
-      'domestic violence defense',
-      'former prosecutor',
-      'Massachusetts domestic violence',
-      'criminal defense attorney',
-      'domestic violence charges',
-      'coercive control'
-    ],
-    metaDescription: 'Expert domestic violence defense from a former Massachusetts prosecutor. Learn why prosecutorial experience matters for your defense strategy.',
-    content: [
-      {
-        type: 'paragraph',
-        content: 'In Massachusetts, domestic violence charges can upend lives overnight. With 19 domestic violence homicides reported in 2023 alone, and recent expansions to include coercive control as abuse under state law, the stakes are higher than ever. As a former Assistant District Attorney (ADA) in Massachusetts, I\'ve prosecuted these cases, collaborating closely with law enforcement and victim advocates. Now, as a criminal defense attorney, that insider experience offers a unique lens. It turns prosecution tactics into defense advantages.'
-      },
-      {
-        type: 'heading',
-        content: 'The Prosecutor\'s Playbook: An Insider\'s Edge'
-      },
-      {
-        type: 'paragraph',
-        content: 'Working hand-in-hand with police during investigations, I saw how evidence is gathered as a former prosecutor. This includes everything from 911 calls and witness statements to forensic details. Victim advocates provided crucial insights into survivor needs, shaping how cases were charged under M.G.L. c. 209A, Massachusetts\' key domestic violence statute.'
-      },
-      {
-        type: 'paragraph',
-        content: 'This perspective reveals blind spots many defense attorneys miss. Prosecutors often overcharge to leverage plea deals, assuming emotional dynamics will pressure defendants. But with my background, I anticipate these moves: spotting weak links in "he-said-she-said" narratives, challenging biased assumptions, or highlighting inconsistencies in reports. For instance, coercive control (now legally recognized) involves non-physical patterns like isolation or threats. I know how advocates frame these, allowing me to counter with evidence of mutual conflict or fabrication.'
-      },
-      {
-        type: 'heading',
-        content: 'Beyond the Courtroom: Empathy from Both Sides'
-      },
-      {
-        type: 'paragraph',
-        content: 'What sets my approach apart? It\'s not just strategy; it\'s empathy forged from duality. As an ADA, I advocated for victims, ensuring their voices drove justice. That taught me the system\'s human side. I learned how trauma influences testimony and why cases sometimes escalate without intent. Now, defending clients, I use that to humanize them, negotiating resolutions that prioritize rehabilitation over punishment. Statistics show domestic violence rates dipping slightly in MA, but individual lives hang in the balance.'
-      },
-      {
-        type: 'quote',
-        content: 'Think outside the courtroom: Like a whistleblower exposing corporate secrets, my prosecutorial past uncovers systemic flaws. I decode "pro-victim" policies that can inadvertently bias proceedings, arming clients with defenses rooted in fairness.'
-      },
-      {
-        type: 'heading',
-        content: 'Why This Matters for Your Defense'
-      },
-      {
-        type: 'paragraph',
-        content: 'Hiring a former prosecutor isn\'t about shortcuts. It\'s about leveling the field. We understand how DAs build cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving DV landscape, this insight can mean dismissed charges, reduced sentences, or alternative dispositions.'
-      },
-      {
-        type: 'paragraph',
-        content: 'If you\'re facing domestic violence allegations in Massachusetts, an attorney with this dual perspective can make all the difference. Contact my office for a confidential consultation. Let\'s navigate this together.'
       }
     ]
   }

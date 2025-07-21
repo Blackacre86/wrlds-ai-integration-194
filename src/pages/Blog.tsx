@@ -63,7 +63,6 @@ const Blog = () => {
                   <CardContent className="p-8 bg-white">
                     <div className="flex items-center gap-2 mb-4">
                       <span className="px-3 py-1 bg-black text-white text-xs font-medium rounded-full">{featuredPost.category}</span>
-                      <span className="text-gray-500 text-sm">{featuredPost.date}</span>
                     </div>
                     <p className="text-gray-700 mb-6 leading-relaxed">
                       {featuredPost.excerpt}
@@ -85,7 +84,7 @@ const Blog = () => {
                 <BlogPostCard 
                   title={domesticViolencePost.title}
                   excerpt={domesticViolencePost.excerpt}
-                  imageUrl={domesticViolencePost.imageUrl || '/lovable-uploads/429cf62b-eccf-43e9-943b-5ed52555fed2.png'}
+                  imageUrl={domesticViolencePost.imageUrl || '/lovable-uploads/2228ddd2-e50e-4f5e-b0f4-5744b4b264cb.png'}
                   date={domesticViolencePost.date}
                   slug={domesticViolencePost.slug}
                   category={domesticViolencePost.category}
