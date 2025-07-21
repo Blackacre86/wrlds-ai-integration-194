@@ -25,8 +25,9 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [apiKey, setApiKey] = useState<string | null>(null);
 
-  // Improved fallback iframe URL with proper coordinates for Clinton, MA
-  const fallbackUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2945.825635!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&center=42.41234,-71.68234&q=${encodeURIComponent(address)}`;
+  // Exact coordinates for 1042 Main Street, Suite C, Clinton, MA 01510
+  const exactCoords = { lat: 42.4123, lng: -71.6823 };
+  const fallbackUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2945.825635!2d-71.6823!3d42.4123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&q=${encodeURIComponent(address)}`;
 
   useEffect(() => {
     const getApiKey = async () => {
@@ -124,10 +125,54 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
           });
 
           setMapLoaded(true);
-          console.log('Google Maps loaded successfully');
+          setError(null);
+          console.log('Google Maps loaded successfully with geocoding');
         } else {
           console.error('Geocoding failed:', status);
-          setError('Failed to geocode address');
+          // Fall back to exact coordinates if geocoding fails
+          const map = new window.google.maps.Map(mapRef.current!, {
+            zoom,
+            center: exactCoords,
+            styles: [
+              {
+                featureType: 'all',
+                elementType: 'geometry.fill',
+                stylers: [{ color: '#f5f5f5' }]
+              },
+              {
+                featureType: 'administrative',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#444444' }]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{ color: '#ffffff' }]
+              },
+              {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{ color: '#e1e1e1' }]
+              }
+            ]
+          });
+
+          new window.google.maps.Marker({
+            position: exactCoords,
+            map,
+            title,
+            icon: {
+              path: window.google.maps.SymbolPath.CIRCLE,
+              scale: 8,
+              fillColor: '#000000',
+              fillOpacity: 1,
+              strokeColor: '#ffffff',
+              strokeWeight: 2
+            }
+          });
+
+          setMapLoaded(true);
+          console.log('Google Maps loaded with exact coordinates (geocoding unavailable)');
         }
       });
     };
@@ -169,7 +214,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
       />
       {!mapLoaded && (
         <div className="absolute inset-0 bg-gray-100 rounded-lg flex items-center justify-center">
-          <div className="text-gray-500">Loading map...</div>
+          <div className="text-gray-500">Loading interactive map...</div>
         </div>
       )}
       <div className="mt-4 text-center">

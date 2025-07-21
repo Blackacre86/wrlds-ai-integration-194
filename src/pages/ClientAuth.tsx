@@ -32,7 +32,7 @@ export default function ClientAuth() {
   const navigate = useNavigate();
 
   // Updated reCAPTCHA site key for summitlawoffices.com domain
-  const RECAPTCHA_SITE_KEY = "6LeavoorAAAAAFsSFI4Wzpy0raz1aRvJTZ9-TIet";
+  const RECAPTCHA_SITE_KEY = "6Lfx2YorAAAAABdph_Xsy6eGBE1cUmnjZpX_8gX9";
 
   useEffect(() => {
     // Set up auth state listener FIRST
