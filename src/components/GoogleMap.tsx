@@ -25,9 +25,11 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [apiKey, setApiKey] = useState<string | null>(null);
 
-  // Exact coordinates for 1042 Main Street, Suite C, Clinton, MA 01510
-  const exactCoords = { lat: 42.4123, lng: -71.6823 };
-  const fallbackUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2945.825635!2d-71.6823!3d42.4123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&q=${encodeURIComponent(address)}`;
+  // CORRECTED coordinates for 1042 Main Street, Suite C, Clinton, MA 01510
+  const exactCoords = { lat: 42.4329, lng: -71.6896 };
+  
+  // Updated fallback URL with the correct embed code from the working iframe
+  const fallbackUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4164.514615379953!2d-71.68960657791875!3d42.432917130464254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3f1969551a46d%3A0xf644873c426bbbd!2s1042%20Main%20St!5e0!3m2!1sen!2sus!4v1753132459146!5m2!1sen!2sus`;
 
   useEffect(() => {
     const getApiKey = async () => {
@@ -88,14 +90,9 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
             center: results[0].geometry.location,
             styles: [
               {
-                featureType: 'all',
-                elementType: 'geometry.fill',
-                stylers: [{ color: '#f5f5f5' }]
-              },
-              {
-                featureType: 'administrative',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#444444' }]
+                featureType: 'poi',
+                elementType: 'labels',
+                stylers: [{ visibility: 'on' }]
               },
               {
                 featureType: 'road',
@@ -103,9 +100,19 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
                 stylers: [{ color: '#ffffff' }]
               },
               {
+                featureType: 'road',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#666666' }]
+              },
+              {
                 featureType: 'water',
                 elementType: 'geometry',
-                stylers: [{ color: '#e1e1e1' }]
+                stylers: [{ color: '#c9e7f7' }]
+              },
+              {
+                featureType: 'landscape',
+                elementType: 'geometry',
+                stylers: [{ color: '#f5f5f5' }]
               }
             ]
           });
@@ -116,11 +123,11 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
             title,
             icon: {
               path: window.google.maps.SymbolPath.CIRCLE,
-              scale: 8,
-              fillColor: '#000000',
+              scale: 10,
+              fillColor: '#dc2626',
               fillOpacity: 1,
               strokeColor: '#ffffff',
-              strokeWeight: 2
+              strokeWeight: 3
             }
           });
 
@@ -135,14 +142,9 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
             center: exactCoords,
             styles: [
               {
-                featureType: 'all',
-                elementType: 'geometry.fill',
-                stylers: [{ color: '#f5f5f5' }]
-              },
-              {
-                featureType: 'administrative',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#444444' }]
+                featureType: 'poi',
+                elementType: 'labels',
+                stylers: [{ visibility: 'on' }]
               },
               {
                 featureType: 'road',
@@ -150,9 +152,19 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
                 stylers: [{ color: '#ffffff' }]
               },
               {
+                featureType: 'road',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#666666' }]
+              },
+              {
                 featureType: 'water',
                 elementType: 'geometry',
-                stylers: [{ color: '#e1e1e1' }]
+                stylers: [{ color: '#c9e7f7' }]
+              },
+              {
+                featureType: 'landscape',
+                elementType: 'geometry',
+                stylers: [{ color: '#f5f5f5' }]
               }
             ]
           });
@@ -163,11 +175,11 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
             title,
             icon: {
               path: window.google.maps.SymbolPath.CIRCLE,
-              scale: 8,
-              fillColor: '#000000',
+              scale: 10,
+              fillColor: '#dc2626',
               fillOpacity: 1,
               strokeColor: '#ffffff',
-              strokeWeight: 2
+              strokeWeight: 3
             }
           });
 
