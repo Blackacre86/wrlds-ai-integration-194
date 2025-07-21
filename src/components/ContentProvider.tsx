@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, ReactNode } from 'react';
 
 interface ContentContextType {
@@ -16,10 +15,10 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
     // Static content mapping for immediate implementation
     const contentMap: Record<string, any> = {
       'hero': {
-        title: "Strategic Criminal Defense Across Massachusetts",
-        subtitle: "Attorney Joe Brava provides strategic criminal defense across Massachusetts. Former prosecutor with 1,000+ cases of experience.",
-        description: "When facing criminal charges in Massachusetts, you need more than just legal representation – you need a strategic defense partner who understands both sides of the courtroom.",
-        ctaText: "Call Now",
+        title: "Strategic Criminal Defense",
+        subtitle: "Former Prosecutor • 1,000+ Cases • Massachusetts",
+        description: "Strategic defense partner who understands both sides of the courtroom.",
+        ctaText: "Get Consultation",
         ctaPhone: "508-454-0822"
       },
       'practiceAreas': {
