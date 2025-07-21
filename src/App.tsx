@@ -19,6 +19,8 @@ import SportRetailProject from "./pages/SportRetailProject";
 import FireCatProject from "./pages/FireCatProject";
 import ClientAuth from "./pages/ClientAuth";
 import ClientPortal from "./pages/ClientPortal";
+import Blog from "./pages/Blog";
+import BlogPostDetail from "./pages/BlogPostDetail";
 import ErrorBoundary from "./components/ErrorBoundary";
 import React from "react";
 
@@ -50,6 +52,8 @@ const App = () => (
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/tech-details" element={<TechDetails />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPostDetail />} />
                 <Route path="/projects/hockey" element={<HockeyProject />} />
                 <Route path="/projects/pet" element={<PetProject />} />
                 <Route path="/projects/workwear" element={<WorkwearProject />} />

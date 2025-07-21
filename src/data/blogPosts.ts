@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -41,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 15, 2025',
     author: 'Attorney Joe Brava',
     category: 'Criminal Defense',
-    imageUrl: '/lovable-uploads/6a396c18-f5b0-4821-bc71-bcc05bb64089.png',
+    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop',
     keywords: [
       'criminal charges',
       'criminal defense process',
@@ -95,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 8, 2025',
     author: 'Attorney Joe Brava',
     category: 'Domestic Violence',
-    imageUrl: '/lovable-uploads/92cc4676-3f43-4a6e-9bbe-1cb528cc4386.png',
+    imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop',
     keywords: [
       'domestic violence defense',
       'domestic violence charges',
@@ -148,7 +147,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 2, 2025',
     author: 'Attorney Joe Brava',
     category: 'Legal Insights',
-    imageUrl: '/lovable-uploads/810c64ae-5dff-4a0a-ab8b-555b99cf604a.png',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop',
     keywords: [
       'former prosecutor',
       'defense attorney',
@@ -197,7 +196,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it\'s understanding how the system actually works from the inside.'
+        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it's understanding how the system actually works from the inside.'
       }
     ]
   }
