@@ -20,15 +20,27 @@ import FireCatProject from "./pages/FireCatProject";
 import ClientAuth from "./pages/ClientAuth";
 import ClientPortal from "./pages/ClientPortal";
 import ErrorBoundary from "./components/ErrorBoundary";
+import React from "react";
 
 const queryClient = new QueryClient();
+
+// Safe TooltipProvider wrapper with error handling
+const SafeTooltipProvider = ({ children }: { children: React.ReactNode }) => {
+  try {
+    return <TooltipProvider>{children}</TooltipProvider>;
+  } catch (error) {
+    console.error('TooltipProvider error:', error);
+    // Return children without tooltips if TooltipProvider fails
+    return <>{children}</>;
+  }
+};
 
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <ContentProvider>
-          <TooltipProvider>
+        <SafeTooltipProvider>
+          <ContentProvider>
             <Toaster />
             <Sonner />
             <BrowserRouter>
@@ -48,8 +60,8 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
-          </TooltipProvider>
-        </ContentProvider>
+          </ContentProvider>
+        </SafeTooltipProvider>
       </HelmetProvider>
     </QueryClientProvider>
   </ErrorBoundary>
