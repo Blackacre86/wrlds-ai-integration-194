@@ -374,7 +374,7 @@ export default function ClientAuth() {
                     <div className="flex justify-center">
                       <ReCAPTCHA
                         ref={recaptchaRef}
-                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with real key
+                        sitekey="6LeavoorAAAAAFsSFI4Wzpy0raz1aRvJTZ9-TIet"
                         onChange={(token) => setRecaptchaToken(token)}
                         onExpired={() => setRecaptchaToken(null)}
                       />
@@ -450,7 +450,7 @@ export default function ClientAuth() {
                     <div className="flex justify-center">
                       <ReCAPTCHA
                         ref={recaptchaRef}
-                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with real key
+                        sitekey="6LeavoorAAAAAFsSFI4Wzpy0raz1aRvJTZ9-TIet"
                         onChange={(token) => setRecaptchaToken(token)}
                         onExpired={() => setRecaptchaToken(null)}
                       />
