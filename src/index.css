@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -81,9 +82,9 @@
     @apply leading-relaxed;
   }
 
-  /* Standardized Section Spacing */
+  /* Reduced Section Spacing - from py-20 to py-8 */
   section {
-    @apply relative py-20;
+    @apply relative py-8;
   }
 
   /* Remove redundant borders between sections */
@@ -97,9 +98,9 @@
   }
 }
 
-/* Professional spacing utilities */
+/* Reduced Professional spacing utilities - from py-20 md:py-24 lg:py-28 to py-8 md:py-12 lg:py-16 */
 .section-spacing {
-  @apply py-20 md:py-24 lg:py-28;
+  @apply py-8 md:py-12 lg:py-16;
 }
 
 .content-spacing {
@@ -207,3 +208,4 @@
 .animation-delay-300 { animation-delay: 300ms !important; }
 .animation-delay-400 { animation-delay: 400ms !important; }
 .animation-delay-500 { animation-delay: 500ms !important; }
+

@@ -1,4 +1,5 @@
 
+
 import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
@@ -24,7 +25,7 @@ const Index = () => {
           <Hero />
         </header>
         
-        <TransitionShape variant="wave" direction="down" color="gray" className="my-8" />
+        <TransitionShape variant="wave" direction="down" color="gray" />
         
         <section id="summit-advantage" role="region" aria-labelledby="advantage-heading" className="animate-fade-in">
           <SummitAdvantage />
@@ -36,7 +37,7 @@ const Index = () => {
           <PracticeAreas />
         </section>
         
-        <TransitionShape variant="curve" direction="down" color="gray" className="my-8" />
+        <TransitionShape variant="curve" direction="down" color="gray" />
         
         <section id="attorney-profile" role="region" aria-labelledby="attorney-heading" itemScope itemType="https://schema.org/Person" className="animate-fade-in animation-delay-300">
           <AttorneyProfile />
@@ -48,7 +49,7 @@ const Index = () => {
           <BlogPreview />
         </section>
         
-        <TransitionShape variant="diagonal" direction="down" color="gray" className="my-8" />
+        <TransitionShape variant="diagonal" direction="down" color="gray" />
         
         <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -83,3 +84,4 @@ const Index = () => {
 };
 
 export default Index;
+

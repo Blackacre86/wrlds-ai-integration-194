@@ -31,8 +31,8 @@ export default function ClientAuth() {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Updated reCAPTCHA site key - new v2 key for checkbox implementation
-  const RECAPTCHA_SITE_KEY = "6LfQ3oorAAAAAKUtoYAuiC7blsfLKa0eEoldd9x7";
+  // Updated reCAPTCHA site key to the new one provided by the user
+  const RECAPTCHA_SITE_KEY = "6Ldp5IorAAAAAPD--nwFo4xKR_-1GBby5cy9e__3";
 
   useEffect(() => {
     // Set up auth state listener FIRST
