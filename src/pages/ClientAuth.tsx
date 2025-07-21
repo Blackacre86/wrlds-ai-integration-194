@@ -31,7 +31,7 @@ export default function ClientAuth() {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Updated reCAPTCHA site key for your domain
+  // Updated reCAPTCHA site key for summitlawoffices.com domain
   const RECAPTCHA_SITE_KEY = "6LeavoorAAAAAFsSFI4Wzpy0raz1aRvJTZ9-TIet";
 
   useEffect(() => {

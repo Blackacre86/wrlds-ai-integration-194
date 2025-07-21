@@ -25,15 +25,26 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [apiKey, setApiKey] = useState<string | null>(null);
 
-  // Fallback iframe URL
-  const fallbackUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2943.825635!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&q=${encodeURIComponent(address)}`;
+  // Improved fallback iframe URL with proper coordinates for Clinton, MA
+  const fallbackUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2945.825635!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&center=42.41234,-71.68234&q=${encodeURIComponent(address)}`;
 
   useEffect(() => {
     const getApiKey = async () => {
       try {
+        console.log('Fetching Google Maps API key...');
         const { data, error } = await supabase.functions.invoke('get-maps-key');
-        if (error) throw error;
-        setApiKey(data?.key);
+        
+        if (error) {
+          console.error('Error from get-maps-key function:', error);
+          throw error;
+        }
+        
+        if (data?.key) {
+          console.log('Successfully retrieved API key');
+          setApiKey(data.key);
+        } else {
+          throw new Error('No API key returned from function');
+        }
       } catch (err) {
         console.error('Error getting Maps API key:', err);
         setError('Failed to load Maps API key');
@@ -57,7 +68,10 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
       script.async = true;
       script.defer = true;
       script.onload = initializeMap;
-      script.onerror = () => setError('Failed to load Google Maps');
+      script.onerror = () => {
+        console.error('Failed to load Google Maps API');
+        setError('Failed to load Google Maps');
+      };
       document.head.appendChild(script);
     };
 
@@ -110,7 +124,9 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
           });
 
           setMapLoaded(true);
+          console.log('Google Maps loaded successfully');
         } else {
+          console.error('Geocoding failed:', status);
           setError('Failed to geocode address');
         }
       });
