@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 15, 2025',
     author: 'Attorney Joe Brava',
     category: 'Criminal Defense',
-    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop&sat=-100',
     keywords: [
       'criminal charges',
       'criminal defense process',
@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 8, 2025',
     author: 'Attorney Joe Brava',
     category: 'Domestic Violence',
-    imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/lovable-uploads/429cf62b-eccf-43e9-943b-5ed52555fed2.png',
     keywords: [
       'domestic violence defense',
       'domestic violence charges',
@@ -147,7 +147,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 2, 2025',
     author: 'Attorney Joe Brava',
     category: 'Legal Insights',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?q=80&w=2076&auto=format&fit=crop&sat=-100',
     keywords: [
       'former prosecutor',
       'defense attorney',
@@ -196,7 +196,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it\'s understanding how the system actually works from the inside.'
+        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it's understanding how the system actually works from the inside.'
       }
     ]
   }
