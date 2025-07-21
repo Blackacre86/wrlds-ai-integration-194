@@ -32,7 +32,6 @@ const SafeTooltipProvider = ({ children }: { children: React.ReactNode }) => {
     return <TooltipProvider>{children}</TooltipProvider>;
   } catch (error) {
     console.error('TooltipProvider error:', error);
-    // Return children without tooltips if TooltipProvider fails
     return <>{children}</>;
   }
 };

@@ -76,7 +76,6 @@ const BlogPreview = () => {
             </div>
           </ScrollArea>
           
-          {/* Show grid layout on non-mobile screens */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {recentPosts.map((post) => (
               <BlogPostCard

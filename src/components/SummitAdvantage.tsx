@@ -4,9 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useContentContext } from '@/components/ContentProvider';
 
 const SummitAdvantage = () => {
-  const {
-    getContent
-  } = useContentContext();
+  const { getContent } = useContentContext();
   const advantagesContent = getContent('advantages');
   
   return (
