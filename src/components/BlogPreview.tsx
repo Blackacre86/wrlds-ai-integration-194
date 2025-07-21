@@ -19,11 +19,11 @@ const BlogPreview = () => {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Newspaper size={20} className="text-black" />
-              <span className="text-black font-medium">Our Blog</span>
+              <span className="text-black font-medium">Legal Insights</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Latest Updates</h2>
             <p className="text-gray-800 max-w-xl">
-              Explore our latest insights on smart textile technology, industry trends, and innovation.
+              Stay informed with our latest insights on criminal defense strategies, legal rights, and navigating the Massachusetts court system.
             </p>
           </div>
           <Link to="/blog" className="mt-4 md:mt-0">

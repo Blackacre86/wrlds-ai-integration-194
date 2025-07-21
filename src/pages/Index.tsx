@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import PracticeAreas from '@/components/PracticeAreas';
 import AttorneyProfile from '@/components/AttorneyProfile';
 import SummitAdvantage from '@/components/SummitAdvantage';
+import BlogPreview from '@/components/BlogPreview';
 import TransitionShape from '@/components/TransitionShape';
 import SEO from '@/components/SEO';
 
@@ -43,7 +44,13 @@ const Index = () => {
         
         <TransitionShape variant="angular" direction="up" color="white" />
         
-        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-400">
+        <section id="blog" role="region" aria-labelledby="blog-heading" className="animate-fade-in animation-delay-400">
+          <BlogPreview />
+        </section>
+        
+        <TransitionShape variant="seamless" direction="down" color="gray" />
+        
+        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="relative">
               <h2 id="portal-heading" className="text-3xl md:text-4xl font-bold mb-6 text-black">
