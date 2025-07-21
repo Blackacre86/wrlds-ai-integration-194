@@ -309,7 +309,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it's understanding how the system actually works from the inside.'
+        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it\'s understanding how the system actually works from the inside.'
       }
     ]
   }
