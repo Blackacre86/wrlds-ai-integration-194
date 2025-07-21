@@ -26,7 +26,7 @@ const BlogPostCard = ({
       <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full">
         <div className="grid grid-rows-[200px,1fr]">
           <div
-            className="bg-cover bg-center"
+            className="bg-cover bg-center grayscale"
             style={{ backgroundImage: `url('${imageUrl}')` }}
           />
           <CardContent className="p-6">

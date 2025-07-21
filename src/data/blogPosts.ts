@@ -165,7 +165,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 22, 2025',
     author: 'Attorney Joe Brava',
     category: 'Domestic Violence',
-    imageUrl: '/lovable-uploads/429cf62b-eccf-43e9-943b-5ed52555fed2.png',
+    imageUrl: '/lovable-uploads/2228ddd2-e50e-4f5e-b0f4-5744b4b264cb.png',
     keywords: [
       'domestic violence defense',
       'former prosecutor',

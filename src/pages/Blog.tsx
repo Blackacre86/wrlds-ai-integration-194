@@ -45,8 +45,8 @@ const Blog = () => {
             <Link to={`/blog/${featuredPost.slug}`} className="col-span-1 md:col-span-2 lg:col-span-3">
               <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full border-2 border-gray-200 hover:border-black">
                 <div className="grid md:grid-cols-2 h-full">
-                  <div 
-                    className="bg-cover bg-center h-64 md:h-full p-8 flex items-center justify-center relative"
+                   <div 
+                    className="bg-cover bg-center h-64 md:h-full p-8 flex items-center justify-center relative grayscale"
                     style={{ 
                       backgroundImage: `url('${featuredPost.imageUrl}')`,
                       backgroundSize: 'cover',
