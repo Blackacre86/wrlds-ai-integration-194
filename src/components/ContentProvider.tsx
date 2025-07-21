@@ -16,7 +16,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
     const contentMap: Record<string, any> = {
       'hero': {
         title: "Proven Criminal Defense in Massachusetts",
-        subtitle: "Former Prosecutor • 1,000+ Cases • Massachusetts",
+        subtitle: "Former Prosecutor. 1000+ Cases Handled. Focused on Results",
         description: "Strategic defense partner who understands both sides of the courtroom.",
         ctaText: "Get Consultation",
         ctaPhone: "508-454-0822"
