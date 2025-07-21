@@ -10,7 +10,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Mail } from 'lucide-react';
 import SEO from '@/components/SEO';
 
 export default function ClientAuth() {
@@ -20,13 +20,13 @@ export default function ClientAuth() {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
-  const [inviteCode, setInviteCode] = useState('');
   const [lockoutInfo, setLockoutInfo] = useState<{
     is_locked: boolean;
     failed_attempts: number;
     locked_until?: string;
   } | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [requestingAccess, setRequestingAccess] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -112,6 +112,46 @@ export default function ClientAuth() {
     }
   };
 
+  const requestAccessCode = async () => {
+    if (!email) {
+      toast({
+        title: "Error",
+        description: "Please enter your email address first",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setRequestingAccess(true);
+    try {
+      // Call the send-email edge function to request access
+      const { data, error } = await supabase.functions.invoke('send-email', {
+        body: {
+          type: 'access_request',
+          email: email,
+          name: 'Access Request',
+          message: `Access request for client portal from ${email}`
+        }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Access Request Sent",
+        description: "Your access request has been sent to Summit Law Offices. We'll contact you with your access code soon.",
+      });
+    } catch (error: any) {
+      console.error('Error requesting access:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send access request. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setRequestingAccess(false);
+    }
+  };
+
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
@@ -185,10 +225,10 @@ export default function ClientAuth() {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password || !confirmPassword || !inviteCode) {
+    if (!email || !password || !confirmPassword) {
       toast({
         title: "Error",
-        description: "Please fill in all fields including the invite code",
+        description: "Please fill in all fields",
         variant: "destructive"
       });
       return;
@@ -198,16 +238,6 @@ export default function ClientAuth() {
       toast({
         title: "Error",
         description: "Passwords do not match",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Check for universal invite code
-    if (inviteCode.toLowerCase() !== 'summit') {
-      toast({
-        title: "Access Denied",
-        description: "Invalid invite code. Please contact Summit Law Offices for access.",
         variant: "destructive"
       });
       return;
@@ -394,8 +424,8 @@ export default function ClientAuth() {
                   <form onSubmit={handleSignUp} className="space-y-4">
                     <Alert className="border-blue-500">
                       <AlertDescription>
-                        Registration requires the access code provided by Summit Law Offices. 
-                        Contact our office if you need access.
+                        Registration requires approval from Summit Law Offices. 
+                        Click "Request Access Code" to get started.
                       </AlertDescription>
                     </Alert>
                     
@@ -412,15 +442,17 @@ export default function ClientAuth() {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="invite-code">Access Code *</Label>
-                      <Input
-                        id="invite-code"
-                        type="text"
-                        value={inviteCode}
-                        onChange={(e) => setInviteCode(e.target.value)}
-                        placeholder="Enter your access code"
-                        required
-                      />
+                      <Label>Access Code</Label>
+                      <Button 
+                        type="button"
+                        variant="outline"
+                        className="w-full"
+                        onClick={requestAccessCode}
+                        disabled={requestingAccess || !email}
+                      >
+                        <Mail className="h-4 w-4 mr-2" />
+                        {requestingAccess ? 'Requesting...' : 'Request Access Code'}
+                      </Button>
                     </div>
                     
                     <div className="space-y-2">
