@@ -1,5 +1,3 @@
-
-
 import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
@@ -43,7 +41,7 @@ const Index = () => {
           <AttorneyProfile />
         </section>
         
-        <TransitionShape variant="angular" direction="up" color="white" />
+        <TransitionShape variant="angular" direction="up" color="gray" />
         
         <section id="blog" role="region" aria-labelledby="blog-heading" className="animate-fade-in animation-delay-400">
           <BlogPreview />
@@ -84,4 +82,3 @@ const Index = () => {
 };
 
 export default Index;
-
