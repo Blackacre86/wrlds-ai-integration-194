@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
           {
             value: '90%',
             label: 'Cases Resolved Before Trial',
-            icon: 'Shield'
+            icon: 'DollarSign'
           }
         ]
       },
@@ -136,26 +136,6 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         content: 'The pretrial phase involves the exchange of evidence (discovery), pretrial conferences to resolve procedural issues, and the filing of various motions. This is often the most important phase of your case, where skilled defense work can significantly impact the outcome.'
-      },
-      {
-        type: 'stats',
-        statsData: [
-          {
-            value: '30-90',
-            label: 'Days for Discovery Process',
-            icon: 'Database'
-          },
-          {
-            value: '85%',
-            label: 'Cases with Plea Negotiations',
-            icon: 'Users'
-          },
-          {
-            value: '15%',
-            label: 'Cases Dismissed on Motions',
-            icon: 'Shield'
-          }
-        ]
       },
       {
         type: 'heading',
@@ -309,7 +289,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'quote',
-        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it\'s understanding how the system actually works from the inside.'
+        content: 'The greatest advantage of hiring a former prosecutor isn\'t just understanding the law—it's understanding how the system actually works from the inside.'
       }
     ]
   }

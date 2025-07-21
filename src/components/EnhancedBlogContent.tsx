@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ContentSection } from '@/data/blogPosts';
-import { DollarSign, Users, TrendingUp, Shield, Zap, Settings, Database } from 'lucide-react';
+import { DollarSign, Users, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
@@ -12,11 +12,7 @@ interface EnhancedBlogContentProps {
 const iconMap = {
   DollarSign,
   Users,
-  TrendingUp,
-  Shield,
-  Zap,
-  Settings,
-  Database
+  TrendingUp
 };
 
 const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) => {
@@ -58,13 +54,13 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
         return (
           <div key={index} className="grid gap-3 md:gap-4 mb-6 md:mb-8">
             {section.items?.map((item, itemIndex) => {
-              const icons = [Shield, Zap, Settings, Database];
-              const IconComponent = icons[itemIndex % icons.length];
+              const letters = ['A', 'B', 'C', 'D'];
+              const letter = letters[itemIndex % letters.length];
               return (
                 <Card key={itemIndex} className="border-2 border-black hover:shadow-lg transition-shadow">
                   <CardContent className="p-3 md:p-4 flex items-start space-x-3 md:space-x-4">
-                    <div className="bg-black p-2 rounded-lg flex-shrink-0">
-                      <IconComponent className="h-4 w-4 md:h-6 md:w-6 text-white" />
+                    <div className="bg-black p-2 rounded-lg flex-shrink-0 w-8 h-8 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">{letter}</span>
                     </div>
                     <p className="text-gray-800 leading-relaxed flex-1 text-sm md:text-base">{item}</p>
                   </CardContent>

@@ -20,9 +20,10 @@ const ExpandableContentSection: React.FC<ExpandableContentSectionProps> = ({
   defaultOpen = false
 }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
+  const sectionId = stepNumber ? `step-${stepNumber}` : undefined;
 
   return (
-    <Card className="border-2 border-black mb-6 overflow-hidden">
+    <Card id={sectionId} className="border-2 border-black mb-6 overflow-hidden">
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         <CollapsibleTrigger className="w-full">
           <div className="bg-black text-white p-6 flex items-center justify-between hover:bg-gray-800 transition-colors">
