@@ -51,7 +51,8 @@ const Blog = () => {
                       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${featuredPost.imageUrl}')`,
                       backgroundSize: 'cover',
                       backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center'
+                      backgroundPosition: 'center',
+                      filter: 'grayscale(100%)'
                     }}
                   >
                     <div className="text-white text-center">
