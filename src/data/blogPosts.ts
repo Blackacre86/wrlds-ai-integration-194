@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Imagine the criminal justice system as a high-stakes chess game. As a former prosecutor, I didn\'t just play the game; I helped write the rules. Working hand-in-hand with police during investigations, I saw how evidence is gathered. This includes everything from 911 calls and witness statements to forensic details. Victim advocates provided crucial insights into survivor needs, shaping how cases were charged under M.G.L. c. 209A, Massachusetts\' key domestic violence statute.'
+        content: 'Working hand-in-hand with police during investigations, I saw how evidence is gathered as a former prosecutor. This includes everything from 911 calls and witness statements to forensic details. Victim advocates provided crucial insights into survivor needs, shaping how cases were charged under M.G.L. c. 209A, Massachusetts\' key domestic violence statute.'
       },
       {
         type: 'paragraph',
