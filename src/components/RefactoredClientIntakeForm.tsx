@@ -175,6 +175,7 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
   const saveProgress = async (isAutoSave = false) => {
     if (saving) return;
     
+    console.log('Saving progress, isAutoSave:', isAutoSave, 'userId:', userId, 'formData:', formData);
     setSaving(true);
     try {
       // Transform form data to match database schema
