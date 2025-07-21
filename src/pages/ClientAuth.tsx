@@ -307,9 +307,7 @@ export default function ClientAuth() {
         <header className="bg-white shadow-sm border-b">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
-              <Link to="/" className="flex items-center text-2xl font-bold hover:text-primary transition-colors">
-                Summit Law Offices
-              </Link>
+              <Link to="/" className="flex items-center text-2xl font-bold hover:text-primary transition-colors">Summit Law</Link>
               <Button asChild variant="ghost" size="sm">
                 <Link to="/" className="flex items-center gap-2">
                   <ArrowLeft className="h-4 w-4" />
