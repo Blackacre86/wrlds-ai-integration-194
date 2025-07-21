@@ -128,9 +128,9 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'icon-list',
         items: [
-          '**Jury Trial** — Best when the facts are complicated or you need jurors to connect emotionally with your story',
-          '**Bench Trial** — Best for cases that hinge on technical legal arguments where a judge can decide quickly',
-          '**Plea Agreement** — Best when you want a predictable resolution and lower overall risk'
+          'Jury Trial: Best when the facts are complicated or you need jurors to connect emotionally with your story',
+          'Bench Trial: Best for cases that hinge on technical legal arguments where a judge can decide quickly',
+          'Plea Agreement: Best when you want a predictable resolution and lower overall risk'
         ]
       },
       {
