@@ -13,9 +13,6 @@ const SummitAdvantage = () => {
     <section id="summit-advantage" className="py-12 md:py-16 px-4 md:px-12 bg-gradient-to-b from-gray-50 via-gray-50 to-transparent">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
-          <div className="mb-4">
-            
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
             {advantagesContent?.title || "Why Choose Summit Law"}
           </h2>
