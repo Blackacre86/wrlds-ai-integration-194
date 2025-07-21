@@ -3,9 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { useContentContext } from '@/components/ContentProvider';
 
 const AttorneyProfile = () => {
-  const {
-    getContent
-  } = useContentContext();
+  const { getContent } = useContentContext();
   const attorneyContent = getContent('attorney');
   
   return (
