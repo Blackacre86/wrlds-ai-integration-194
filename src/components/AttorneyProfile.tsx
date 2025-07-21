@@ -19,31 +19,7 @@ const AttorneyProfile = () => {
             </p>
           </div>
 
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-black">Professional Background</h3>
-              <div className="space-y-4 text-gray-800">
-                <p className="leading-relaxed">
-                  <strong>Former Prosecutor:</strong> {attorneyContent?.background?.prosecutor || "Served as an Assistant District Attorney, gaining invaluable insight into prosecution strategies and case development from the inside."}
-                </p>
-                <p className="leading-relaxed">
-                  <strong>Trial Experience:</strong> {attorneyContent?.background?.experience || "Successfully handled over 1,000 criminal cases, from minor infractions to serious felonies."}
-                </p>
-                <p className="leading-relaxed">
-                  <strong>Legal Education:</strong> {attorneyContent?.background?.education || "Graduated from Suffolk University Law School with honors."}
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-black">Practice Philosophy</h3>
-              <div className="space-y-4 text-gray-800">
-                <p className="leading-relaxed">
-                  "Most defense attorneys immediately start defending against accusations. My approach is different. With my experience as a former prosecutor, I first think like an Assistant District Attorney (ADA) and build the strongest possible case against my client. Once I know exactly how the prosecution will try to prove their case, I can identify weaknesses and create powerful strategies for defense. This method, combined with cutting-edge technology and AI analysis, gives my clients an exceptional advantage in court."
-                </p>
-              </div>
-            </div>
-          </div>
+          
         </div>
         </div>
       </article>
