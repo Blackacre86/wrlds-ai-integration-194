@@ -12,6 +12,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { ArrowLeft, Mail } from 'lucide-react';
 import SEO from '@/components/SEO';
+import { loginRateLimiter, signupRateLimiter } from '@/utils/rateLimiter';
 
 export default function ClientAuth() {
   const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ export default function ClientAuth() {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Updated reCAPTCHA site key to the new one provided by the user
+  // Get reCAPTCHA site key from environment or fallback
   const RECAPTCHA_SITE_KEY = "6Ldp5IorAAAAAPD--nwFo4xKR_-1GBby5cy9e__3";
 
   useEffect(() => {
@@ -169,6 +170,17 @@ export default function ClientAuth() {
       return;
     }
 
+    // Check rate limiting
+    if (loginRateLimiter.isRateLimited(email)) {
+      const remainingTime = Math.ceil(loginRateLimiter.getRemainingTime(email) / 1000 / 60);
+      toast({
+        title: "Too Many Attempts",
+        description: `Please wait ${remainingTime} minutes before trying again.`,
+        variant: "destructive"
+      });
+      return;
+    }
+
     setLoading(true);
     try {
       const lockoutData = await checkAccountLockout(email);
@@ -196,11 +208,13 @@ export default function ClientAuth() {
 
       if (error) {
         await supabase.rpc('record_failed_login', { p_email: email });
+        loginRateLimiter.recordAttempt(email);
         throw error;
       }
 
       if (data.user) {
         await supabase.rpc('reset_failed_login', { p_email: email });
+        loginRateLimiter.reset(email);
         window.location.href = '/client-portal';
       }
     } catch (error: any) {
@@ -231,6 +245,26 @@ export default function ClientAuth() {
       toast({
         title: "Error",
         description: "Passwords do not match",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Enhanced password validation
+    if (password.length < 8) {
+      toast({
+        title: "Error",
+        description: "Password must be at least 8 characters long",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
+    if (!passwordRegex.test(password)) {
+      toast({
+        title: "Error",
+        description: "Password must contain at least one uppercase letter, one lowercase letter, and one number",
         variant: "destructive"
       });
       return;
@@ -446,7 +480,7 @@ export default function ClientAuth() {
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Create a password (min 8 characters)"
+                        placeholder="Password: 8+ chars, uppercase, lowercase, number"
                         required
                         minLength={8}
                       />

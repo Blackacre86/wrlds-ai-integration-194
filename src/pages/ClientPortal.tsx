@@ -6,66 +6,27 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
-import { LogOut, FileText, User as UserIcon, Home } from 'lucide-react';
+import { LogOut, FileText, User as UserIcon, Home, Shield } from 'lucide-react';
 import RefactoredClientIntakeForm from '@/components/RefactoredClientIntakeForm';
+import SecurityProvider from '@/components/SecurityProvider';
+import { useSecureSession } from '@/hooks/useSecureSession';
 
 export default function ClientPortal() {
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, session, loading, secureSignOut, logSecurityEvent } = useSecureSession();
   const [activeTab, setActiveTab] = useState('intake');
   const { toast } = useToast();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
-        
-        if (!session?.user) {
-          navigate('/client-auth');
-        }
-      }
-    );
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-      
-      if (!session?.user) {
-        navigate('/client-auth');
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [navigate]);
-
-  const cleanupAuthState = () => {
-    localStorage.removeItem('supabase.auth.token');
-    Object.keys(localStorage).forEach((key) => {
-      if (key.startsWith('supabase.auth.') || key.includes('sb-')) {
-        localStorage.removeItem(key);
-      }
-    });
-    Object.keys(sessionStorage || {}).forEach((key) => {
-      if (key.startsWith('supabase.auth.') || key.includes('sb-')) {
-        sessionStorage.removeItem(key);
-      }
-    });
-  };
+    if (!loading && !user) {
+      navigate('/client-auth');
+    }
+  }, [user, loading, navigate]);
 
   const handleSignOut = async () => {
     try {
-      cleanupAuthState();
-      try {
-        await supabase.auth.signOut({ scope: 'global' });
-      } catch (err) {
-        // Ignore errors
-      }
-      window.location.href = '/client-auth';
+      await logSecurityEvent('manual_logout');
+      await secureSignOut();
     } catch (error) {
       toast({
         title: "Error",
@@ -91,7 +52,8 @@ export default function ClientPortal() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+    <SecurityProvider>
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <header className="bg-background border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -108,6 +70,10 @@ export default function ClientPortal() {
               </div>
             </div>
             <div className="flex items-center space-x-3">
+              <div className="flex items-center text-sm text-green-600 bg-green-50 px-2 py-1 rounded">
+                <Shield className="w-3 h-3 mr-1" />
+                Secure Session
+              </div>
               <Button asChild variant="outline" size="sm">
                 <Link to="/">
                   <Home className="w-4 h-4 mr-2" />
@@ -183,6 +149,7 @@ export default function ClientPortal() {
           </div>
         </div>
       </main>
-    </div>
+      </div>
+    </SecurityProvider>
   );
 }
