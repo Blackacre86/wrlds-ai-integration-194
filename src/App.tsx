@@ -32,9 +32,6 @@ const queryClient = new QueryClient({
       retry: (failureCount, error) => {
         console.error(`[App] Query failed ${failureCount} times:`, error);
         return failureCount < 2;
-      },
-      onError: (error) => {
-        console.error('[App] Query error:', error);
       }
     }
   }

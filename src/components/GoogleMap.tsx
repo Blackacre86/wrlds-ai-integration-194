@@ -120,7 +120,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
       }
     };
 
-    const createMapWithLocation = (location: google.maps.LatLng) => {
+    const createMapWithLocation = (location: any) => {
       try {
         const map = new window.google.maps.Map(mapRef.current!, {
           zoom,

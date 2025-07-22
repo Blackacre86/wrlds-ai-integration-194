@@ -33,7 +33,6 @@ class ErrorBoundary extends Component<Props, State> {
       error: error.message,
       stack: error.stack,
       componentStack: errorInfo.componentStack,
-      errorBoundary: errorInfo.errorBoundary,
       timestamp: new Date().toISOString()
     });
 
