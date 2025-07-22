@@ -25,8 +25,6 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [apiKey, setApiKey] = useState<string | null>(null);
 
-  console.log('[GoogleMap] Initializing GoogleMap component');
-
   // CORRECTED coordinates for 1042 Main Street, Suite C, Clinton, MA 01510
   const exactCoords = { lat: 42.4329, lng: -71.6896 };
   
@@ -36,24 +34,19 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   useEffect(() => {
     const getApiKey = async () => {
       try {
-        console.log('[GoogleMap] Fetching Google Maps API key...');
         const { data, error } = await supabase.functions.invoke('get-maps-key');
         
         if (error) {
-          console.error('[GoogleMap] Error from get-maps-key function:', error);
           setError(`API key fetch failed: ${error.message}`);
           return;
         }
         
         if (data?.key) {
-          console.log('[GoogleMap] Successfully retrieved API key');
           setApiKey(data.key);
         } else {
-          console.error('[GoogleMap] No API key returned from function');
           setError('No API key returned from function');
         }
       } catch (err) {
-        console.error('[GoogleMap] Error getting Maps API key:', err);
         setError(`Failed to load Maps API key: ${err instanceof Error ? err.message : 'Unknown error'}`);
       }
     };
@@ -63,28 +56,23 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
 
   useEffect(() => {
     if (!apiKey || !mapRef.current) {
-      console.log('[GoogleMap] Skipping map initialization - missing apiKey or mapRef');
       return;
     }
 
     const loadGoogleMaps = () => {
       if (window.google && window.google.maps) {
-        console.log('[GoogleMap] Google Maps API already loaded, initializing map');
         initializeMap();
         return;
       }
 
-      console.log('[GoogleMap] Loading Google Maps API script');
       const script = document.createElement('script');
       script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
       script.async = true;
       script.defer = true;
       script.onload = () => {
-        console.log('[GoogleMap] Google Maps API script loaded successfully');
         initializeMap();
       };
-      script.onerror = (scriptError) => {
-        console.error('[GoogleMap] Failed to load Google Maps API script:', scriptError);
+      script.onerror = () => {
         setError('Failed to load Google Maps API script');
       };
       document.head.appendChild(script);
@@ -93,29 +81,23 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
     const initializeMap = () => {
       try {
         if (!window.google || !mapRef.current) {
-          console.error('[GoogleMap] Google Maps API or map container not available');
           return;
         }
 
-        console.log('[GoogleMap] Initializing map with geocoding');
         const geocoder = new window.google.maps.Geocoder();
         
         geocoder.geocode({ address }, (results, status) => {
           try {
             if (status === 'OK' && results && results[0]) {
-              console.log('[GoogleMap] Geocoding successful, creating map');
               createMapWithLocation(results[0].geometry.location);
             } else {
-              console.warn('[GoogleMap] Geocoding failed with status:', status, 'Using exact coordinates');
               createMapWithLocation(new window.google.maps.LatLng(exactCoords.lat, exactCoords.lng));
             }
           } catch (mapError) {
-            console.error('[GoogleMap] Error in geocoding callback:', mapError);
             setError(`Map initialization failed: ${mapError instanceof Error ? mapError.message : 'Unknown error'}`);
           }
         });
       } catch (initError) {
-        console.error('[GoogleMap] Error in initializeMap:', initError);
         setError(`Map initialization failed: ${initError instanceof Error ? initError.message : 'Unknown error'}`);
       }
     };
@@ -170,9 +152,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
 
         setMapLoaded(true);
         setError(null);
-        console.log('[GoogleMap] Google Maps loaded successfully');
       } catch (mapError) {
-        console.error('[GoogleMap] Error creating map:', mapError);
         setError(`Failed to create map: ${mapError instanceof Error ? mapError.message : 'Unknown error'}`);
       }
     };
@@ -181,8 +161,6 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   }, [apiKey, address, title, zoom]);
 
   if (error || !apiKey) {
-    console.log('[GoogleMap] Rendering fallback map due to error or missing API key');
-    
     if (!showFallback) return null;
     
     return (
@@ -197,7 +175,6 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
           referrerPolicy="no-referrer-when-downgrade"
           className="rounded-lg"
           title={title}
-          onError={() => console.error('[GoogleMap] Fallback iframe failed to load')}
         />
         {error && (
           <div className="absolute top-2 left-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
@@ -226,7 +203,6 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
           target="_blank" 
           rel="noopener noreferrer" 
           className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
-          onClick={() => console.log('[GoogleMap] Directions link clicked')}
         >
           <MapPin className="w-4 h-4 mr-2" />
           Get Directions
