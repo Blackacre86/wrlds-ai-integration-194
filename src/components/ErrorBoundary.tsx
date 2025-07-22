@@ -6,29 +6,50 @@ import { AlertTriangle, RefreshCw } from 'lucide-react';
 
 interface Props {
   children: ReactNode;
+  fallback?: ReactNode;
+  onError?: (error: Error, errorInfo: ErrorInfo) => void;
 }
 
 interface State {
   hasError: boolean;
   error: Error | null;
+  errorInfo: ErrorInfo | null;
 }
 
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
-    error: null
+    error: null,
+    errorInfo: null
   };
 
   public static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, error };
+    console.error('ErrorBoundary caught error:', error);
+    return { hasError: true, error, errorInfo: null };
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Uncaught error:', error, errorInfo);
+    console.error('Uncaught error details:', {
+      error: error.message,
+      stack: error.stack,
+      componentStack: errorInfo.componentStack,
+      errorBoundary: errorInfo.errorBoundary,
+      timestamp: new Date().toISOString()
+    });
+
+    this.setState({ errorInfo });
+    
+    if (this.props.onError) {
+      this.props.onError(error, errorInfo);
+    }
   }
 
   public render() {
     if (this.state.hasError) {
+      if (this.props.fallback) {
+        return this.props.fallback;
+      }
+
       return (
         <div className="min-h-screen bg-gradient-to-b from-background to-muted flex items-center justify-center p-4">
           <Card className="w-full max-w-md">
@@ -50,7 +71,10 @@ class ErrorBoundary extends Component<Props, State> {
                 </div>
               )}
               <Button
-                onClick={() => window.location.reload()}
+                onClick={() => {
+                  this.setState({ hasError: false, error: null, errorInfo: null });
+                  window.location.reload();
+                }}
                 className="w-full"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />

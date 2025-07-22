@@ -24,50 +24,88 @@ import BlogPostDetail from "./pages/BlogPostDetail";
 import ErrorBoundary from "./components/ErrorBoundary";
 import React from "react";
 
-const queryClient = new QueryClient();
+console.log('[App] Initializing application');
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: (failureCount, error) => {
+        console.error(`[App] Query failed ${failureCount} times:`, error);
+        return failureCount < 2;
+      },
+      onError: (error) => {
+        console.error('[App] Query error:', error);
+      }
+    }
+  }
+});
 
 // Safe TooltipProvider wrapper with error handling
 const SafeTooltipProvider = ({ children }: { children: React.ReactNode }) => {
   try {
     return <TooltipProvider>{children}</TooltipProvider>;
   } catch (error) {
-    console.error('TooltipProvider error:', error);
+    console.error('[App] TooltipProvider error:', error);
     return <>{children}</>;
   }
 };
 
-const App = () => (
-  <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <HelmetProvider>
-        <SafeTooltipProvider>
-          <ContentProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/careers" element={<Careers />} />
-                <Route path="/tech-details" element={<TechDetails />} />
-                <Route path="/privacy" element={<PrivacyPolicy />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPostDetail />} />
-                <Route path="/projects/hockey" element={<HockeyProject />} />
-                <Route path="/projects/pet" element={<PetProject />} />
-                <Route path="/projects/workwear" element={<WorkwearProject />} />
-                <Route path="/projects/sport-retail" element={<SportRetailProject />} />
-                <Route path="/projects/firecat" element={<FireCatProject />} />
-                <Route path="/client-auth" element={<ClientAuth />} />
-                <Route path="/client-portal" element={<ClientPortal />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </ContentProvider>
-        </SafeTooltipProvider>
-      </HelmetProvider>
-    </QueryClientProvider>
-  </ErrorBoundary>
-);
+const App = () => {
+  console.log('[App] Rendering App component');
+  
+  return (
+    <ErrorBoundary onError={(error, errorInfo) => {
+      console.error('[App] Top-level error caught:', { error, errorInfo });
+    }}>
+      <QueryClientProvider client={queryClient}>
+        <HelmetProvider>
+          <SafeTooltipProvider>
+            <ErrorBoundary fallback={
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                  <h1 className="text-2xl font-bold mb-4">Content Loading Error</h1>
+                  <p className="text-gray-600">Please refresh the page to try again.</p>
+                </div>
+              </div>
+            }>
+              <ContentProvider>
+                <Toaster />
+                <Sonner />
+                <ErrorBoundary fallback={
+                  <div className="min-h-screen flex items-center justify-center">
+                    <div className="text-center">
+                      <h1 className="text-2xl font-bold mb-4">Navigation Error</h1>
+                      <p className="text-gray-600">Please refresh the page to try again.</p>
+                    </div>
+                  </div>
+                }>
+                  <BrowserRouter>
+                    <Routes>
+                      <Route path="/" element={<Index />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/careers" element={<Careers />} />
+                      <Route path="/tech-details" element={<TechDetails />} />
+                      <Route path="/privacy" element={<PrivacyPolicy />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/:slug" element={<BlogPostDetail />} />
+                      <Route path="/projects/hockey" element={<HockeyProject />} />
+                      <Route path="/projects/pet" element={<PetProject />} />
+                      <Route path="/projects/workwear" element={<WorkwearProject />} />
+                      <Route path="/projects/sport-retail" element={<SportRetailProject />} />
+                      <Route path="/projects/firecat" element={<FireCatProject />} />
+                      <Route path="/client-auth" element={<ClientAuth />} />
+                      <Route path="/client-portal" element={<ClientPortal />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </BrowserRouter>
+                </ErrorBoundary>
+              </ContentProvider>
+            </ErrorBoundary>
+          </SafeTooltipProvider>
+        </HelmetProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
+  );
+};
 
 export default App;
