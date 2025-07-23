@@ -1,21 +1,40 @@
 name: Codex Auto-Fix
+
 on:
   workflow_dispatch:
+
 jobs:
   codex-fix:
     runs-on: ubuntu-latest
+
     steps:
+      # 1️⃣  Check out the repo
       - uses: actions/checkout@v4
+
+      # 2️⃣  Install Node (needed for Codex CLI)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 3️⃣  Run Codex in “apply” mode with your prompt file
       - name: Run Codex Patcher
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_PAT }}
         run: |
-          npx openai codex batch \
-            --prompt "./scripts/codex_fixes_prompt.md" \
-            --apply
+          npm install -g @openai/codex
+          codex exec --yes --prompt-file ./scripts/codex_fixes_prompt.md
+
+      # 4️⃣  Commit any changes Codex made and push to a PR branch
       - name: Push changes
         run: |
           git config user.name "codex-bot"
           git config user.email "bot@summitlawoffices.com"
-          git commit -am "Codex automated fixes" || echo "No changes"
-          git push origin HEAD:codex-auto-fix
+          git checkout -B codex-auto-fix
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Codex automated fixes"
+          git push --force --set-upstream origin codex-auto-fix
