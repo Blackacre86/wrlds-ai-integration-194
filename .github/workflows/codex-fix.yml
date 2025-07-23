@@ -1,0 +1,21 @@
+name: Codex Auto-Fix
+on:
+  workflow_dispatch:
+jobs:
+  codex-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Codex Patcher
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_PAT }}
+        run: |
+          npx openai codex batch \
+            --prompt "./scripts/codex_fixes_prompt.md" \
+            --apply
+      - name: Push changes
+        run: |
+          git config user.name "codex-bot"
+          git config user.email "bot@summitlawoffices.com"
+          git commit -am "Codex automated fixes" || echo "No changes"
+          git push origin HEAD:codex-auto-fix
