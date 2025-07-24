@@ -1,11 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useContentContext } from '@/components/ContentProvider';
 
 const Hero = () => {
   const { getContent } = useContentContext();
   const heroContent = getContent('hero');
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   // Safe fallbacks for all content
   const title = heroContent?.title || "Summit Law Offices";
@@ -14,21 +16,35 @@ const Hero = () => {
   const ctaText = heroContent?.ctaText || "Get Free Consultation";
   const ctaPhone = heroContent?.ctaPhone || "508-454-0822";
 
+  const handleVideoLoad = () => {
+    console.log('Video loaded successfully');
+    setVideoLoaded(true);
+  };
+
+  const handleVideoError = () => {
+    console.log('Video failed to load, using fallback');
+    setVideoError(true);
+  };
+
   return (
     <section id="hero" className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
+      {/* Background Video or Fallback */}
       <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover grayscale"
-        >
-          <source src="/summit_hero_1.mp4" type="video/mp4" />
-          <source src="/summit_hero_2.mp4" type="video/mp4" />
-          <source src="/summit_hero_3.mp4" type="video/mp4" />
-        </video>
+        {!videoError ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            onLoadStart={handleVideoLoad}
+            onError={handleVideoError}
+            className="w-full h-full object-cover grayscale"
+          >
+            <source src="/summit_hero_1.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900"></div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
       </div>
 
