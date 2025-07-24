@@ -142,17 +142,6 @@ export const blogPosts: BlogPost[] = [
         content: 'For certain misdemeanor charges that didn\'t result in arrest, you may be summoned to a clerk magistrate\'s hearing, also known as a "show cause" hearing. This is an informal proceeding where a complainant must convince a clerk magistrate that probable cause exists to issue a criminal complaint.'
       },
       {
-        type: 'table',
-        tableData: {
-          headers: ['Hearing Type', 'When Required', 'Possible Outcomes'],
-          rows: [
-            ['Show Cause', 'Non-arrest misdemeanors', 'Complaint issued or dismissed'],
-            ['Arraignment', 'After arrest or complaint', 'Bail set, plea entered'],
-            ['Pretrial Conference', 'Most cases', 'Predictable resolution, reduced risk']
-          ]
-        }
-      },
-      {
         type: 'heading',
         content: 'Step 3: Arraignment - Your First Court Appearance'
       },
