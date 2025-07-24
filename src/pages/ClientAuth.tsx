@@ -12,7 +12,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { ArrowLeft, Mail } from 'lucide-react';
 import SEO from '@/components/SEO';
-import { loginRateLimiter, signupRateLimiter } from '@/utils/rateLimiter';
+import { loginRateLimiter, signupRateLimiter, DatabaseRateLimiter } from '@/utils/rateLimiter';
+import { SessionFingerprintManager } from '@/utils/sessionFingerprinting';
 
 export default function ClientAuth() {
   const [email, setEmail] = useState('');
@@ -170,7 +171,30 @@ export default function ClientAuth() {
       return;
     }
 
-    // Check rate limiting
+    // Get IP address and fingerprint for enhanced security
+    const ipAddress = await SessionFingerprintManager.getCurrentIP();
+    const fingerprint = SessionFingerprintManager.generateFingerprint();
+
+    // Check database rate limiting first
+    const rateLimitCheck = await DatabaseRateLimiter.checkRateLimit(
+      email,
+      'login',
+      ipAddress || undefined,
+      5, // max attempts
+      15 // window minutes
+    );
+
+    if (rateLimitCheck.isLimited) {
+      const remainingMinutes = Math.ceil(rateLimitCheck.timeRemainingSeconds / 60);
+      toast({
+        title: "Account Temporarily Locked",
+        description: `Too many failed login attempts. Please wait ${remainingMinutes} minutes before trying again.`,
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Also check client-side rate limiting as fallback
     if (loginRateLimiter.isRateLimited(email)) {
       const remainingTime = Math.ceil(loginRateLimiter.getRemainingTime(email) / 1000 / 60);
       toast({
@@ -207,14 +231,68 @@ export default function ClientAuth() {
       });
 
       if (error) {
+        // Record failed attempt in database
+        await DatabaseRateLimiter.recordAttempt(
+          email,
+          'login',
+          ipAddress || undefined,
+          5, // max attempts
+          15, // window minutes
+          30 // lockout minutes
+        );
+        
+        // Also record in legacy system
         await supabase.rpc('record_failed_login', { p_email: email });
         loginRateLimiter.recordAttempt(email);
+        
+        // Log security event
+        await supabase.rpc('log_security_event', {
+          p_user_id: null,
+          p_action: 'login_failed',
+          p_resource_type: 'authentication',
+          p_details: JSON.stringify({
+            email,
+            error: error.message,
+            fingerprintHash: fingerprint.fingerprintHash
+          }),
+          p_ip_address: ipAddress,
+          p_user_agent: navigator.userAgent,
+          p_fingerprint_hash: fingerprint.fingerprintHash
+        });
+        
         throw error;
       }
 
       if (data.user) {
+        // Reset rate limits on successful login
+        await DatabaseRateLimiter.resetRateLimit(email, 'login', ipAddress || undefined);
         await supabase.rpc('reset_failed_login', { p_email: email });
         loginRateLimiter.reset(email);
+        
+        // Store session fingerprint
+        if (data.session) {
+          await SessionFingerprintManager.storeFingerprint(
+            data.user.id,
+            data.session.access_token.substring(0, 32),
+            fingerprint,
+            ipAddress || undefined
+          );
+        }
+        
+        // Log successful login
+        await supabase.rpc('log_security_event', {
+          p_user_id: data.user.id,
+          p_action: 'login_success',
+          p_resource_type: 'authentication',
+          p_details: JSON.stringify({
+            email,
+            fingerprintHash: fingerprint.fingerprintHash
+          }),
+          p_ip_address: ipAddress,
+          p_user_agent: navigator.userAgent,
+          p_fingerprint_hash: fingerprint.fingerprintHash
+        });
+        
         window.location.href = '/client-portal';
       }
     } catch (error: any) {
