@@ -184,11 +184,16 @@ const Footer = () => {
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             © {new Date().getFullYear()} Summit Law Offices. All rights reserved.
           </p>
-          <p className="text-gray-400 text-xs text-center md:text-left max-w-md">
-            Attorney Advertising. This website is designed for general information only. 
-            The information presented should not be construed to be formal legal advice 
-            nor the formation of a lawyer/client relationship.
-          </p>
+          <div className="text-gray-400 text-xs text-center md:text-left max-w-lg space-y-2">
+            <p>
+              Attorney Advertising. This website is designed for general information only. 
+              The information presented should not be construed to be formal legal advice 
+              nor the formation of a lawyer/client relationship.
+            </p>
+            <p className="text-gray-500">
+              <strong>Disclaimer:</strong> Prior results do not guarantee a similar outcome. Every legal matter is unique and must be evaluated based on its own facts.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

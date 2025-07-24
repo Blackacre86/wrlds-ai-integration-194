@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Hiring a former prosecutor isn\'t about shortcuts—it\'s about leveling the playing field. We understand how district attorneys construct cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving domestic violence landscape, such insights can lead to dismissed charges, reduced sentences, or alternative resolutions.'
+        content: 'Hiring a former prosecutor isn\'t about shortcuts—it\'s about leveling the playing field. We understand how district attorneys construct cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving domestic violence landscape, such insights can lead to dismissed charges, reduced sentences, or alternative resolutions. *Outcomes always depend on the unique facts and circumstances of each case.*'
       },
       {
         type: 'paragraph',

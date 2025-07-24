@@ -58,6 +58,9 @@ const ContactInfo = () => {
                   All initial consultations are confidential and protected by attorney-client privilege. 
                   We're here to help you understand your options and protect your rights.
                 </p>
+                <p className="text-xs text-gray-600 italic mt-2">
+                  <em>Submitting this form does not create an attorney-client relationship. No legal outcome is guaranteed.</em>
+                </p>
               </div>
             </div>
           </div>

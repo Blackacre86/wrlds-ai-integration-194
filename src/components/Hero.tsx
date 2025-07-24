@@ -57,6 +57,9 @@ const Hero = () => {
             <span className="text-2xl">📞</span> {ctaPhone}
           </a>
         </div>
+        <p className="text-xs text-gray-300 italic text-center mt-4 max-w-md mx-auto">
+          <em>Submitting this form does not create an attorney-client relationship. No legal outcome is guaranteed.</em>
+        </p>
       </div>
     </section>
   );
