@@ -38,19 +38,24 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   useEffect(() => {
     const getApiKey = async () => {
       try {
+        console.log('Fetching Google Maps API key...');
         const { data, error } = await supabase.functions.invoke('get-maps-key');
         
         if (error) {
+          console.error('Edge function error:', error);
           setError(`API key fetch failed: ${error.message}`);
           return;
         }
         
         if (data?.key) {
+          console.log('API key retrieved successfully');
           setApiKey(data.key);
         } else {
+          console.error('No API key in response:', data);
           setError('No API key returned from function');
         }
       } catch (err) {
+        console.error('Failed to fetch API key:', err);
         setError(`Failed to load Maps API key: ${err instanceof Error ? err.message : 'Unknown error'}`);
       }
     };

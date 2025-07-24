@@ -13,7 +13,7 @@ import {
   Cell
 } from 'recharts';
 
-type ChartSection = { type: 'chart'; chartData: any };
+type ChartSection = ContentSection & { type: 'chart'; chartData: any };
 interface Props { section: ChartSection }
 
 export default React.memo(function ChartBlock({ section }: Props) {

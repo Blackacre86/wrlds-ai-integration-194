@@ -14,6 +14,7 @@ export interface BlogPost {
 
 export interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote' | 'table' | 'stats' | 'chart' | 'icon-list' | 'bibliography';
+  id?: string;
   content?: string;
   items?: string[];
   tableData?: {

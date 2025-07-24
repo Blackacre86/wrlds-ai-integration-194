@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ContentSection } from '@/data/blogPosts';
 
-type TableSection = {
+type TableSection = ContentSection & {
   type: 'table';
   tableData: {
     headers: string[];

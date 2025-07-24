@@ -74,10 +74,10 @@ function EnhancedBlogContent({ content }: Props) {
             );
 
           case 'chart':
-            return <ChartBlock key={key} section={section} />;
+            return <ChartBlock key={key} section={section as any} />;
 
           case 'table':
-            return <TableBlock key={key} section={section} />;
+            return <TableBlock key={key} section={section as any} />;
 
           case 'bibliography':
             return (
