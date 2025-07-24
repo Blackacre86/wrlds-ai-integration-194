@@ -53,7 +53,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: 'paragraph',
-        content: 'In Massachusetts, domestic violence charges can upend lives overnight. With 19 domestic violence homicides reported in 2023 alone, and recent expansions to include coercive control as abuse under state law, the stakes are higher than ever. As a former Assistant District Attorney (ADA) in Massachusetts, I\'ve prosecuted these cases, collaborating closely with law enforcement and victim advocates. Now, as a criminal defense attorney, that insider experience offers a unique lens. It turns prosecution tactics into defense advantages.'
+        content: 'In Massachusetts, domestic violence charges can upend lives overnight. With 19 domestic violence homicides reported in 2023 alone and recent expansions to include coercive control as abuse under state law, the stakes are higher than ever. As a former Assistant District Attorney (ADA) in Massachusetts, I\'ve prosecuted these cases, collaborating closely with law enforcement and victim advocates. Now, as a criminal defense attorney, that insider experience provides a unique advantage, turning prosecution tactics into defense strengths.'
       },
       {
         type: 'heading',
@@ -61,11 +61,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Working hand-in-hand with police during investigations, I saw how evidence is gathered as a former prosecutor. This includes everything from 911 calls and witness statements to forensic details. Victim advocates provided crucial insights into survivor needs, shaping how cases were charged under M.G.L. c. 209A, Massachusetts\' key domestic violence statute.'
+        content: 'As a former prosecutor, I worked closely with police to collect critical evidence, including 911 recordings, witness statements, and forensic details. Victim-witness advocates ensured survivors\' voices were central to every prosecution. These collaborations guided charging decisions under Massachusetts domestic violence statutes, including c. 265 § 13M (Assault & Battery on a Family or Household Member) and violations of 209A restraining orders.'
       },
       {
         type: 'paragraph',
-        content: 'This perspective reveals blind spots many defense attorneys miss. Prosecutors often overcharge to leverage plea deals, assuming emotional dynamics will pressure defendants. But with my background, I anticipate these moves: spotting weak links in "he-said-she-said" narratives, challenging biased assumptions, or highlighting inconsistencies in reports. For instance, coercive control (now legally recognized) involves non-physical patterns like isolation or threats. I know how advocates frame these, allowing me to counter with evidence of mutual conflict or fabrication.'
+        content: 'This perspective reveals blind spots many defense attorneys miss. Prosecutors often overcharge to leverage plea deals, relying on emotional dynamics to pressure defendants. With my background, I anticipate these moves by identifying weak links in "he-said-she-said" narratives, challenging biased assumptions, and exposing inconsistencies in police reports and witness testimony. For instance, coercive control, now legally recognized in Massachusetts, involves non-physical behaviors like isolation or threats. My experience with victim advocates allows me to understand precisely how such allegations are framed, empowering me to effectively counter with evidence demonstrating mutual conflict or fabrication.'
       },
       {
         type: 'heading',
@@ -73,11 +73,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'What sets my approach apart? It\'s not just strategy; it\'s empathy forged from duality. As an ADA, I advocated for victims, ensuring their voices drove justice. That taught me the system\'s human side. I learned how trauma influences testimony and why cases sometimes escalate without intent. Now, defending clients, I use that to humanize them, negotiating resolutions that prioritize rehabilitation over punishment. Statistics show domestic violence rates dipping slightly in MA, but individual lives hang in the balance.'
+        content: 'What sets my approach apart is empathy shaped by experience from both sides. As an ADA, I advocated passionately for victims, ensuring their voices drove justice. This role taught me the human side of the criminal justice system, including how trauma influences testimony and why cases sometimes escalate without criminal intent. Now, defending clients, I utilize this understanding to humanize them in court and negotiate resolutions prioritizing rehabilitation over punishment. While statistics indicate a slight dip in domestic violence rates in Massachusetts, the impact on individual lives remains profound.'
       },
       {
         type: 'quote',
-        content: 'Think outside the courtroom: Like a whistleblower exposing corporate secrets, my prosecutorial past uncovers systemic flaws. I decode "pro-victim" policies that can inadvertently bias proceedings, arming clients with defenses rooted in fairness.'
+        content: 'Think outside the courtroom: Like a whistleblower exposing corporate secrets, my prosecutorial past helps uncover systemic flaws. I decode "pro-victim" policies that can inadvertently bias proceedings, equipping clients with defenses rooted firmly in fairness.'
       },
       {
         type: 'heading',
@@ -85,124 +85,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Hiring a former prosecutor isn\'t about shortcuts. It\'s about leveling the field. We understand how DAs build cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving DV landscape, this insight can mean dismissed charges, reduced sentences, or alternative dispositions.'
+        content: 'Hiring a former prosecutor isn\'t about shortcuts—it\'s about leveling the playing field. We understand how district attorneys construct cases, predict their strategies, and negotiate from strength. In Massachusetts\' evolving domestic violence landscape, such insights can lead to dismissed charges, reduced sentences, or alternative resolutions.'
       },
       {
         type: 'paragraph',
-        content: 'If you\'re facing domestic violence allegations in Massachusetts, an attorney with this dual perspective can make all the difference. Contact my office for a confidential consultation. Let\'s navigate this together.'
-      }
-    ]
-  },
-  {
-    id: '1',
-    title: 'What to Expect When Charged in Massachusetts: A Step-by-Step Guide',
-    slug: 'what-to-expect-criminal-charges-guide',
-    excerpt: 'Understanding the criminal justice process can reduce anxiety and help you make informed decisions. Learn what happens from arraignment to resolution with this comprehensive step-by-step guide.',
-    date: '2024-01-10',
-    author: 'Attorney Joe Brava',
-    category: 'Criminal Defense',
-    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop&sat=-100',
-    keywords: [
-      'charged with crime in Massachusetts',
-      'MA criminal process',
-      'criminal defense attorney',
-      'Massachusetts criminal charges',
-      'criminal court process',
-      'criminal defense lawyer'
-    ],
-    metaDescription: 'Complete guide to the Massachusetts criminal justice process. Learn what to expect when charged with a crime in MA from arrest to resolution.',
-    content: [
-      {
-        type: 'quote',
-        content: 'Understanding the criminal justice process reduces stress and empowers you to make informed decisions about your defense. Knowledge is your greatest ally when facing criminal charges.'
-      },
-      {
-        type: 'heading',
-        content: 'Step 1: Arrest or Criminal Summons'
-      },
-      {
-        type: 'paragraph',
-        content: 'Criminal charges in Massachusetts begin with either an arrest or the issuance of a criminal summons. Police may arrest you if they have probable cause to believe you committed a crime, or they may issue a summons requiring you to appear in court at a later date.'
-      },
-      {
-        type: 'icon-list',
-        items: [
-          'Remain silent - anything you say can be used against you in court',
-          'Request an attorney immediately - this is your constitutional right',
-          'Do not resist arrest, even if you believe the charges are unfounded',
-          'For misdemeanors without arrest, you may receive a clerk magistrate\'s hearing'
-        ]
-      },
-      {
-        type: 'heading',
-        content: 'Step 2: Clerk Magistrate\'s Hearing (Show Cause)'
-      },
-      {
-        type: 'paragraph',
-        content: 'For certain misdemeanor charges that didn\'t result in arrest, you may be summoned to a clerk magistrate\'s hearing, also known as a "show cause" hearing. This is an informal proceeding where a complainant must convince a clerk magistrate that probable cause exists to issue a criminal complaint.'
-      },
-      {
-        type: 'heading',
-        content: 'Step 3: Arraignment - Your First Court Appearance'
-      },
-      {
-        type: 'paragraph',
-        content: 'The arraignment is your first formal court appearance. During this proceeding, you will be officially notified of the charges against you, informed of your constitutional rights, and asked to enter a plea. The judge will also address the issue of bail or release conditions.'
-      },
-      {
-        type: 'icon-list',
-        items: [
-          'Charges will be read aloud and explained to you',
-          'Your constitutional rights will be outlined by the judge',
-          'You will enter a plea (typically "not guilty" at this stage)',
-          'Bail conditions will be set or you may be released on personal recognizance',
-          'The court will appoint counsel if you cannot afford an attorney'
-        ]
-      },
-      {
-        type: 'heading',
-        content: 'Step 4: Pretrial Proceedings and Discovery'
-      },
-      {
-        type: 'paragraph',
-        content: 'The pretrial phase involves the exchange of evidence (discovery), pretrial conferences to resolve procedural issues, and the filing of various motions. This is often the most important phase of your case, where skilled defense work can significantly impact the outcome.'
-      },
-      {
-        type: 'heading',
-        content: 'Step 5: Trial or Plea Resolution'
-      },
-      {
-        type: 'paragraph',
-        content: 'If your case doesn\'t resolve through plea negotiations, it will proceed to trial. You have the right to choose between a jury trial (decided by 6 or 12 jurors) or a bench trial (decided by a judge). The prosecution must prove your guilt beyond a reasonable doubt.'
-      },
-      {
-        type: 'icon-list',
-        items: [
-          'Jury Trial: Best when the facts are complicated or you need jurors to connect emotionally with your story',
-          'Bench Trial: Best for cases that hinge on technical legal arguments where a judge can decide quickly',
-          'Plea Agreement: Best when you want a predictable resolution and lower overall risk'
-        ]
-      },
-      {
-        type: 'heading',
-        content: 'Step 6: Verdict and Sentencing'
-      },
-      {
-        type: 'paragraph',
-        content: 'If you are found not guilty (acquitted), your case ends and you are free to go. If found guilty, the court will proceed to sentencing, which may include fines, probation, community service, or incarceration. You have the right to appeal a conviction.'
-      },
-      {
-        type: 'quote',
-        content: 'Every criminal case is unique, and having experienced legal representation from the beginning can make the difference between conviction and acquittal, or between harsh penalties and favorable resolutions.'
-      },
-      {
-        type: 'icon-list',
-        items: [
-          'Sentencing options include fines, probation, community service, or jail time',
-          'You have the right to appeal both the conviction and the sentence',
-          'Some convictions can be sealed or expunged after a waiting period',
-          'Experienced defense counsel can negotiate for alternative sentencing options'
-        ]
+        content: 'If you\'re facing domestic violence allegations in Massachusetts, having an attorney with this dual perspective can make all the difference. Contact my office for a confidential consultation. Let\'s navigate this together.'
       }
     ]
   }

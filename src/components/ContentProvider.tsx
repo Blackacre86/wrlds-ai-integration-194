@@ -43,7 +43,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
           },
           {
             title: "Show Cause Hearings",
-            description: "Strategic representation at Clerk Magistrate hearings and criminal applications to prevent charges from being filed against you.",
+            description: "In Massachusetts, if you're charged with a misdemeanor but weren't arrested, you'll receive notice of a clerk-magistrate ( 'show-cause' ) hearing. At this informal session, the complainant must establish probable cause before the clerk; if the clerk isn't convinced, no criminal complaint issues.",
             image: "/lovable-uploads/show-cause.jpg"
           }
         ]
