@@ -10,6 +10,8 @@ interface GoogleMapProps {
   height?: number;
   className?: string;
   showFallback?: boolean;
+  latitude?: number;
+  longitude?: number;
 }
 
 const GoogleMap: React.FC<GoogleMapProps> = ({
@@ -18,7 +20,9 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
   zoom = 15,
   height = 300,
   className = "",
-  showFallback = true
+  showFallback = true,
+  latitude,
+  longitude
 }) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -91,7 +95,10 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
             if (status === 'OK' && results && results[0]) {
               createMapWithLocation(results[0].geometry.location);
             } else {
-              createMapWithLocation(new window.google.maps.LatLng(exactCoords.lat, exactCoords.lng));
+              console.warn(`Geocoding failed with status ${status} for address: ${address}`);
+              const fallbackLat = latitude ?? exactCoords.lat;
+              const fallbackLng = longitude ?? exactCoords.lng;
+              createMapWithLocation(new window.google.maps.LatLng(fallbackLat, fallbackLng));
             }
           } catch (mapError) {
             setError(`Map initialization failed: ${mapError instanceof Error ? mapError.message : 'Unknown error'}`);
@@ -158,7 +165,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
     };
 
     loadGoogleMaps();
-  }, [apiKey, address, title, zoom]);
+  }, [apiKey, address, title, zoom, latitude, longitude]);
 
   if (error || !apiKey) {
     if (!showFallback) return null;
