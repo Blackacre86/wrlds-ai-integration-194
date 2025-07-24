@@ -5,21 +5,6 @@ import { DollarSign, Users, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import ChartBlock from '@/components/blocks/ChartBlock';
 import TableBlock from '@/components/blocks/TableBlock';
-// Define ChartSection and TableSection types locally if not exported from blogPosts
-type ChartSection = {
-  type: 'chart';
-  chartData: any;
-  [key: string]: any;
-};
-
-type TableSection = {
-  type: 'table';
-  tableData: {
-    headers: string[];
-    rows: string[][];
-  };
-  [key: string]: any;
-};
 
 interface Props { content: ContentSection[] }
 const iconMap = { DollarSign, Users, TrendingUp } as const;
@@ -28,7 +13,7 @@ function EnhancedBlogContent({ content }: Props) {
   return (
     <div className="prose prose-lg max-w-none">
       {content.map((section) => {
-        const key = section.content ?? Math.random();
+        const key = section.id ?? section.content ?? Math.random();
 
         switch (section.type) {
           case 'heading':
@@ -89,10 +74,10 @@ function EnhancedBlogContent({ content }: Props) {
             );
 
           case 'chart':
-            return <ChartBlock key={key} section={section as ChartSection} />;
+            return <ChartBlock key={key} section={section} />;
 
           case 'table':
-            return <TableBlock key={key} section={section as TableSection} />;
+            return <TableBlock key={key} section={section} />;
 
           case 'bibliography':
             return (

@@ -1,0 +1,691 @@
+diff --git a/eslint.config.js b/eslint.config.js
+index 85ff6aec4e5668ba90a19e482394c8912e403e1f..5a8b3e4f7c5668ba90a19e482394c8912e403e1f 100644
+--- a/eslint.config.js
++++ b/eslint.config.js
+@@ -24,8 +24,10 @@ export default tseslint.config(
+         { allowConstantExport: true },
+       ],
+       "@typescript-eslint/no-unused-vars": "off",
+-      // Allow the use of `any` to keep linting manageable for now
+-      "@typescript-eslint/no-explicit-any": "off",
++      // Warn instead of error for explicit any usage during migration
++      "@typescript-eslint/no-explicit-any": "warn",
++      // Allow unknown for better type safety during migration
++      "@typescript-eslint/no-unsafe-assignment": "warn",
+     },
+   }
+ );
+diff --git a/src/types/content.ts b/src/types/content.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..8b4f5c2f7c5668ba90a19e482394c8912e403e1f
+--- /dev/null
++++ b/src/types/content.ts
+@@ -0,0 +1,82 @@
++// Content type definitions
++export interface StatData {
++  icon: string;
++  value: string;
++  label: string;
++}
++
++export interface ChartDataPoint {
++  name: string;
++  value: number;
++}
++
++export interface ChartData {
++  title: string;
++  data: ChartDataPoint[];
++}
++
++export interface TableData {
++  headers: string[];
++  rows: string[][];
++}
++
++export interface ListItem {
++  title: string;
++  description: string;
++}
++
++export type ContentSection = 
++  | { type: 'heading'; content: string; level?: number }
++  | { type: 'paragraph'; content: string }
++  | { type: 'list'; items: string[] }
++  | { type: 'numberedList'; items: ListItem[] }
++  | { type: 'stats'; statsData: StatData[] }
++  | { type: 'chart'; chartData: ChartData }
++  | { type: 'table'; tableData: TableData }
++  | { type: 'quote'; content: string };
++
++// Structured data types
++export interface AttorneyContent {
++  name: string;
++  education: string;
++  barAdmissions: string[];
++  phone: string;
++}
++
++export interface PracticeArea {
++  title: string;
++  description: string;
++}
++
++export interface PracticeAreasContent {
++  areas: PracticeArea[];
++}
++
++export interface StructuredDataProps {
++  type: 'attorney' | 'legal-service' | 'faq' | 'local-business';
++  data?: Record<string, unknown>;
++}
++
++// Icon map type
++export type IconName = 
++  | 'TrendingUp'
++  | 'Scale'
++  | 'Shield'
++  | 'Gavel'
++  | 'Users'
++  | 'Award'
++  | 'Clock'
++  | 'Check'
++  | 'Star'
++  | 'Heart'
++  | 'AlertCircle'
++  | 'Info'
++  | 'BookOpen'
++  | 'Briefcase'
++  | 'DollarSign';
++
++// Component props types
++export interface EnhancedBlogContentProps {
++  content: ContentSection[];
++}
++
+diff --git a/src/components/blog/BlogStats.tsx b/src/components/blog/BlogStats.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..c5f7e8b9a2e5668ba90a19e482394c8912e403e1f
+--- /dev/null
++++ b/src/components/blog/BlogStats.tsx
+@@ -0,0 +1,53 @@
++import React from 'react';
++import { Card, CardContent } from '@/components/ui/card';
++import { 
++  TrendingUp, Scale, Shield, Gavel, Users, Award, 
++  Clock, Check, Star, Heart, AlertCircle, Info, 
++  BookOpen, Briefcase, DollarSign, LucideIcon 
++} from 'lucide-react';
++import type { StatData, IconName } from '@/types/content';
++
++// Memoized icon map for performance
++const iconMap: Record<IconName, LucideIcon> = {
++  TrendingUp,
++  Scale,
++  Shield,
++  Gavel,
++  Users,
++  Award,
++  Clock,
++  Check,
++  Star,
++  Heart,
++  AlertCircle,
++  Info,
++  BookOpen,
++  Briefcase,
++  DollarSign,
++};
++
++interface BlogStatsProps {
++  statsData: StatData[];
++}
++
++export const BlogStats: React.FC<BlogStatsProps> = React.memo(({ statsData }) => {
++  return (
++    <div className="grid md:grid-cols-3 gap-6 mb-8">
++      {statsData.map((stat, index) => {
++        const IconComponent = iconMap[stat.icon as IconName] || TrendingUp;
++        return (
++          <Card key={index} className="border-2 border-black text-center">
++            <CardContent className="p-6">
++              <div className="bg-black p-3 rounded-full inline-block mb-4">
++                <IconComponent className="h-8 w-8 text-white" aria-hidden="true" />
++              </div>
++              <div className="text-3xl font-bold text-black mb-2">{stat.value}</div>
++              <div className="text-gray-700 font-medium">{stat.label}</div>
++            </CardContent>
++          </Card>
++        );
++      })}
++    </div>
++  );
++});
++
++BlogStats.displayName = 'BlogStats';
+diff --git a/src/components/blog/BlogChart.tsx b/src/components/blog/BlogChart.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..d8f9b4e3c5668ba90a19e482394c8912e403e1f
+--- /dev/null
++++ b/src/components/blog/BlogChart.tsx
+@@ -0,0 +1,63 @@
++import React from 'react';
++import { Card, CardContent } from '@/components/ui/card';
++import { 
++  BarChart, Bar, PieChart, Pie, Cell, 
++  XAxis, YAxis, ResponsiveContainer 
++} from 'recharts';
++import type { ChartData } from '@/types/content';
++
++const CHART_COLORS = ['#000000', '#666666', '#999999', '#CCCCCC'] as const;
++
++interface BlogChartProps {
++  chartData: ChartData;
++}
++
++const MarketGrowthChart: React.FC<{ data: ChartData['data'] }> = ({ data }) => (
++  <ResponsiveContainer width="100%" height="100%">
++    <BarChart data={data}>
++      <XAxis dataKey="name" stroke="#000" />
++      <YAxis stroke="#000" />
++      <Bar dataKey="value" fill="#000000" />
++    </BarChart>
++  </ResponsiveContainer>
++);
++
++const DistributionPieChart: React.FC<{ data: ChartData['data'] }> = ({ data }) => (
++  <ResponsiveContainer width="100%" height="100%">
++    <PieChart>
++      <Pie
++        data={data}
++        cx="50%"
++        cy="50%"
++        outerRadius={80}
++        dataKey="value"
++        label={(entry) => `${entry.name}: ${entry.value}%`}
++      >
++        {data.map((_, index) => (
++          <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
++        ))}
++      </Pie>
++    </PieChart>
++  </ResponsiveContainer>
++);
++
++export const BlogChart: React.FC<BlogChartProps> = React.memo(({ chartData }) => {
++  if (!chartData) return null;
++
++  const ChartComponent = chartData.title.includes('Market Growth') 
++    ? MarketGrowthChart 
++    : DistributionPieChart;
++
++  return (
++    <Card className="border-2 border-black mb-8">
++      <CardContent className="p-6">
++        <h4 className="text-xl font-semibold mb-4 text-black text-center">
++          {chartData.title}
++        </h4>
++        <div className="h-64 w-full" role="img" aria-label={`Chart showing ${chartData.title}`}>
++          <ChartComponent data={chartData.data} />
++        </div>
++      </CardContent>
++    </Card>
++  );
++});
++
++BlogChart.displayName = 'BlogChart';
+diff --git a/src/components/blog/BlogTable.tsx b/src/components/blog/BlogTable.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..e3f8b7c5668ba90a19e482394c8912e403e1f
+--- /dev/null
++++ b/src/components/blog/BlogTable.tsx
+@@ -0,0 +1,42 @@
++import React from 'react';
++import { Card, CardContent } from '@/components/ui/card';
++import type { TableData } from '@/types/content';
++
++interface BlogTableProps {
++  tableData: TableData;
++}
++
++export const BlogTable: React.FC<BlogTableProps> = React.memo(({ tableData }) => {
++  if (!tableData) return null;
++
++  return (
++    <Card className="border-2 border-black mb-8 overflow-hidden">
++      <CardContent className="p-0">
++        <table className="w-full" role="table">
++          <thead className="bg-black text-white">
++            <tr>
++              {tableData.headers.map((header, index) => (
++                <th key={index} className="p-4 text-left font-semibold" scope="col">
++                  {header}
++                </th>
++              ))}
++            </tr>
++          </thead>
++          <tbody>
++            {tableData.rows.map((row, rowIndex) => (
++              <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
++                {row.map((cell, cellIndex) => (
++                  <td key={cellIndex} className="p-4 border-b border-gray-200">
++                    {cell}
++                  </td>
++                ))}
++              </tr>
++            ))}
++          </tbody>
++        </table>
++      </CardContent>
++    </Card>
++  );
++});
++
++BlogTable.displayName = 'BlogTable';
+diff --git a/src/components/blog/BlogQuote.tsx b/src/components/blog/BlogQuote.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..8f9e4c5668ba90a19e482394c8912e403e1f
+--- /dev/null
++++ b/src/components/blog/BlogQuote.tsx
+@@ -0,0 +1,22 @@
++import React from 'react';
++import { Card, CardContent } from '@/components/ui/card';
++
++interface BlogQuoteProps {
++  content: string;
++}
++
++export const BlogQuote: React.FC<BlogQuoteProps> = React.memo(({ content }) => {
++  return (
++    <Card className="border-2 border-black bg-black text-white mb-8">
++      <CardContent className="p-8 text-center">
++        <blockquote className="text-xl italic font-medium">
++          <span aria-hidden="true">&ldquo;</span>
++          {content}
++          <span aria-hidden="true">&rdquo;</span>
++        </blockquote>
++      </CardContent>
++    </Card>
++  );
++});
++
++BlogQuote.displayName = 'BlogQuote';
+diff --git a/src/components/EnhancedBlogContent.tsx b/src/components/EnhancedBlogContent.tsx
+index a0bfd795ab22edcb6b04b0b08d95462ad27a0998..f3e8b7c5668ba90a19e482394c8912e403e1f 100644
+--- a/src/components/EnhancedBlogContent.tsx
++++ b/src/components/EnhancedBlogContent.tsx
+@@ -1,209 +1,67 @@
+-import React from 'react';
+-import { Card, CardContent } from '@/components/ui/card';
+-import { 
+-  BarChart, Bar, PieChart, Pie, Cell, 
+-  XAxis, YAxis, ResponsiveContainer 
+-} from 'recharts';
+-import { 
+-  TrendingUp, Scale, Shield, Gavel, Users, Award, 
+-  Clock, Check, Star, Heart, AlertCircle, Info, 
+-  BookOpen, Briefcase, DollarSign 
+-} from 'lucide-react';
+-
+-interface ContentSection {
+-  type: string;
+-  content?: string;
+-  level?: number;
+-  items?: any[];
+-  statsData?: any[];
+-  chartData?: any;
+-  tableData?: any;
+-}
+-
+-interface EnhancedBlogContentProps {
+-  content: ContentSection[];
++import React, { Suspense } from 'react';
++import type { ContentSection, EnhancedBlogContentProps } from '@/types/content';
++
++// Lazy load components for better performance
++const BlogStats = React.lazy(() => 
++  import('./blog/BlogStats').then(module => ({ default: module.BlogStats }))
++);
++const BlogChart = React.lazy(() => 
++  import('./blog/BlogChart').then(module => ({ default: module.BlogChart }))
++);
++const BlogTable = React.lazy(() => 
++  import('./blog/BlogTable').then(module => ({ default: module.BlogTable }))
++);
++const BlogQuote = React.lazy(() => 
++  import('./blog/BlogQuote').then(module => ({ default: module.BlogQuote }))
++);
++
++// Loading component for lazy-loaded sections
++const LoadingFallback = () => (
++  <div className="flex justify-center items-center h-32">
++    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
++  </div>
++);
++
++// Error boundary for robust error handling
++class BlogErrorBoundary extends React.Component
++  { children: React.ReactNode },
++  { hasError: boolean }
++> {
++  constructor(props: { children: React.ReactNode }) {
++    super(props);
++    this.state = { hasError: false };
++  }
++
++  static getDerivedStateFromError() {
++    return { hasError: true };
++  }
++
++  render() {
++    if (this.state.hasError) {
++      return (
++        <div className="text-center p-4 text-red-600">
++          <p>Something went wrong displaying this content.</p>
++        </div>
++      );
++    }
++
++    return this.props.children;
++  }
+ }
+ 
+ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) => {
+-  const iconMap = {
+-    TrendingUp,
+-    Scale,
+-    Shield,
+-    Gavel,
+-    Users,
+-    Award,
+-    Clock,
+-    Check,
+-    Star,
+-    Heart,
+-    AlertCircle,
+-    Info,
+-    BookOpen,
+-    Briefcase,
+-    DollarSign,
+-  };
+-
+   const renderContent = (section: ContentSection, index: number) => {
+     switch (section.type) {
+       case 'heading':
+-        const HeadingTag = `h${section.level || 2}` as keyof JSX.IntrinsicElements;
++        const HeadingTag = `h${section.level || 2}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+         const headingClasses = {
+-          h1: 'text-4xl font-bold mb-6 text-black',
+-          h2: 'text-3xl font-semibold mb-4 mt-8 text-black',
+-          h3: 'text-2xl font-medium mb-3 mt-6 text-black',
+-          h4: 'text-xl font-medium mb-2 mt-4 text-black',
+-          h5: 'text-lg font-medium mb-2 mt-3 text-black',
+-          h6: 'text-base font-medium mb-2 mt-2 text-black',
+-        };
++          1: 'text-4xl font-bold mb-6 text-black',
++          2: 'text-3xl font-semibold mb-4 mt-8 text-black',
++          3: 'text-2xl font-medium mb-3 mt-6 text-black',
++          4: 'text-xl font-medium mb-2 mt-4 text-black',
++          5: 'text-lg font-medium mb-2 mt-3 text-black',
++          6: 'text-base font-medium mb-2 mt-2 text-black',
++        } as const;
+         return (
+-          <HeadingTag key={index} className={headingClasses[HeadingTag]}>
++          <HeadingTag key={index} className={headingClasses[section.level || 2]}>
+             {section.content}
+           </HeadingTag>
+         );
+@@ -215,10 +73,12 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =
+         );
+       
+       case 'list':
++        if (!section.items) return null;
+         return (
+           <ul key={index} className="list-disc pl-6 mb-6 space-y-2">
+-            {section.items?.map((item, itemIndex) => (
+-              <li key={itemIndex} className="text-gray-700 leading-relaxed">
++            {section.items.map((item, itemIndex) => (
++              <li key={itemIndex} className="text-gray-700 leading-relaxed" 
++                  dangerouslySetInnerHTML={{ __html: item }} />
+               </li>
+             ))}
+           </ul>
+         );
+       
+       case 'numberedList':
++        if (!section.items) return null;
+         return (
+           <div key={index} className="mb-6">
+             <ol className="list-decimal pl-6 space-y-4">
+-              {section.items?.map((item, itemIndex) => (
++              {section.items.map((item, itemIndex) => (
+                 <li key={itemIndex}>
+                   <strong className="text-black">{item.title}</strong>
+                   <p className="text-gray-700 mt-1">{item.description}</p>
+@@ -240,108 +100,35 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =
+         );
+       
+       case 'stats':
++        if (!section.statsData) return null;
+         return (
+-          <div key={index} className="grid md:grid-cols-3 gap-6 mb-8">
+-            {section.statsData?.map((stat, statIndex) => {
+-              const IconComponent = iconMap[stat.icon as keyof typeof iconMap] || TrendingUp;
+-              return (
+-                <Card key={statIndex} className="border-2 border-black text-center">
+-                  <CardContent className="p-6">
+-                    <div className="bg-black p-3 rounded-full inline-block mb-4">
+-                      <IconComponent className="h-8 w-8 text-white" />
+-                    </div>
+-                    <div className="text-3xl font-bold text-black mb-2">{stat.value}</div>
+-                    <div className="text-gray-700 font-medium">{stat.label}</div>
+-                  </CardContent>
+-                </Card>
+-              );
+-            })}
+-          </div>
++          <Suspense key={index} fallback={<LoadingFallback />}>
++            <BlogStats statsData={section.statsData} />
++          </Suspense>
+         );
+       
+-      case 'chart': {
++      case 'chart':
+         if (!section.chartData) return null;
+-
+-        const colors = ['#000000', '#666666', '#999999', '#CCCCCC'];
+-
+         return (
+-          <Card key={index} className="border-2 border-black mb-8">
+-            <CardContent className="p-6">
+-              <h4 className="text-xl font-semibold mb-4 text-black text-center">
+-                {section.chartData.title}
+-              </h4>
+-              <div className="h-64 w-full">
+-                {section.chartData.title.includes('Market Growth') ? (
+-                  <ResponsiveContainer width="100%" height="100%">
+-                    <BarChart data={section.chartData.data}>
+-                      <XAxis dataKey="name" stroke="#000" />
+-                      <YAxis stroke="#000" />
+-                      <Bar dataKey="value" fill="#000000" />
+-                    </BarChart>
+-                  </ResponsiveContainer>
+-                ) : (
+-                  <ResponsiveContainer width="100%" height="100%">
+-                    <PieChart>
+-                      <Pie
+-                        data={section.chartData.data}
+-                        cx="50%"
+-                        cy="50%"
+-                        outerRadius={80}
+-                        dataKey="value"
+-                        label={(entry) => `${entry.name}: ${entry.value}%`}
+-                      >
+-                        {section.chartData.data.map((entry, index) => (
+-                          <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+-                        ))}
+-                      </Pie>
+-                    </PieChart>
+-                  </ResponsiveContainer>
+-                )}
+-              </div>
+-            </CardContent>
+-          </Card>
++          <Suspense key={index} fallback={<LoadingFallback />}>
++            <BlogChart chartData={section.chartData} />
++          </Suspense>
+         );
+-      }
+       
+       case 'table':
+         if (!section.tableData) return null;
+         return (
+-          <Card key={index} className="border-2 border-black mb-8 overflow-hidden">
+-            <CardContent className="p-0">
+-              <table className="w-full">
+-                <thead className="bg-black text-white">
+-                  <tr>
+-                    {section.tableData.headers.map((header, headerIndex) => (
+-                      <th key={headerIndex} className="p-4 text-left font-semibold">
+-                        {header}
+-                      </th>
+-                    ))}
+-                  </tr>
+-                </thead>
+-                <tbody>
+-                  {section.tableData.rows.map((row, rowIndex) => (
+-                    <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+-                      {row.map((cell, cellIndex) => (
+-                        <td key={cellIndex} className="p-4 border-b border-gray-200">
+-                          {cell}
+-                        </td>
+-                      ))}
+-                    </tr>
+-                  ))}
+-                </tbody>
+-              </table>
+-            </CardContent>
+-          </Card>
++          <Suspense key={index} fallback={<LoadingFallback />}>
++            <BlogTable tableData={section.tableData} />
++          </Suspense>
+         );
+       
+       case 'quote':
++        if (!section.content) return null;
+         return (
+-          <Card key={index} className="border-2 border-black bg-black text-white mb-8">
+-            <CardContent className="p-8 text-center">
+-              <blockquote className="text-xl italic font-medium">
+-                {section.content}
+-              </blockquote>
+-            </CardContent>
+-          </Card>
++          <Suspense key={index} fallback={<LoadingFallback />}>
++            <BlogQuote content={section.content} />
++          </Suspense>
+         );
+       
+       default:
+@@ -351,7 +138,9 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =
+ 
+   return (
+     <div className="prose prose-lg max-w-none">
+-      {content.map((section, index) => renderContent(section, index))}
++      <BlogErrorBoundary>
++        {content.map((section, index) => renderContent(section, index))}
++      </BlogErrorBoundary>
+     </div>
+   );
+ };
+diff --git a/src/components/StructuredData.tsx b/src/components/StructuredData.tsx
+index c8d9ac2720657c9932797afcf18ec4636f741b1b..a7f8b7c5668ba90a19e482394c8912e403e1f 100644
+--- a/src/components/StructuredData.tsx
++++ b/src/components/StructuredData.tsx
+@@ -1,19 +1,16 @@
+ import { useContentContext } from '@/components/ContentProvider';
+-
+-interface StructuredDataProps {
+-  type: 'attorney' | 'legal-service' | 'faq' | 'local-business';
+-  data?: any;
+-}
++import type { StructuredDataProps, AttorneyContent, PracticeAreasContent } from '@/types/content';
+ 
+ const StructuredData = ({ type, data }: StructuredDataProps) => {
+   const { getContent } = useContentContext();
++  const baseUrl = "https://summitlawsite.com";
+ 
+   const generateStructuredData = () => {
+-    const baseUrl = "https://summitlawsite.com";
+     
+     switch (type) {
+       case 'attorney': {
+-        const attorneyContent = getContent('attorney');
++        const attorneyContent = getContent('attorney') as AttorneyContent | undefined;
+         return {
+           "@context": "https://schema.org",
+           "@type": "Attorney",
+@@ -41,7 +38,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
+       }
+ 
+       case 'legal-service': {
+-        const practiceContent = getContent('practiceAreas');
++        const practiceContent = getContent('practiceAreas') as PracticeAreasContent | undefined;
+         return {
+           "@context": "https://schema.org",
+           "@type": "LegalService",
+@@ -56,7 +53,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
+             "@type": "Place",
+             "name": "Massachusetts"
+           },
+-          "serviceType": practiceContent?.areas?.map((area: any) => area.title) || [
++          "serviceType": practiceContent?.areas?.map((area) => area.title) || [
+             "Criminal Defense",
+             "Restraining Orders", 
+             "Motor Vehicle Offenses",
+@@ -68,7 +65,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
+           "hasOfferCatalog": {
+             "@type": "OfferCatalog",
+             "name": "Legal Services",
+-            "itemListElement": practiceContent?.areas?.map((area: any, index: number) => ({
++            "itemListElement": practiceContent?.areas?.map((area) => ({
+               "@type": "Offer",
+               "itemOffered": {
+                 "@type": "Service",
+@@ -128,7 +125,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
+         };
+ 
+       default:
+-        return null;
++        return data || null;
+     }
+   };
+ 
+diff --git a/src/components/ui/command.tsx b/src/components/ui/command.tsx
+index 69d63a475007baa2fb4531a336c1018e3c6b18bb..2f8c3e7a9c5668ba90a19e482394c8912e403e1f 100644
+--- a/src/components/ui/command.tsx
++++ b/src/components/ui/command.tsx
+@@ -20,7 +20,7 @@ const Command = React.forwardRef
+ ))
+ Command.displayName = CommandPrimitive.displayName
+ 
+-type CommandDialogProps = DialogProps
++interface CommandDialogProps extends DialogProps {}
+ 
+ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
+   return (
+diff --git a/src/components/ui/textarea.tsx b/src/components/ui/textarea.tsx
+index e1c36979dce2e89d6b5100d1ff1f7fb0de0f8aa4..9f9a6dc56193b728feda6d9b1a3d9302b8880f0b 100644
+--- a/src/components/ui/textarea.tsx
++++ b/src/components/ui/textarea.tsx
+@@ -2,8 +2,8 @@ import * as React from "react"
+ 
+ import { cn } from "@/lib/utils"
+ 
+-export type TextareaProps =
+-  React.TextareaHTMLAttributes<HTMLTextAreaElement>
++export interface TextareaProps
++  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+ 
+ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+   ({ className, ...props }, ref) => {

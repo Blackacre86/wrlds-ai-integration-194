@@ -6,6 +6,7 @@ import { AlertTriangle, RefreshCw } from 'lucide-react';
 
 interface Props {
   children: ReactNode;
+  fallback?: ReactNode;
 }
 
 interface State {
@@ -29,6 +30,10 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
+      if (this.props.fallback) {
+        return this.props.fallback;
+      }
+
       return (
         <div className="min-h-screen bg-gradient-to-b from-background to-muted flex items-center justify-center p-4">
           <Card className="w-full max-w-md">
@@ -42,15 +47,11 @@ class ErrorBoundary extends Component<Props, State> {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {this.state.error && (
-                <div className="p-3 bg-muted rounded-lg">
-                  <p className="text-sm font-mono text-muted-foreground">
-                    {this.state.error.message}
-                  </p>
-                </div>
-              )}
               <Button
-                onClick={() => window.location.reload()}
+                onClick={() => {
+                  this.setState({ hasError: false, error: null });
+                  window.location.reload();
+                }}
                 className="w-full"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />

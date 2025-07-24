@@ -60,6 +60,13 @@ This project is built with .
 - shadcn-ui
 - Tailwind CSS
 
+## Configuration
+
+The Supabase function `get-maps-key` expects a Google Maps API key stored in
+`GOOGLE_MAPS_API_KEY`. Make sure this key has both the Maps JavaScript API and
+the Geocoding API enabled in the Google Cloud Console. Without Geocoding access
+the interactive map will fail to look up addresses.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/ec1d4f1e-2506-4da5-a91b-34afa90cceb6) and click on Share -> Publish.

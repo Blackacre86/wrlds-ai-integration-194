@@ -1,123 +1,153 @@
 
-import { z } from 'zod';
+export interface IntakeFormData {
+  // Case Details
+  docket_number: string;
+  arraignment_date: string;
+  next_court_date: string;
+  court_name: string;
+  court_session: string;
+  ada_prosecutor: string;
+  bail_info: {
+    bail_set: boolean;
+    bail_amount?: string;
+    bail_conditions?: string;
+  };
+  charges: Array<{
+    charge_name: string;
+    statute_code: string;
+    full_description: string;
+  }>;
+  
+  // Client Information
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+  ssn_last4: string;
+  home_address: string;
+  mailing_address: string;
+  phone_numbers: Array<{
+    type: string;
+    number: string;
+  }>;
+  email: string;
+  emergency_contact: {
+    name: string;
+    relation: string;
+    phone: string;
+  };
+  
+  // Employment/Education
+  employment_info: {
+    employed: boolean;
+    unemployed: boolean;
+    employer_name?: string;
+    job_title?: string;
+    work_address?: string;
+    work_hours?: string;
+  };
+  education_info: {
+    in_school: boolean;
+    highest_education: string;
+    school_location: string;
+    school_name?: string;
+    year_grade?: string;
+  };
+  
+  // Family & Dependents
+  family_info: {
+    marital_status: string;
+    spouse_partner_name?: string;
+    children: Array<{
+      name: string;
+      age: string;
+    }>;
+    other_dependents?: string;
+  };
+  
+  // Substance Use & Mental Health
+  substance_mental_health: {
+    past_treatment: boolean;
+    treatment_details?: string;
+    current_medications: string;
+    mental_health_diagnoses?: string;
+    doctor_counselor_contact?: string;
+  };
+  
+  // Immigration
+  immigration_info: {
+    us_citizen: boolean;
+    immigration_status?: string;
+    prior_deportation: boolean;
+    deportation_details?: string;
+  };
+  
+  // Criminal/Probation History
+  criminal_history: {
+    open_cases: boolean;
+    open_cases_details?: string;
+    probation_parole: boolean;
+    probation_details?: string;
+    prior_record: boolean;
+    prior_record_summary?: string;
+  };
+  
+  // About Me
+  about_me: string;
+  
+  // Representation
+  representation_type: 'bar_advocate' | 'private_client' | undefined;
+  
+  // Case Facts
+  case_facts: string;
+  
+  // Files and Consent
+  uploaded_files: Array<{
+    name: string;
+    type: string;
+    url: string;
+  }>;
+  consent_given: boolean;
+  e_signature: {
+    full_name: string;
+    date: string;
+  };
+  
+  // Progress tracking
+  progress_step: number;
+}
 
-export const caseDetailsSchema = z.object({
-  docket_number: z.string().min(1, "Docket number is required"),
-  court_name: z.string().min(1, "Court name is required"),
-  arraignment_date: z.string().optional(),
-  next_court_date: z.string().optional(),
-  court_session: z.string().optional(),
-  ada_prosecutor: z.string().optional(),
-  bail_info: z.object({
-    bail_set: z.boolean(),
-    bail_amount: z.string().optional(),
-    bail_conditions: z.string().optional(),
-  }),
-  charges: z.array(z.object({
-    charge_name: z.string(),
-    statute_code: z.string(),
-    full_description: z.string(),
-  })).min(1, "At least one charge is required"),
-});
-
-export const clientInfoSchema = z.object({
-  first_name: z.string().min(1, "First name is required"),
-  middle_name: z.string().optional(),
-  last_name: z.string().min(1, "Last name is required"),
-  date_of_birth: z.string().min(1, "Date of birth is required"),
-  ssn_last4: z.string().optional(),
-  home_address: z.string().min(1, "Home address is required"),
-  mailing_address: z.string().optional(),
-  email: z.string().email("Valid email is required"),
-  phone_numbers: z.array(z.object({
-    type: z.string(),
-    number: z.string().min(1, "Phone number is required"),
-  })).min(1, "At least one phone number is required"),
-  emergency_contact: z.object({
-    name: z.string().optional(),
-    relation: z.string().optional(),
-    phone: z.string().optional(),
-  }),
-});
-
-export const employmentEducationSchema = z.object({
-  employment_info: z.object({
-    employed: z.boolean(),
-    employer_name: z.string().optional(),
-    job_title: z.string().optional(),
-    work_address: z.string().optional(),
-    work_hours: z.string().optional(),
-  }),
-  education_info: z.object({
-    in_school: z.boolean(),
-    school_name: z.string().optional(),
-    year_grade: z.string().optional(),
-  }),
-});
-
-export const familyHealthSchema = z.object({
-  family_info: z.object({
-    marital_status: z.string().optional(),
-    spouse_partner_name: z.string().optional(),
-    children: z.array(z.object({
-      name: z.string(),
-      age: z.string(),
-    })),
-    other_dependents: z.string().optional(),
-  }),
-  substance_mental_health: z.object({
-    past_treatment: z.boolean(),
-    treatment_details: z.string().optional(),
-    current_medications: z.string(),
-    mental_health_diagnoses: z.string().optional(),
-    doctor_counselor_contact: z.string().optional(),
-  }),
-});
-
-export const immigrationHistorySchema = z.object({
-  immigration_info: z.object({
-    us_citizen: z.boolean(),
-    immigration_status: z.string().optional(),
-    prior_deportation: z.boolean(),
-    deportation_details: z.string().optional(),
-  }),
-  criminal_history: z.object({
-    open_cases: z.boolean(),
-    open_cases_details: z.string().optional(),
-    probation_parole: z.boolean(),
-    probation_details: z.string().optional(),
-    prior_record: z.boolean(),
-    prior_record_summary: z.string().optional(),
-  }),
-});
-
-export const representationFactsSchema = z.object({
-  representation_type: z.enum(['bar_advocate', 'private_client'], {
-    required_error: "Please select a representation type",
-  }),
-  case_facts: z.string().min(50, "Please provide a detailed description (at least 50 characters)"),
-});
-
-export const filesConsentSchema = z.object({
-  uploaded_files: z.array(z.object({
-    name: z.string(),
-    type: z.string(),
-    url: z.string(),
-  })),
-  consent_given: z.boolean().refine(val => val === true, "Consent is required to proceed"),
-  e_signature: z.object({
-    full_name: z.string().min(1, "Full name is required for signature"),
-    date: z.string().min(1, "Date is required for signature"),
-    signature_data: z.string().optional(),
-  }),
-});
-
-export const fullIntakeSchema = caseDetailsSchema
-  .merge(clientInfoSchema)
-  .merge(employmentEducationSchema)
-  .merge(familyHealthSchema)
-  .merge(immigrationHistorySchema)
-  .merge(representationFactsSchema)
-  .merge(filesConsentSchema);
-
-export type IntakeFormData = z.infer<typeof fullIntakeSchema>;
+export const validateStep = (step: number, data: Partial<IntakeFormData>): string[] => {
+  const errors: string[] = [];
+  
+  switch (step) {
+    case 1: // Case Details
+      if (!data.docket_number?.trim()) errors.push('Docket number is required');
+      if (!data.court_name?.trim()) errors.push('Court name is required');
+      break;
+      
+    case 2: // Client Information
+      if (!data.first_name?.trim()) errors.push('First name is required');
+      if (!data.last_name?.trim()) errors.push('Last name is required');
+      if (!data.home_address?.trim()) errors.push('Home address is required');
+      if (!data.email?.trim()) errors.push('Email is required');
+      break;
+      
+    case 3: // Employment & Education
+      if (data.employment_info?.employed) {
+        if (!data.employment_info.employer_name?.trim()) errors.push('Employer name is required');
+        if (!data.employment_info.job_title?.trim()) errors.push('Job title is required');
+      }
+      if (data.education_info?.in_school) {
+        if (!data.education_info.school_name?.trim()) errors.push('School name is required');
+        if (!data.education_info.school_location?.trim()) errors.push('School location is required');
+      }
+      break;
+      
+    case 8: // Files & Consent
+      if (!data.consent_given) errors.push('Consent is required to submit the form');
+      if (!data.e_signature?.full_name?.trim()) errors.push('Electronic signature is required');
+      break;
+  }
+  
+  return errors;
+};
