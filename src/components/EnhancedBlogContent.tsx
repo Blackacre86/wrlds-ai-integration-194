@@ -3,17 +3,24 @@ import React, { memo } from 'react';
 import { ContentSection } from '@/data/blogPosts';
 import { DollarSign, Users, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import ChartBlock from '@/components/blocks/ChartBlock';
-import TableBlock from '@/components/blocks/TableBlock';
+import SafeChartBlock from '@/components/SafeChartBlock';
+import SafeTableBlock from '@/components/SafeTableBlock';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 interface Props { content: ContentSection[] }
 const iconMap = { DollarSign, Users, TrendingUp } as const;
 
 function EnhancedBlogContent({ content }: Props) {
+  if (!Array.isArray(content)) {
+    console.error('Invalid content provided to EnhancedBlogContent:', content);
+    return <div className="prose prose-lg max-w-none">Content unavailable</div>;
+  }
+
   return (
-    <div className="prose prose-lg max-w-none">
-      {content.map((section) => {
-        const key = section.id ?? section.content ?? Math.random();
+    <ErrorBoundary>
+      <div className="prose prose-lg max-w-none">
+        {content.map((section, index) => {
+          const key = section.id ?? `section-${index}`;
 
         switch (section.type) {
           case 'heading':
@@ -74,10 +81,10 @@ function EnhancedBlogContent({ content }: Props) {
             );
 
           case 'chart':
-            return <ChartBlock key={key} section={section as any} />;
+            return <SafeChartBlock key={key} section={section as any} />;
 
           case 'table':
-            return <TableBlock key={key} section={section as any} />;
+            return <SafeTableBlock key={key} section={section as any} />;
 
           case 'bibliography':
             return (
@@ -91,8 +98,9 @@ function EnhancedBlogContent({ content }: Props) {
           default:
             return null;
         }
-      })}
-    </div>
+        })}
+      </div>
+    </ErrorBoundary>
   );
 }
 

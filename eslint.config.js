@@ -24,8 +24,8 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "off",
-      // Allow the use of `any` to keep linting manageable for now
-      "@typescript-eslint/no-explicit-any": "off",
+      // Warn on explicit any usage to encourage better typing
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   }
 );
