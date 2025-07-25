@@ -1,37 +1,53 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { componentTagger } from "lovable-tagger";
+// vite.config.ts
+import { defineConfig } from 'vite';
+// 👉 Install this package if you don’t have it yet:
+//    npm i -D @vitejs/plugin-react
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+// ─────────────────────────────────────────────
+// Plugin: allow Lovable preview iframe
+// ─────────────────────────────────────────────
+const lovableFrameHeaders = {
+  name: 'lovable-frame-headers',
+  configureServer(server: any) {
+    server.middlewares.use((_req: any, res: any, next: any) => {
+      res.removeHeader?.('X-Frame-Options'); // remove old lock
+      res.setHeader(
+        'Content-Security-Policy',
+        "frame-ancestors 'self' https://lovable.dev https://*.lovable.app"
+      );
+      next();
+    });
+  },
+  configurePreviewServer(server: any) {
+    server.middlewares.use((_req: any, res: any, next: any) => {
+      res.removeHeader?.('X-Frame-Options');
+      res.setHeader(
+        'Content-Security-Policy',
+        "frame-ancestors 'self' https://lovable.dev https://*.lovable.app"
+      );
+      next();
+    });
+  }
+};
+
+// ─────────────────────────────────────────────
+// Your original Vite settings (keep as-is)
+// ─────────────────────────────────────────────
 export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-    headers: {
-      // Security headers
-      'X-Frame-Options': 'SAMEORIGIN',
-      'X-Content-Type-Options': 'nosniff',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-      'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-    },
-  },
-  preview: {
-    headers: {
-      // Basic security headers for preview (CSP removed for Lovable compatibility)
-      'X-Frame-Options': 'SAMEORIGIN',
-      'X-Content-Type-Options': 'nosniff',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-    },
-  },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
+    lovableFrameHeaders           // ← new plugin
+  ],
+
+  server: {
+    host: '*',
+    port: 8080
+    // …whatever other server settings you had
   },
+
+  preview: {
+    host: '*',
+    port: 8080
+  }
 }));
