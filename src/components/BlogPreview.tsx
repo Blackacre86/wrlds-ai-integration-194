@@ -5,25 +5,49 @@ import { Button } from '@/components/ui/button';
 import BlogPostCard from '@/components/BlogPostCard';
 import { blogPosts } from '@/data/blogPosts';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { format } from 'date-fns';
 
 const BlogPreview = () => {
-  // Get the 3 most recent blog posts
+  // Helper function to safely parse dates
+  const parseDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      return isNaN(date.getTime()) ? new Date(0) : date;
+    } catch (error) {
+      return new Date(0);
+    }
+  };
+
+  // Helper function to format dates for display
+  const formatPostDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) {
+        return 'Recent';
+      }
+      return format(date, 'MMM d, yyyy');
+    } catch (error) {
+      return 'Recent';
+    }
+  };
+
+  // Get the 3 most recent blog posts with proper date sorting
   const recentPosts = [...blogPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
     .slice(0, 3);
 
   return (
-    <section id="blog" className="py-12 md:py-24 px-4 md:px-12 bg-white">
+    <section id="blog" className="py-12 md:py-16 px-4 md:px-12 bg-white">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Newspaper size={20} className="text-black" />
-              <span className="text-black font-medium">Our Blog</span>
+              <span className="text-black font-medium">Legal Insights</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Latest Updates</h2>
             <p className="text-gray-800 max-w-xl">
-              Explore our latest insights on smart textile technology, industry trends, and innovation.
+              Stay informed with our latest insights on criminal defense strategies, legal rights, and navigating the Massachusetts court system.
             </p>
           </div>
           <Link to="/blog" className="mt-4 md:mt-0">
@@ -43,7 +67,7 @@ const BlogPreview = () => {
                     title={post.title}
                     excerpt={post.excerpt}
                     imageUrl={post.imageUrl || '/placeholder.svg'}
-                    date={post.date}
+                    date={formatPostDate(post.date)}
                     slug={post.slug}
                     category={post.category}
                   />
@@ -52,7 +76,6 @@ const BlogPreview = () => {
             </div>
           </ScrollArea>
           
-          {/* Show grid layout on non-mobile screens */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {recentPosts.map((post) => (
               <BlogPostCard
@@ -60,7 +83,7 @@ const BlogPreview = () => {
                 title={post.title}
                 excerpt={post.excerpt}
                 imageUrl={post.imageUrl || '/placeholder.svg'}
-                date={post.date}
+                date={formatPostDate(post.date)}
                 slug={post.slug}
                 category={post.category}
               />

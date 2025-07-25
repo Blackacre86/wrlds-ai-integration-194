@@ -197,6 +197,9 @@ const ContactForm = () => {
                       <Send className="ml-2 h-4 w-4" />
                     </>}
                 </button>
+                <p className="text-xs text-gray-600 italic text-center mt-2">
+                  <em>Submitting this form does not create an attorney-client relationship. No legal outcome is guaranteed.</em>
+                </p>
               </form>
             </Form>
           </div>

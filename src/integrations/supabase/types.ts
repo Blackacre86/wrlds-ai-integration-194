@@ -156,6 +156,7 @@ export type Database = {
       }
       client_intakes: {
         Row: {
+          about_me: string | null
           ada_prosecutor: string | null
           arraignment_date: string | null
           bail_info: Json | null
@@ -193,6 +194,7 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          about_me?: string | null
           ada_prosecutor?: string | null
           arraignment_date?: string | null
           bail_info?: Json | null
@@ -230,6 +232,7 @@ export type Database = {
           user_id: string
         }
         Update: {
+          about_me?: string | null
           ada_prosecutor?: string | null
           arraignment_date?: string | null
           bail_info?: Json | null
@@ -370,9 +373,92 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_limits: {
+        Row: {
+          action_type: string
+          attempt_count: number
+          created_at: string
+          id: string
+          identifier: string
+          ip_address: unknown | null
+          locked_until: string | null
+          updated_at: string
+          window_start: string
+        }
+        Insert: {
+          action_type: string
+          attempt_count?: number
+          created_at?: string
+          id?: string
+          identifier: string
+          ip_address?: unknown | null
+          locked_until?: string | null
+          updated_at?: string
+          window_start?: string
+        }
+        Update: {
+          action_type?: string
+          attempt_count?: number
+          created_at?: string
+          id?: string
+          identifier?: string
+          ip_address?: unknown | null
+          locked_until?: string | null
+          updated_at?: string
+          window_start?: string
+        }
+        Relationships: []
+      }
+      session_fingerprints: {
+        Row: {
+          created_at: string
+          fingerprint_hash: string
+          id: string
+          ip_address: unknown | null
+          is_active: boolean
+          language: string | null
+          last_seen: string
+          screen_resolution: string | null
+          session_id: string
+          timezone: string | null
+          user_agent: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          fingerprint_hash: string
+          id?: string
+          ip_address?: unknown | null
+          is_active?: boolean
+          language?: string | null
+          last_seen?: string
+          screen_resolution?: string | null
+          session_id: string
+          timezone?: string | null
+          user_agent?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          fingerprint_hash?: string
+          id?: string
+          ip_address?: unknown | null
+          is_active?: boolean
+          language?: string | null
+          last_seen?: string
+          screen_resolution?: string | null
+          session_id?: string
+          timezone?: string | null
+          user_agent?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_mfa_settings: {
         Row: {
           backup_codes: string[] | null
+          backup_codes_encrypted: string | null
+          backup_codes_key_id: string | null
           created_at: string
           id: string
           is_mfa_enabled: boolean | null
@@ -382,6 +468,8 @@ export type Database = {
         }
         Insert: {
           backup_codes?: string[] | null
+          backup_codes_encrypted?: string | null
+          backup_codes_key_id?: string | null
           created_at?: string
           id?: string
           is_mfa_enabled?: boolean | null
@@ -391,6 +479,8 @@ export type Database = {
         }
         Update: {
           backup_codes?: string[] | null
+          backup_codes_encrypted?: string | null
+          backup_codes_key_id?: string | null
           created_at?: string
           id?: string
           is_mfa_enabled?: boolean | null
@@ -411,6 +501,28 @@ export type Database = {
       }
       check_account_lockout: {
         Args: { p_email: string }
+        Returns: Json
+      }
+      check_rate_limit: {
+        Args: {
+          p_identifier: string
+          p_ip_address: unknown
+          p_action_type: string
+          p_max_attempts?: number
+          p_window_minutes?: number
+        }
+        Returns: Json
+      }
+      cleanup_old_rate_limits: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
+      detect_suspicious_activity: {
+        Args: {
+          p_user_id: string
+          p_ip_address: unknown
+          p_fingerprint_hash: string
+        }
         Returns: Json
       }
       halfvec_avg: {
@@ -477,12 +589,44 @@ export type Database = {
         }
         Returns: string
       }
+      log_security_event: {
+        Args: {
+          p_user_id: string
+          p_action: string
+          p_resource_type: string
+          p_resource_id?: string
+          p_details?: Json
+          p_ip_address?: unknown
+          p_user_agent?: string
+          p_fingerprint_hash?: string
+        }
+        Returns: string
+      }
       record_failed_login: {
         Args: { p_email: string }
         Returns: undefined
       }
+      record_rate_limit_attempt: {
+        Args: {
+          p_identifier: string
+          p_ip_address: unknown
+          p_action_type: string
+          p_max_attempts?: number
+          p_window_minutes?: number
+          p_lockout_minutes?: number
+        }
+        Returns: Json
+      }
       reset_failed_login: {
         Args: { p_email: string }
+        Returns: undefined
+      }
+      reset_rate_limit: {
+        Args: {
+          p_identifier: string
+          p_ip_address: unknown
+          p_action_type: string
+        }
         Returns: undefined
       }
       search_content_by_similarity: {

@@ -16,10 +16,10 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
     // Static content mapping for immediate implementation
     const contentMap: Record<string, any> = {
       'hero': {
-        title: "Strategic Criminal Defense Across Massachusetts",
-        subtitle: "Attorney Joe Brava provides strategic criminal defense across Massachusetts. Former prosecutor with 1,000+ cases of experience.",
-        description: "When facing criminal charges in Massachusetts, you need more than just legal representation – you need a strategic defense partner who understands both sides of the courtroom.",
-        ctaText: "Call Now",
+        title: "Proven Criminal Defense in Massachusetts",
+        subtitle: "Former Prosecutor. 1000+ Cases Handled. Focused on Results",
+        description: "Strategic defense partner who understands both sides of the courtroom.",
+        ctaText: "Get Consultation",
         ctaPhone: "508-454-0822"
       },
       'practiceAreas': {
@@ -43,7 +43,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
           },
           {
             title: "Show Cause Hearings",
-            description: "Strategic representation at Clerk Magistrate hearings and criminal applications to prevent charges from being filed against you.",
+            description: "In Massachusetts, if you're charged with a misdemeanor but weren't arrested, you'll receive notice of a clerk-magistrate ( 'show-cause' ) hearing. At this informal session, the complainant must establish probable cause before the clerk; if the clerk isn't convinced, no criminal complaint issues.",
             image: "/lovable-uploads/show-cause.jpg"
           }
         ]
@@ -51,7 +51,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
       'attorney': {
         name: "Joe Brava",
         title: "Attorney",
-        description: "With over a decade of legal experience and a proven track record of success, Attorney Joe Brava brings strategic thinking and tenacious advocacy to every case.",
+        description: "With 8+ years of legal experience and a proven track record of success, Attorney Joe Brava brings strategic thinking and tenacious advocacy to every case.",
         background: {
           prosecutor: "Served as an Assistant District Attorney, gaining invaluable insight into prosecution strategies and case development from the inside.",
           experience: "Successfully handled over 1,000 criminal cases, from minor infractions to serious felonies, with a focus on achieving the best possible outcomes for clients.",
@@ -69,17 +69,17 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
           {
             image: "/lovable-uploads/810c64ae-5dff-4a0a-ab8b-555b99cf604a.png",
             title: "Evidence Strategy Optimization",
-            description: "AI-powered analysis of evidence patterns and prosecution strategies to identify the strongest defense approaches and potential case weaknesses."
+            description: "AI-powered analysis of evidence patterns and prosecution strategies to identify the strongest defense approaches and potential case weaknesses for your specific situation."
           },
           {
             image: "/lovable-uploads/92cc4676-3f43-4a6e-9bbe-1cb528cc4386.png",
             title: "Smart Evidence Presentation",
-            description: "Advanced visualization and presentation tools that help judges and juries understand complex evidence in clear, compelling ways."
+            description: "Advanced visualization and presentation tools that help judges and juries understand complex evidence in clear, compelling ways that support your defense."
           },
           {
             image: "/lovable-uploads/13a21a8f-d1ab-4a67-9b0e-0efc97b1ab04.png",
-            title: "AI-Powered Legal Research Agents",
-            description: "Cutting-edge AI technology that analyzes thousands of cases to find relevant precedents and build stronger legal arguments for your defense."
+            title: "AI-Powered Legal Research",
+            description: "Cutting-edge AI technology that analyzes thousands of cases to find relevant precedents and build stronger legal arguments for your defense strategy."
           }
         ]
       }

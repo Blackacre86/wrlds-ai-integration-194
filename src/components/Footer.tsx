@@ -3,6 +3,7 @@ import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from '@/integrations/supabase/client';
+import GoogleMap from './GoogleMap';
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,6 @@ const Footer = () => {
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!email) {
       toast({
         title: "Error",
@@ -20,9 +20,8 @@ const Footer = () => {
       });
       return;
     }
-    
+
     setIsSubmitting(true);
-    
     try {
       // Call the secure edge function
       const { data: response, error } = await supabase.functions.invoke('send-email', {
@@ -31,24 +30,21 @@ const Footer = () => {
           email: email
         }
       });
-      
+
       if (error) {
         console.error('Error calling edge function:', error);
         throw error;
       }
-      
+
       console.log('Newsletter subscription sent successfully:', response);
-      
       toast({
         title: "Success!",
         description: "Thank you for subscribing to our legal updates.",
         variant: "default"
       });
-      
       setEmail("");
     } catch (error) {
       console.error("Error sending subscription:", error);
-      
       toast({
         title: "Error",
         description: "There was a problem subscribing. Please try again later.",
@@ -83,10 +79,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold text-white mb-8">Get In Touch</h3>
             
             <div className="space-y-6 mb-8">
-              <a 
-                href="tel:508-454-0822" 
-                className="flex items-center text-gray-300 hover:text-white transition-colors p-4 bg-white/5 rounded-lg hover:bg-white/10"
-              >
+              <a href="tel:508-454-0822" className="flex items-center text-gray-300 hover:text-white transition-colors p-4 bg-white/5 rounded-lg hover:bg-white/10">
                 <Phone className="w-6 h-6 mr-4 flex-shrink-0" />
                 <div>
                   <div className="font-semibold text-xl">508-454-0822</div>
@@ -94,10 +87,7 @@ const Footer = () => {
                 </div>
               </a>
               
-              <a 
-                href="mailto:joe@summitlawoffices.com" 
-                className="flex items-center text-gray-300 hover:text-white transition-colors p-4 bg-white/5 rounded-lg hover:bg-white/10"
-              >
+              <a href="mailto:joe@summitlawoffices.com" className="flex items-center text-gray-300 hover:text-white transition-colors p-4 bg-white/5 rounded-lg hover:bg-white/10">
                 <Mail className="w-6 h-6 mr-4 flex-shrink-0" />
                 <div>
                   <div className="font-semibold">joe@summitlawoffices.com</div>
@@ -126,32 +116,17 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Google Maps */}
+          {/* Enhanced Google Maps */}
           <div>
             <h3 className="text-2xl font-bold text-white mb-8">Office Location</h3>
             <div className="bg-white/5 rounded-lg p-4">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2943.825635!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&q=1042+Main+Street+Suite+C+Clinton+MA+01510"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg"
+              <GoogleMap
+                address="1042 Main Street, Suite C, Clinton, MA 01510"
                 title="Summit Law Offices - 1042 Main Street, Suite C, Clinton, MA 01510"
-              ></iframe>
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://maps.google.com/?q=1042+Main+Street+Suite+C+Clinton+MA+01510" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
-                >
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Get Directions
-                </a>
-              </div>
+                zoom={15}
+                height={300}
+                className="w-full"
+              />
             </div>
           </div>
         </div>
@@ -159,9 +134,7 @@ const Footer = () => {
         {/* Footer Bottom Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
           <div>
-            <div className="text-2xl font-bold mb-6 text-white">
-              Summit Law Offices
-            </div>
+            <div className="text-2xl font-bold mb-6 text-white">Summit Law</div>
             <p className="text-gray-300 mb-6">
               Strategic criminal defense across Massachusetts. Attorney Joe Brava provides expert legal representation 
               with the insight of a former prosecutor and the dedication of a passionate advocate.
@@ -182,21 +155,21 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-white">Legal Updates</h3>
             <form className="space-y-4" onSubmit={handleSubscribe}>
               <div>
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
+                <input
+                  type="email"
+                  placeholder="Your email"
                   className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-white placeholder-gray-400"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isSubmitting}
                 />
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Subscribing..." : (
+                {isSubmitting ? 'Subscribing...' : (
                   <>
                     Subscribe
                     <ArrowRight className="ml-2 w-4 h-4" />
@@ -211,11 +184,16 @@ const Footer = () => {
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             © {new Date().getFullYear()} Summit Law Offices. All rights reserved.
           </p>
-          <p className="text-gray-400 text-xs text-center md:text-left max-w-md">
-            Attorney Advertising. This website is designed for general information only. 
-            The information presented should not be construed to be formal legal advice 
-            nor the formation of a lawyer/client relationship.
-          </p>
+          <div className="text-gray-400 text-xs text-center md:text-left max-w-lg space-y-2">
+            <p>
+              Attorney Advertising. This website is designed for general information only. 
+              The information presented should not be construed to be formal legal advice 
+              nor the formation of a lawyer/client relationship.
+            </p>
+            <p className="text-gray-500">
+              <strong>Disclaimer:</strong> Prior results do not guarantee a similar outcome. Every legal matter is unique and must be evaluated based on its own facts.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

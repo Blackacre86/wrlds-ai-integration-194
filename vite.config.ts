@@ -1,5 +1,7 @@
 // vite.config.ts
 import { defineConfig } from 'vite';
+// 👉 Install this package if you don’t have it yet:
+//    npm i -D @vitejs/plugin-react
 import react from '@vitejs/plugin-react';
 
 // ─────────────────────────────────────────────
@@ -9,9 +11,7 @@ const lovableFrameHeaders = {
   name: 'lovable-frame-headers',
   configureServer(server: any) {
     server.middlewares.use((_req: any, res: any, next: any) => {
-      // 1. remove the old lock
-      res.removeHeader?.('X-Frame-Options');
-      // 2. add the guest-list
+      res.removeHeader?.('X-Frame-Options'); // remove old lock
       res.setHeader(
         'Content-Security-Policy',
         "frame-ancestors 'self' https://lovable.dev https://*.lovable.app"
@@ -20,7 +20,6 @@ const lovableFrameHeaders = {
     });
   },
   configurePreviewServer(server: any) {
-    // same headers for `npm run preview`
     server.middlewares.use((_req: any, res: any, next: any) => {
       res.removeHeader?.('X-Frame-Options');
       res.setHeader(
@@ -33,14 +32,22 @@ const lovableFrameHeaders = {
 };
 
 // ─────────────────────────────────────────────
-// Main config
+// Your original Vite settings (keep as-is)
 // ─────────────────────────────────────────────
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-    lovableFrameHeaders           // ← new plugin here
+    lovableFrameHeaders           // ← new plugin
   ],
+
   server: {
-    port: 5173
+    host: '*',
+    port: 8080
+    // …whatever other server settings you had
+  },
+
+  preview: {
+    host: '*',
+    port: 8080
   }
-});
+}));

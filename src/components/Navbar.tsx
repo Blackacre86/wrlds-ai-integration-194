@@ -1,28 +1,43 @@
 
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // We're already on the home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
   };
 
   const navItems = [
-    { name: 'Home', action: () => scrollToSection('hero') },
-    { name: 'The Summit Advantage', action: () => scrollToSection('summit-advantage') },
+    { name: 'Home', action: () => navigate('/') },
+    { name: 'Summit Advantage', action: () => scrollToSection('summit-advantage') },
     { name: 'Practice Areas', action: () => scrollToSection('practice-areas') },
     { name: 'About', action: () => scrollToSection('attorney-profile') },
+    { name: 'Legal Insights', href: '/blog' },
     { name: 'Client Portal', href: '/client-auth' },
   ];
 

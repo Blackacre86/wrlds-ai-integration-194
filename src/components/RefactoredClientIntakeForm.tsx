@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -11,6 +12,9 @@ import { FamilyHealthStep } from './intake-form/FamilyHealthStep';
 import { ImmigrationHistoryStep } from './intake-form/ImmigrationHistoryStep';
 import { RepresentationFactsStep } from './intake-form/RepresentationFactsStep';
 import { FileUploadStep } from './intake-form/FileUploadStep';
+import { AboutMeStep } from './intake-form/AboutMeStep';
+import { CaseDetailsStep } from './intake-form/CaseDetailsStep';
+import { ClientInformationStep } from './intake-form/ClientInformationStep';
 
 interface RefactoredClientIntakeFormProps {
   userId: string;
@@ -22,8 +26,9 @@ const STEPS = [
   { id: 3, title: 'Employment & Education', description: 'Work and education background' },
   { id: 4, title: 'Family & Health', description: 'Family status and health information' },
   { id: 5, title: 'Immigration & History', description: 'Immigration status and criminal history' },
-  { id: 6, title: 'Representation & Facts', description: 'Case representation and facts' },
-  { id: 7, title: 'Files & Consent', description: 'Upload documents and provide consent' }
+  { id: 6, title: 'About Me', description: 'Tell us about yourself' },
+  { id: 7, title: 'Representation & Facts', description: 'Case representation and facts' },
+  { id: 8, title: 'Files & Consent', description: 'Upload documents and provide consent' }
 ];
 
 // Type casting utilities for database data
@@ -52,25 +57,24 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
     first_name: '',
     middle_name: '',
     last_name: '',
-    date_of_birth: '',
     ssn_last4: '',
     home_address: '',
     mailing_address: '',
     phone_numbers: [{ type: 'cell', number: '' }],
     email: '',
     emergency_contact: { name: '', relation: '', phone: '' },
-    employment_info: { employed: false },
-    education_info: { in_school: false },
+    employment_info: { employed: false, unemployed: false },
+    education_info: { in_school: false, highest_education: '', school_location: '' },
     family_info: { marital_status: '', children: [] },
     substance_mental_health: { past_treatment: false, current_medications: '' },
-    immigration_info: { us_citizen: true, prior_deportation: false },
+    immigration_info: { us_citizen: false, prior_deportation: false },
     criminal_history: { open_cases: false, probation_parole: false, prior_record: false },
     representation_type: undefined,
     case_facts: '',
+    about_me: '',
     uploaded_files: [],
     consent_given: false,
     e_signature: { full_name: '', date: new Date().toISOString().split('T')[0] },
-    
   });
   
   const [saving, setSaving] = useState(false);
@@ -108,22 +112,47 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         setIntakeId(data.id);
         setCurrentStep(data.progress_step || 1);
         
-        // Safely cast database JSON types to TypeScript interfaces
+        // Transform database data back to form structure
+        const biographicalInfo = safeJsonCast(data.biographical_info, {}) as any;
+        const contactInfo = safeJsonCast(data.contact_info, {}) as any;
+        
         const safeFormData: Partial<IntakeFormData> = {
-          ...data,
+          // Direct columns
+          docket_number: data.docket_number || '',
+          arraignment_date: data.arraignment_date || '',
+          next_court_date: data.next_court_date || '',
+          court_name: data.court_name || '',
+          court_session: data.court_session || '',
+          ada_prosecutor: data.ada_prosecutor || '',
+          middle_name: data.middle_name || '',
+          ssn_last4: data.ssn_last4 || '',
+          mailing_address: data.mailing_address || '',
+          representation_type: data.representation_type as 'bar_advocate' | 'private_client' | undefined,
+          case_facts: data.case_facts || '',
+          about_me: data.about_me || '',
+          consent_given: data.consent_given || false,
+          
+          // Extract from biographical_info JSONB
+          first_name: biographicalInfo.first_name || '',
+          last_name: biographicalInfo.last_name || '',
+          
+          // Extract from contact_info JSONB
+          email: contactInfo.email || '',
+          home_address: contactInfo.home_address || '',
+          
+          // JSONB columns
           charges: safeArrayCast(data.charges, []),
           phone_numbers: safeArrayCast(data.phone_numbers, [{ type: 'cell', number: '' }]),
           uploaded_files: safeArrayCast(data.uploaded_files, []),
           bail_info: safeJsonCast(data.bail_info, { bail_set: false }),
           emergency_contact: safeJsonCast(data.emergency_contact, { name: '', relation: '', phone: '' }),
-          employment_info: safeJsonCast(data.employment_info, { employed: false }),
-          education_info: safeJsonCast(data.education_info, { in_school: false }),
+          employment_info: safeJsonCast(data.employment_info, { employed: false, unemployed: false }),
+          education_info: safeJsonCast(data.education_info, { in_school: false, highest_education: '', school_location: '' }),
           family_info: safeJsonCast(data.family_info, { marital_status: '', children: [] }),
           substance_mental_health: safeJsonCast(data.substance_mental_health, { past_treatment: false, current_medications: '' }),
-          immigration_info: safeJsonCast(data.immigration_info, { us_citizen: true, prior_deportation: false }),
+          immigration_info: safeJsonCast(data.immigration_info, { us_citizen: false, prior_deportation: false }),
           criminal_history: safeJsonCast(data.criminal_history, { open_cases: false, probation_parole: false, prior_record: false }),
           e_signature: safeJsonCast(data.e_signature, { full_name: '', date: new Date().toISOString().split('T')[0] }),
-          representation_type: data.representation_type as 'bar_advocate' | 'private_client' | undefined,
         };
         
         setFormData(safeFormData);
@@ -146,14 +175,52 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
   const saveProgress = async (isAutoSave = false) => {
     if (saving) return;
     
+    console.log('Saving progress, isAutoSave:', isAutoSave, 'userId:', userId, 'formData:', formData);
     setSaving(true);
     try {
+      // Transform form data to match database schema
       const dataToSave = {
-        ...formData,
         user_id: userId,
         progress_step: currentStep,
         status: 'draft',
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
+        
+        // Direct columns
+        docket_number: formData.docket_number || null,
+        arraignment_date: formData.arraignment_date || null,
+        next_court_date: formData.next_court_date || null,
+        court_name: formData.court_name || null,
+        court_session: formData.court_session || null,
+        ada_prosecutor: formData.ada_prosecutor || null,
+        middle_name: formData.middle_name || null,
+        ssn_last4: formData.ssn_last4 || null,
+        mailing_address: formData.mailing_address || null,
+        representation_type: formData.representation_type || null,
+        case_facts: formData.case_facts || null,
+        about_me: formData.about_me || null,
+        consent_given: formData.consent_given || false,
+        
+        // JSONB columns with proper structure
+        biographical_info: {
+          first_name: formData.first_name || '',
+          last_name: formData.last_name || '',
+        },
+        contact_info: {
+          email: formData.email || '',
+          home_address: formData.home_address || '',
+        },
+        bail_info: formData.bail_info || { bail_set: false },
+        phone_numbers: formData.phone_numbers || [{ type: 'cell', number: '' }],
+        emergency_contact: formData.emergency_contact || { name: '', relation: '', phone: '' },
+        employment_info: formData.employment_info || { employed: false, unemployed: false },
+        education_info: formData.education_info || { in_school: false, highest_education: '', school_location: '' },
+        family_info: formData.family_info || { marital_status: '', children: [] },
+        substance_mental_health: formData.substance_mental_health || { past_treatment: false, current_medications: '' },
+        immigration_info: formData.immigration_info || { us_citizen: false, prior_deportation: false },
+        criminal_history: formData.criminal_history || { open_cases: false, probation_parole: false, prior_record: false },
+        e_signature: formData.e_signature || { full_name: '', date: '' },
+        charges: formData.charges || [],
+        uploaded_files: formData.uploaded_files || [],
       };
 
       if (intakeId) {
@@ -224,12 +291,49 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
 
     setSubmitting(true);
     try {
+      // Transform form data for submission using same structure as saveProgress
       const dataToSubmit = {
-        ...formData,
         user_id: userId,
         status: 'submitted',
         submitted_at: new Date().toISOString(),
-        progress_step: STEPS.length
+        progress_step: STEPS.length,
+        
+        // Direct columns
+        docket_number: formData.docket_number || null,
+        arraignment_date: formData.arraignment_date || null,
+        next_court_date: formData.next_court_date || null,
+        court_name: formData.court_name || null,
+        court_session: formData.court_session || null,
+        ada_prosecutor: formData.ada_prosecutor || null,
+        middle_name: formData.middle_name || null,
+        ssn_last4: formData.ssn_last4 || null,
+        mailing_address: formData.mailing_address || null,
+        representation_type: formData.representation_type || null,
+        case_facts: formData.case_facts || null,
+        about_me: formData.about_me || null,
+        consent_given: formData.consent_given || false,
+        
+        // JSONB columns with proper structure
+        biographical_info: {
+          first_name: formData.first_name || '',
+          last_name: formData.last_name || '',
+        },
+        contact_info: {
+          email: formData.email || '',
+          home_address: formData.home_address || '',
+        },
+        bail_info: formData.bail_info || { bail_set: false },
+        phone_numbers: formData.phone_numbers || [{ type: 'cell', number: '' }],
+        emergency_contact: formData.emergency_contact || { name: '', relation: '', phone: '' },
+        employment_info: formData.employment_info || { employed: false, unemployed: false },
+        education_info: formData.education_info || { in_school: false, highest_education: '', school_location: '' },
+        family_info: formData.family_info || { marital_status: '', children: [] },
+        substance_mental_health: formData.substance_mental_health || { past_treatment: false, current_medications: '' },
+        immigration_info: formData.immigration_info || { us_citizen: false, prior_deportation: false },
+        criminal_history: formData.criminal_history || { open_cases: false, probation_parole: false, prior_record: false },
+        e_signature: formData.e_signature || { full_name: '', date: '' },
+        charges: formData.charges || [],
+        uploaded_files: formData.uploaded_files || [],
       };
 
       if (intakeId) {
@@ -270,84 +374,10 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Case Details</h2>
-            {/* Case Details form fields would go here */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Docket Number
-                </label>
-                <input
-                  type="text"
-                  value={formData.docket_number || ''}
-                  onChange={(e) => updateFormData({ docket_number: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Enter docket number"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Court Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.court_name || ''}
-                  onChange={(e) => updateFormData({ court_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Enter court name"
-                />
-              </div>
-            </div>
-          </div>
-        );
+        return <CaseDetailsStep formData={formData} setFormData={updateFormData} />;
       
       case 2:
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">Client Information</h2>
-            {/* Client Information form fields would go here */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.first_name || ''}
-                  onChange={(e) => updateFormData({ first_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Enter first name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Middle Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.middle_name || ''}
-                  onChange={(e) => updateFormData({ middle_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Enter middle name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.last_name || ''}
-                  onChange={(e) => updateFormData({ last_name: e.target.value })}
-                  className="w-full p-3 border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Enter last name"
-                />
-              </div>
-            </div>
-          </div>
-        );
+        return <ClientInformationStep formData={formData} setFormData={updateFormData} />;
 
       case 3:
         return <EmploymentEducationStep formData={formData} setFormData={updateFormData} />;
@@ -359,9 +389,12 @@ export default function RefactoredClientIntakeForm({ userId }: RefactoredClientI
         return <ImmigrationHistoryStep formData={formData} setFormData={updateFormData} />;
 
       case 6:
-        return <RepresentationFactsStep formData={formData} setFormData={updateFormData} />;
+        return <AboutMeStep formData={formData} setFormData={updateFormData} />;
 
       case 7:
+        return <RepresentationFactsStep formData={formData} setFormData={updateFormData} />;
+
+      case 8:
         return <FileUploadStep formData={formData} setFormData={updateFormData} userId={userId} />;
 
       default:

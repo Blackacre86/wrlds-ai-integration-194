@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import GoogleMap from './GoogleMap';
 
 const ContactInfo = () => {
   return (
@@ -57,33 +58,24 @@ const ContactInfo = () => {
                   All initial consultations are confidential and protected by attorney-client privilege. 
                   We're here to help you understand your options and protect your rights.
                 </p>
+                <p className="text-xs text-gray-600 italic mt-2">
+                  <em>Submitting this form does not create an attorney-client relationship. No legal outcome is guaranteed.</em>
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Office Location Map */}
+        {/* Enhanced Office Location Map */}
         <div className="mt-8 bg-white rounded-xl shadow-xl p-6 max-w-2xl mx-auto">
           <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Our Office Location</h3>
-          <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2943.825635!2d-71.68234!3d42.41234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e394a2a123456789:0x123456789abcdef!2s1042%20Main%20St%20%23C%2C%20Clinton%2C%20MA%2001510!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus&q=1042+Main+Street+Suite+C+Clinton+MA+01510"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Summit Law Offices - 1042 Main Street, Suite C, Clinton, MA 01510"
-            ></iframe>
-          </div>
-          
-          <div className="mt-4 text-center">
-            <a href="https://maps.google.com/?q=1042+Main+Street+Suite+C+Clinton+MA+01510" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-              <MapPin className="w-4 h-4 mr-1" />
-              View on Google Maps
-            </a>
-          </div>
+          <GoogleMap
+            address="1042 Main Street, Suite C, Clinton, MA 01510"
+            title="Summit Law Offices - 1042 Main Street, Suite C, Clinton, MA 01510"
+            zoom={15}
+            height={300}
+            className="w-full"
+          />
         </div>
       </div>
     </section>

@@ -1,9 +1,10 @@
-
+import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import Hero from '@/components/Hero';
 import PracticeAreas from '@/components/PracticeAreas';
 import AttorneyProfile from '@/components/AttorneyProfile';
 import SummitAdvantage from '@/components/SummitAdvantage';
+import BlogPreview from '@/components/BlogPreview';
 import TransitionShape from '@/components/TransitionShape';
 import SEO from '@/components/SEO';
 
@@ -16,7 +17,7 @@ const Index = () => {
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['criminal defense attorney', 'Massachusetts lawyer', 'DUI defense', 'restraining orders', 'Clinton MA attorney', 'former prosecutor']}
       />
-      {/* Semantic HTML structure for AI agents */}
+      
       <main role="main" itemScope itemType="https://schema.org/LegalService" className="smooth-scroll">
         <header id="hero" role="banner">
           <Hero />
@@ -28,7 +29,7 @@ const Index = () => {
           <SummitAdvantage />
         </section>
         
-        <TransitionShape variant="diagonal" direction="up" color="white" />
+        <TransitionShape variant="seamless" direction="up" color="white" />
         
         <section id="practice-areas" role="region" aria-labelledby="services-heading" itemScope itemType="https://schema.org/Service" className="animate-fade-in animation-delay-200">
           <PracticeAreas />
@@ -40,9 +41,15 @@ const Index = () => {
           <AttorneyProfile />
         </section>
         
-        <TransitionShape variant="angular" direction="up" color="white" />
+        <TransitionShape variant="angular" direction="up" color="gray" />
         
-        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-400">
+        <section id="blog" role="region" aria-labelledby="blog-heading" className="animate-fade-in animation-delay-400">
+          <BlogPreview />
+        </section>
+        
+        <TransitionShape variant="diagonal" direction="down" color="gray" />
+        
+        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="relative">
               <h2 id="portal-heading" className="text-3xl md:text-4xl font-bold mb-6 text-black">
@@ -53,17 +60,17 @@ const Index = () => {
                 Available 24/7 for your peace of mind.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a 
-                  href="/client-auth" 
+                <Link 
+                  to="/client-auth" 
                   className="inline-flex items-center px-8 py-4 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group"
                 >
                   Access Client Portal
                   <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </a>
+                </Link>
                 <div className="text-sm text-gray-500">
-                  New client? <a href="/client-auth" className="text-black hover:underline font-medium">Create account</a>
+                  New client? <Link to="/client-auth" className="text-black hover:underline font-medium">Create account</Link>
                 </div>
               </div>
             </div>

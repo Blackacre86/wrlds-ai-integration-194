@@ -2,7 +2,7 @@
 import React from 'react';
 
 interface TransitionShapeProps {
-  variant?: 'wave' | 'diagonal' | 'curve' | 'angular';
+  variant?: 'wave' | 'diagonal' | 'curve' | 'angular' | 'seamless';
   direction?: 'up' | 'down';
   color?: 'gray' | 'black' | 'white';
   className?: string;
@@ -32,19 +32,42 @@ const TransitionShape: React.FC<TransitionShapeProps> = ({
     ),
     angular: (
       <path d="M0,0 L675,50 L1350,0 L1350,100 L0,100 Z" />
+    ),
+    seamless: (
+      <defs>
+        <linearGradient id="seamlessGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="rgb(249, 250, 251)" stopOpacity="1"/>
+          <stop offset="50%" stopColor="rgb(249, 250, 251)" stopOpacity="0.7"/>
+          <stop offset="100%" stopColor="rgb(255, 255, 255)" stopOpacity="1"/>
+        </linearGradient>
+        <path d="M0,0 C337.5,60 675,20 1012.5,40 C1181.25,50 1265.625,30 1350,0 L1350,100 L0,100 Z" fill="url(#seamlessGradient)" />
+      </defs>
     )
   };
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative -mb-1 ${className}`}>
       <svg
         viewBox="0 0 1350 100"
-        className={`w-full h-16 md:h-20 ${direction === 'up' ? 'rotate-180' : ''} transition-all duration-700 ease-in-out`}
+        className={`w-full h-8 md:h-12 lg:h-16 ${direction === 'up' ? 'rotate-180' : ''} transition-all duration-700 ease-in-out`}
         preserveAspectRatio="none"
       >
-        <g className={`${colorClasses[color]} transition-all duration-500`}>
-          {shapeVariants[variant]}
-        </g>
+        {variant === 'seamless' ? (
+          <>
+            <defs>
+              <linearGradient id="seamlessGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="rgb(249, 250, 251)" stopOpacity="1"/>
+                <stop offset="50%" stopColor="rgb(249, 250, 251)" stopOpacity="0.7"/>
+                <stop offset="100%" stopColor="rgb(255, 255, 255)" stopOpacity="1"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,0 C337.5,60 675,20 1012.5,40 C1181.25,50 1265.625,30 1350,0 L1350,100 L0,100 Z" fill="url(#seamlessGradient)" />
+          </>
+        ) : (
+          <g className={`${colorClasses[color]} transition-all duration-500`}>
+            {shapeVariants[variant]}
+          </g>
+        )}
       </svg>
     </div>
   );

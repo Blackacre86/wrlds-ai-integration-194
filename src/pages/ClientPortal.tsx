@@ -1,134 +1,32 @@
+
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
-import { LogOut, FileText, User as UserIcon } from 'lucide-react';
+import { LogOut, FileText, User as UserIcon, Home, Shield } from 'lucide-react';
 import RefactoredClientIntakeForm from '@/components/RefactoredClientIntakeForm';
-import MFASetup from '@/components/MFASetup';
-import MFAVerification from '@/components/MFAVerification';
+import SecurityProvider from '@/components/SecurityProvider';
+import { useSecureSession } from '@/hooks/useSecureSession';
 
 export default function ClientPortal() {
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, session, loading, secureSignOut, logSecurityEvent } = useSecureSession();
   const [activeTab, setActiveTab] = useState('intake');
-  const [mfaRequired, setMfaRequired] = useState(false);
-  const [mfaSetupRequired, setMfaSetupRequired] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
-        
-        if (!session?.user) {
-          navigate('/client-auth');
-        } else {
-          setTimeout(() => checkMFAStatus(session.user), 0);
-        }
-      }
-    );
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-      
-      if (!session?.user) {
-        navigate('/client-auth');
-      } else {
-        checkMFAStatus(session.user);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [navigate]);
-
-  const checkMFAStatus = async (user: User) => {
-    try {
-      const { data: mfaSettings, error } = await supabase
-        .from('user_mfa_settings')
-        .select('*')
-        .eq('user_id', user.id)
-        .single();
-
-      if (error && error.code !== 'PGRST116') {
-        console.error('Error checking MFA status:', error);
-        setLoading(false);
-        return;
-      }
-
-      if (!mfaSettings) {
-        setMfaSetupRequired(true);
-        setLoading(false);
-        return;
-      }
-
-      if (!mfaSettings.is_mfa_enabled) {
-        setMfaSetupRequired(true);
-        setLoading(false);
-        return;
-      }
-
-      const sessionAge = Date.now() - new Date(user.created_at).getTime();
-      const maxSessionAge = 30 * 60 * 1000;
-
-      if (sessionAge > maxSessionAge) {
-        setMfaRequired(true);
-      }
-
-      setLoading(false);
-    } catch (error) {
-      console.error('Error in MFA check:', error);
-      setLoading(false);
+    if (!loading && !user) {
+      navigate('/client-auth');
     }
-  };
-
-  const handleMFAVerified = () => {
-    setMfaRequired(false);
-    toast({
-      title: "Access Granted",
-      description: "Two-factor authentication verified successfully",
-    });
-  };
-
-  const handleMFASetupComplete = () => {
-    setMfaSetupRequired(false);
-    toast({
-      title: "Security Enhanced",
-      description: "Two-factor authentication is now enabled for your account",
-    });
-  };
-
-  const cleanupAuthState = () => {
-    localStorage.removeItem('supabase.auth.token');
-    Object.keys(localStorage).forEach((key) => {
-      if (key.startsWith('supabase.auth.') || key.includes('sb-')) {
-        localStorage.removeItem(key);
-      }
-    });
-    Object.keys(sessionStorage || {}).forEach((key) => {
-      if (key.startsWith('supabase.auth.') || key.includes('sb-')) {
-        sessionStorage.removeItem(key);
-      }
-    });
-  };
+  }, [user, loading, navigate]);
 
   const handleSignOut = async () => {
     try {
-      cleanupAuthState();
-      try {
-        await supabase.auth.signOut({ scope: 'global' });
-      } catch (err) {
-        // Ignore errors
-      }
-      window.location.href = '/client-auth';
+      await logSecurityEvent('manual_logout');
+      await secureSignOut();
     } catch (error) {
       toast({
         title: "Error",
@@ -149,37 +47,44 @@ export default function ClientPortal() {
     );
   }
 
-  if (mfaRequired && user) {
-    return <MFAVerification user={user} onMFAVerified={handleMFAVerified} />;
-  }
-
-  if (mfaSetupRequired && user) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted p-4">
-        <div className="max-w-2xl mx-auto pt-8">
-          <MFASetup user={user} onMFAEnabled={handleMFASetupComplete} />
-        </div>
-      </div>
-    );
-  }
-
   if (!user) {
     return null;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+    <SecurityProvider>
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <header className="bg-background border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div>
-              <h1 className="text-2xl font-bold">Client Portal</h1>
-              <p className="text-sm text-muted-foreground">Welcome, {user.email}</p>
+            <div className="flex items-center space-x-6">
+              <Link 
+                to="/" 
+                className="flex items-center text-2xl font-bold hover:text-primary transition-colors"
+              >
+                Summit Law
+              </Link>
+              <div className="border-l pl-6">
+                <h1 className="text-xl font-semibold">Client Portal</h1>
+                <p className="text-sm text-muted-foreground">Welcome, {user.email}</p>
+              </div>
             </div>
-            <Button onClick={handleSignOut} variant="outline" size="sm">
-              <LogOut className="w-4 h-4 mr-2" />
-              Sign Out
-            </Button>
+            <div className="flex items-center space-x-3">
+              <div className="flex items-center text-sm text-green-600 bg-green-50 px-2 py-1 rounded">
+                <Shield className="w-3 h-3 mr-1" />
+                Secure Session
+              </div>
+              <Button asChild variant="outline" size="sm">
+                <Link to="/">
+                  <Home className="w-4 h-4 mr-2" />
+                  Back to Site
+                </Link>
+              </Button>
+              <Button onClick={handleSignOut} variant="outline" size="sm">
+                <LogOut className="w-4 h-4 mr-2" />
+                Sign Out
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -187,7 +92,7 @@ export default function ClientPortal() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid gap-6 md:grid-cols-4">
           <div className="md:col-span-1">
-            <Card>
+            <Card className="h-fit">
               <CardHeader>
                 <CardTitle className="text-lg">Navigation</CardTitle>
               </CardHeader>
@@ -214,9 +119,7 @@ export default function ClientPortal() {
 
           <div className="md:col-span-3">
             {activeTab === 'intake' && (
-              <div>
-                <RefactoredClientIntakeForm userId={user.id} />
-              </div>
+              <RefactoredClientIntakeForm userId={user.id} />
             )}
 
             {activeTab === 'profile' && (
@@ -246,6 +149,7 @@ export default function ClientPortal() {
           </div>
         </div>
       </main>
-    </div>
+      </div>
+    </SecurityProvider>
   );
 }
