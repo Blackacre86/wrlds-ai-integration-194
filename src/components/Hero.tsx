@@ -26,6 +26,15 @@ const Hero = () => {
     setVideoError(true);
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="hero" className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Video or Fallback */}
@@ -62,6 +71,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animation-delay-400">
           <Button 
             size="lg" 
+            onClick={scrollToContact}
             className="bg-white text-black hover:bg-gray-100 px-8 py-3 text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg"
           >
             {ctaText}

@@ -7,6 +7,7 @@ import SummitAdvantage from '@/components/SummitAdvantage';
 import BlogPreview from '@/components/BlogPreview';
 import TransitionShape from '@/components/TransitionShape';
 import SEO from '@/components/SEO';
+import ContactForm from '@/components/ContactForm';
 
 const Index = () => {
   return (
@@ -49,7 +50,13 @@ const Index = () => {
         
         <TransitionShape variant="diagonal" direction="down" color="gray" />
         
-        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-500">
+        <section id="contact" role="region" aria-labelledby="contact-heading" className="animate-fade-in animation-delay-500">
+          <ContactForm />
+        </section>
+        
+        <TransitionShape variant="wave" direction="up" color="white" />
+        
+        <section id="client-portal" role="region" aria-labelledby="portal-heading" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white animate-fade-in animation-delay-600">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="relative">
               <h2 id="portal-heading" className="text-3xl md:text-4xl font-bold mb-6 text-black">
