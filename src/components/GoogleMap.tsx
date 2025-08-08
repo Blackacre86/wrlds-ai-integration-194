@@ -42,8 +42,8 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
         const { data, error } = await supabase.functions.invoke('get-maps-key');
         
         if (error) {
-          console.error('Edge function error:', error);
-          setError(`API key fetch failed: ${error.message}`);
+          console.warn('Edge function returned an error; using fallback map.', error);
+          setError(`Maps unavailable: ${error.message}`);
           return;
         }
         
@@ -51,8 +51,9 @@ const GoogleMap: React.FC<GoogleMapProps> = ({
           console.log('API key retrieved successfully');
           setApiKey(data.key);
         } else {
-          console.error('No API key in response:', data);
-          setError('No API key returned from function');
+          const message = typeof data?.message === 'string' ? data.message : 'Maps API key not available.';
+          console.warn('Maps key not available:', data);
+          setError(message);
         }
       } catch (err) {
         console.error('Failed to fetch API key:', err);

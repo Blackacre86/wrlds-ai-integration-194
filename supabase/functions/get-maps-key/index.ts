@@ -12,60 +12,69 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const googleMapsApiKey = Deno.env.get('GOOGLE_MAPS_API_KEY')
+    const googleMapsApiKey = Deno.env.get('GOOGLE_MAPS_API_KEY') ?? null
 
+    // If no key is configured, return a 200 with a clear message so the UI can fallback gracefully
     if (!googleMapsApiKey) {
-      throw new Error('Google Maps API key not configured in environment variables')
+      console.warn('Google Maps API key not configured in environment variables')
+      return new Response(
+        JSON.stringify({ key: null, verified: false, message: 'Missing GOOGLE_MAPS_API_KEY' }),
+        {
+          headers: {
+            ...corsHeaders,
+            'Content-Type': 'application/json',
+          },
+        },
+      )
     }
 
-    // Quick check to ensure Geocoding API access
-    console.log('Verifying Google Maps API key...')
-    const verifyUrl =
-      `https://maps.googleapis.com/maps/api/geocode/json?address=Boston&key=${googleMapsApiKey}`
-    
+    // Try a lightweight verification but NEVER fail the request
+    let verified = true
+    let message = 'OK'
+
     try {
+      console.log('Verifying Google Maps API key...')
+      const verifyUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=Boston&key=${googleMapsApiKey}`
       const verifyRes = await fetch(verifyUrl)
       const verifyJson = await verifyRes.json()
-      
       console.log('API verification response:', verifyJson.status)
-      
+
       if (verifyJson.status === 'REQUEST_DENIED') {
-        throw new Error('Google Maps API key missing Geocoding API permission. Please enable the Geocoding API in Google Cloud Console.')
-      }
-      
-      if (verifyJson.status === 'OVER_QUERY_LIMIT') {
-        throw new Error('Google Maps API quota exceeded. Please check your usage limits.')
-      }
-      
-      if (verifyJson.status !== 'OK' && verifyJson.status !== 'ZERO_RESULTS') {
-        throw new Error(`Google Maps API verification failed with status: ${verifyJson.status}`)
+        verified = false
+        message = 'REQUEST_DENIED - Geocoding API may be disabled for this key.'
+      } else if (verifyJson.status === 'OVER_QUERY_LIMIT') {
+        verified = false
+        message = 'OVER_QUERY_LIMIT - Google Maps quota exceeded.'
+      } else if (verifyJson.status !== 'OK' && verifyJson.status !== 'ZERO_RESULTS') {
+        verified = false
+        message = `Verification status: ${verifyJson.status}`
       }
     } catch (fetchError) {
-      console.error('API verification failed:', fetchError)
-      throw new Error(`Unable to verify Google Maps API: ${fetchError.message}`)
+      console.warn('API verification failed; returning key without verification:', fetchError)
+      verified = false
+      message = 'Verification failed'
     }
 
-    console.log('Google Maps API key verified successfully')
+    // Always return 200 so the frontend can decide to show a fallback iframe without throwing
     return new Response(
-      JSON.stringify({ key: googleMapsApiKey }),
-      { 
-        headers: { 
-          ...corsHeaders, 
-          'Content-Type': 'application/json' 
-        } 
-      }
+      JSON.stringify({ key: googleMapsApiKey, verified, message }),
+      {
+        headers: {
+          ...corsHeaders,
+          'Content-Type': 'application/json',
+        },
+      },
     )
   } catch (error) {
     console.error('Error in get-maps-key function:', error)
     return new Response(
-      JSON.stringify({ error: error.message }),
-      { 
-        status: 400, 
-        headers: { 
-          ...corsHeaders, 
-          'Content-Type': 'application/json' 
-        } 
-      }
+      JSON.stringify({ key: null, verified: false, message: error instanceof Error ? error.message : 'Unknown error' }),
+      {
+        headers: {
+          ...corsHeaders,
+          'Content-Type': 'application/json',
+        },
+      },
     )
   }
 })
