@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 //    npm i -D @vitejs/plugin-react
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
+import { componentTagger } from 'lovable-tagger';
 
 // ─────────────────────────────────────────────
 // Plugin: allow Lovable preview iframe
@@ -38,8 +39,9 @@ const lovableFrameHeaders = {
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-    lovableFrameHeaders           // ← new plugin
-  ],
+    lovableFrameHeaders,
+    mode === 'development' && componentTagger()
+  ].filter(Boolean),
 
   resolve: {
     alias: {
@@ -48,7 +50,7 @@ export default defineConfig(({ mode }) => ({
   },
 
   server: {
-    host: '0.0.0.0',
+    host: '::',
     port: 8080
   },
 
