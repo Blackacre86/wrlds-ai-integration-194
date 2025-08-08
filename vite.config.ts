@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 // 👉 Install this package if you don’t have it yet:
 //    npm i -D @vitejs/plugin-react
 import react from '@vitejs/plugin-react';
+import { fileURLToPath, URL } from 'node:url';
 
 // ─────────────────────────────────────────────
 // Plugin: allow Lovable preview iframe
@@ -39,6 +40,12 @@ export default defineConfig(({ mode }) => ({
     react(),
     lovableFrameHeaders           // ← new plugin
   ],
+
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
 
   server: {
     host: '0.0.0.0',
