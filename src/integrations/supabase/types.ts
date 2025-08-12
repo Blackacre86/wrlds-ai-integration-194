@@ -503,6 +503,10 @@ export type Database = {
         Args: { p_email: string }
         Returns: Json
       }
+      check_client_allowlist: {
+        Args: { p_email: string }
+        Returns: Json
+      }
       check_rate_limit: {
         Args: {
           p_identifier: string

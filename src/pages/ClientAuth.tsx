@@ -97,21 +97,18 @@ export default function ClientAuth() {
 
   const checkEmailAllowlist = async (email: string) => {
     try {
-      const { data, error } = await supabase
-        .from('client_allowlist')
-        .select('*')
-        .eq('email', email)
-        .eq('status', 'approved')
-        .single();
+      const { data, error } = await supabase.rpc('check_client_allowlist', {
+        p_email: email
+      });
 
-      if (error && error.code !== 'PGRST116') throw error;
-      return !!data;
+      if (error) throw error;
+      const res = data as { exists: boolean; status: string | null; is_valid: boolean };
+      return !!(res && res.exists && res.status === 'approved' && res.is_valid);
     } catch (error) {
       console.error('Error checking email allowlist:', error);
       return false;
     }
   };
-
   const requestAccessCode = async () => {
     if (!email) {
       toast({
