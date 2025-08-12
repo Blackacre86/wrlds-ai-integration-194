@@ -168,6 +168,21 @@ export default function ClientAuth() {
       return;
     }
 
+    // Server-side verify reCAPTCHA token
+    const { data: recaptchaData, error: recaptchaError } = await supabase.functions.invoke('verify-recaptcha', {
+      body: { token: recaptchaToken }
+    });
+    if (recaptchaError || !recaptchaData?.success) {
+      toast({
+        title: "Verification failed",
+        description: "reCAPTCHA verification failed. Please try again.",
+        variant: "destructive"
+      });
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
+      return;
+    }
+
     // Get IP address and fingerprint for enhanced security
     const ipAddress = await SessionFingerprintManager.getCurrentIP();
     const fingerprint = SessionFingerprintManager.generateFingerprint();
@@ -351,6 +366,21 @@ export default function ClientAuth() {
         description: "Please complete the reCAPTCHA verification",
         variant: "destructive"
       });
+      return;
+    }
+
+    // Server-side verify reCAPTCHA token
+    const { data: recaptchaData, error: recaptchaError } = await supabase.functions.invoke('verify-recaptcha', {
+      body: { token: recaptchaToken }
+    });
+    if (recaptchaError || !recaptchaData?.success) {
+      toast({
+        title: "Verification failed",
+        description: "reCAPTCHA verification failed. Please try again.",
+        variant: "destructive"
+      });
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
       return;
     }
 

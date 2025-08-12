@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { authenticator } from '@otplib/preset-default';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -31,87 +31,47 @@ export default function MFAVerification({ user, onMFAVerified, onBackupCodeUsed 
       return;
     }
 
+    if (!useBackupCode && (verificationCode.length !== 6 || !/^\d{6}$/.test(verificationCode))) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid 6-digit code",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setLoading(true);
     try {
-      // Get user's MFA settings
-      const { data: mfaSettings, error: mfaError } = await supabase
-        .from('user_mfa_settings')
-        .select('*')
-        .eq('user_id', user.id)
-        .single();
+      const { data, error } = await supabase.functions.invoke('verify-mfa', {
+        body: {
+          user_id: user.id,
+          method: useBackupCode ? 'backup' : 'totp',
+          code: verificationCode
+        }
+      });
 
-      if (mfaError || !mfaSettings) {
-        throw new Error('MFA settings not found');
+      if (error) {
+        throw new Error(error.message || 'Verification failed');
       }
 
-      let isValid = false;
-
-      if (useBackupCode) {
-        // Verify backup code
-        const backupCodes = mfaSettings.backup_codes as string[];
-        isValid = backupCodes.includes(verificationCode.toUpperCase());
-        
-        if (isValid) {
-          // Remove used backup code
-          const updatedCodes = backupCodes.filter(code => code !== verificationCode.toUpperCase());
-          await supabase
-            .from('user_mfa_settings')
-            .update({ backup_codes: updatedCodes })
-            .eq('user_id', user.id);
-          
-          onBackupCodeUsed?.();
-        }
-      } else {
-        // Verify TOTP code
-        if (verificationCode.length !== 6 || !/^\d{6}$/.test(verificationCode)) {
-          toast({
-            title: "Error",
-            description: "Please enter a valid 6-digit code",
-            variant: "destructive"
-          });
-          return;
-        }
-
-        isValid = authenticator.verify({
-          token: verificationCode,
-          secret: mfaSettings.totp_secret,
-        });
-      }
-
-      if (!isValid) {
+      if (!data || !data.valid) {
         toast({
           title: "Invalid Code",
           description: useBackupCode 
-            ? "Invalid backup code. Please try again." 
+            ? "Invalid backup code. Please try again."
             : "Invalid verification code. Please try again.",
           variant: "destructive"
         });
         return;
       }
 
-      // Log successful MFA verification
-      await supabase.rpc('log_audit_event', {
-        p_user_id: user.id,
-        p_action: 'mfa_verification_success',
-        p_resource_type: 'authentication',
-        p_details: { method: useBackupCode ? 'backup_code' : 'totp' }
-      });
+      if (useBackupCode) {
+        onBackupCodeUsed?.();
+      }
 
       onMFAVerified();
     } catch (error: any) {
       console.error('MFA verification error:', error);
-      
-      // Log failed MFA verification
-      await supabase.rpc('log_audit_event', {
-        p_user_id: user.id,
-        p_action: 'mfa_verification_failed',
-        p_resource_type: 'authentication',
-        p_details: { 
-          method: useBackupCode ? 'backup_code' : 'totp',
-          error: error.message 
-        }
-      });
-
       toast({
         title: "Error",
         description: error.message || "Failed to verify MFA code",
