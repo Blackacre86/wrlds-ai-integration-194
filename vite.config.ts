@@ -36,11 +36,11 @@ const lovableFrameHeaders = {
 // ─────────────────────────────────────────────
 // Your original Vite settings (keep as-is)
 // ─────────────────────────────────────────────
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, command }) => ({
   plugins: [
     react(),
     lovableFrameHeaders,
-    mode === 'development' && componentTagger()
+    (command === 'serve' || mode === 'development') && componentTagger()
   ].filter(Boolean),
 
   resolve: {
